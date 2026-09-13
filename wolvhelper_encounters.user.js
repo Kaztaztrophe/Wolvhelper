@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.5.1
+// @version     1.5.2
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -727,10 +727,13 @@
 
     noteText = resolveReferences(noteText, location);
 
-		container.appendChild(
-			createNoteLine(noteText)
+		container.appendChild(createNoteLine(noteText)
 		);
 
+		}
+
+		if (container.children.length === 1) {
+			return null;
 		}
 
 		return container;

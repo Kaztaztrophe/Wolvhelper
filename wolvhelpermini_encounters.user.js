@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters (Mini)
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.5.1
+// @version     1.5.2
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -650,6 +650,10 @@
 			createNoteLine(noteText)
 		);
 
+		}
+
+		if (container.children.length === 1) {
+			return null;
 		}
 
 		return container;
