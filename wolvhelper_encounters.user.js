@@ -906,12 +906,19 @@
 			return;
 		}
 
+		const oldHTML = output.innerHTML;
+		let changed = false;
+
 		const observer = new MutationObserver(() => {
+			if (changed || output.innerHTML === oldHTML) {
+				return;
+			}
+
+			changed = true;
 			observer.disconnect();
 
 			requestAnimationFrame(() => {
 				updateExploreOutput();
-				waitForExploreChange();
 			});
 		});
 
