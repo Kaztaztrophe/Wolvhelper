@@ -15,8 +15,11 @@
         "*@conditional1"
       ],
       "conditional": {
-        "Follow the sweet scent": "Befriending is not available if your territory is full."
-      }
+        "Follow the sweet scent": "@details1"
+      },
+      "details": [
+        "Befriending is not available if your territory is full."
+      ]
     },
     "fillerbirdrest": {
       "intro": "You hear the faint twitter of birds somewhere nearby. You look up to the sky and watch them swooping overhead. What would it feel like to fly? You find a nice comfortable spot in the shade and rest for a moment.",
@@ -251,8 +254,11 @@
         "*@conditional1"
       ],
       "conditional": {
-        "Give Shoe": "This result can give ANY recipe."
-      }
+        "Give Shoe": "@details1"
+      },
+      "details": [
+        "This result can give '''ANY''' recipe."
+      ]
     },
     "americancrowtrader": {
       "intro": "A big American crow with a curious-looking pouch lands in front of you, asking if you have cool items to trade. Let's see...",
@@ -428,6 +434,19 @@
       }
     },
 
+    "americanrobin": {
+      "intro": "",
+      "options": {
+        "": [""],
+        "": ["+5% energy","Gain illness: Diarrhea*"]
+      },
+      "notes": [
+        ""
+      ],
+      "details": [
+
+      ]
+    },
     "barnowl": {
       "intro": "A barn owl swoops overhead, clutching something in its talons. Maybe something tasty?",
       "options": {

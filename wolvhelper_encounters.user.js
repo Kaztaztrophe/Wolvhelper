@@ -606,7 +606,21 @@
 				if (buttonExists && conditionalNote) {
 					const conditionalLine = document.createElement('div');
 
-					const conditionalText = resolveReferences(String(conditionalNote), location);
+					let conditionalText = String(conditionalNote);
+
+					const conditionalDetailsMatch = conditionalText.match(/^@details(\d+)$/i);
+
+					if (conditionalDetailsMatch) {
+						const index = Number(conditionalDetailsMatch[1]) - 1;
+
+						if (details?.[index] !== undefined) {
+							conditionalText = String(details[index]);
+						} else {
+							continue;
+						}
+					}
+
+					conditionalText = resolveReferences(conditionalText, location);
 
 					appendFormattedText(conditionalLine, conditionalText);
 
