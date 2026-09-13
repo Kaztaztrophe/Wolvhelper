@@ -44,6 +44,9 @@
         "Keep Moving Forward": ["Automatic battle with level (LVL+5) local enemy @location1"],
         "Turn Back": ["+1 random single-use food item*"]
       },
+      "notes": [
+        "*@poolsingleusefood"
+      ],
       "location": {
         "/biome/1": ["Eastern Wolf"],
         "/biome/2": ["Timber Wolf"],
@@ -57,10 +60,7 @@
         "/biome/10": ["Timber Wolf"],
         "/biome/11": ["Alaskan Tundra Wolf"],
         "/biome/12": ["Arctic Wolf"]
-      },
-      "notes": [
-        "*@poolsingleusefood"
-      ]
+      }
     },
     "fillerdirtsnuffle": {
       "intro": "You snuffle around in the dirt. It's here somewhere.. Yes! Jackpot!",
@@ -97,6 +97,9 @@
         "Gather": ["+1 random biome-specific herb*"],
         "Use": ["+5 HP"]
       },
+      "notes": [
+        "*@location1"
+      ],
       "location": {
         "/biome/1": ["@poolherbgrasslands"],
         "/biome/2": ["@poolherbdeciduousforest"],
@@ -110,16 +113,17 @@
         "/biome/10": ["@poolherbtaiga"],
         "/biome/11": ["@poolherbtundra"],
         "/biome/12": ["@poolherbglacier"]
-      },
-      "notes": [
-        "*@location1"
-      ]
+      }
     },
     "poop": {
       "intro": "You come across some poop... Normally, you'd roll all over it, but for some reason, something seems special about this poop.",
       "options": {
-        "Check it out": ["+1 biome-specific herb*","Gain illness: Diarrhea","No reward"]
+        "Check it out": ["+1 biome-specific herb*","Gain illness: Diarrhea","No reward**"]
       },
+      "notes": [
+        "*@location1",
+        "**@details1"
+      ],
       "location": {
         "/biome/1": ["@poolherbgrasslands"],
         "/biome/2": ["@poolherbdeciduousforest"],
@@ -134,8 +138,8 @@
         "/biome/11": ["@poolherbtundra"],
         "/biome/12": ["@poolherbglacier"]
       },
-      "notes": [
-        "*@location1"
+      "details": [
+        "If your lead is currently immune to illness."
       ]
     },
 
@@ -257,7 +261,7 @@
         "Give Shoe": "@details1"
       },
       "details": [
-        "This result can give '''ANY''' recipe."
+        "This result can give '''ANY''' recipe in the game."
       ]
     },
     "americancrowtrader": {
@@ -435,16 +439,16 @@
     },
 
     "americanrobin": {
-      "intro": "",
+      "intro": "In a flurry of feathers, a robin flies in front of your face, startled into flight by your passing!",
       "options": {
-        "": [""],
-        "": ["+5% energy","Gain illness: Diarrhea*"]
+        "Watch": ["+3% energy","No reward"],
+        "Snatch": ["+5% energy","Gain illness: Diarrhea","No reward*"]
       },
       "notes": [
-        ""
+        "*@details1"
       ],
       "details": [
-
+        "If your lead is currently immune to illness."
       ]
     },
     "barnowl": {
@@ -554,7 +558,7 @@
         "*@conditional1"
       ],
       "conditional": {
-        "Investigate [Winter]": "*@poolcommonfeather"
+        "Investigate [Winter]": "@poolcommonfeather"
       }
     },
     "raven": {
