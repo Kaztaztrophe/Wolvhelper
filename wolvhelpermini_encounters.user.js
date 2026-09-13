@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters (Mini)
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.4.2
+// @version     1.5.0
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -272,9 +272,7 @@
 
 		filename = filename.replace(/[_-]/g, '');
 
-		filename = filename.replace(/(?:spring|summer|autumn|winter)?(?:day|dawn|dusk|night)$/i, '');
-
-		filename = filename.replace(/(?:spring|summer|autumn|winter)$/i, '');
+		filename = filename.replace(/(?:spring|summer|autumn|winter)?(?:day|dawn|dusk|night)$|(?:spring|summer|autumn|winter)$/i, '');
 
 		for (const entry of encounterIdLookup) {
 			if (filename.includes(entry.normalized)) {
@@ -370,7 +368,15 @@
 				container.appendChild(document.createTextNode(' & '));
 			}
 
-			if (normalizeText(reward.result) === 'no reward') {
+			const noRewardMatch = reward.result.match(/^(No reward)(\s*\(.*)$/i);
+
+			if (noRewardMatch) {
+				const noReward = document.createElement('i');
+				noReward.textContent = noRewardMatch[1];
+				container.appendChild(noReward);
+
+				container.appendChild(document.createTextNode(noRewardMatch[2]));
+			} else if (normalizeText(reward.result) === 'no reward') {
 				const noReward = document.createElement('i');
 				noReward.textContent = reward.result;
 				container.appendChild(noReward);
@@ -501,30 +507,12 @@
 		}
 	}
 
-	function createNotesElement(notes, conditional, location, buttons) {
-		if (!notes && !conditional && !location) {
+	function createNotesElement(notes, conditional, details, location, buttons) {
+		if (!notes && !conditional && !details && !location) {
 			return null;
 		}
 
 		const noteList = Array.isArray(notes) ? [...notes] : notes ? [notes] : [];
-
-		if (conditional && buttons) {
-			for (const [buttonName, note] of Object.entries(conditional)) {
-
-				const normalizedButtonName = normalizeText(buttonName);
-
-				const buttonExists = [...buttons].some(button => {
-
-					const normalizedButton = normalizeText(button.textContent);
-
-					return (normalizedButton === normalizedButtonName || normalizedButton.startsWith(normalizedButtonName + ' '));
-				});
-
-				if (buttonExists && note) {
-					noteList.push(note);
-				}
-			}
-		}
 
 		if (noteList.length === 0) {
 			return null;
@@ -539,13 +527,60 @@
 		container.appendChild(label);
 
 		for (const note of noteList) {
-			const line = document.createElement('div');
 
-			let noteText = String(note);
+    let noteText = String(note).trim();
 
-			noteText = resolveReferences(noteText, location);
+		const conditionalMatch = noteText.match(/^@conditional(\d+)$/i);
 
-			const parts = noteText.split(',');
+    if (conditionalMatch) {
+			const index = Number(conditionalMatch[1]) - 1;
+
+			const conditionalEntries = conditional ? Object.entries(conditional) : [];
+
+			if (conditionalEntries[index]) {
+				const [buttonName, conditionalNote] = conditionalEntries[index];
+
+				const buttonExists = [...buttons].some(button => {
+					return matchOptionName(button.textContent, buttonName);
+				});
+
+				if (buttonExists && conditionalNote) {
+					const conditionalLine = document.createElement('div');
+
+					const conditionalText = resolveReferences(String(conditionalNote), location);
+
+					appendFormattedText(conditionalLine, conditionalText);
+
+					container.appendChild(conditionalLine);
+				}
+			}
+
+			continue;
+    }
+
+    const detailsMatch = noteText.match(/^@details(\d+)$/i);
+
+    if (detailsMatch) {
+			const index = Number(detailsMatch[1]) - 1;
+
+			if (details?.[index] !== undefined) {
+				const detailLine = document.createElement('div');
+
+				const detailText = resolveReferences(String(details[index]), location);
+
+				appendFormattedText(detailLine, detailText);
+
+				container.appendChild(detailLine);
+			}
+
+			continue;
+    }
+
+    const line = document.createElement('div');
+
+    noteText = resolveReferences(noteText, location);
+
+    const parts = noteText.split(',');
 
 			for (let i = 0; i < parts.length; i++) {
 				const part = parts[i].trim();
@@ -679,7 +714,13 @@
 
 		if (resultLines.length === 0) {
 
-			const notes = createNotesElement(encounter.data.notes, encounter.data.conditional, encounter.data.location, buttons);
+			const notes = createNotesElement(
+				encounter.data.notes,
+				encounter.data.conditional,
+				encounter.data.details,
+				encounter.data.location,
+				buttons
+			);
 
 			clearExploreHelper();
 
@@ -692,15 +733,20 @@
 			helper.style.marginTop = HELPER_MARGINS;
 			helper.style.marginBottom = HELPER_MARGINS;
 
-			helper.appendChild(notes);
+			if (notes) {
+				helper.appendChild(notes);
+			}
 
 			const energyMessage = [...output.querySelectorAll('p')]
-				.find(p => normalizeText(p.textContent)
-					.includes('you lost')
-				);
+				.find(p => /^\s*you lost\s+-\d+%\s+energy exploring\.?\s*$/i.test(p.textContent.trim()));
+
+			const essenceMessage = [...output.querySelectorAll('p')]
+				.find(p => /^\s*-\d+\s+lunar essence\s*$/i.test(p.textContent.trim()));
 
 			if (energyMessage) {
 				energyMessage.before(helper);
+			} else if (essenceMessage) {
+				essenceMessage.before(helper);
 			} else {
 				output.appendChild(helper);
 			}
@@ -723,19 +769,22 @@
 			helper.appendChild(line);
 		}
 
-		const notes = createNotesElement(encounter.data.notes, encounter.data.conditional, encounter.data.location, buttons);
+		const notes = createNotesElement(encounter.data.notes, encounter.data.conditional, encounter.data.details, encounter.data.location, buttons);
 
 		if (notes) {
 			helper.appendChild(notes);
 		}
 
 		const energyMessage = [...output.querySelectorAll('p')]
-			.find(p => normalizeText(p.textContent)
-				.includes('you lost')
-			);
+			.find(p => /^\s*you lost\s+-\d+%\s+energy exploring\.?\s*$/i.test(p.textContent.trim()));
+
+		const essenceMessage = [...output.querySelectorAll('p')]
+			.find(p => /^\s*-\d+\s+lunar essence\s*$/i.test(p.textContent.trim()));
 
 		if (energyMessage) {
 			energyMessage.before(helper);
+		} else if (essenceMessage) {
+			essenceMessage.before(helper);
 		} else {
 			output.appendChild(helper);
 		}

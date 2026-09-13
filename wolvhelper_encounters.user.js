@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.4.2
+// @version     1.5.0
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -17,6 +17,7 @@
 	'use strict';
 
 	const ENCOUNTERS_URL = 'https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/encounters.json';
+	// Full Explore Helper version only
 	const IMAGES_URL = 'https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/images.json';
 	const POOLS_URL = 'https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/pools.json';
 	const HELPER_CLASS = 'explore-helper';
@@ -40,6 +41,7 @@
 			if (!encountersResponse.ok) {
 				throw new Error(`[Wolvhelper] Failed to load encounters.json: HTTP ${encountersResponse.status}`);
 			}
+			// Full Explore Helper version only
 			if (!imagesResponse.ok) {
 				throw new Error(`[Wolvhelper] Failed to load images.json: HTTP ${imagesResponse.status}`);
 			}
@@ -48,12 +50,14 @@
 			}
 
 			encounterDatabase = await encountersResponse.json();
+			// Full Explore Helper version only
 			encounterDatabase.images = await imagesResponse.json();
 			encounterDatabase.pools = await poolsResponse.json();
 
 			if (!encounterDatabase.encounters || typeof encounterDatabase.encounters !== 'object') {
 				throw new Error('[Wolvhelper] Database is missing "encounters"');
 			}
+			// Full Explore Helper version only
 			if (!encounterDatabase.images || typeof encounterDatabase.images !== 'object') {
 				throw new Error('[Wolvhelper] Images database is invalid');
 			}
@@ -284,9 +288,7 @@
 
 		filename = filename.replace(/[_-]/g, '');
 
-		filename = filename.replace(/(?:spring|summer|autumn|winter)?(?:day|dawn|dusk|night)$/i, '');
-
-		filename = filename.replace(/(?:spring|summer|autumn|winter)$/i, '');
+		filename = filename.replace(/(?:spring|summer|autumn|winter)?(?:day|dawn|dusk|night)$|(?:spring|summer|autumn|winter)$/i, '');
 
 		for (const entry of encounterIdLookup) {
 			if (filename.includes(entry.normalized)) {
@@ -350,10 +352,11 @@
 
 		const result = parts[0].trim();
 
+		// Full Explore Helper version only
 		const images = parts[1] ? parts[1].split(';').map(x => x.trim()).filter(Boolean) : [];
 
 		const afterText = parts.slice(2).join('|').trim();
-
+		
 		return {
 			result: result,
 			images: images,
@@ -377,6 +380,7 @@
 		return [parseCompoundResult(value, location)];
 	}
 
+	// Full Explore Helper version only
 	function createRewardImage(imageName) {
     const imageUrl = encounterDatabase.images[imageName];
 
@@ -406,14 +410,22 @@
 				container.appendChild(document.createTextNode(' & '));
 			}
 
-			if (normalizeText(reward.result) === 'no reward') {
+			const noRewardMatch = reward.result.match(/^(No reward)(\s*\(.*)$/i);
+
+			if (noRewardMatch) {
+				const noReward = document.createElement('i');
+				noReward.textContent = noRewardMatch[1];
+				container.appendChild(noReward);
+
+				container.appendChild(document.createTextNode(noRewardMatch[2]));
+			} else if (normalizeText(reward.result) === 'no reward') {
 				const noReward = document.createElement('i');
 				noReward.textContent = reward.result;
 				container.appendChild(noReward);
 			} else {
 				container.appendChild(document.createTextNode(reward.result));
 			}
-
+			// Full Explore Helper version only
 			for (const [imageIndex, imageName] of reward.images.entries()) {
 				const img = createRewardImage(imageName);
 
@@ -495,6 +507,7 @@
 		outcomes.forEach((outcome, index) => {
 
 			const resultWrapper = document.createElement('span');
+			// Full Explore Helper version only
 			resultWrapper.style.display = 'inline-block';
 			resultWrapper.style.whiteSpace = 'nowrap';
 
@@ -553,30 +566,12 @@
 		}
 	}
 
-	function createNotesElement(notes, conditional, location, buttons) {
-		if (!notes && !conditional && !location) {
+	function createNotesElement(notes, conditional, details, location, buttons) {
+		if (!notes && !conditional && !details && !location) {
 			return null;
 		}
 
 		const noteList = Array.isArray(notes) ? [...notes] : notes ? [notes] : [];
-
-		if (conditional && buttons) {
-			for (const [buttonName, note] of Object.entries(conditional)) {
-
-				const normalizedButtonName = normalizeText(buttonName);
-
-				const buttonExists = [...buttons].some(button => {
-
-					const normalizedButton = normalizeText(button.textContent);
-
-					return (normalizedButton === normalizedButtonName || normalizedButton.startsWith(normalizedButtonName + ' '));
-				});
-
-				if (buttonExists && note) {
-					noteList.push(note);
-				}
-			}
-		}
 
 		if (noteList.length === 0) {
 			return null;
@@ -591,13 +586,61 @@
 		container.appendChild(label);
 
 		for (const note of noteList) {
-			const line = document.createElement('div');
 
-			let noteText = String(note);
+    let noteText = String(note).trim();
 
-			noteText = resolveReferences(noteText, location);
+		const conditionalMatch = noteText.match(/^@conditional(\d+)$/i);
 
-			const parts = noteText.split(',');
+		if (conditionalMatch) {
+			const index = Number(conditionalMatch[1]) - 1;
+
+			const conditionalEntries = conditional ? Object.entries(conditional) : [];
+
+			if (conditionalEntries[index]) {
+				const [buttonName, conditionalNote] = conditionalEntries[index];
+
+				const buttonExists = [...buttons].some(button => {
+					return matchOptionName(button.textContent, buttonName);
+				});
+
+				if (buttonExists && conditionalNote) {
+					const conditionalLine = document.createElement('div');
+
+					const conditionalText = resolveReferences(String(conditionalNote), location);
+
+					appendFormattedText(conditionalLine, conditionalText);
+
+					container.appendChild(conditionalLine);
+				}
+			}
+
+			continue;
+    }
+
+    const detailsMatch = noteText.match(/^@details(\d+)$/i);
+
+    if (detailsMatch) {
+			const index = Number(detailsMatch[1]) - 1;
+
+			if (details?.[index] !== undefined) {
+				const detailLine = document.createElement('div');
+				detailLine.style.whiteSpace = 'normal';
+
+				const detailText = resolveReferences(String(details[index]), location);
+
+				appendFormattedText(detailLine, detailText);
+
+				container.appendChild(detailLine);
+			}
+
+			continue;
+    }
+
+    const line = document.createElement('div');
+
+    noteText = resolveReferences(noteText, location);
+
+    const parts = noteText.split(',');
 
 			for (let i = 0; i < parts.length; i++) {
 				const part = parts[i].trim();
@@ -609,9 +652,9 @@
 				const separator = part.indexOf('|');
 
 				const partWrapper = document.createElement('span');
+				// Full Explore Helper version only
 				partWrapper.style.display = 'inline-block';
 				partWrapper.style.whiteSpace = 'nowrap';
-				partWrapper.style.overflowWrap = 'break-word';
 
 				if (separator === -1) {
 					appendFormattedText(partWrapper, part);
@@ -619,6 +662,7 @@
 					const separators = part.split('|');
 
 					const text = separators[0].trim();
+					// Full Explore Helper version only
 					const imageNames = separators[1] ? separators[1].split(';').map(x => x.trim()).filter(Boolean) : [];
 
 					const afterText = separators.slice(2).join('|').trim();
@@ -626,12 +670,12 @@
 					if (text) {
 						appendFormattedText(partWrapper, text);
 					}
-
+					// Full Explore Helper version only
 					for (const [imageIndex, imageName] of imageNames.entries()) {
 						const img = createRewardImage(imageName);
 
 						if (img) {
-							img.style.marginLeft = imageIndex === 0 ? '4px' : '2px';
+							img.style.marginLeft = imageIndex === 0 ? '4px' : '0px';
 
 							img.style.height = '16px';
 							img.style.width = '16px';
@@ -644,7 +688,7 @@
 						partWrapper.appendChild(document.createTextNode(afterText));
 					}
 				}
-
+				// Full Explore Helper version only
 				if (i < parts.length - 1) {
 					partWrapper.appendChild(document.createTextNode(',\u00A0'));
 				}
@@ -748,7 +792,13 @@
 
 		if (resultLines.length === 0) {
 
-			const notes = createNotesElement(encounter.data.notes, encounter.data.conditional, encounter.data.location, buttons);
+			const notes = createNotesElement(
+				encounter.data.notes,
+				encounter.data.conditional,
+				encounter.data.details,
+				encounter.data.location,
+				buttons
+			);
 
 			clearExploreHelper();
 
@@ -761,15 +811,20 @@
 			helper.style.marginTop = HELPER_MARGINS;
 			helper.style.marginBottom = HELPER_MARGINS;
 
-			helper.appendChild(notes);
+			if (notes) {
+				helper.appendChild(notes);
+			}
 
 			const energyMessage = [...output.querySelectorAll('p')]
-				.find(p => normalizeText(p.textContent)
-					.includes('you lost')
-				);
+				.find(p => /^\s*you lost\s+-\d+%\s+energy exploring\.?\s*$/i.test(p.textContent.trim()));
+
+			const essenceMessage = [...output.querySelectorAll('p')]
+				.find(p => /^\s*-\d+\s+lunar essence\s*$/i.test(p.textContent.trim()));
 
 			if (energyMessage) {
 				energyMessage.before(helper);
+			} else if (essenceMessage) {
+				essenceMessage.before(helper);
 			} else {
 				output.appendChild(helper);
 			}
@@ -792,19 +847,22 @@
 			helper.appendChild(line);
 		}
 
-		const notes = createNotesElement(encounter.data.notes, encounter.data.conditional, encounter.data.location, buttons);
+		const notes = createNotesElement(encounter.data.notes, encounter.data.conditional, encounter.data.details, encounter.data.location, buttons);
 
 		if (notes) {
 			helper.appendChild(notes);
 		}
 
 		const energyMessage = [...output.querySelectorAll('p')]
-			.find(p => normalizeText(p.textContent)
-				.includes('you lost')
-			);
+			.find(p => /^\s*you lost\s+-\d+%\s+energy exploring\.?\s*$/i.test(p.textContent.trim()));
+
+		const essenceMessage = [...output.querySelectorAll('p')]
+			.find(p => /^\s*-\d+\s+lunar essence\s*$/i.test(p.textContent.trim()));
 
 		if (energyMessage) {
 			energyMessage.before(helper);
+		} else if (essenceMessage) {
+			essenceMessage.before(helper);
 		} else {
 			output.appendChild(helper);
 		}

@@ -62,7 +62,7 @@
     "fillerdirtsnuffle": {
       "intro": "You snuffle around in the dirt. It's here somewhere.. Yes! Jackpot!",
       "options": {
-        "Dig": ["+1 Acorn|imgacorn","+1 Bone|imgbone","+1 Owl Talon|imgowltalon","+1 Mollusk Skull|imgmolluskshell","+1 random recipe from bone pool*|imgrecipetrinket","1-3 SC|imgsc|(<5000 SC)"]
+        "Dig": ["+1 Acorn|imgacorn","+1 Bone|imgbone","+1 Mollusk Skull|imgmolluskshell","+1 Owl Talon|imgowltalon","+1 random recipe from bone pool*","1-3 SC|imgsc|(<5000 SC)"]
       },
       "notes": [
         "*@poolrecipebone"
@@ -532,12 +532,10 @@
         "Rummage in stores": ["+10% hunger"]
       },
       "notes": [
-        "*@conditional1",
-        "@conditional2"
+        "*@conditional1"
       ],
       "conditional": {
-        "Investigate [Winter]": "*@poolcommonfeather",
-        "Eat the kits": "This is a testing note."
+        "Investigate [Winter]": "*@poolcommonfeather"
       }
     },
     "raven": {
