@@ -11,8 +11,11 @@
         "Follow the bitter scent": ["+1 Bone|imgbone","+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock"],
         "Follow the sweet scent": ["Initiates claiming a New Befriended Wolf","No reward*"]
       },
+      "notes": [
+        "*@conditional1"
+      ],
       "conditional": {
-        "Follow the sweet scent": "*Befriending is not available if your territory is full."
+        "Follow the sweet scent": "Befriending is not available if your territory is full."
       }
     },
     "fillerbirdrest": {
@@ -244,8 +247,11 @@
         "Give Crow Skull": ["+8% energy//-5 HP"],
         "Browse Wares": ["+50 EXP","+1 Raven Traders: American Crow Seller|imgraventradersamericancrowseller"]
       },
+      "notes": [
+        "*@conditional1"
+      ],
       "conditional": {
-        "Give Shoe": "*This result can give ANY recipe."
+        "Give Shoe": "This result can give ANY recipe."
       }
     },
     "americancrowtrader": {
@@ -473,7 +479,10 @@
         "What's That?": ["+1 item for active snake quest","No reward*"]
       },
       "notes": [
-        "*Unless you have an active item quest with the questing snake, this option will always have no reward."
+        "*@details1"
+      ],
+      "details": [
+        "Unless you have an active item quest with the questing snake, this option will always have no reward."
       ]
     },
     "leastweasel": {
@@ -522,9 +531,13 @@
         "Eat the kits": ["+10% hunger"],
         "Rummage in stores": ["+10% hunger"]
       },
+      "notes": [
+        "*@conditional1",
+        "@conditional2"
+      ],
       "conditional": {
-        "Eat the kits": "This is a testing note.",
-        "Investigate [Winter]": "*@poolcommonfeather"
+        "Investigate [Winter]": "*@poolcommonfeather",
+        "Eat the kits": "This is a testing note."
       }
     },
     "raven": {
