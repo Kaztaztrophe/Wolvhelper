@@ -6,6 +6,8 @@
 <ul>
 <li>Echoes of the Ancient event encounters</li>
 <li>Universal regular explore encounters</li>
+<li>Raven Traders explore encounters</li>
+<li>Grasslands explore encounters</li>
 </ul>
 
 <p>Please pardon the mess, this is my first larger code project. It is also my first GitHub repository, so it is not at all clean and professional. As I'm still learning, it's likely to be a bit rough around the edges. Thank you for your interest, if any!</p>
