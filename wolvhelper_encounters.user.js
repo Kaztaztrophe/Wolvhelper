@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.5.2
+// @version     1.5.3
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -25,7 +25,7 @@
 	const IMAGE_WIDTH = '25px';
 	const IMAGE_HEIGHT = '25px';
 	const LINE_HEIGHT = '25px';
-	const WAIT_TIMEOUT = 5000;
+	const WAIT_TIMEOUT = 7500;
 
 	let encounterDatabase = null;
 	let encounterIdLookup = [];
@@ -697,8 +697,7 @@
 
 					conditionalText = prefix + resolveReferences(conditionalText, location);
 
-					container.appendChild(
-						createNoteLine(conditionalText)
+					container.appendChild(createNoteLine(conditionalText)
 					);
 				}
 			}
@@ -829,13 +828,7 @@
 
 		if (resultLines.length === 0) {
 
-			const notes = createNotesElement(
-				encounter.data.notes,
-				encounter.data.conditional,
-				encounter.data.details,
-				encounter.data.location,
-				buttons
-			);
+			const notes = createNotesElement(encounter.data.notes, encounter.data.conditional, encounter.data.details, encounter.data.location, buttons);
 
 			clearExploreHelper();
 
@@ -913,18 +906,14 @@
 			return;
 		}
 
-		const oldHTML = output.innerHTML;
-
 		const observer = new MutationObserver(() => {
+			observer.disconnect();
 
-				if (output.innerHTML !== oldHTML) {
-					observer.disconnect();
-
-					requestAnimationFrame(() => {
-						updateExploreOutput();
-					});
-				}
+			requestAnimationFrame(() => {
+				updateExploreOutput();
+				waitForExploreChange();
 			});
+		});
 
 		observer.observe(output, {
 			childList: true,
