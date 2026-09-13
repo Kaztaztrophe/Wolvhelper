@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters (Mini)
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.5.0
+// @version     1.5.1
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -507,6 +507,50 @@
 		}
 	}
 
+	function createNoteLine(noteText) {
+		const line = document.createElement('div');
+
+		const parts = noteText.split(',');
+
+		for (let i = 0; i < parts.length; i++) {
+			const part = parts[i].trim();
+
+			if (!part) {
+				continue;
+			}
+
+			const separator = part.indexOf('|');
+
+			const partWrapper = document.createElement('span');
+
+			if (separator === -1) {
+				appendFormattedText(partWrapper, part);
+			} else {
+				const separators = part.split('|');
+
+				const text = separators[0].trim();
+
+				const afterText = separators.slice(2).join('|').trim();
+
+				if (text) {
+					appendFormattedText(partWrapper, text);
+				}
+
+				if (afterText) {
+					partWrapper.appendChild(document.createTextNode(afterText));
+				}
+			}
+
+			if (i < parts.length - 1) {
+				partWrapper.appendChild(document.createTextNode(', '));
+			}
+
+			line.appendChild(partWrapper);
+		}
+
+		return line;
+	}
+
 	function createNotesElement(notes, conditional, details, location, buttons) {
 		if (!notes && !conditional && !details && !location) {
 			return null;
@@ -530,10 +574,11 @@
 
     let noteText = String(note).trim();
 
-		const conditionalMatch = noteText.match(/^@conditional(\d+)$/i);
+		const conditionalMatch = noteText.match(/^(\**)\@conditional(\d+)$/i);
 
-    if (conditionalMatch) {
-			const index = Number(conditionalMatch[1]) - 1;
+		if (conditionalMatch) {
+			const prefix = conditionalMatch[1];
+			const index = Number(conditionalMatch[2]) - 1;
 
 			const conditionalEntries = conditional ? Object.entries(conditional) : [];
 
@@ -545,40 +590,49 @@
 				});
 
 				if (buttonExists && conditionalNote) {
-					const conditionalLine = document.createElement('div');
+					let conditionalText = String(conditionalNote).trim();
 
-					let conditionalText = String(conditionalNote);
-
-					const conditionalDetailsMatch = conditionalText.match(/^@details(\d+)$/i);
+					const conditionalDetailsMatch = conditionalText.match(/^(\**)\@details(\d+)$/i);
 
 					if (conditionalDetailsMatch) {
-						const index = Number(conditionalDetailsMatch[1]) - 1;
+						const prefix = conditionalDetailsMatch[1];
+						const index = Number(conditionalDetailsMatch[2]) - 1;
 
 						if (details?.[index] !== undefined) {
-							conditionalText = String(details[index]);
-						} else {
-							continue;
+							const detailLine = document.createElement('div');
+
+							const detailText = prefix + resolveReferences(
+								String(details[index]),
+								location
+							);
+
+							appendFormattedText(detailLine, detailText);
+
+							container.appendChild(detailLine);
 						}
+
+						continue;
 					}
 
-					conditionalText = resolveReferences(conditionalText, location);
+					conditionalText = prefix + resolveReferences(conditionalText, location);
 
-					appendFormattedText(conditionalLine, conditionalText);
-
-					container.appendChild(conditionalLine);
+					container.appendChild(
+						createNoteLine(conditionalText)
+					);
 				}
 			}
 
 			continue;
     }
 
-    const detailsMatch = noteText.match(/^@details(\d+)$/i);
+    const detailsMatch = noteText.match(/^\**@details(\d+)$/i);
 
-    if (detailsMatch) {
+		if (detailsMatch) {
 			const index = Number(detailsMatch[1]) - 1;
 
 			if (details?.[index] !== undefined) {
 				const detailLine = document.createElement('div');
+				detailLine.style.whiteSpace = 'normal';
 
 				const detailText = resolveReferences(String(details[index]), location);
 
@@ -588,51 +642,14 @@
 			}
 
 			continue;
-    }
-
-    const line = document.createElement('div');
+		}
 
     noteText = resolveReferences(noteText, location);
 
-    const parts = noteText.split(',');
+		container.appendChild(
+			createNoteLine(noteText)
+		);
 
-			for (let i = 0; i < parts.length; i++) {
-				const part = parts[i].trim();
-
-				if (!part) {
-					continue;
-				}
-
-				const separator = part.indexOf('|');
-
-				const partWrapper = document.createElement('span');
-
-				if (separator === -1) {
-					appendFormattedText(partWrapper, part);
-				} else {
-					const separators = part.split('|');
-
-					const text = separators[0].trim();
-
-					const afterText = separators.slice(2).join('|').trim();
-
-					if (text) {
-						appendFormattedText(partWrapper, text);
-					}
-
-					if (afterText) {
-						partWrapper.appendChild(document.createTextNode(afterText));
-					}
-				}
-
-				if (i < parts.length - 1) {
-					partWrapper.appendChild(document.createTextNode(', '));
-				}
-
-				line.appendChild(partWrapper);
-			}
-
-			container.appendChild(line);
 		}
 
 		return container;
