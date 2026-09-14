@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters (Mini)
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.5.4
+// @version     1.5.5
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -368,24 +368,42 @@
 				container.appendChild(document.createTextNode(' & '));
 			}
 
-			const noRewardMatch = reward.result.match(/^(No reward)(\s*\(.*)$/i);
+			const resultText = reward.result;
+			const noRewardRegex = /No reward(\**)/gi;
 
-			if (noRewardMatch) {
+			let lastIndex = 0;
+			let match;
+
+			while ((match = noRewardRegex.exec(resultText)) !== null) {
+
+				// Add everything before "No reward"
+				if (match.index > lastIndex) {
+					container.appendChild(
+						document.createTextNode(
+							resultText.slice(lastIndex, match.index)
+						)
+					);
+				}
+
+				// Italicize "No reward" + any immediately following asterisks
 				const noReward = document.createElement('i');
-				noReward.textContent = noRewardMatch[1];
+				noReward.textContent = match[0];
 				container.appendChild(noReward);
 
-				container.appendChild(document.createTextNode(noRewardMatch[2]));
-			} else if (normalizeText(reward.result) === 'no reward') {
-				const noReward = document.createElement('i');
-				noReward.textContent = reward.result;
-				container.appendChild(noReward);
-			} else {
-				container.appendChild(document.createTextNode(reward.result));
+				lastIndex = noRewardRegex.lastIndex;
+			}
+
+			// Add anything after the final "No reward"
+			if (lastIndex < resultText.length) {
+				container.appendChild(
+					document.createTextNode(resultText.slice(lastIndex))
+				);
 			}
 
 			if (reward.afterText) {
-				container.appendChild(document.createTextNode(' ' + reward.afterText));
+				container.appendChild(
+					document.createTextNode(' ' + reward.afterText)
+				);
 			}
 		});
 
@@ -574,16 +592,16 @@
 
     let noteText = String(note).trim();
 
-		const conditionalMatch = noteText.match(/^(\**)\@conditional(\d+)$/i);
+		const conditionalMatch = noteText.match(/^(\*+)@conditional(\d+)$/i);
 
 		if (conditionalMatch) {
-			const prefix = conditionalMatch[1];
-			const index = Number(conditionalMatch[2]) - 1;
+			const conditionalPrefix = conditionalMatch[1] || '';
+			const conditionalIndex = Number(conditionalMatch[2]) - 1;
 
 			const conditionalEntries = conditional ? Object.entries(conditional) : [];
 
-			if (conditionalEntries[index]) {
-				const [buttonName, conditionalNote] = conditionalEntries[index];
+			if (conditionalEntries[conditionalIndex]) {
+				const [buttonName, conditionalNote] = conditionalEntries[conditionalIndex];
 
 				const buttonExists = [...buttons].some(button => {
 					return matchOptionName(button.textContent, buttonName);
@@ -592,17 +610,17 @@
 				if (buttonExists && conditionalNote) {
 					let conditionalText = String(conditionalNote).trim();
 
-					const conditionalDetailsMatch = conditionalText.match(/^(\**)\@details(\d+)$/i);
+					const conditionalDetailsMatch = conditionalText.match(/^(\*+)@details(\d+)$/i);
 
 					if (conditionalDetailsMatch) {
-						const prefix = conditionalDetailsMatch[1];
-						const index = Number(conditionalDetailsMatch[2]) - 1;
+						const detailPrefix = conditionalDetailsMatch[1] || '';
+						const detailIndex = Number(conditionalDetailsMatch[2]) - 1;
 
-						if (details?.[index] !== undefined) {
+						if (details?.[detailIndex] !== undefined) {
 							const detailLine = document.createElement('div');
 
-							const detailText = prefix + resolveReferences(
-								String(details[index]),
+							const detailText = detailPrefix + resolveReferences(
+								String(details[detailIndex]),
 								location
 							);
 
@@ -614,7 +632,7 @@
 						continue;
 					}
 
-					conditionalText = prefix + resolveReferences(conditionalText, location);
+					conditionalText = conditionalPrefix + resolveReferences(conditionalText, location);
 
 					container.appendChild(createNoteLine(conditionalText)
 					);
@@ -624,17 +642,17 @@
 			continue;
     }
 
-    const detailsMatch = noteText.match(/^(\**)\@details(\d+)$/i);
+    const detailsMatch = noteText.match(/^(\*+)@details(\d+)$/i);
 
 		if (detailsMatch) {
-			const prefix = detailsMatch[1];
-			const index = Number(detailsMatch[2]) - 1;
+			const detailPrefix = detailsMatch[1] || '';
+			const detailIndex = Number(detailsMatch[2]) - 1;
 
-			if (details?.[index] !== undefined) {
+			if (details?.[detailIndex] !== undefined) {
 				const detailLine = document.createElement('div');
 				detailLine.style.whiteSpace = 'normal';
 
-				const detailText = prefix + resolveReferences(String(details[index]), location);
+				const detailText = detailPrefix + resolveReferences(String(details[detailIndex]), location);
 
 				appendFormattedText(detailLine, detailText);
 
