@@ -467,16 +467,16 @@
 		return container;
 	}
 
+	function createStepPreviewLines(buttonText, steps, encounter) {
+		const lines = [];
 
-	function createStepPreviewLine(buttonText, steps) {
-		const line = document.createElement('div');
-		line.style.lineHeight = LINE_HEIGHT;
-		line.style.textAlign = 'left';
+		const previewLine = document.createElement('div');
+		previewLine.style.textAlign = 'left';
 
 		const label = document.createElement('b');
 		label.textContent = buttonText + ': ';
 
-		line.appendChild(label);
+		previewLine.appendChild(label);
 
 		steps.forEach((step, index) => {
 			if (index > 0) {
@@ -485,16 +485,32 @@
 				separator.style.marginLeft = '4px';
 				separator.style.marginRight = '4px';
 
-				line.appendChild(separator);
+				previewLine.appendChild(separator);
 			}
 
 			const stepLabel = document.createElement('b');
 			stepLabel.textContent = step;
 
-			line.appendChild(stepLabel);
+			previewLine.appendChild(stepLabel);
 		});
 
-		return line;
+		lines.push(previewLine);
+
+		for (const stepName of steps) {
+			const stepValue = encounter.data.steps?.[stepName];
+
+			if (stepValue === undefined) {
+				continue;
+			}
+
+			const stepLine = createResultLine(stepName, parseResult(stepValue, encounter.data.location));
+
+			stepLine.style.marginLeft = '15px';
+
+			lines.push(stepLine);
+		}
+
+		return lines;
 	}
 
 	function createStepResultLines(encounter, stepNames) {
@@ -836,7 +852,9 @@
 			}
 
 			if (isStepOption(matchedValue)) {
-				resultLines.push(createStepPreviewLine(buttonText, matchedValue.steps));
+				resultLines.push(
+					...createStepPreviewLines(buttonText, matchedValue.steps, encounter)
+				);
 
 				continue;
 			}
