@@ -5,10 +5,10 @@
     "filler2scents": {
       "intro": "You briefly stop to smell the air, two diverging scents reaching your nose. Interesting.",
       "options": {
+        "Follow the bitter scent": ["+1 Bone|imgbone","+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock"],
+        "Follow the rancid scent": ["+1 Meat Chunks [Large]|imgmeatchunkslarge","+1 Meat Chunks [Medium]|imgmeatchunksmedium","+1 Meat Chunks [Small]|imgmeatchunkssmall"],
         "Follow the stinky scent": ["+1-2 SC|imgsc","No reward (>5000 SC)"],
         "Follow the delicious scent": ["+5-10% hunger"],
-        "Follow the rancid scent": ["+1 Meat Chunks [Large]|imgmeatchunkslarge","+1 Meat Chunks [Medium]|imgmeatchunksmedium","+1 Meat Chunks [Small]|imgmeatchunkssmall"],
-        "Follow the bitter scent": ["+1 Bone|imgbone","+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock"],
         "Follow the sweet scent": ["Initiates claiming a New Befriended Wolf","No reward*"]
       },
       "notes": [
