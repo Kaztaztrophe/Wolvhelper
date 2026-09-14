@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.5.3
+// @version     1.5.4
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -705,16 +705,17 @@
 			continue;
     }
 
-    const detailsMatch = noteText.match(/^\**@details(\d+)$/i);
+    const detailsMatch = noteText.match(/^(\**)\@details(\d+)$/i);
 
 		if (detailsMatch) {
-			const index = Number(detailsMatch[1]) - 1;
+			const prefix = detailsMatch[1];
+			const index = Number(detailsMatch[2]) - 1;
 
 			if (details?.[index] !== undefined) {
 				const detailLine = document.createElement('div');
 				detailLine.style.whiteSpace = 'normal';
 
-				const detailText = resolveReferences(String(details[index]), location);
+				const detailText = prefix + resolveReferences(String(details[index]), location);
 
 				appendFormattedText(detailLine, detailText);
 
