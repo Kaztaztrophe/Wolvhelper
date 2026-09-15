@@ -8,7 +8,7 @@
         "Follow the bitter scent": ["+1 Bone|imgbone","+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock"],
         "Follow the delicious scent": ["+5-10% hunger"],
         "Follow the rancid scent": ["+1 Meat Chunks [Large]|imgmeatchunkslarge","+1 Meat Chunks [Medium]|imgmeatchunksmedium","+1 Meat Chunks [Small]|imgmeatchunkssmall"],
-        "Follow the stinky scent": ["+1-2 SC|imgsc","No reward (>5000 SC)"],
+        "Follow the stinky scent": ["+1-2 SC|imgsc|(<5000 SC)","No reward (>5000 SC)"],
         "Follow the sweet scent": ["Initiates claiming a New Befriended Wolf","No reward*"]
       },
       "notes": [
@@ -84,32 +84,7 @@
         "Drink": ["+5-15 HP"]
       }
     },
-
-    "herbs": {
-      "intro": "You wander across some interesting plants growing from the soil. You give them a sniff.. oooh, herbs!",
-      "options": {
-        "Gather": ["+1 random biome-specific herb*"],
-        "Use": ["+5 HP"]
-      },
-      "notes": [
-        "*@location1"
-      ],
-      "location": {
-        "/biome/1": ["@poolherbgrasslands"],
-        "/biome/2": ["@poolherbdeciduousforest"],
-        "/biome/3": ["@poolherbmountains"],
-        "/biome/4": ["@poolherbriparianwoodland"],
-        "/biome/5": ["@poolherbdesert"],
-        "/biome/6": ["@poolherbprairie"],
-        "/biome/7": ["@poolherbswamp"],
-        "/biome/8": ["@poolherbrainforest"],
-        "/biome/9": ["@poolherbconiferousforest"],
-        "/biome/10": ["@poolherbtaiga"],
-        "/biome/11": ["@poolherbtundra"],
-        "/biome/12": ["@poolherbglacier"]
-      }
-    },
-    "poop": {
+    "checkoutpoop": {
       "intro": "You come across some poop... Normally, you'd roll all over it, but for some reason, something seems special about this poop.",
       "options": {
         "Check it out": ["+1 biome-specific herb*","Gain illness: Diarrhea/No reward**"]
@@ -136,55 +111,31 @@
         "If your lead wolf is currently immune to illness."
       ]
     },
-
-    "egg": {
-      "intro": "You stop in your tracks - a very vulgar wolf is passing by, vandalizing the bird nests in the vicinity. Oh no, the eggs!",
+    "herbs": {
+      "intro": "You wander across some interesting plants growing from the soil. You give them a sniff.. oooh, herbs!",
       "options": {
-        "Clean Up": ["+2 Nesting Material|imgnestingmaterial;imgnestingmaterial","+1 random common egg*"],
-        "Intervene": ["+1 Lucky Foot|imgluckyfoot"]
+        "Gather": ["+1 random biome-specific herb*"],
+        "Use": ["+5 HP"]
       },
       "notes": [
-        "*@poolcommonegg"
-      ]
-    },
-    "tala": {
-      "intro": "Oh no! It's Tala! She seems to be taunting you for a little payback after the last fight. Are you brave enough to wrestle her?",
-      "options": {
-        "Attack!": ["Automatic battle with enemy Wandering Tala"]
-      }
-    },
-    "wolf": {
-      "intro": "A figure appears up ahead of you, you raise your nose to the air and sniff.. another wolf!",
-      "options": {
-        "Attack": ["Automatic battle with local enemy @location1"],
-        "Befriend": ["Initiates claiming a New Befriended Wolf"]
-      },
+        "*@location1"
+      ],
       "location": {
-        "/biome/1|/biome/4|/biome/6": ["Eastern Wolf"],
-        "/biome/2|/biome/3|/biome/9|/biome/10": ["Timber Wolf"],
-        "/biome/5": ["Mexican Wolf"],
-        "/biome/7|/biome/8": ["Red Wolf"],
-        "/biome/11": ["Alaskan Tundra Wolf"],
-        "/biome/12": ["Arctic Wolf"]
+        "/biome/1": ["@poolherbgrasslands"],
+        "/biome/2": ["@poolherbdeciduousforest"],
+        "/biome/3": ["@poolherbmountains"],
+        "/biome/4": ["@poolherbriparianwoodland"],
+        "/biome/5": ["@poolherbdesert"],
+        "/biome/6": ["@poolherbprairie"],
+        "/biome/7": ["@poolherbswamp"],
+        "/biome/8": ["@poolherbrainforest"],
+        "/biome/9": ["@poolherbconiferousforest"],
+        "/biome/10": ["@poolherbtaiga"],
+        "/biome/11": ["@poolherbtundra"],
+        "/biome/12": ["@poolherbglacier"]
       }
     },
 
-    "deadcow": {
-      "intro": "A familiar scent reaches your nose before you can see its source. You see a large, dead cow. It's still very fresh and looks as if it only died moments ago.",
-      "options": {
-        "Take it": ["+1 Bovine Carcass|imgbovinecarcass"]
-      }
-    },
-
-    "cougarmom": {
-      "intro": "You stopped in mid-step upon noticing a large cougar on your path. And it wasn't alone. A young cub was attempting to keep pace with its mother as fast as it could with its short legs and still a bit wobbly movement. It’s a cute scenery but the cougar doesn't appear particularly thrilled by your presence.",
-      "options": {
-        "What a cute kid!": ["+1 random fresh scar decoration*//-4 HP"]
-      },
-      "notes": [
-        "*@poolscarfresh"
-      ]
-    },
     "aggressivegoldeneagle": {
       "intro": "A peculiar sound caught your attention. You rarely hear something like this and your curiosity is stronger than your common sense. What you stumbled upon is no ordinary eagle's nest. While you've encountered them in the past, they are usually empty. However, this time is different – you spotted the white fluff of eagle chicks, checking you from the distance.",
       "options": {
@@ -194,25 +145,6 @@
         "*@poolscarfresh"
       ]
     },
-    "faultysteelwolftrap": {
-      "intro": "Suddenly, an intense pain spreads throughout your body, something feels as if it grabbed your leg suddenly, but you can pull it out gently. One of your legs was scraped by something metallic!",
-      "options": {
-        "Check it out": ["+1 random fresh scar decoration*//-4 HP"]
-      },
-      "notes": [
-        "*@poolscarfresh"
-      ]
-    },
-    "swarmingrats": {
-      "intro": "Individually, a single rat may make for a satisfying snack, but a bunch of them can turn into a feast no worse than much larger prey. The way they try to escape triggers your hunter instincts even more.",
-      "options": {
-        "Catch some!": ["+1 random fresh scar decoration*//-4 HP"]
-      },
-      "notes": [
-        "*@poolscarfresh"
-      ]
-    },
-
     "albinoravenmerchant": {
       "intro": "A beautiful albino raven merchant has set up shop among some roots. You both look curiously at each other.",
       "options": {
@@ -236,7 +168,7 @@
     "americancrowseller": {
       "intro": "You find a spot where an adorable American crow is selling shiny things. You don't have your silver cones with you, but maybe you can offer something more specific?",
       "options": {
-        "Give Shoe": ["+1 random recipe*","+1 Vulture Eggs|imgvultureeggs"],
+        "Give Shoe": ["+1 Vulture Eggs|imgvultureeggs","+1 random recipe*"],
         "Give Wealden Amber": ["+1 Medicine: Healing Salve|imgmedicinehealingsalve"],
         "Give Nesting Material": ["+1 Swan Carcass|imgswancarcass"],
         "Give Crow Skull": ["+8% energy//-5 HP"],
@@ -262,6 +194,93 @@
         "Browse Wares": ["+50 EXP","+1 Raven Traders: American Crow Trader|imgraventradersamericancrowtrader"]
       }
     },
+    "americanrobin": {
+      "intro": "In a flurry of feathers, a robin flies in front of your face, startled into flight by your passing!",
+      "options": {
+        "Watch": ["+3% energy","No reward"],
+        "Snatch": ["+5% energy","Gain illness: Diarrhea/No reward*"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "If your lead wolf is currently immune to illness."
+      ]
+    },
+    "barnowl": {
+      "intro": "A barn owl swoops overhead, clutching something in its talons. Maybe something tasty?",
+      "options": {
+        "Leap": ["+5-10% hunger","No reward"]
+      }
+    },
+    "beaver": {
+      "intro": "A beaver appears startled at your sudden appearance, it seems to be in the middle of collecting materials.",
+      "options": {
+        "Chase": ["+1 Beaver Carcass|imgbeavercarcass","No reward"],
+        "Growl": ["+1 Large Branch|imglargebranch","+1 random recipe from cave-building material pool*","+1 random recipe from rare jay pool**","No reward"]
+      },
+      "notes": [
+        "*@poolrecipecavebuildingmaterial",
+        "**@poolrecipejayrare"
+      ]
+    },
+    "blacktailedjackrabbit": {
+      "intro": "The sight of the long ears makes you tighten your jaw unconsciously. Your instincts have kicked in and you feel the need to chase the rabbit!",
+      "options": {
+        "Chase it": ["+1 Jackrabbit Carcass|imgjackrabbitcarcass","+1 Lucky Foot|imgluckyfoot","No reward"]
+      }
+    },
+    "blackwidow": {
+      "intro": "A large black widow has just started spinning its web as night approaches. It's hauntingly beautiful and almost hypnotizing to watch.",
+      "options": {
+        "Get a closer look": ["+10 HP","Gain illness: Poison","No reward"],
+        "Keep back": ["+1 Raccoon Carcass|imgraccooncarcass","No reward"]
+      }
+    },
+    "bluejay": {
+      "intro": "A blue jay is aggressively chasing and screaming at another bird - presumably one that got too close to its nest. In the chaos, you notice something fall to the ground in front of you.",
+      "options": {
+        "Offer Acorn": ["+1 Lucky Foot|imgluckyfoot","+1 Recipe: @poolrecipeluckyfoot","+1 random uncommon amusement item**","+1 random recipe from acorn pool***","+1 random recipe from amusement pool****","+1 random recipe from jay pool*****"],
+        "Take": ["+1 Blue Jay Feather|imgbluejayfeather","+1 Recipe: @poolrecipejaycommon","+1 random herb*"]
+      },
+      "notes": [
+        "*@poolherbany",
+        "**@conditional1[Offer Acorn]",
+        "***@conditional2[Offer Acorn]",
+        "****@conditional3[Offer Acorn]",
+        "*****@conditional4[Offer Acorn]"
+      ],
+      "conditional": {
+        "Offer Acorn": ["@pooluncommonamusement","@poolrecipeacorn","@poolrecipeamusement","@poolrecipejaycommon, @poolrecipejayrare"]
+      }
+    },
+    "campinghumans": {
+      "intro": "There's humans here! They've set up a funny cave and talk loudly in a circle. A delicious smell drifts from their funny box...hmm!",
+      "options": {
+        "Sneak": ["+1-6 SC|imgsc","+5 SC|imgsc","+4 HP","+2 HP","No reward"],
+        "Grab the Box!": ["+1 Meat Chunks [Medium]|imgmeatchunksmedium","+5 HP","No reward"]
+      }
+    },
+    "campinghumans2": {
+      "intro": "The forest is always full of various scents but only one type of creature feels foreign every time you feel its presence. When you follow the unusual scent, you discover a group of humans talking in front of an artificial structure that appears to be their place to sleep. How long do they plan to stay here?",
+      "options": {
+        "Hide and sniff around": ["+3 HP","No reward"],
+        "Approach": ["+1 Delicate Meat|imgdelicatemeat","No reward"]
+      }
+    },
+    "carolinaanole": {
+      "intro": "You spot a green Carolina anole resting on a tree branch. Its throat is enlarged, and its vivid colouring may mean it's not so good to eat.",
+      "options": {
+        "Snack": ["+1 Large Branch|imglargebranch"]
+      }
+    },
+    "carolinachickadee": {
+      "intro": "The sound of two tiny birds catches your attention. When you look up, you see them right above your head, focused on their flight and unaware of your presence.",
+      "options": {
+        "Offer Acorn": ["+8 HP"],
+        "Chase": ["+1 Burning Bush|imgburningbush","+1-3 SC|imgsc","No reward"]
+      }
+    },
     "chihuahuanravenmerchant": {
       "intro": "You excitedly trot towards the chihuahuan raven merchant, asking what's in store today. The raven seeks special items and wonders if you have any.",
       "options": {
@@ -270,6 +289,13 @@
         "Give Vulture Talon": ["+2 SC|imgsc//+6% energy//+3 HP"],
         "Give Swine Carcass": ["+1 Horse Skull|imghorseskull"],
         "Browse Wares": ["+(LVL*20) EXP","+1 Raven Traders: Chihuahuan Raven Merchant|imgraventraderschihuahuanravenmerchant"]
+      }
+    },
+    "chirpingbirds": {
+      "intro": "A group of brightly colored birds sits among the leaves of a tree above your head, chatting up a storm. You don't speak bird, but they seem to be gossiping about something.",
+      "options": {
+        "What are you gossiping about?": ["+1 Feverfew|imgfeverfew","No reward"],
+        "Pester": ["+1 Blue Jay Feather|imgbluejayfeather","+2% energy","No reward"]
       }
     },
     "commonravenmerchant": {
@@ -282,6 +308,22 @@
         "Browse Wares": ["+50 EXP","+1 Raven Traders: Common Raven Merchant|imgraventraderscommonravenmerchant"]
       }
     },
+    "cottontail": {
+      "intro": "A small fluffy bunny sits alert in the grass.",
+      "options": {
+        "Stalk": ["+1 Rabbit Carcass//+1 Lucky Foot|imgrabbitcarcass;imgluckyfoot","+1 Rabbit Carcass|imgrabbitcarcass//+1 Recipe: @poolrecipeluckyfoot","+1 Wisdom stat","No reward"],
+        "Chase": ["+1 Rabbit Carcass//+1 Lucky Foot|imgrabbitcarcass;imgluckyfoot","+1 Rabbit Carcass|imgrabbitcarcass//+1 Recipe: @poolrecipeluckyfoot","+1 Speed stat","No reward"]
+      }
+    },
+    "cougarmom": {
+      "intro": "You stopped in mid-step upon noticing a large cougar on your path. And it wasn't alone. A young cub was attempting to keep pace with its mother as fast as it could with its short legs and still a bit wobbly movement. It’s a cute scenery but the cougar doesn't appear particularly thrilled by your presence.",
+      "options": {
+        "What a cute kid!": ["+1 random fresh scar decoration*//-4 HP"]
+      },
+      "notes": [
+        "*@poolscarfresh"
+      ]
+    },
     "crowsnakeskinpurveyor": {
       "intro": "What a fancy crow! It shows off its latest purchases, obviously fascinated by all types of shed snake skins. Maybe you have some for trade?",
       "options": {
@@ -292,6 +334,54 @@
         "Browse Wares": ["+(LVL*20) EXP","+1 Raven Traders: Crow Snake Skin Purveyor|imgraventraderscrowsnakeskinpurveyor"]
       }
     },
+    "deadcow": {
+      "intro": "A familiar scent reaches your nose before you can see its source. You see a large, dead cow. It's still very fresh and looks as if it only died moments ago.",
+      "options": {
+        "Take it": ["+1 Bovine Carcass|imgbovinecarcass"]
+      }
+    },
+    "easternchipmunk": {
+      "intro": "An eastern chipmunk is perched upon the tree trunk, gingerly washing itself. As it notices you it leaps from the trunk and scurries off.",
+      "options": {
+        "Follow": ["+1 Acorn|imgacorn","No reward"],
+        "Sniff Around": ["+1 Spicebush Swallowtail|imgspicebushswallowtail","No reward"]
+      }
+    },
+    "easterncrowhawker": {
+      "intro": "The loud croaking of this eastern crow hawker announces the gathering of raven traders nearby.",
+      "options": {
+        "Tempt with Legendary Green Sturgeon": ["+1 Boar Pelt|imgboarpelt"],
+        "Tempt with Quail Egg": ["+1 Lucky Foot|imgluckyfoot//-2 HP"],
+        "Tempt with Medium Meat Chunk": ["+2 SC|imgsc//+5% energy//+4 HP"],
+        "Spread the Word": ["+5% energy","+1 Raven Traders: Eastern Crow Hawker|imgraventraderseasterncrowhawker"]
+      }
+    },
+    "egg": {
+      "intro": "You stop in your tracks - a very vulgar wolf is passing by, vandalizing the bird nests in the vicinity. Oh no, the eggs!",
+      "options": {
+        "Clean Up": ["+2 Nesting Material|imgnestingmaterial;imgnestingmaterial","+1 random common egg*"],
+        "Intervene": ["+1 Lucky Foot|imgluckyfoot"]
+      },
+      "notes": [
+        "*@poolcommonegg"
+      ]
+    },
+    "eveningbat": {
+      "intro": "A dark shadow dashes in front of your eyes, so silent that it startles you. When you focus your gaze on it, you recognize a bat in the middle of hunting.",
+      "options": {
+        "Chase": ["+1 Bat Carcass|imgbatcarcass","No reward"],
+        "Follow": ["+6 HP","+4 HP","-3 HP","No reward"]
+      }
+    },
+    "faultysteelwolftrap": {
+      "intro": "Suddenly, an intense pain spreads throughout your body, something feels as if it grabbed your leg suddenly, but you can pull it out gently. One of your legs was scraped by something metallic!",
+      "options": {
+        "Check it out": ["+1 random fresh scar decoration*//-4 HP"]
+      },
+      "notes": [
+        "*@poolscarfresh"
+      ]
+    },
     "fishcrowmerchant": {
       "intro": "On a rotten trunk among the tall trees, a fish crow croaks at you, inviting you to check out its wares. Looks like there's a high demand for certain items.",
       "options": {
@@ -300,6 +390,57 @@
         "Give Entwined Antlers": ["+2 Anaconda Eggs|imganacondaeggs"],
         "Give Catfish Skull": ["+1 Venison Liver|imgvenisonliver"],
         "Browse Wares": ["+(LVL*20) EXP","+1 Raven Traders: Fish Crow Merchant|imgraventradersfishcrowmerchant"]
+      }
+    },
+    "floridacrowhawker": {
+      "intro": "At first you are annoyed by the croaking, but once you listen carefully, you manage to make out that the Florida crow hawker is directing animals to the nearest crow merchant.",
+      "options": {
+        "Tempt with Legendary Baby Alligator": ["+1 Wolf Pelt [Black]|imgwolfpeltblack"],
+        "Tempt with Small Bird Meat": ["+1 Lucky Foot|imgluckyfoot//-2 HP"],
+        "Tempt with Jackrabbit Carcass": ["+2 SC|imgsc//+5% energy//+4 HP"],
+        "Spread the Word": ["+5% energy","+1 Raven Traders: Florida Crow Hawker|imgraventradersfloridacrowhawker"]
+      }
+    },
+    "frozendeer": {
+      "intro": "At first glance, this deer looks almost as if it's alive, but when you move closer, you realize that it's completely frozen and already torn into by another predator. What's most surprising is that you notice a tiny fawn by its side. It doesn't look at you and pretends to be invisible.",
+      "options": {
+        "Check it out": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1-4 SC|imgsc","+1 HP"],
+        "Try to take a bite": ["+4 HP","No reward"]
+      }
+    },
+    "gartersnake": {
+      "intro": "This charming little snake slithers around in the grass and over the top of a large rock to peek from higher ground. It seems to be looking for something.",
+      "options": {
+        "What's That?": ["+1 item for active snake quest","No reward*"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "Unless you have an active item quest with the questing snake, this option will always have no reward."
+      ]
+    },
+    "housefinch": {
+      "intro": "A tiny bird sits on a nearby bush, observing you as its head tilts in curiosity.",
+      "options": {
+        "Play": ["+1 Bone|imgbone","+3% energy","No reward"],
+        "Follow": ["+1 Small Doe Carcass|imgsmalldoecarcass","No reward"]
+      }
+    },
+    "lavendergrass": {
+      "intro": "The beautiful sight of lavender grass swaying gently in the wind, the buzzing of bees, and the serenity surrounding you make you want to stay here for a while.",
+      "options": {
+        "Roll": ["+1 random herb from Grasslands*","+1 HP"],
+        "Look Around": ["+5 HP","No reward"]
+      },
+      "notes": [
+        "*@poolherbgrasslands"
+      ]
+    },
+    "leastweasel": {
+      "intro": "You spot this small least weasel standing on a rock. How cute!",
+      "options": {
+        "Play": ["+10% energy"]
       }
     },
     "leucisticravenmerchant": {
@@ -312,6 +453,69 @@
         "Browse Wares": ["+(LVL*20) EXP","+1 Raven Traders: Leucistic Raven Merchant|imgraventradersleucisticravenmerchant"]
       }
     },
+    "longearedowl": {
+      "intro": "What a struggle! This long-eared owl just caught a gray ratsnake!",
+      "options": {
+        "Follow": ["+1 Bone|imgbone","+1 random recipe from bone pool*","-4 HP"],
+        "Bark": ["+1 Turkey Tom Carcass|imgturkeytomcarcass","No reward"]
+      },
+      "notes": [
+        "*@poolrecipebone"
+      ]
+    },
+    "ninebandedarmadillo": {
+      "intro": "A small Nine-Banded Armadillo sits cleaning itself before turning and trotting off.",
+      "options": {
+        "Follow": ["+1 random common egg*"],
+        "Chase": ["+4% hunger","-1 HP"]
+      },
+      "notes": [
+        "*@poolcommonegg"
+      ]
+    },
+    "northerncardinal": {
+      "intro": "A beautiful red cardinal sings its song on a branch above your head. How lovely!",
+      "options": {
+        "Listen": ["+1 Butterfly Wing|imgbutterflywing","+3 HP","No reward"],
+        "Jump at": ["+1 Small Bird Meat|imgsmallbirdmeat","+2 HP","No reward"]
+      }
+    },
+    "northwesterncrowhawker": {
+      "intro": "A small, Northwestern Crow Hawker is announcing arrival of raven traders in the area.",
+      "options": {
+        "Tempt with Legendary Chinook Salmon": ["+1 Bobcat Pelt|imgbobcatpelt"],
+        "Tempt with Dead Fish": ["+1 Lucky Foot|imgluckyfoot//-2 HP"],
+        "Tempt with Small Meat Chunk": ["+2 SC|imgsc//+5% energy//+4 HP"],
+        "Spread the Word": ["+5% energy","+1 Raven Traders: Northwestern Crow Hawker|imgraventradersnorthwesterncrowhawker"]
+      }
+    },
+    "opossum": {
+      "intro": "You spot an opossum on a tree branch above. It watches you closely, wary.",
+      "options": {
+        "Meanly Offer Acorn": ["+1 random recipe from acorn pool*"],
+        "Kindly Offer Acorn": ["+1 random recipe from acorn pool*"]
+      },
+      "notes": [
+        "*@conditional1"
+      ],
+      "conditional": {
+        "Meanly Offer Acorn": ["@poolrecipeacorn"],
+        "Kindly Offer Acorn": ["@poolrecipeacorn"]
+      }
+    },
+    "paintedturtle": {
+      "intro": "Small and brightly colored, a little painted turtle stretches out on a nearby log, looking out over the territory. Is it watching for predators?",
+      "options": {
+        "Inspect the log": ["+1 Catfish Skull|imgcatfishskull","No reward"],
+        "Play with the turtle": ["+4% energy","-2 HP","No reward"]
+      }
+    },
+    "peregrinefalcon": {
+      "intro": "A Peregrine Falcon soars overhead, it's impossibly fast, you almost don't notice it. You watch as something drops from it.",
+      "options": {
+        "Catch": ["+1 Peregrine Falcon Feather|imgperegrinefalconfeather","+5% hunger"]
+      }
+    },
     "piedravenpeddler": {
       "intro": "Whoah! A magnificent pied raven peddler is inviting you to check out the fresh stock in their shop. You're more interested in its feathers at first, but soon enough you learn what the bird is interested in.",
       "options": {
@@ -321,6 +525,63 @@
         "Give Wolf Skull": ["+1 Flamingo Carcass|imgflamingocarcass","+1 Wolf Pelt [Light]|imgwolfpeltlight","+1 Wolf Pelt [Piebald]|imgwolfpeltpiebald","+1 Wolf Pelt [Tawny]|imgwolfpelttawny"],
         "Browse Wares": ["+(LVL*60) EXP","+1 Raven Traders: Pied Raven Peddler|imgraventraderspiedravenpeddler"]
       }
+    },
+    "porcupine": {
+      "intro": "Spiky and with a face only a mother could love, a porcupine perches on a rock and stares you down.",
+      "options": {
+        "Pounce": ["+1 Porcupine Carcass|imgporcupinecarcass","No reward"],
+        "Approach": ["+1 Acorn|imgacorn","No reward"]
+      }
+    },
+    "prancingfawns": {
+      "intro": "Two very young fawns are having fun prancing around. They haven't noticed you, and there is no sign of other deer nearby. Do they know that it's dangerous to be far away from their herd?",
+      "options": {
+        "Join them": ["+4% energy","No reward"],
+        "Hunt": ["+1 Meat Chunks [Small]|imgmeatchunkssmall","No reward"]
+      }
+    },
+    "pumpkinpatch": {
+      "intro": "What a sight! Lots of huge, fresh, and almost perfectly round pumpkins are lying around, ready to be tended to.",
+      "options": {
+        "Eat": ["+1 random herb from Grasslands*","+3 HP//+3% hunger"]
+      },
+      "notes": [
+        "*@poolherbgrasslands"
+      ]
+    },
+    "raccoon": {
+      "intro": "This angry Raccoon seems to be guarding something. Hmmm...",
+      "options": {
+        "Investigate[Spring]": {
+          "steps": ["Eat the kits","Rummage in stores"]
+        },
+        "Investigate[Summer]": ["Acorn|imgacorn","Chicken Egg|imgchickenegg","Duck Egg|imgduckegg","Quail Carcass|imgquailcarcass","Quail Egg|imgquailegg"],
+        "Investigate[Autumn]": ["+3-4 SC|imgsc|(<5000 SC)","No reward (>5000 SC)"],
+        "Investigate[Winter]": ["+1 Acorn|imgacorn","+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random common feather item*"]
+      },
+      "steps": {
+        "Eat the kits": ["+10% hunger"],
+        "Rummage in stores": ["+10% hunger"]
+      },
+      "notes": [
+        "*@conditional1"
+      ],
+      "conditional": {
+        "Investigate [Winter]": "@poolcommonfeather"
+      }
+    },
+    "raven": {
+      "intro": "A raven swoops down over your head and seems to be trying to get your attention.",
+      "options": {
+        "Follow": ["+1 Acorn|imgacorn","+1 Bone|imgbone","+1 random item from raven feather pool*","+1 random critter carcass**","+1 random herb***","+1 random recipe from amusement pool****","+1 random recipe from rare jay pool*****","+4-6 SC|imgsc|(<5000 SC)","+1-2 SC|imgsc|(>5000 SC)","No reward"]
+      },
+      "notes": [
+        "*@poolravenfeather",
+        "**@poolcrittercarcass",
+        "***@poolherbany",
+        "****@poolrecipeamusement",
+        "*****@poolrecipejayrare"
+      ]
     },
     "ravenantlerpurveyor": {
       "intro": "You notice a big raven showing off its antler collection. It's looking for more. Maybe you have something to offer?",
@@ -360,261 +621,22 @@
         "Browse Wares": ["+(LVL*20) EXP","+1 Raven Traders: Raven Shell Dealer|imgraventradersravenshelldealer"]
       }
     },
-    "sinaloacrowmerchant": {
-      "intro": "You haven't seen anything like this before - a sinaloa crow merchant is carrying all the goods in a human-made basket. It all smells like delicious food, and even the fake tiny human smells fun. You have seen those before! Maybe it's looking for more?",
+    "redbelliedwoodpecker": {
+      "intro": "Loud, rhythmic knocking makes you feel like something is drilling into your head. A red-bellied woodpecker is the source of the irritating noise, of course.",
       "options": {
-        "Give Large Rock": ["+2 SC|imgsc//+2% energy//+6 HP"],
-        "Give Boar Tusks": ["+1 Muskox Horns|imgmuskoxhorns"],
-        "Give Odd Teeth": ["+1 SC|imgsc//+8% energy//+2 HP"],
-        "Give Old Doll": ["+1 Blubber|imgblubber","+1 Medicine: Cure-For-All|imgmedicinecureforall"],
-        "Browse Wares": ["+(LVL*20) EXP","+1 Raven Traders: Sinaloa Crow Merchant|imgraventraderssinaloacrowmerchant"]
-      }
-    },
-
-    "easterncrowhawker": {
-      "intro": "The loud croaking of this eastern crow hawker announces the gathering of raven traders nearby.",
-      "options": {
-        "Tempt with Legendary Green Sturgeon": ["+1 Boar Pelt|imgboarpelt"],
-        "Tempt with Quail Egg": ["+1 Lucky Foot|imgluckyfoot//-2 HP"],
-        "Tempt with Medium Meat Chunk": ["+2 SC|imgsc//+5% energy//+4 HP"],
-        "Spread the Word": ["+5% energy","+1 Raven Traders: Eastern Crow Hawker|imgraventraderseasterncrowhawker"]
-      }
-    },
-    "floridacrowhawker": {
-      "intro": "At first you are annoyed by the croaking, but once you listen carefully, you manage to make out that the Florida crow hawker is directing animals to the nearest crow merchant.",
-      "options": {
-        "Tempt with Legendary Baby Alligator": ["+1 Wolf Pelt [Black]|imgwolfpeltblack"],
-        "Tempt with Small Bird Meat": ["+1 Lucky Foot|imgluckyfoot//-2 HP"],
-        "Tempt with Jackrabbit Carcass": ["+2 SC|imgsc//+5% energy//+4 HP"],
-        "Spread the Word": ["+5% energy","+1 Raven Traders: Florida Crow Hawker|imgraventradersfloridacrowhawker"]
-      }
-    },
-    "northwesterncrowhawker": {
-      "intro": "A small, Northwestern Crow Hawker is announcing arrival of raven traders in the area.",
-      "options": {
-        "Tempt with Legendary Chinook Salmon": ["+1 Bobcat Pelt|imgbobcatpelt"],
-        "Tempt with Dead Fish": ["+1 Lucky Foot|imgluckyfoot//-2 HP"],
-        "Tempt with Small Meat Chunk": ["+2 SC|imgsc//+5% energy//+4 HP"],
-        "Spread the Word": ["+5% energy","+1 Raven Traders: Northwestern Crow Hawker|imgraventradersnorthwesterncrowhawker"]
-      }
-    },
-    "southerncrowhawker": {
-      "intro": "You spot a southern crow hawker high in the sky as it announces a gathering of merchants just down by the river.",
-      "options": {
-        "Tempt with Legendary Lake Sturgeon": ["+1 Pronghorn Pelt|imgpronghornpelt"],
-        "Tempt with Small Doe Carcass": ["+2 SC|imgsc//+5% energy//+4 HP"],
-        "Tempt with Hare Carcass": ["+1 Lucky Foot|imgluckyfoot"],
-        "Spread the Word": ["+5% energy","+1 Raven Traders: Southern Crow Hawker|imgraventraderssoutherncrowhawker"]
-      }
-    },
-    "tamaulipascrowhawker": {
-      "intro": "You jump, surprised by the loud croaking of a tamaulipas crow hawker. Looks like new merchants are moving in somewhere near your den.",
-      "options": {
-        "Tempt with Legendary Colorado Pikeminnow": ["+1 Fox Pelt [Swift]|imgfoxpeltswift"],
-        "Tempt with Turkey Carcass": ["+2 SC|imgsc//+5% energy//+4 HP"],
-        "Tempt with Delicate Meat": ["+1 Lucky Foot|imgluckyfoot"],
-        "Spread the Word": ["+5% energy","+1 Raven Traders: Tamaulipas Crow Hawker|imgraventraderstamaulipascrowhawker"]
-      }
-    },
-    "westerncrowhawker": {
-      "intro": "Here ye, here ye! The big raven market is opening nearby! This western crow hawker is busy announcing the location of new traders to all local animals.",
-      "options": {
-        "Tempt with Legendary White Sturgeon": ["+1 Fox Pelt [Swift]|imgfoxpeltswift"],
-        "Tempt with Rat Carcass": ["+1 Lucky Foot|imgluckyfoot//-2 HP"],
-        "Tempt with Large Meat Chunk": ["+2 SC|imgsc//+5% energy//+4 HP"],
-        "Spread the Word": ["+5% energy","+1 Raven Traders: Western Crow Hawker|imgraventraderswesterncrowhawker"]
-      }
-    },
-
-    "americanrobin": {
-      "intro": "In a flurry of feathers, a robin flies in front of your face, startled into flight by your passing!",
-      "options": {
-        "Watch": ["+3% energy","No reward"],
-        "Snatch": ["+5% energy","Gain illness: Diarrhea/No reward*"]
+        "Offer Acorn": ["+2-3 SC|imgsc","+1 random recipe from acorn pool**"],
+        "Tap the Tree": ["+1 item for active snake quest","No reward*"]
       },
       "notes": [
-        "*@details1"
-      ],
-      "details": [
-        "If your lead wolf is currently immune to illness."
-      ]
-    },
-    "barnowl": {
-      "intro": "A barn owl swoops overhead, clutching something in its talons. Maybe something tasty?",
-      "options": {
-        "Leap": ["+5-10% hunger","No reward"]
-      }
-    },
-    "beaver": {
-      "intro": "A beaver appears startled at your sudden appearance, it seems to be in the middle of collecting materials.",
-      "options": {
-        "Chase": ["+1 Beaver Carcass|imgbeavercarcass","No reward"],
-        "Growl": ["+1 Large Branch|imglargebranch","+1 random recipe from cave-building material pool*","+1 random recipe from rare jay pool**","No reward"]
-      },
-      "notes": [
-        "*@poolrecipecavebuildingmaterial",
-        "**@poolreciperarejay"
-      ]
-    },
-    "blacktailedjackrabbit": {
-      "intro": "The sight of the long ears makes you tighten your jaw unconsciously. Your instincts have kicked in and you feel the need to chase the rabbit!",
-      "options": {
-        "Chase it": ["+1 Jackrabbit Carcass|imgjackrabbitcarcass","+1 Lucky Foot|imgluckyfoot","No reward"]
-      }
-    },
-    "blackwidow": {
-      "intro": "A large black widow has just started spinning its web as night approaches. It's hauntingly beautiful and almost hypnotizing to watch.",
-      "options": {
-        "Get a closer look": ["+10 HP","Gain illness: Poison","No reward"],
-        "Keep back": ["+1 Raccoon Carcass|imgraccooncarcass","No reward"]
-      }
-    },
-    "bluejay": {
-      "intro": "A blue jay is aggressively chasing and screaming at another bird - presumably one that got too close to its nest. In the chaos, you notice something fall to the ground in front of you.",
-      "options": {
-        "Offer Acorn": ["+1 Lucky Foot|imgluckyfoot","+1 Recipe: @poolrecipeluckyfoot","+1 random uncommon amusement item**","+1 random recipe from acorn pool**","+1 random recipe from amusement pool***","+1 random recipe from jay pool****"],
-        "Take": ["+1 Blue Jay Feather|imgbluejayfeather","+1 Recipe: @poolrecipecommonjay","+1 random herb*"]
-      },
-      "notes": [
-        "*@poolherbany",
-        "**@conditional1[Offer Acorn]",
-        "***@conditional2[Offer Acorn]",
-        "****@conditional3[Offer Acorn]",
-        "*****@conditional4[Offer Acorn]"
-      ],
-      "conditional": {
-        "Offer Acorn": [
-          "@pooluncommonamusement",
-          "@poolrecipeacorn",
-          "@poolrecipeamusement",
-          "@poolrecipecommonjay, @poolreciperarejay"
-        ]
-      }
-
-    },
-    "cottontail": {
-      "intro": "A small fluffy bunny sits alert in the grass.",
-      "options": {
-        "Stalk": ["+1 Rabbit Carcass//+1 Lucky Foot|imgrabbitcarcass;imgluckyfoot","+1 Rabbit Carcass|imgrabbitcarcass//+1 Recipe: @poolrecipeluckyfoot","+1 Wisdom stat","No reward"],
-        "Chase": ["+1 Rabbit Carcass//+1 Lucky Foot|imgrabbitcarcass;imgluckyfoot","+1 Rabbit Carcass|imgrabbitcarcass//+1 Recipe: @poolrecipeluckyfoot","+1 Speed stat","No reward"]
-      }
-    },
-    "easternchipmunk": {
-      "intro": "An eastern chipmunk is perched upon the tree trunk, gingerly washing itself. As it notices you it leaps from the trunk and scurries off.",
-      "options": {
-        "Follow": ["+1 Acorn|imgacorn","No reward"],
-        "Sniff Around": ["+1 Spicebush Swallowtail|imgspicebushswallowtail","No reward"]
-      }
-    },
-    "eveningbat": {
-      "intro": "A dark shadow dashes in front of your eyes, so silent that it startles you. When you focus your gaze on it, you recognize a bat in the middle of hunting.",
-      "options": {
-        "Chase": ["+1 Bat Carcass|imgbatcarcass","No reward"],
-        "Follow": ["+6 HP","+4 HP","-3 HP","No reward"]
-      }
-    },
-    "gartersnake": {
-      "intro": "This charming little snake slithers around in the grass and over the top of a large rock to peek from higher ground. It seems to be looking for something.",
-      "options": {
-        "What's That?": ["+1 item for active snake quest","No reward*"]
-      },
-      "notes": [
-        "*@details1"
+        "*@details1",
+        "**@conditional1"
       ],
       "details": [
         "Unless you have an active item quest with the questing snake, this option will always have no reward."
-      ]
-    },
-    "leastweasel": {
-      "intro": "You spot this small least weasel standing on a rock. How cute!",
-      "options": {
-        "Play": ["+10% energy"]
-      }
-    },
-    "ninebandedarmadillo": {
-      "intro": "A small Nine-Banded Armadillo sits cleaning itself before turning and trotting off.",
-      "options": {
-        "Follow": ["+1 random common egg*"],
-        "Chase": ["+4% hunger","-1 HP"]
-      },
-      "notes": [
-        "*@poolcommonegg"
-      ]
-    },
-    "northerncardinal": {
-      "intro": "A beautiful red cardinal sings its song on a branch above your head. How lovely!",
-      "options": {
-        "Listen": ["+1 Butterfly Wing|imgbutterflywing","+3 HP","No reward"],
-        "Jump at": ["+1 Small Bird Meat|imgsmallbirdmeat","+2 HP","No reward"]
-      }
-    },
-    "opossum": {
-      "intro": "You spot an opossum on a tree branch above. It watches you closely, wary.",
-      "options": {
-        "Meanly Offer Acorn": ["+1 random recipe from acorn pool*"],
-        "Kindly Offer Acorn": ["+1 random recipe from acorn pool*"]
-      },
-      "notes": [
-        "*@conditional1"
       ],
       "conditional": {
-        "Meanly Offer Acorn": ["@poolrecipeacorn"],
-        "Kindly Offer Acorn": ["@poolrecipeacorn"]
+        "Offer Acorn": "@poolrecipeacorn"
       }
-    },
-    "paintedturtle": {
-      "intro": "Small and brightly colored, a little painted turtle stretches out on a nearby log, looking out over the territory. Is it watching for predators?",
-      "options": {
-        "Inspect the log": ["+1 Catfish Skull|imgcatfishskull","No reward"],
-        "Play with the turtle": ["+4% energy","-2 HP","No reward"]
-      }
-    },
-    "peregrinefalcon": {
-      "intro": "A Peregrine Falcon soars overhead, it's impossibly fast, you almost don't notice it. You watch as something drops from it.",
-      "options": {
-        "Catch": ["+1 Peregrine Falcon Feather|imgperegrinefalconfeather","+5% hunger"]
-      }
-    },
-    "porcupine": {
-      "intro": "Spiky and with a face only a mother could love, a porcupine perches on a rock and stares you down.",
-      "options": {
-        "Pounce": ["+1 Porcupine Carcass|imgporcupinecarcass","No reward"],
-        "Approach": ["+1 Acorn|imgacorn","No reward"]
-      }
-    },
-    "raccoon": {
-      "intro": "This angry Raccoon seems to be guarding something. Hmmm...",
-      "options": {
-        "Investigate [Spring]": {
-          "steps": ["Eat the kits","Rummage in stores"]
-        },
-        "Investigate [Summer]": ["Acorn|imgacorn","Chicken Egg|imgchickenegg","Duck Egg|imgduckegg","Quail Carcass|imgquailcarcass","Quail Egg|imgquailegg"],
-        "Investigate [Autumn]": ["+3-4 SC|imgsc|(<5000 SC)","No reward (>5000 SC)"],
-        "Investigate [Winter]": ["+1 Acorn|imgacorn","+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random common feather item*"]
-      },
-      "steps": {
-        "Eat the kits": ["+10% hunger"],
-        "Rummage in stores": ["+10% hunger"]
-      },
-      "notes": [
-        "*@conditional1"
-      ],
-      "conditional": {
-        "Investigate [Winter]": "@poolcommonfeather"
-      }
-    },
-    "raven": {
-      "intro": "A raven swoops down over your head and seems to be trying to get your attention.",
-      "options": {
-        "Follow": ["+1 Acorn|imgacorn","+1 Bone|imgbone","+1 random item from raven feather pool*","+1 random critter carcass**","+1 random herb***","+1 random recipe from amusement pool****","+1 random recipe from rare jay pool*****","+4-6 SC|imgsc|(<5000 SC)","+1-2 SC|imgsc|(>5000 SC)","No reward"]
-      },
-      "notes": [
-        "*@poolravenfeather",
-        "**@poolcrittercarcass",
-        "***@poolherbany",
-        "****@poolrecipeamusement",
-        "*****@poolreciperarejay"
-      ]
     },
     "redsquirrel": {
       "intro": "A red squirrel is perched on a branch, clasping what looks like a pinecone in its paws. It would be a shame if it dropped it...",
@@ -647,6 +669,32 @@
         "Chase": ["+1 Lucky Foot|imgluckyfoot","+1-3 SC|imgsc","No reward"]
       }
     },
+    "sinaloacrowmerchant": {
+      "intro": "You haven't seen anything like this before - a sinaloa crow merchant is carrying all the goods in a human-made basket. It all smells like delicious food, and even the fake tiny human smells fun. You have seen those before! Maybe it's looking for more?",
+      "options": {
+        "Give Large Rock": ["+2 SC|imgsc//+2% energy//+6 HP"],
+        "Give Boar Tusks": ["+1 Muskox Horns|imgmuskoxhorns"],
+        "Give Odd Teeth": ["+1 SC|imgsc//+8% energy//+2 HP"],
+        "Give Old Doll": ["+1 Blubber|imgblubber","+1 Medicine: Cure-For-All|imgmedicinecureforall"],
+        "Browse Wares": ["+(LVL*20) EXP","+1 Raven Traders: Sinaloa Crow Merchant|imgraventraderssinaloacrowmerchant"]
+      }
+    },
+    "snowman": {
+      "intro": "Big balls of snow are stacked on top of each other and seem to be dressed in human things. What a strange thing to do!",
+      "options": {
+        "Dig Around": ["+1-5 SC|imgsc","+3 HP","No reward"],
+        "Investigate": ["+1 Carrot|imgcarrot","+2 HP","No reward"]
+      }
+    },
+    "southerncrowhawker": {
+      "intro": "You spot a southern crow hawker high in the sky as it announces a gathering of merchants just down by the river.",
+      "options": {
+        "Tempt with Legendary Lake Sturgeon": ["+1 Pronghorn Pelt|imgpronghornpelt"],
+        "Tempt with Small Doe Carcass": ["+2 SC|imgsc//+5% energy//+4 HP"],
+        "Tempt with Hare Carcass": ["+1 Lucky Foot|imgluckyfoot"],
+        "Spread the Word": ["+5% energy","+1 Raven Traders: Southern Crow Hawker|imgraventraderssoutherncrowhawker"]
+      }
+    },
     "southernflyingsquirrel": {
       "intro": "You notice a small critter flying through the air.. what on earth? You take a closer look - seems to be a Southern Flying Squirrel!",
       "options": {
@@ -666,120 +714,58 @@
         "Hold Your Breath": ["+2-4 SC|imgsc","No reward"]
       }
     },
+    "swarmingrats": {
+      "intro": "Individually, a single rat may make for a satisfying snack, but a bunch of them can turn into a feast no worse than much larger prey. The way they try to escape triggers your hunter instincts even more.",
+      "options": {
+        "Catch some!": ["+1 random fresh scar decoration*//-4 HP"]
+      },
+      "notes": [
+        "*@poolscarfresh"
+      ]
+    },
+    "tala": {
+      "intro": "Oh no! It's Tala! She seems to be taunting you for a little payback after the last fight. Are you brave enough to wrestle her?",
+      "options": {
+        "Attack!": ["Automatic battle with enemy Wandering Tala"]
+      }
+    },
+    "tamaulipascrowhawker": {
+      "intro": "You jump, surprised by the loud croaking of a tamaulipas crow hawker. Looks like new merchants are moving in somewhere near your den.",
+      "options": {
+        "Tempt with Legendary Colorado Pikeminnow": ["+1 Fox Pelt [Swift]|imgfoxpeltswift"],
+        "Tempt with Turkey Carcass": ["+2 SC|imgsc//+5% energy//+4 HP"],
+        "Tempt with Delicate Meat": ["+1 Lucky Foot|imgluckyfoot"],
+        "Spread the Word": ["+5% energy","+1 Raven Traders: Tamaulipas Crow Hawker|imgraventraderstamaulipascrowhawker"]
+      }
+    },
+    "westerncrowhawker": {
+      "intro": "Here ye, here ye! The big raven market is opening nearby! This western crow hawker is busy announcing the location of new traders to all local animals.",
+      "options": {
+        "Tempt with Legendary White Sturgeon": ["+1 Fox Pelt [Swift]|imgfoxpeltswift"],
+        "Tempt with Rat Carcass": ["+1 Lucky Foot|imgluckyfoot//-2 HP"],
+        "Tempt with Large Meat Chunk": ["+2 SC|imgsc//+5% energy//+4 HP"],
+        "Spread the Word": ["+5% energy","+1 Raven Traders: Western Crow Hawker|imgraventraderswesterncrowhawker"]
+      }
+    },
     "wildturkey": {
       "intro": "This tom turkey is strutting and making drumming noises. Perhaps there are some females nearby he is trying to impress.",
       "options": {
         "Stalk": ["+1 Turkey Tom Carcass|imgturkeytomcarcass","-2 HP","No reward"]
       }
     },
-
-    "campinghumans2": {
-      "intro": "The forest is always full of various scents but only one type of creature feels foreign every time you feel its presence. When you follow the unusual scent, you discover a group of humans talking in front of an artificial structure that appears to be their place to sleep. How long do they plan to stay here?",
+    "wolf": {
+      "intro": "A figure appears up ahead of you, you raise your nose to the air and sniff.. another wolf!",
       "options": {
-        "Hide and sniff around": ["+3 HP","No reward"],
-        "Approach": ["+1 Delicate Meat|imgdelicatemeat","No reward"]
-      }
-    },
-    "carolinaanole": {
-      "intro": "You spot a green Carolina anole resting on a tree branch. Its throat is enlarged, and its vivid colouring may mean it's not so good to eat.",
-      "options": {
-        "Snack": ["+1 Large Branch|imglargebranch"]
-      }
-    },
-    "carolinachickadee": {
-      "intro": "The sound of two tiny birds catches your attention. When you look up, you see them right above your head, focused on their flight and unaware of your presence.",
-      "options": {
-        "Offer Acorn": ["+8 HP"],
-        "Chase": ["+1 Burning Bush|imgburningbush","+1-3 SC|imgsc","No reward"]
-      }
-    },
-    "chirpingbirds": {
-      "intro": "A group of brightly colored birds sits among the leaves of a tree above your head, chatting up a storm. You don't speak bird, but they seem to be gossiping about something.",
-      "options": {
-        "What are you gossiping about?": ["+1 Feverfew|imgfeverfew","No reward"],
-        "Pester": ["+1 Blue Jay Feather|imgbluejayfeather","+2% energy","No reward"]
-      }
-    },
-    "frozendeer": {
-      "intro": "At first glance, this deer looks almost as if it's alive, but when you move closer, you realize that it's completely frozen and already torn into by another predator. What's most surprising is that you notice a tiny fawn by its side. It doesn't look at you and pretends to be invisible.",
-      "options": {
-        "Check it out": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1-4 SC|imgsc","+1 HP"],
-        "Try to take a bite": ["+4 HP","No reward"]
-      }
-    },
-    "longearedowl": {
-      "intro": "What a struggle! This long-eared owl just caught a gray ratsnake!",
-      "options": {
-        "Follow": ["+1 Bone|imgbone","+1 random recipe from bone pool*","-4 HP"],
-        "Bark": ["+1 Turkey Tom Carcass|imgturkeytomcarcass","No reward"]
+        "Attack": ["Automatic battle with local enemy @location1"],
+        "Befriend": ["Initiates claiming a New Befriended Wolf"]
       },
-      "notes": [
-        "*@poolrecipebone"
-      ]
-    },
-    "prancingfawns": {
-      "intro": "Two very young fawns are having fun prancing around. They haven't noticed you, and there is no sign of other deer nearby. Do they know that it's dangerous to be far away from their herd?",
-      "options": {
-        "Join them": ["+4% energy","No reward"],
-        "Hunt": ["+1 Meat Chunks [Small]|imgmeatchunkssmall","No reward"]
-      }
-    },
-    "redbelliedwoodpecker": {
-      "intro": "Loud, rhythmic knocking makes you feel like something is drilling into your head. A red-bellied woodpecker is the source of the irritating noise, of course.",
-      "options": {
-        "Offer Acorn": ["+2-3 SC|imgsc","+1 random recipe from acorn pool**"],
-        "Tap the Tree": ["+1 item for active snake quest","No reward*"]
-      },
-      "notes": [
-        "*@details1",
-        "**@conditional1"
-      ],
-      "details": [
-        "Unless you have an active item quest with the questing snake, this option will always have no reward."
-      ],
-      "conditional": {
-        "Offer Acorn": "@poolrecipeacorn"
-      }
-    },
-
-    "campinghumans": {
-      "intro": "There's humans here! They've set up a funny cave and talk loudly in a circle. A delicious smell drifts from their funny box...hmm!",
-      "options": {
-        "Sneak": ["+1-6 SC|imgsc","+5 SC|imgsc","+4 HP","+2 HP","No reward"],
-        "Grab the Box!": ["+1 Meat Chunks [Medium]|imgmeatchunksmedium","+5 HP","No reward"]
-      }
-    },
-    "housefinch": {
-      "intro": "A tiny bird sits on a nearby bush, observing you as its head tilts in curiosity.",
-      "options": {
-        "Play": ["+1 Bone|imgbone","+3% energy","No reward"],
-        "Follow": ["+1 Small Doe Carcass|imgsmalldoecarcass","No reward"]
-      }
-    },
-    "lavendergrass": {
-      "intro": "The beautiful sight of lavender grass swaying gently in the wind, the buzzing of bees, and the serenity surrounding you make you want to stay here for a while.",
-      "options": {
-        "Roll": ["+1 random herb from Grasslands*","+1 HP"],
-        "Look Around": ["+5 HP","No reward"]
-      },
-      "notes": [
-        "*@poolherbgrasslands"
-      ]
-    },
-    "pumpkinpatch": {
-      "intro": "What a sight! Lots of huge, fresh, and almost perfectly round pumpkins are lying around, ready to be tended to.",
-      "options": {
-        "Eat": ["+1 random herb from Grasslands*","+3 HP//+3% hunger"]
-      },
-      "notes": [
-        "*@poolherbgrasslands"
-      ]
-    },
-    "snowman": {
-      "intro": "Big balls of snow are stacked on top of each other and seem to be dressed in human things. What a strange thing to do!",
-      "options": {
-        "Dig Around": ["+1-5 SC|imgsc","+3 HP","No reward"],
-        "Investigate": ["+1 Carrot|imgcarrot","+2 HP","No reward"]
+      "location": {
+        "/biome/1|/biome/4|/biome/6": ["Eastern Wolf"],
+        "/biome/2|/biome/3|/biome/9|/biome/10": ["Timber Wolf"],
+        "/biome/5": ["Mexican Wolf"],
+        "/biome/7|/biome/8": ["Red Wolf"],
+        "/biome/11": ["Alaskan Tundra Wolf"],
+        "/biome/12": ["Arctic Wolf"]
       }
     },
 
@@ -902,6 +888,15 @@
         "Help Out": ["+2 LT|imglt","+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt//+1 Cnitharian Tuggy Tendril|imgcnithariantuggytendril"]
       }
     },
+    "crestedlunarjay": {
+      "intro": "With a quiet flutter, a Crested Lunar Jay perches on an oddly shaped rock. It seems to be catching glowing spores to feed.",
+      "options": {
+        "Herd the Spores!": ["+1 LT|imglt//+1 Essence-Covered Feather|imgessencecoveredfeather","+1 LT//+1 random cave-building material*"]
+      },
+      "notes": [
+        "*@poolcavebuildingmaterial"
+      ]
+    },
     "dancingcnitharianwolves": {
       "intro": "You stumble upon a very personal moment. Two Cnitharian Wolves are dancing together in the moonlight. It seems playful, but full of harmony and serenity at the same time.",
       "options": {
@@ -973,6 +968,13 @@
         "Check it Out": ["+1 LT|imglt//+1 Growth Chunk//+1 Growth Root|imggrowthchunk;imggrowthroot","+1 LT|imglt//+1 Small Bird Meat//+2 Quail Egg|imgsmallbirdmeat;imgquailegg;imgquailegg"]
       }
     },
+    "glowingbumblebee": {
+      "intro": "A very polite Bumblebee is approaching a glowing flower. It's having trouble aiming at the flower with its huge, fluffy body. Fascinated, you watch the whole scene unfold.",
+      "options": {
+        "Roll In The Flowers": ["+1 LT|imglt//+1 Whitetail Carcass|imgwhitetailcarcass","+1 LT|imglt"],
+        "Nudge It": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve"]
+      }
+    },
     "glowingmoths": {
       "intro": "In the distance, lights dance and swirl across the hills. As the source of light moves closer, you see they are in fact glowing moths, spreading lunar dust across the lands.",
       "options": {
@@ -1024,7 +1026,7 @@
     "lichenrocks": {
       "intro": "You stop to sniff around this fascinating spot. There are so many scents! This area is especially interesting. Which do you decide to check out?",
       "options": {
-        "Big Crack": ["+1 LT|imglt//+2-5 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)","+1 LT|imglt"],
+        "Big Crack": ["+1 LT|imglt//+2-5 SC|imgsc|(<5000 SC)","+1 LT|imglt"],
         "Mossy Growth": ["+1 LT|imglt//+1 Muskrat Carcass|imgmuskratcarcass","+1 LT|imglt"],
         "Soft Ground": ["+1 LT|imglt//+1 Mollusk Shell|imgmolluskshell","+1 LT|imglt"]
       }
@@ -1041,6 +1043,30 @@
       "options": {
         "Pounce": ["+1 LT|imglt//+10 HP//+10% hunger","+1 LT|imglt//+5% energy","+1 LT|imglt//-5 HP"],
         "Play": ["+1 LT|imglt//+2 Owl Feather|imgowlfeather;imgowlfeather","+1 LT|imglt//+1 Glowing Spores|imgglowingspores","+1 LT|imglt//-2 HP"]
+      }
+    },
+    "lunarchipmunks": {
+      "intro": "You spot movement on the lower branches of a tree. Approaching carefully, you observe Lunar Chipmunks gathering nuts. The way they jump makes you think of how gravity works on the moon. Their leaps are so tall and dream-like!",
+      "options": {
+        "Beg For Nuts": ["+1 LT|imglt//+4 HP","+1 LT|imglt"],
+        "Search For Scraps": ["+1 LT|imglt//+1 Lucky Foot|imgluckyfoot","+1 LT|imglt"]
+      }
+    },
+    "lunarcrossbill": {
+      "intro": "Ah! A Lunar Crossbill just flew by, carrying a large cone in its beak! You trace the essence trail from its wings and focus on the spot where it landed.",
+      "options": {
+        "Wait and sniff around": ["+1 LT//+1 random biome-specific herb*","+1 LT|imglt//+10 HP"],
+        "Pounce!": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT//+1 random cave-building material**"]
+      },
+      "notes": [
+        "*@location1",
+        "**@poolcavebuildingmaterial"
+      ],
+      "location": {
+        "/biome/1": ["@poolherbgrasslands"],
+        "/biome/2": ["@poolherbdeciduousforest"],
+        "/biome/3": ["@poolherbmountains"],
+        "/biome/4": ["@poolherbriparianwoodland"]
       }
     },
     "lunarcrow": {
@@ -1070,6 +1096,20 @@
         "Offer Acorn": "@poolrecipelunaracorn"
       }
     },
+    "lunarmagpie": {
+      "intro": "A quiet caw causes you to look up. A Lunar Magpie, covered in glowing essence dust, is trying to get your attention. The branch's leaves rustle gently in the wind, reflecting light in a flickering manner.",
+      "options": {
+        "Bark": ["+1 LT|imglt//+1 Magpie Feather|imgmagpiefeather","+1 LT|imglt"],
+        "Howl": ["+1 LT|imglt//+4 SC|imgsc|(<5000 SC)","+1 LT|imglt"]
+      }
+    },
+    "lunarpheasant": {
+      "intro": "This Lunar Pheasant seems unfazed by everything that approaches it, including a wolf. It must have a thick skull to survive with such a thick brain.",
+      "options": {
+        "Not Today!": ["+1 LT|imglt//+1 Pheasant Rooster Carcass|imgpheasantroostercarcass","+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"],
+        "Let It Be": ["+1 LT|imglt//+1 Owl Talon|imgowltalon","+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","1 LT|imglt|(>5000 SC)"]
+      }
+    },
     "lunarrobin": {
       "intro": "You're startled by a loud fluttering noise. A Lunar Robin has flown up close to check you out!",
       "options": {
@@ -1096,6 +1136,24 @@
         "Avert Your Gaze": ["+2 LT|imglt//+5 Acorn|imgacorn;imgacorn;imgacorn;imgacorn;imgacorn","No reward"],
         "Keep Staring": ["+1 LT|imglt"],
         "Offer Shelter": ["+1 LT|imglt"]
+      }
+    },
+    "perchedchickadee": {
+      "intro": "A tiny chickadee is watching you from its tiny branch on a spot that's hard to reach.",
+      "options": {
+        "Tackle the trunk!": ["+1 LT|imglt//+10% hunger","+1 LT|imglt//+2-5 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"],
+        "Jump and grab a branch!": ["+1 LT|imglt//+1 random biome-specific herb*","+1 LT|imglt//+15% hunger"]
+      },
+      "notes": [
+        "*@location1"
+      ],
+      "location": {
+        "/biome/1": ["@poolherbgrasslands"],
+        "/biome/2": ["@poolherbdeciduousforest"],
+        "/biome/3": ["@poolherbmountains"],
+        "/biome/4": ["@poolherbriparianwoodland"],
+        "/biome/6": ["@poolherbprairie"],
+        "/biome/9": ["@poolherbconiferousforest"]
       }
     },
     "pherrisrat": {
@@ -1131,6 +1189,26 @@
       "options": {
         "Use Cough Cure": ["+1 LT|imglt//+1 Medicine: Rich Healing Salve|imgmedicinerichhealingsalve"],
         "Hold Your Breath": ["+1 LT|imglt"]
+      }
+    },
+    "stripedlunarchipmunk": {
+      "intro": "An incredibly fluffy striped chipmunk is checking you out, curious about your exotic looks. It seems interested and wonders if you're hiding anything as special as you!",
+      "options": {
+        "Offer Acorn": ["+1 LT|imglt//+1 random recipe from common lunar pool**"],
+        "Play": ["+1 LT|imglt//+1 random cave-building material*","+1 LT|imglt//+1 Turtle Eggs|imgturtleeggs"]
+      },
+      "notes": [
+        "*@poolcavebuildingmaterial",
+        "**@conditional1"
+      ],
+      "conditional": {
+        "Offer Acorn": ["@poolrecipelunarcommon"]
+      }
+    },
+    "stripedlunarjay": {
+      "intro": "What an unusual pattern for a bird! This Striped Lunar Jay doesn't seem to be aware of your presence yet.",
+      "options": {
+        "Poke It!": ["+1 LT|imglt//+1 Bone|imgbone","+1 LT|imglt//+1 Essence-Covered Feather|imgessencecoveredfeather","+1 LT|imglt//+10 HP"]
       }
     },
     "toytinkerer": {
