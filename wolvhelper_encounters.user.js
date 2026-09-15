@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.5.6
+// @version     1.5.7
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -422,16 +422,10 @@
 
 			while ((match = noRewardRegex.exec(resultText)) !== null) {
 
-				// Add everything before "No reward"
 				if (match.index > lastIndex) {
-					container.appendChild(
-						document.createTextNode(
-							resultText.slice(lastIndex, match.index)
-						)
-					);
+					container.appendChild(document.createTextNode(resultText.slice(lastIndex, match.index)));
 				}
 
-				// Italicize "No reward" + any immediately following asterisks
 				const noReward = document.createElement('i');
 				noReward.textContent = match[0];
 				container.appendChild(noReward);
@@ -439,11 +433,8 @@
 				lastIndex = noRewardRegex.lastIndex;
 			}
 
-			// Add anything after the final "No reward"
 			if (lastIndex < resultText.length) {
-				container.appendChild(
-					document.createTextNode(resultText.slice(lastIndex))
-				);
+				container.appendChild(document.createTextNode(resultText.slice(lastIndex)));
 			}
 
 			// Full Explore Helper version only
@@ -462,9 +453,7 @@
 			}
 
 			if (reward.afterText) {
-				container.appendChild(
-					document.createTextNode(' ' + reward.afterText)
-				);
+				container.appendChild(document.createTextNode(' ' + reward.afterText));
 			}
 		});
 
@@ -537,6 +526,7 @@
 
 	function createResultLine(buttonText, outcomes) {
 		const line = document.createElement('div');
+		// Full Explore Helper version only
 		line.style.lineHeight = LINE_HEIGHT;
 		line.style.textAlign = 'left';
 
@@ -697,52 +687,83 @@
 
     let noteText = String(note).trim();
 
-		const conditionalMatch = noteText.match(/^(\*+)@conditional(\d+)$/i);
+		const conditionalMatch = noteText.match(/^(\*+)@conditional(\d+)(?:\[([^\]]+)\])?$/i);
 
 		if (conditionalMatch) {
 			const conditionalPrefix = conditionalMatch[1] || '';
 			const conditionalIndex = Number(conditionalMatch[2]) - 1;
+			const specifiedOption = conditionalMatch[3]?.trim() || null;
 
 			const conditionalEntries = conditional ? Object.entries(conditional) : [];
 
-			if (conditionalEntries[conditionalIndex]) {
-				const [buttonName, conditionalNote] = conditionalEntries[conditionalIndex];
+			let matchingConditional = null;
 
-				const buttonExists = [...buttons].some(button => {
-					return matchOptionName(button.textContent, buttonName);
-				});
-
-				if (buttonExists && conditionalNote) {
-					let conditionalText = String(conditionalNote).trim();
-
-					const conditionalDetailsMatch = conditionalText.match(/^(\**)@details(\d+)$/i);
-
-					if (conditionalDetailsMatch) {
-						const detailPrefix = conditionalDetailsMatch[1] || '';
-						const detailIndex = Number(conditionalDetailsMatch[2]) - 1;
-
-						if (details?.[detailIndex] !== undefined) {
-							const detailLine = document.createElement('div');
-
-							const detailText = conditionalPrefix + detailPrefix + resolveReferences(String(details[detailIndex]), location);
-
-							appendFormattedText(detailLine, detailText);
-
-							container.appendChild(detailLine);
+			if (specifiedOption) {
+				matchingConditional = conditionalEntries.find(
+					([buttonName]) => {
+						if (!matchOptionName(buttonName, specifiedOption)) {
+							return false;
 						}
 
-						continue;
+						return [...buttons].some(button =>
+							matchOptionName(button.textContent, specifiedOption)
+						);
 					}
-
-					conditionalText = conditionalPrefix + resolveReferences(conditionalText, location);
-
-					container.appendChild(createNoteLine(conditionalText)
-					);
-				}
+				);
 			}
 
+			if (!specifiedOption) {
+				matchingConditional = conditionalEntries.find(
+					([buttonName]) => {
+						return [...buttons].some(button =>
+							matchOptionName(button.textContent, buttonName)
+						);
+					}
+				);
+			}
+
+			if (!matchingConditional) {
+				continue;
+			}
+
+			const [buttonName, conditionalValue] = matchingConditional;
+
+			const conditionalNotes = Array.isArray(conditionalValue) ? conditionalValue : [conditionalValue];
+
+			const conditionalNote = conditionalNotes[conditionalIndex];
+
+			if (conditionalNote === undefined) {
+				continue;
+			}
+
+			let conditionalText = String(conditionalNote).trim();
+
+			const conditionalDetailsMatch = conditionalText.match(/^(\*+)@details(\d+)$/i);
+
+			if (conditionalDetailsMatch) {
+				const detailPrefix = conditionalDetailsMatch[1] || '';
+				const detailIndex = Number(conditionalDetailsMatch[2]) - 1;
+
+				if (details?.[detailIndex] !== undefined) {
+					const detailLine = document.createElement('div');
+					detailLine.style.whiteSpace = 'normal';
+
+					const detailText = conditionalPrefix + detailPrefix + resolveReferences(String(details[detailIndex]), location);
+
+					appendFormattedText(detailLine, detailText);
+
+					container.appendChild(detailLine);
+				}
+
+				continue;
+			}
+
+			conditionalText = conditionalPrefix + resolveReferences(conditionalText, location);
+
+			container.appendChild(createNoteLine(conditionalText));
+
 			continue;
-    }
+		}
 
     const detailsMatch = noteText.match(/^(\*+)@details(\d+)$/i);
 
@@ -766,8 +787,7 @@
 
     noteText = resolveReferences(noteText, location);
 
-		container.appendChild(createNoteLine(noteText)
-		);
+		container.appendChild(createNoteLine(noteText));
 
 		}
 
