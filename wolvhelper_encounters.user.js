@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.5.5
+// @version     1.5.6
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -172,11 +172,15 @@
 
 		const currentPath = window.location.pathname.replace(/\/+$/, '');
 
-		for (const [locationPath, value] of Object.entries(location)) {
-			const normalizedLocationPath = String(locationPath).replace(/\/+$/, '');
+		for (const [locationPaths, value] of Object.entries(location)) {
+			const paths = locationPaths
+				.split('|')
+				.map(path => path.trim().replace(/\/+$/, ''));
 
-			if (currentPath === normalizedLocationPath || currentPath.startsWith(normalizedLocationPath + '/')) {
-				return Array.isArray(value) ? value : value ? [value] : [];
+			for (const normalizedLocationPath of paths) {
+				if (currentPath === normalizedLocationPath || currentPath.startsWith(normalizedLocationPath + '/')) {
+					return Array.isArray(value) ? value : value ? [value] : [];
+				}
 			}
 		}
 
@@ -711,7 +715,7 @@
 				if (buttonExists && conditionalNote) {
 					let conditionalText = String(conditionalNote).trim();
 
-					const conditionalDetailsMatch = conditionalText.match(/^(\*+)@details(\d+)$/i);
+					const conditionalDetailsMatch = conditionalText.match(/^(\**)@details(\d+)$/i);
 
 					if (conditionalDetailsMatch) {
 						const detailPrefix = conditionalDetailsMatch[1] || '';
@@ -720,10 +724,7 @@
 						if (details?.[detailIndex] !== undefined) {
 							const detailLine = document.createElement('div');
 
-							const detailText = detailPrefix + resolveReferences(
-								String(details[detailIndex]),
-								location
-							);
+							const detailText = conditionalPrefix + detailPrefix + resolveReferences(String(details[detailIndex]), location);
 
 							appendFormattedText(detailLine, detailText);
 
