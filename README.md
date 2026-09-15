@@ -11,7 +11,7 @@
 <b>Currently Supports:</b>
 <ul>
   <li>Echoes of the Ancient event encounters</li>
-  <li>Universal Lunar Dreams event encounters</li>
+  <li>Lunar Dreams universal event encounters</li>
   <li>Deciduous Forest Lunar Dreams explore encounters</li>
   <li>Grasslands Lunar Dreams explore encounters</li>
   <li>Universal regular explore encounters</li>
