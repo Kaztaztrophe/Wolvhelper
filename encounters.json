@@ -6,9 +6,9 @@
       "intro": "You briefly stop to smell the air, two diverging scents reaching your nose. Interesting.",
       "options": {
         "Follow the bitter scent": ["+1 Bone|imgbone","+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock"],
+        "Follow the delicious scent": ["+5-10% hunger"],
         "Follow the rancid scent": ["+1 Meat Chunks [Large]|imgmeatchunkslarge","+1 Meat Chunks [Medium]|imgmeatchunksmedium","+1 Meat Chunks [Small]|imgmeatchunkssmall"],
         "Follow the stinky scent": ["+1-2 SC|imgsc","No reward (>5000 SC)"],
-        "Follow the delicious scent": ["+5-10% hunger"],
         "Follow the sweet scent": ["Initiates claiming a New Befriended Wolf","No reward*"]
       },
       "notes": [
@@ -48,16 +48,10 @@
         "*@poolsingleusefood"
       ],
       "location": {
-        "/biome/1": ["Eastern Wolf"],
-        "/biome/2": ["Timber Wolf"],
-        "/biome/3": ["Timber Wolf"],
-        "/biome/4": ["Eastern Wolf"],
+        "/biome/1|/biome/4|/biome/6": ["Eastern Wolf"],
+        "/biome/2|/biome/3|/biome/9|/biome/10": ["Timber Wolf"],
         "/biome/5": ["Mexican Wolf"],
-        "/biome/6": ["Eastern Wolf"],
-        "/biome/7": ["Red Wolf"],
-        "/biome/8": ["Red Wolf"],
-        "/biome/9": ["Timber Wolf"],
-        "/biome/10": ["Timber Wolf"],
+        "/biome/7|/biome/8": ["Red Wolf"],
         "/biome/11": ["Alaskan Tundra Wolf"],
         "/biome/12": ["Arctic Wolf"]
       }
@@ -166,16 +160,10 @@
         "Befriend": ["Initiates claiming a New Befriended Wolf"]
       },
       "location": {
-        "/biome/1": ["Eastern Wolf"],
-        "/biome/2": ["Timber Wolf"],
-        "/biome/3": ["Timber Wolf"],
-        "/biome/4": ["Eastern Wolf"],
+        "/biome/1|/biome/4|/biome/6": ["Eastern Wolf"],
+        "/biome/2|/biome/3|/biome/9|/biome/10": ["Timber Wolf"],
         "/biome/5": ["Mexican Wolf"],
-        "/biome/6": ["Eastern Wolf"],
-        "/biome/7": ["Red Wolf"],
-        "/biome/8": ["Red Wolf"],
-        "/biome/9": ["Timber Wolf"],
-        "/biome/10": ["Timber Wolf"],
+        "/biome/7|/biome/8": ["Red Wolf"],
         "/biome/11": ["Alaskan Tundra Wolf"],
         "/biome/12": ["Arctic Wolf"]
       }
@@ -773,6 +761,436 @@
       "options": {
         "Dig Around": ["+1-5 SC|imgsc","+3 HP","No reward"],
         "Investigate": ["+1 Carrot|imgcarrot","+2 HP","No reward"]
+      }
+    },
+
+
+    "lunardig": {
+      "intro": "A faint scent of something special is right down this slope...",
+      "options": {
+        "Dig": ["+2 LT|imglt","+1 LT|imglt//+1 Charcoal|imgcharcoal","+1 LT|imglt//+1 Gnawing Hoof|imggnawinghoof","+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve"]
+      }
+    },
+    "lunarhpfiller": {
+      "intro": "You feel dizzy, perhaps from inhaling too much lunar essence. When you lie down, your body twitches like you're waking up from a dream, but you're still awake.",
+      "options": {
+        "Shake": ["+1 LT|imglt//+10 HP","+1 LT|imglt"]
+      }
+    },
+    "lunarscent": {
+      "intro": "You lift your head to catch a scent of something familiar in this blue world. You recognise something among the bitter mushroom spores.",
+      "options": {
+        "Tasty Smell": ["+1 LT|imglt//+1 Muskrat Carcass|imgmuskratcarcass","+1 LT|imglt"],
+        "Exciting Smell": ["+1 LT|imglt//+1 Magpie Feather|imgmagpiefeather","+1 LT|imglt"],
+        "Smell Of Big Risk": ["+2 LT|imglt","+1 LT|imglt//-2 HP","+1 LT|imglt//-5 HP"]
+      }
+    },
+
+    "ancientfox": {
+      "intro": "A lonesome fox is sitting on your path. When you approach, an essence-filled mist encircles it, whipping blue veils of dust around. The fox is offering a small game of chance, which you cannot lose. You must simply pick one of the blue, glowing orbs - once you pay a fee, of course.",
+      "options": {
+        "Offer 10 SC": ["+4 LT|imglt","+3 LT|imglt","+2 LT|imglt","+1 LT|imglt"],
+        "I have nothing on me...": ["+1 LT|imglt"]
+      }
+    },
+    "anotherdreamingwolf": {
+      "intro": "A familiar shape has caught your eye. A wolf from your world crosses the path before you. In this glowing realm, a creature without this feature always looks out of place. You realize how much you both stand out.",
+      "options": {
+        "A friend!": ["+1 LT|imglt//+1 Medicine: Healing Salve//+1 Essence-Covered Egg|imgmedicinehealingsalve;imgessencecoveredegg"],
+        "Seems suspicious...": ["+2 LT|imglt//-8 HP"]
+      }
+    },
+    "arguingwolves": {
+      "intro": "You encounter two wolves traversing this world, much like you are. They seem to have gotten into a quarrel. Lunar essence is charging between them!",
+      "options": {
+        "Rush In Barking": ["+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt"],
+        "Calm Them Down": ["+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt"]
+      }
+    },
+    "aurorarat": {
+      "intro": "You find a glowing rat, hopping in slow motion as if gravity does not hold it to solid ground like it does to you.",
+      "options": {
+        "Chase": ["+1 LT|imglt//+1 Rat Carcass|imgratcarcass","+1 LT|imglt//+2% energy","+1 LT|imglt//+2 HP","+1 LT|imglt"]
+      }
+    },
+    "chattylunarwarbler": {
+      "intro": "A very chatty Lunar Warbler is singing a tale of a nest made of wonderfully scented yarrow for his princess.",
+      "options": {
+        "Give Yarrow": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve"],
+        "Listen": ["+1 LT|imglt//+1 Charcoal|imgcharcoal"]
+      }
+    },
+    "chucklingtala": {
+      "intro": "You spot a familiar face in this strange world - it's Tala! She watches you for a moment, then chuckles gently, which makes you feel more than a little uneasy. Is it really her?",
+      "options": {
+        "Call Her": ["+1 LT|imglt//+1 Coyote Tail|imgcoyotetail","+1 LT|imglt"],
+        "Chase Her": ["+1 LT|imglt//+1 Wolf Tail|imgwolftail","+1 LT|imglt"]
+      }
+    },
+    "circlingorbs": {
+      "intro": "Unidentified glowing orbs are circling around you. You feel uneasy.",
+      "options": {
+        "Run Away!": ["+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)","1 LT|imglt//-1 HP"],
+        "Dance In Circles": ["+1 LT|imglt"],
+        "Pounce": ["+1 LT|imglt//+1 Lucky Foot|imgluckyfoot//-2 HP","+1 LT|imglt"]
+      }
+    },
+    "clingycrow": {
+      "intro": "It's not unusual that crows are curious about everything, but this one is starting to cross the line of your patience. You try your best to ignore the bird, but it won't stop flying around you, sitting on your head, and making noises. That's enough!",
+      "options": {
+        "Growl": ["+1 LT|imglt//+1 Essence-Covered Feather|imgessencecoveredfeather"],
+        "Chase": ["+1 LT|imglt//+5 HP"]
+      }
+    },
+    "cnithariandame": {
+      "intro": "You recognise this Cnitharian wolf from afar—this is someone you usually buy items from. She seems concerned, pacing back and forth restlessly. Upon noticing you, she nods slightly and immediately shares her worries. Her partner was supposed to arrive some time ago and has yet to show up.",
+      "options": {
+        "Join The Search Party": ["+2 LT|imglt","+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+1 LT|imglt"]
+      }
+    },
+    "cnitharianfox": {
+      "intro": "A Cnitharian Fox is preparing the area and setting up a trading post to exchange goods with wolves.",
+      "options": {
+        "Offer 5 SC": ["+1 LT|imglt//+1 Rabbit Carcass|imgrabbitcarcass"],
+        "Offer Acorn": ["+1 LT|imglt//+1 Glowing Spores//+1 Stoat Carcass|imgglowingspores;imgstoatcarcass"],
+        "Offer Help": ["+1 LT|imglt"]
+      }
+    },
+    "cnitharianlady": {
+      "intro": "You notice a lone Cnitharian wolf in front of you. She kindly asks if you need any help and explains you can refresh and heal yourself with her products.",
+      "options": {
+        "Trade 40 SC": ["+1 LT|imglt//+10 HP//+10% energy"],
+        "Trade 3 LT": ["+1 LT|imglt//+50 HP//+50% energy"]
+      }
+    },
+    "cnitharianmice": {
+      "intro": "Jellyfish-like Cnitharian Mice are gathering supplies for the time when lunar essence is more scarce.",
+      "options": {
+        "Steal": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt//-1 HP"],
+        "Help": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt//-1 HP"]
+      }
+    },
+    "cnitharianpair": {
+      "intro": "A gentle glow on a nearby hill catches your attention. After taking a few steps in its direction, you spot the ladies from the Lunar Shoppe chilling together in a blossoming grass patch. It seems they're taking some downtime to relax.",
+      "options": {
+        "Say Hello": ["+1 LT|imglt//+1 Recipe: Cnitharian Frill Accents|imgrecipelunar;imgcnitharianfrillaccents","+1 LT|imglt//+1 Recipe: Cnitharian Frill Accents [Purple]|imgrecipelunar;imgcnitharianfrillaccentspurple","+1 LT|imglt"],
+        "Observe": ["+1 LT|imglt//+20% energy","+1 LT|imglt//+10 HP"]
+      }
+    },
+    "cnitharianshopkeeper": {
+      "intro": "It takes a while for you to realise why this wolf seems so familiar... Oh! Now you recognise her! This is a shopkeeper you occasionally buy from! She seems preoccupied, looking for interesting items to sell, but she still greets you with a warm smile that shows she recognises you as well.",
+      "options": {
+        "Help Out": ["+2 LT|imglt","+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt//+1 Cnitharian Tuggy Tendril|imgcnithariantuggytendril"]
+      }
+    },
+    "dancingcnitharianwolves": {
+      "intro": "You stumble upon a very personal moment. Two Cnitharian Wolves are dancing together in the moonlight. It seems playful, but full of harmony and serenity at the same time.",
+      "options": {
+        "Watch": ["+1 LT|imglt"],
+        "Join": ["+1 LT|imglt"],
+        "Howl": ["+1 LT|imglt"]
+      }
+    },
+    "dancingdragonflies": {
+      "intro": "Fluttering dragonflies appear to be dancing. You hear the susurrus of their metallic wings, rhythmically creating faintly audible melodies.",
+      "options": {
+        "Try to catch one!": ["+1 LT|imglt//+3 LE*//+1 Flickering Flower|imgflickeringflower"],
+        "Tap dance with your paws!": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "If you cannot store or collect that much daily Lunar Essence, you are instead rewarded with +2-0 LE."
+      ]
+    },
+    "dreamdevourer": {
+      "intro": "A terrifying screech freezes you in your tracks - only to witness a massive glowing pig, drooling and burping. It seems to have insurmountable hunger in its reddish eyes - and this is a color you don't often see in the Dreamlands, and you swallow as you watch it eyeing you hungrily. You notice movement in its red, glowing belly. What nightmares brew inside?",
+      "options": {
+        "Offer Glowing Blubber": ["+1 LT|imglt//+8% energy"],
+        "Offer Glowing Tongue": ["+2 LT|imglt"],
+        "Growl": ["+10 LE*","No reward**"]
+      },
+      "notes": [
+        "*@details1",
+        "**@details2"
+      ],
+      "details": [
+        "If you cannot store or collect that much daily Lunar Essence, you are instead rewarded with +9-1 LE.",
+        "**If you cannot store or collect any more daily Lunar Essence, you are instead rewarded nothing."
+      ]
+    },
+    "essenceparticles": {
+      "intro": "Flickering dust falls from the sky. Tiny, blue, smoky trails resemble rain in slow motion.",
+      "options": {
+        "Stick Out Your Tongue": ["+1 LT|imglt//+1 Glowing Spores|imgglowingspores"],
+        "Gather Dust On Your Back": ["+1 LT|imglt//+2 HP"]
+      }
+    },
+    "essenceswirls": {
+      "intro": "Heavy wind picks up the lunar essence from the ground and paints beautiful swirls in the air with it.",
+      "options": {
+        "Chase": ["+1 LT|imglt//+3 HP","+1 LT|imglt"]
+      }
+    },
+    "feedingravens": {
+      "intro": "A flock of Lunar Ravens is feeding on glowing fruit found among the branches of a withered tree.",
+      "options": {
+        "Bark": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt//+10% hunger"],
+        "Sniff Around": ["+1 LT|imglt//+1 Lucky Foot|imgluckyfoot","+1 LT|imglt"]
+      }
+    },
+    "flutteringbutterflies": {
+      "intro": "Beautiful butterflies with glowing patterns are investigating the luminous flowers nearby.",
+      "options": {
+        "Investigate The Flowers": ["+1 LT|imglt//+4 HP","+1 LT|imglt"],
+        "Investigate The Butterflies": ["+1 LT|imglt//+1 Butterfly Wing|imgbutterflywing"]
+      }
+    },
+    "fungalarch": {
+      "intro": "It's impossible to walk past this... thing... without taking a closer look. An impressive arch covered in glowing fungi and various plants could be a gate to another realm, but you're already in one. Patches of rocks and wood can be seen between the growths, giving a hint of the arch's original shape. It looks so ancient that it surely hides some surprises for anyone patient enough to look for them.",
+      "options": {
+        "Dig": ["+1 LT|imglt//+1 Bat Carcass//+1 Volukros Squeaky Toy|imgbatcarcass;imgvolukrossqueakytoy"],
+        "Check it Out": ["+1 LT|imglt//+1 Growth Chunk//+1 Growth Root|imggrowthchunk;imggrowthroot","+1 LT|imglt//+1 Small Bird Meat//+2 Quail Egg|imgsmallbirdmeat;imgquailegg;imgquailegg"]
+      }
+    },
+    "glowingmoths": {
+      "intro": "In the distance, lights dance and swirl across the hills. As the source of light moves closer, you see they are in fact glowing moths, spreading lunar dust across the lands.",
+      "options": {
+        "Chase": ["+1 LT|imglt//+1 Glowing Spores|imgglowingspores","+1 LT|imglt"]
+      }
+    },
+    "glowingrain": {
+      "intro": "Rain isn't that unusual, but this kind of rain... You notice the droplets are glowing. The tiny splashes spread lunar essence on the ground.",
+      "options": {
+        "Splash Around!": ["+2 LT|imglt//+2 HP","+1 LT|imglt","+1 LT|imglt//-1 HP"]
+      }
+    },
+    "glowingskull": {
+      "intro": "What an interesting find! It's a wolf skull, but... it doesn't appear to be lifeless. The lunar essence surrounds it, making it seem like the skull's owner is calling you from the other side.",
+      "options": {
+        "Stare At It": ["+1 LT|imglt//+4 HP"],
+        "Touch It": ["+1 LT|imglt//+1 Wolf Skull|imgwolfskull","+1 LT||imglt"]
+      }
+    },
+    "hatchingmothwolves": {
+      "intro": "What's that noise? You spot a nearby branch, which seems to be emanating crackling sounds and... high-pitched yelps? Oh, it's a nest! Instead of birds, you find baby moth-wolves!",
+      "options": {
+        "Feed Them": ["+1 LT|imglt//+1 Rat Carcass|imgratcarcass","+1 LT|imgsc//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"],
+        "Play With Them": ["+1 LT|imglt//+1 Owl Feather|imgowlfeather","+1 LT|imgsc//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"]
+      }
+    },
+    "healingitchyraccoon": {
+      "intro": "Hey! This raccoon appears to be infested with fleas, but he looks quite healthy! Maybe a dose of medicine could cure him fully? Unless you know some good grooming tricks...? ",
+      "options": {
+        "Offer Fleas Remedy": ["+2 LT|imglt//+1 Lunar Oil|imglunaroil"],
+        "Groom It": ["+1 LT|imglt"]
+      }
+    },
+    "huntinglunarshrike": {
+      "intro": "You stop suddenly to observe a Lunar Shrike on a vicious hunt!",
+      "options": {
+        "Chase": ["+2 LT|imglt","+1 LT|imglt//+1 Butterfly Wing|imgbutterflywing","+1 LT|imglt//-5% energy"],
+        "Watch": ["+1 LT|imglt//+3 HP"]
+      }
+    },
+    "itchyraccoon": {
+      "intro": "This raccoon-looking creature is scratching its ear. But... it has no ears... is it scratching a phantom itch? Or are the little Lunar Fleas bothering it?",
+      "options": {
+        "Offer Fleas Remedy": ["+2 LT|imglt"],
+        "Offer Acorn": ["+1 LT|imglt//+7 HP"],
+        "Offer Help": ["+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"]
+      }
+    },
+    "lichenrocks": {
+      "intro": "You stop to sniff around this fascinating spot. There are so many scents! This area is especially interesting. Which do you decide to check out?",
+      "options": {
+        "Big Crack": ["+1 LT|imglt//+2-5 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)","+1 LT|imglt"],
+        "Mossy Growth": ["+1 LT|imglt//+1 Muskrat Carcass|imgmuskratcarcass","+1 LT|imglt"],
+        "Soft Ground": ["+1 LT|imglt//+1 Mollusk Shell|imgmolluskshell","+1 LT|imglt"]
+      }
+    },
+    "lunarbat": {
+      "intro": "A mystical Lunar Bat crosses your path! The glow from its flapping wings is hypnotising.",
+      "options": {
+        "Grab It!": ["+1 LT|imglt//+4% hunger//+2 HP"],
+        "Chase It!": ["+1 LT|imglt//+1 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"]
+      }
+    },
+    "lunarcatbird": {
+      "intro": "Wow! What is that creature? Is it a bird or a cat? Or... both? Nothing can surprise you in this world anymore.",
+      "options": {
+        "Pounce": ["+1 LT|imglt//+10 HP//+10% hunger","+1 LT|imglt//+5% energy","+1 LT|imglt//-5 HP"],
+        "Play": ["+1 LT|imglt//+2 Owl Feather|imgowlfeather;imgowlfeather","+1 LT|imglt//+1 Glowing Spores|imgglowingspores","+1 LT|imglt//-2 HP"]
+      }
+    },
+    "lunarcrow": {
+      "intro": "A quirky Lunar Crow is observing your movements. It circles around you from time to time.",
+      "options": {
+        "Snarl": ["+2 LT|imglt"],
+        "Play": ["+1 LT|imglt//+20 HP"]
+      }
+    },
+    "lunarhornedlark": {
+      "intro": "A Lunar Horned Lark is passing by on its way to gather food. It seems surprised by your presence!",
+      "options": {
+        "Catch It!": ["+1 LT|imglt//+5 HP//+5% energy","+1 LT|imglt"],
+        "Follow It!": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+1 LT|imglt"]
+      }
+    },
+    "lunarlarks": {
+      "intro": "Horned Larks are gathering on a twisted tree, interested in something hidden from your eyes. Dark blue essence resembles smoke, but nothing is burning. There's a little hole in the trunk from where the mist is coming from. You could put something in or take something out.",
+      "options": {
+        "Offer Acorn": ["+1 LT|imglt//+1 Flickering Flower|imgflickeringflower","+1 LT|imglt//+1 Flickering Flower|imgflickeringflower//+1 random recipe from lunar acorn pool*"],
+        "Shove Your Nose In": ["+1 LT|imglt"]
+      },
+      "notes": [
+        "*@conditional1"
+      ],
+      "conditional": {
+        "Offer Acorn": "@poolrecipelunaracorn"
+      }
+    },
+    "lunarrobin": {
+      "intro": "You're startled by a loud fluttering noise. A Lunar Robin has flown up close to check you out!",
+      "options": {
+        "Bark": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt"],
+        "Play": ["+1 LT|imglt//+1 Lucky Foot|imgluckyfoot","+1 LT|imglt"]
+      }
+    },
+    "lunarsparks": {
+      "intro": "This phenomenon seems... new to you. Lunar essence is everywhere in this world, but this is the first time you've seen it sparkle and emit sizzling sounds. Beautiful and unknown, it attracts you to it in an instant.",
+      "options": {
+        "Cover Yourself In 2 Lunar Oil": ["+1 LT|imglt//+40% energy"],
+        "Run Through!": ["+1 LT|imglt//+10% energy","+1 LT|imglt","+1 LT|imglt//-5 HP"]
+      }
+    },
+    "markedstone": {
+      "intro": "You approach the stone slowly. You've never seen anything like this, even in this strange world. Odd, mystic signs are glowing from the inside as if the stone is a source of unknown power.",
+      "options": {
+        "Touch": ["+1 LT|imglt//+100 HP"]
+      }
+    },
+    "nobaby": {
+      "intro": "A sudden, unexpected sight has stopped you in your tracks. This baby wolf... there's something wrong with it. You're deeply unsettled by its empty gaze, but you're terrified to look away. This wolf isn't like the other creatures you've seen, and you can't find a trace of lunar essence on its plain fur. Is it phasing through the world temporarily?",
+      "options": {
+        "Avert Your Gaze": ["+2 LT|imglt//+5 Acorn|imgacorn;imgacorn;imgacorn;imgacorn;imgacorn","No reward"],
+        "Keep Staring": ["+1 LT|imglt"],
+        "Offer Shelter": ["+1 LT|imglt"]
+      }
+    },
+    "pherrisrat": {
+      "intro": "A loud screech causes you to halt and look intensely at an indentation in the rugged terrain. A large, reddish Pherris Rat is aggressively trying to taunt you!",
+      "options": {
+        "Pounce": ["+1 LT|imglt//+1 Rat Carcass|imgratcarcass//-1 HP"],
+        "Growl": ["+1 LT|imglt//+5% hunger//-1 HP"]
+      }
+    },
+    "raventrader": {
+      "intro": "An intense shine catches your attention. Upon approaching the shine, you notice a lunar raven carefully arranging various items, as if putting them on display. You might be able to find something useful here.",
+      "options": {
+        "Offer 1 Charged Core": ["+3 LT|imglt//+20% energy"],
+        "Offer 5 Glowing Spores": ["+2 LT|imglt//+20 HP"],
+        "Check Out The Wares": ["+1 LT|imglt"]
+      }
+    },
+    "singinglunarfinch": {
+      "intro": "This Lunar Finch's song is so loud, vibrant, and clear, you can visibly see the sound vibrating in the air by its glowing essence trail. Suddenly, you hear a horrible break in the song. Then another one. The bird seems to be sick.",
+      "options": {
+        "Offer Cough Cure": ["+1 LT|imglt//+1 Growth Chunk|imggrowthchunk"],
+        "Howl Of Sympathy": ["+1 LT|imglt"]
+      }
+    },
+    "sparklingsnow": {
+      "intro": "The flecks of snow tend to reflect the blue glow of this land, but this snow seems to have an extra sparkle to it. You notice the snowflakes are glowing with lunar essence frozen within them!",
+      "options": {
+        "Mlem": ["+1 LT|imglt//+3 HP","+1 LT|imglt"]
+      }
+    },
+    "sporecloud": {
+      "intro": "You accidentally step on some local mushrooms, releasing a large spore cloud. It may be dangerous!",
+      "options": {
+        "Use Cough Cure": ["+1 LT|imglt//+1 Medicine: Rich Healing Salve|imgmedicinerichhealingsalve"],
+        "Hold Your Breath": ["+1 LT|imglt"]
+      }
+    },
+    "toytinkerer": {
+      "intro": "You hear clanking and whirring from behind a pile of rocks. After a short hike, an amazing workshop reveals itself, hidden between the boulders. A crafty raccoon with funny headwear is tinkering with scraps, essence, and discarded objects, happy to make a treasure out of somebody's trash! She notices you and perks up. \"Sorry! I can't sell any of these, I am finishing a big order, but I could give you some blueprints if you're interested!\"",
+      "options": {
+        "Pick a blueprint": ["+1 LT|imglt//+1 random recipe from lunar toy pool*"],
+        "Compliment": ["+2 LT|imglt"]
+      },
+      "notes": [
+        "*@poolrecipelunartoy"
+      ]
+    },
+    "toytrader": {
+      "intro": "You find an extremely fluffy cat walking with a bag on its back like a human. You bark gently in confusion, catching its attention and gaze of intense, slit eyes. Lucky for you, instead of weapons, the bag is full of scrolls! Apparently, this feline fella is trading toy recipes in exchange for Delicate Meat, a rare fishy treat.",
+      "options": {
+        "Give Delicate Meat": ["+1 LT|imglt//+1 random recipe from lunar toy pool*"],
+        "Who are you?": ["+1 LT|imglt//+1% energy"]
+      },
+      "notes": [
+        "*@conditional1"
+      ],
+      "conditional": {
+        "Give Delicate Meat": "@poolrecipelunartoy"
+      }
+    },
+    "volukrosrats": {
+      "intro": "A few feathered Volukros Rats are scurrying around, sniffing every nook and cranny as if they were searching for something.",
+      "options": {
+        "Growl And Dig": ["+1 LT|imglt//+4 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"],
+        "Help Out": ["+1 LT|imglt//+1 Turkey Egg|imgturkeyegg","+1 LT|imglt//+4 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"]
+      }
+    },
+    "wanderinglunarcat": {
+      "intro": "A small lunar cat crosses your path, completely confident and calm despite your size and unfamiliar look. In its mind, it sees itself as a mighty hunter and ferocious predator, but to you it's just a glowing furball you want to touch.",
+      "options": {
+        "Offer Acorn": ["+1 LT|imglt//+10% energy","+1 LT|imglt//+10% energy//+1 random recipe from lunar acorn pool*"],
+        "Play": ["+1 LT|imglt"]
+      },
+      "notes": [
+        "*@conditional1"
+      ],
+      "conditional": {
+        "Offer Acorn": "@poolrecipelunaracorn"
+      }
+    },
+    "wingedfox": {
+      "intro": "Something dashes above your head and lands in front of you. As the creature folds its wings back, you realize it's a fox, but it doesn't seem to enjoy your company and lets out a warning bark as you take a step toward it.",
+      "options": {
+        "Play Bow": ["+1 LT|imglt//+10% energy"],
+        "Stare": ["+2 LT|imglt"],
+        "Bark": ["+1 LT|imglt//+1 Essence-Covered Feather|imgessencecoveredfeather//+1 Recipe: Volukros Squeaky Toy Decor|imgrecipelunar;imgvolukrossqueakytoydecor"]
+      }
+    },
+    "wisefox": {
+      "intro": "This old, wise Lunar Fox is offering helpful advice on how to travel within this phasing world.",
+      "options": {
+        "Listen": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve"],
+        "Refuse": ["Automatic battle with enemy Wise Fox"]
+      }
+    },
+    "wolfchef": {
+      "intro": "Now that's something you haven't seen before! Looks like this wolf is trying to cook something in an essence-filled kettle, but there's something odd about this scene... The chef's hat is a big mushroom and under it... there's a rat! And this weird rat seems to be pulling the wolf's fur to command the cooking process! You peek into the soup and take a big sniff. Is there something missing?",
+      "options": {
+        "Offer Growth Chunk": ["+2 LT|imglt"],
+        "Give Lunar Oil": ["+1 LT|imglt//+100 HP"],
+        "Taste it": ["+1 LT|imglt//+5% energy//-2 HP"]
+      }
+    },
+
+    "lunarplantapril": {
+      "intro": "You spot a strange glowing plant resembling crops you've grown in your garden. Is this a special variety?",
+      "options": {
+        "Try to harvest": ["+1 @location1","+1 @location2","+1 @location3","+1 LT|imglt"],
+        "Study": ["+1-3 GP|imggp"]
+      },
+      "location": {
+        "/biome/1|/biome/2|/biome/4|/biome/9": ["Flickering Lunar Violet Seeds|imgflickeringlunarvioletseeds","Glowing Gooseberry Seeds|imgglowinggooseberryseeds","Lunar Sandwort Seeds|imglunarsandwortseeds"],
+        "/biome/3|/biome/10|/biome/11|/biome/12": ["Glowing Gooseberry Seeds|imgglowinggooseberryseeds","Glowing Moonwort Plant Seeds|imgglowingmoonwortplantseeds","Lunar Sandwort Seeds|imglunarsandwortseeds"],
+        "/biome/5|/biome/6|/biome/7|/biome/8": ["Glowing Gooseberry Seeds|imgglowinggooseberryseeds","Lunar Orchid Seeds|imglunarorchidseeds","Lunar Sandwort Seeds|imglunarsandwortseeds"]
       }
     },
 
