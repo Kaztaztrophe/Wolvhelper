@@ -472,16 +472,25 @@
     "bluejay": {
       "intro": "A blue jay is aggressively chasing and screaming at another bird - presumably one that got too close to its nest. In the chaos, you notice something fall to the ground in front of you.",
       "options": {
-        "Offer Acorn": ["+1 Lucky Foot|imgluckyfoot","+1 Recipe: @poolrecipeluckyfoot","+1 random uncommon amusement item*","+1 random recipe from acorn pool**","+1 random recipe from amusement pool***","+1 random recipe from jay pool****"],
-        "Take": ["+1 Blue Jay Feather|imgbluejayfeather","+1 Recipe: @poolrecipecommonjay","+1 random herb*****"]
+        "Offer Acorn": ["+1 Lucky Foot|imgluckyfoot","+1 Recipe: @poolrecipeluckyfoot","+1 random uncommon amusement item**","+1 random recipe from acorn pool**","+1 random recipe from amusement pool***","+1 random recipe from jay pool****"],
+        "Take": ["+1 Blue Jay Feather|imgbluejayfeather","+1 Recipe: @poolrecipecommonjay","+1 random herb*"]
       },
       "notes": [
-        "*@pooluncommonamusement",
-        "**@poolrecipeacorn",
-        "***@poolrecipeamusement",
-        "****@poolrecipecommonjay, @poolreciperarejay",
-        "*****@poolherbany"
-      ]
+        "*@poolherbany",
+        "**@conditional1[Offer Acorn]",
+        "***@conditional2[Offer Acorn]",
+        "****@conditional3[Offer Acorn]",
+        "*****@conditional4[Offer Acorn]"
+      ],
+      "conditional": {
+        "Offer Acorn": [
+          "@pooluncommonamusement",
+          "@poolrecipeacorn",
+          "@poolrecipeamusement",
+          "@poolrecipecommonjay, @poolreciperarejay"
+        ]
+      }
+
     },
     "cottontail": {
       "intro": "A small fluffy bunny sits alert in the grass.",
