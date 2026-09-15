@@ -555,8 +555,12 @@
         "Kindly Offer Acorn": ["+1 random recipe from acorn pool*"]
       },
       "notes": [
-        "*@poolrecipeacorn"
-      ]
+        "*@conditional1"
+      ],
+      "conditional": {
+        "Meanly Offer Acorn": ["@poolrecipeacorn"],
+        "Kindly Offer Acorn": ["@poolrecipeacorn"]
+      }
     },
     "paintedturtle": {
       "intro": "Small and brightly colored, a little painted turtle stretches out on a nearby log, looking out over the territory. Is it watching for predators?",
@@ -619,8 +623,11 @@
         "Bark": ["+2-3 SC|imgsc","No reward"]
       },
       "notes": [
-        "*@poolrecipeacorn"
-      ]
+        "*@conditional1"
+      ],
+      "conditional": {
+        "Offer Acorn": "@poolrecipeacorn"
+      }
     },
     "sharptailedgrouse": {
       "intro": "These two male Sharp-Tailed Grouse are making a lot of noise! Feathers fly as these ridiculous creatures viciously attack each other, scrambling for dominance over mating rights for a nearby female.",
@@ -720,16 +727,19 @@
     "redbelliedwoodpecker": {
       "intro": "Loud, rhythmic knocking makes you feel like something is drilling into your head. A red-bellied woodpecker is the source of the irritating noise, of course.",
       "options": {
-        "Offer Acorn": ["+2-3 SC|imgsc","+1 random recipe from acorn pool*"],
-        "Tap the Tree": ["+1 item for active snake quest","No reward**"]
+        "Offer Acorn": ["+2-3 SC|imgsc","+1 random recipe from acorn pool**"],
+        "Tap the Tree": ["+1 item for active snake quest","No reward*"]
       },
       "notes": [
-        "*@poolrecipeacorn",
-        "**@details1"
+        "*@details1",
+        "**@conditional1"
       ],
       "details": [
         "Unless you have an active item quest with the questing snake, this option will always have no reward."
-      ]
+      ],
+      "conditional": {
+        "Offer Acorn": "@poolrecipeacorn"
+      }
     },
 
     "campinghumans": {
