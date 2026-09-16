@@ -1,8 +1,8 @@
 <h2><b>Wolvhelper</b></h2>
 
-🐺 <b>Wolvhelper</b> is an explore helper which displays encounter outcomes and additional information when you are exploring on <i>Wolvden</i>. The userscript can be installed through extensions like Violentmonkey on desktop and Stay for Safari on iOS. The .user.js file is the only file you need to install, as the .json referenced within it are managed independently.</div>
+🐺 <b>Wolvhelper</b> is an explore helper which displays encounter outcomes and additional information when you are exploring on <i>Wolvden</i>. The userscript can be installed through extensions like Violentmonkey on desktop and Userscripts on iOS. The .user.js file is the only file you need to install, as the .json referenced within it are managed independently.</div>
 
-<p align="center">🐺 <a href="https://github.com/Kaztaztrophe/Wolvhelper/blob/main/wolvhelper_encounters.user.js">Wolvhelper Explore Encounters</a> | <a href="https://github.com/Kaztaztrophe/Wolvhelper/blob/main/wolvhelpermini_encounters.user.js">WolvhelperMini Explore Encounters</a> 🐺<br><b>Last Updated:</b> September 14th, 2026 at 06:40 UTC</p>
+<p align="center">🐺 <a href="https://github.com/Kaztaztrophe/Wolvhelper/blob/main/wolvhelper_encounters.user.js">Wolvhelper Explore Encounters</a> | <a href="https://github.com/Kaztaztrophe/Wolvhelper/blob/main/wolvhelpermini_encounters.user.js">WolvhelperMini Explore Encounters</a> 🐺<br><b>Last Updated:</b> September 15th, 2026 at 23:00 UTC</p>
   
 <p align="center"><i>Data sourced from the <a href="https://grousehouse.wiki/">Grouse House Wiki</a></i></p>
 
@@ -11,6 +11,9 @@
 <b>Currently Supports:</b>
 <ul>
   <li>Echoes of the Ancient event encounters</li>
+  <li>Lunar Dreams universal event encounters</li>
+  <li>Deciduous Forest Lunar Dreams explore encounters</li>
+  <li>Grasslands Lunar Dreams explore encounters</li>
   <li>Universal regular explore encounters</li>
   <li>Raven Traders explore encounters</li>
   <li>Deciduous Forest explore encounters</li>
