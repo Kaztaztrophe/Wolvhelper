@@ -334,6 +334,21 @@
         "Browse Wares": ["+(LVL*20) EXP","+1 Raven Traders: Crow Snake Skin Purveyor|imgraventraderscrowsnakeskinpurveyor"]
       }
     },
+    "dallsheep": {
+      "intro": "A Dall sheep leaps across your path, too busy focusing on keeping its footing to notice you. Mutton on the menu, perhaps?",
+      "options": {
+        "Race": ["+10% energy","Gain illness: Fleas/No reward*/-2 HP**"],
+        "Hunt": ["+1 Dall Sheep Carcass|imgdallsheepcarcass","No reward"]
+      },
+      "notes": [
+        "*@details1",
+        "**@details2"
+      ],
+      "details": [
+        "If your lead wolf is currently sick.",
+        "If your lead wolf is currently immune to illness."
+      ]
+    },
     "deadcow": {
       "intro": "A familiar scent reaches your nose before you can see its source. You see a large, dead cow. It's still very fresh and looks as if it only died moments ago.",
       "options": {
@@ -461,6 +476,22 @@
       },
       "notes": [
         "*@poolrecipebone"
+      ]
+    },
+    "longtailedweasel": {
+      "intro": "A long-tailed weasel tries to slip past you, holding a rat carcass in its jaws.",
+      "options": {
+        "Intimidate": ["+1 Rat Carcass|imgratcarcass","No reward"],
+        "Kill": ["+1 Weasel Carcass|imgweaselcarcass","No reward"]
+      }
+    },
+    "mountaingoat": {
+      "intro": "A mountain billy goat is very determined not to allow you to pass any further.",
+      "options": {
+        "Growl": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*","No reward"]
+      },
+      "notes": [
+        "*@poolrecipecavebuildingmaterial"
       ]
     },
     "ninebandedarmadillo": {
@@ -738,6 +769,13 @@
         "Spread the Word": ["+5% energy","+1 Raven Traders: Tamaulipas Crow Hawker|imgraventraderstamaulipascrowhawker"]
       }
     },
+    "trumpeterswan": {
+      "intro": "A trumpeter swan flying by has startled you!",
+      "options": {
+        "Jump!": ["+1 Swan Carcass|imgswancarcass","+1 Swan Feather|imgswanfeather"],
+        "Howl": ["+2 Swan Feather|imgswanfeather;imgswanfeather"]
+      }
+    },
     "westerncrowhawker": {
       "intro": "Here ye, here ye! The big raven market is opening nearby! This western crow hawker is busy announcing the location of new traders to all local animals.",
       "options": {
@@ -919,6 +957,14 @@
         "*@poolcavebuildingmaterial"
       ]
     },
+    "cragraccoon": {
+      "intro": "A Crag Raccoon with rock-like growths on its back is trying to break open a stone containing glowing essence. It notices you, and asks if you'd like to share your wolf strength.",
+      "options": {
+        "Offer 2 x Gull Carcass": ["+1 LT|imglt//+1 Bighorn Sheep Ram Carcass|imgbighornsheepramcarcass"],
+        "Offer 20 SC": ["+1 LT|imglt//+10% energy//+10 HP"],
+        "Offer Acorn": ["+1 LT|imglt//+1 Cnitharian Tuggy Tendril|imgcnithariantuggytendril"]
+      }
+    },
     "crestedlunarjay": {
       "intro": "With a quiet flutter, a Crested Lunar Jay perches on an oddly shaped rock. It seems to be catching glowing spores to feed.",
       "options": {
@@ -1070,6 +1116,12 @@
         "Groom It": ["+1 LT|imglt"]
       }
     },
+    "howlingwolf": {
+      "intro": "You spot a wolf from afar. It's howling at the moon. It exhales blue lunar essence, forming a reflection in the sky.",
+      "options": {
+        "Howl": ["+1 LT|imglt//+6 HP","+1 LT|imglt//+3 HP","+1 LT|imglt"]
+      }
+    },
     "huntinglunarshrike": {
       "intro": "You stop suddenly to observe a Lunar Shrike on a vicious hunt!",
       "options": {
@@ -1099,6 +1151,14 @@
         "Big Crack": ["+1 LT|imglt//+2-5 SC|imgsc|(<5000 SC)","+1 LT|imglt"],
         "Mossy Growth": ["+1 LT|imglt//+1 Muskrat Carcass|imgmuskratcarcass","+1 LT|imglt"],
         "Soft Ground": ["+1 LT|imglt//+1 Mollusk Shell|imgmolluskshell","+1 LT|imglt"]
+      }
+    },
+    "loggrowth": {
+      "intro": "A fallen log gives shelter to many tiny Lunar Critters. The growth transforms the essence into a tiny, edible cave for a multitude of creatures.",
+      "options": {
+        "Gnaw": ["+1 LT|imglt//+3 SC|imgsc|(<5000 SC)","+1 LT|imglt"],
+        "Dig": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+1 LT|imglt"],
+        "Sniff Around": ["+1 LT|imglt//+1 Owl Talon|imgowltalon","+1 LT|imglt"]
       }
     },
     "longtaileddeerfawn": {
@@ -1138,6 +1198,13 @@
       "options": {
         "Beg For Nuts": ["+1 LT|imglt//+4 HP","+1 LT|imglt"],
         "Search For Scraps": ["+1 LT|imglt//+1 Lucky Foot|imgluckyfoot","+1 LT|imglt"]
+      }
+    },
+    "lunarcoyotepup": {
+      "intro": "A very friendly lunar coyote pup is playing alone among the rocks. You don't see its parents or siblings anywhere but the pup doesn't seem to feel abandoned. What's more, it starts to run towards you!",
+      "options": {
+        "Play": ["+1 LT|imglt//+2 Bone|imgbone;imgbone","+1 LT|imglt"],
+        "Howl a Duet": ["+2 LT|imglt","+1 LT|imglt"]
       }
     },
     "lunarcrossbill": {
@@ -1181,6 +1248,13 @@
         "*@poolcavebuildingmaterial"
       ]
     },
+    "lunareaglenest": {
+      "intro": "You see a large bird's nest, but its scent is faint and difficult to recognize. There is nothing inside, and it appears to be abandoned.",
+      "options": {
+        "Investigate": ["+1 LT|imglt//+2 Large Branch|imglargebranch;imglargebranch"],
+        "Destroy": ["Automatic battle with enemy Charged Eagle"]
+      }
+    },
     "lunarferalcat": {
       "intro": "You hear violent hissing nearby! Fearing it may be a snake, you check out where the sound is coming from. The source is a feral cat, whose eyes glow stronger with every angry hiss it releases.",
       "options": {
@@ -1188,11 +1262,25 @@
         "Whimper": ["+1 LT|imglt//+1 Rabbit Carcass|imgrabbitcarcass","+1 LT|imglt//-1 HP"]
       }
     },
+    "lunargroundsquirrel": {
+      "intro": "An adorable, long-tailed lunar ground squirrel is busy looking for something in the grass. It's so focused on its task that it ignores everything around it.",
+      "options": {
+        "Watch": ["+1 LT|imglt//+8% energy","+1 LT|imglt"],
+        "Help": ["+1 LT|imglt//+3-4 SC|imgsc|(<5000 SC)","+1 LT|imglt//+2 HP","+1 LT|imglt|(>5000 SC)"]
+      }
+    },
     "lunargrouse": {
       "intro": "It looks like a Lunar Grouse is building a nest under a bush. A beautiful Grouse House, so to speak.",
       "options": {
         "Help": ["+1 LT|imglt//+2 Grouse Feather|imggrousefeather;imggrousefeather","+1 LT|imglt"],
         "Ambush": ["+1 LT|imglt//+1 Grouse Carcass|imggrousecarcass","+1 LT|imglt"]
+      }
+    },
+    "lunarhoarymarmot": {
+      "intro": "A hoary marmot perches on a nearby rock, sniffing the air and peering around like it's on the lookout for something. It turns and looks at your with beady eyes, going very still.",
+      "options": {
+        "Search Rocks": ["+1 LT|imglt","+1 LT|imglt//-2 HP"],
+        "Eat It": ["+1 LT|imglt//+30% hunger"]
       }
     },
     "lunarhornedlark": {
@@ -1222,6 +1310,16 @@
         "Howl": ["+1 LT|imglt//+4 SC|imgsc|(<5000 SC)","+1 LT|imglt"]
       }
     },
+    "lunarmarten": {
+      "intro": "A curious lunar marten sniffs around, most likely looking for food.",
+      "options": {
+        "Chase Off": ["+2 LT|imglt","+1 LT|imglt"],
+        "Play": ["+1 LT|imglt//+1 Cnitharian Tuggy Tendril|imgcnithariantuggytendril","+1 LT|imglt//+1 random herb from Mountains*","+1 LT|imglt"]
+      },
+      "notes": [
+        "*@poolherbmountains"
+      ]
+    },
     "lunarmeadowlark": {
       "intro": "The pleasing sound of a lone bird lures you to this location from far away. You discover a lunar meadowlark on a dry branch. The bird is engrossed in singing, putting his whole heart into it.",
       "options": {
@@ -1234,6 +1332,13 @@
       "options": {
         "Tease back!": ["+2 LT|imglt//-10 HP"],
         "Punch it!": ["+1 LT|imglt//+5% energy"]
+      }
+    },
+    "lunarmountaingem": {
+      "intro": "With a loud tweet, a brilliant lunar mountaingem bird perches in front of you, curious about an unusual guest. You can't take your eyes off of its shiny growths!",
+      "options": {
+        "Admire": ["+1 LT|imglt//+5 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"],
+        "Catch it!": ["+1 LT|imglt//+1 Essence-Covered Feather|imgessencecoveredfeather//-3 HP"]
       }
     },
     "lunarmousenest": {
@@ -1261,11 +1366,28 @@
         "Let It Be": ["+1 LT|imglt//+1 Owl Talon|imgowltalon","+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","1 LT|imglt|(>5000 SC)"]
       }
     },
+    "lunarquail": {
+      "intro": "A pudgy Lunar Quail is patrolling this path. It could be looking out for dangers... Or it may just be looking for a partner.",
+      "options": {
+        "Ambush": ["+1 LT|imglt//+1 Quail Carcass|imgquailcarcass","+1 LT|imglt"],
+        "Search The Area": ["+1 LT|imglt//+1 random cave-building material*","+1 LT|imglt"]
+      },
+      "notes": [
+        "*@poolcavebuildingmaterial"
+      ]
+    },
     "lunarrobin": {
       "intro": "You're startled by a loud fluttering noise. A Lunar Robin has flown up close to check you out!",
       "options": {
         "Bark": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt"],
         "Play": ["+1 LT|imglt//+1 Lucky Foot|imgluckyfoot","+1 LT|imglt"]
+      }
+    },
+    "lunarsheep": {
+      "intro": "You find some Lunar Sheep gathering on these dreamy pastures. You're trying to count them, but the process makes you dizzy.",
+      "options": {
+        "Count The Sheep": ["+1 LT|imglt//+1 Lucky Foot|imgluckyfoot","+1 LT|imglt"],
+        "Chase The Sheep": ["+1 LT|imglt//+1 Dall Sheep Carcass|imgdallsheepcarcass","+1 LT|imglt"]
       }
     },
     "lunarsparks": {
@@ -1292,6 +1414,13 @@
       "intro": "You approach the stone slowly. You've never seen anything like this, even in this strange world. Odd, mystic signs are glowing from the inside as if the stone is a source of unknown power.",
       "options": {
         "Touch": ["+1 LT|imglt//+100 HP"]
+      }
+    },
+    "mountaingoatkid": {
+      "intro": "A curious mountain goat kid tilts its head slightly, watching you.",
+      "options": {
+        "Tilt your head too": ["+1 LT|imglt//+2 Flickering Flower|imgflickeringflower;imgflickeringflower"],
+        "Bite": ["+1 LT|imglt//+2 Essence-Covered Fur Clump|imgessencecoveredfurclump;imgessencecoveredfurclump"]
       }
     },
     "nobaby": {
