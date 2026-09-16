@@ -1,5 +1,4 @@
 {
-
   "encounters": {
 
     "filler2scents": {
@@ -213,6 +212,13 @@
         "If your lead wolf is currently immune to illness."
       ]
     },
+    "anhinga": {
+      "intro": "A beautiful anhinga clings to a branch, its eyes trained on the water below as it looks for prey.",
+      "options": {
+        "Scare": ["+1 Anhinga Feather|imganhingafeather","No reward"],
+        "Hunt": ["+2 Duck Egg|imgduckegg;imgduckegg","+1 Dead Fish|imgdeadfish","+1 Large Bird Meat|imglargebirdmeat","No reward"]
+      }
+    },
     "barnowl": {
       "intro": "A barn owl swoops overhead, clutching something in its talons. Maybe something tasty?",
       "options": {
@@ -228,6 +234,20 @@
       "notes": [
         "*@poolrecipecavebuildingmaterial",
         "**@poolrecipejayrare"
+      ]
+    },
+    "blackneckedgrebe": {
+      "intro": "This black-necked grebe is diving for something beneath the surface.",
+      "options": {
+        "Ambush": ["+1 Acorn|imgacorn","+1 Bone|imgbone","+1 random common feather item*"],
+        "Make a Request": ["+1 item for active snake quest","No reward**"]
+      },
+      "notes": [
+        "*@poolcommonfeather",
+        "**@details1"
+      ],
+      "details": [
+        "Unless you have an active item quest with the questing snake, this option will always have no reward."
       ]
     },
     "blacktailedjackrabbit": {
@@ -260,10 +280,17 @@
         "Offer Acorn": ["@pooluncommonamusement","@poolrecipeacorn","@poolrecipeamusement","@poolrecipejaycommon, @poolrecipejayrare"]
       }
     },
+    "breedingnorthernpikes": {
+      "intro": "The loud, sudden sound of splashing intrigues you. As you move closer, you witness a rare and fascinating event: the northern pike breeding season. The water is filled with their energy, and their scales shimmer beautifully. It's mesmerizing!",
+      "options": {
+        "Jump in": ["+1 Dead Fish|imgdeadfish","+4% energy","+4 HP","No reward"],
+        "Walk around": ["+1 Muskrat Carcass|imgmuskratcarcass","+4% energy","No reward"]
+      }
+    },
     "campinghumans": {
       "intro": "There's humans here! They've set up a funny cave and talk loudly in a circle. A delicious smell drifts from their funny box...hmm!",
       "options": {
-        "Sneak": ["+1-6 SC|imgsc","+5 SC|imgsc","+4 HP","+2 HP","No reward"],
+        "Sneak": ["+1-6 SC|imgsc|(<5000 SC)","+5 SC|imgsc|(<5000 SC)","+4 HP","+2 HP","No reward"],
         "Grab the Box!": ["+1 Meat Chunks [Medium]|imgmeatchunksmedium","+5 HP","No reward"]
       }
     },
@@ -284,7 +311,7 @@
       "intro": "The sound of two tiny birds catches your attention. When you look up, you see them right above your head, focused on their flight and unaware of your presence.",
       "options": {
         "Offer Acorn": ["+8 HP"],
-        "Chase": ["+1 Burning Bush|imgburningbush","+1-3 SC|imgsc","No reward"]
+        "Chase": ["+1 Burning Bush|imgburningbush","+1-3 SC|imgsc|(<5000 SC)","No reward"]
       }
     },
     "chihuahuanravenmerchant": {
@@ -361,6 +388,20 @@
         "Take it": ["+1 Bovine Carcass|imgbovinecarcass"]
       }
     },
+    "deertrappedinice": {
+      "intro": "You notice the silhouette of a deer in the distance. It struggles to move and keeps falling. The ice has trapped it!",
+      "options": {
+        "Help": ["+6 HP","No reward"],
+        "Kill": ["+1 Venison Liver|imgvenisonliver","+2-4 SC|imgsc|(<5000 SC)","No reward"]
+      }
+    },
+    "devildiver": {
+      "intro": "The whooping call of a devil diver pulls you to the nearby water, and you watch as it flies into the air, clearly disturbed by something.",
+      "options": {
+        "Ignore": ["+1 Turtle Shell|imgturtleshell","No reward"],
+        "Investigate": ["+1 Delicate Meat|imgdelicatemeat","+1 Yarrow|imgyarrow","No reward"]
+      }
+    },
     "easternchipmunk": {
       "intro": "An eastern chipmunk is perched upon the tree trunk, gingerly washing itself. As it notices you it leaps from the trunk and scurries off.",
       "options": {
@@ -375,6 +416,19 @@
         "Tempt with Quail Egg": ["+1 Lucky Foot|imgluckyfoot//-2 HP"],
         "Tempt with Medium Meat Chunk": ["+2 SC|imgsc//+5% energy//+4 HP"],
         "Spread the Word": ["+5% energy","+1 Raven Traders: Eastern Crow Hawker|imgraventraderseasterncrowhawker"]
+      }
+    },
+    "ebonyjewelwing": {
+      "intro": "A beautiful ebony jewelwing flies past your head and lands on a small branch up ahead of you.",
+      "options": {
+        "Tilt Head": ["+1 Ebony Jewelwing|imgebonyjewelwing","No reward"]
+      }
+    },
+    "eel": {
+      "intro": "You notice a long, black form wriggling in the mud up ahead. It's an eel!",
+      "options": {
+        "Check it out": ["+1 Ginger|imgginger","+3 HP","No reward"],
+        "Catch": ["+4% energy","+4 HP","No reward"]
       }
     },
     "egg": {
@@ -413,6 +467,21 @@
         "Browse Wares": ["+(LVL*20) EXP","+1 Raven Traders: Fish Crow Merchant|imgraventradersfishcrowmerchant"]
       }
     },
+    "fishermen": {
+      "intro": "Humans with long sticks are standing by the nearby waterway. They wave them around and you watch as a line goes into the water. They smell of fish. What are they doing?",
+      "options": {
+        "Observe": ["+5 HP","+10% hunger"],
+        "Investigate": ["+1 Butterfly Wing|imgbutterflywing","+1 Duck Feather|imgduckfeather","+2 HP"]
+      }
+    },
+    "fivelinedskink": {
+      "intro": "A small lizard is relaxing on warm rocks nearby. It seems that it's aware of your presence but is choosing to ignore you.",
+      "options": {
+        "Poke": ["+3-4 SC|imgsc|(<5000 SC)","+5 HP","No reward"],
+        "Intimidate": ["+1 Mollusk Shell|imgmolluskshell","+1 Mullein|imgmullein","+1 HP","No reward"],
+        "Catch": ["+1 Goldenseal|imggoldenseal","+1-3 SC|imgsc|(<5000 SC)","+2 HP","No reward"]
+      }
+    },
     "floridacrowhawker": {
       "intro": "At first you are annoyed by the croaking, but once you listen carefully, you manage to make out that the Florida crow hawker is directing animals to the nearest crow merchant.",
       "options": {
@@ -425,7 +494,7 @@
     "frozendeer": {
       "intro": "At first glance, this deer looks almost as if it's alive, but when you move closer, you realize that it's completely frozen and already torn into by another predator. What's most surprising is that you notice a tiny fawn by its side. It doesn't look at you and pretends to be invisible.",
       "options": {
-        "Check it out": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1-4 SC|imgsc","+1 HP"],
+        "Check it out": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1-4 SC|imgsc|(<5000 SC)","+1 HP"],
         "Try to take a bite": ["+4 HP","No reward"]
       }
     },
@@ -441,6 +510,12 @@
         "Unless you have an active item quest with the questing snake, this option will always have no reward."
       ]
     },
+    "greatblueheron": {
+      "intro": "A magnificent, gigantic great blue heron clatters its bill at you as a warning sign. Is the warning for you, or for its peers?",
+      "options": {
+        "Roll Over": ["+10% energy"]
+      }
+    },
     "greatersagegrouse ": {
       "intro": "Careful, straight ahead! A greater sage-grouse male seems to be prowling for challengers.",
       "options": {
@@ -450,6 +525,13 @@
         "*@poolrecipegrouse",
         "**@poolstat"
       ]
+    },
+    "greenheron": {
+      "intro": "A green heron wanders along nearby slow-moving water. It's observing the swimming shadow of a fish. You can tell it hasn't yet noticed you.",
+      "options": {
+        "Follow": ["+3-4 SC|imgsc|(<5000 SC)","No reward"],
+        "Pounce": ["+3% hunger"]
+      }
     },
     "hikers": {
       "intro": "A group of humans is passing by, their voices echoing loudly enough to make the whole area aware of their presence. You're close enough to catch intriguing scents. Their bags must be full of treats and trinkets!",
@@ -515,11 +597,25 @@
         "Kill": ["+1 Weasel Carcass|imgweaselcarcass","No reward"]
       }
     },
+    "mallard": {
+      "intro": "A beautiful male mallard duck is trying to impress a bored-looking female.",
+      "options": {
+        "Pounce": ["+3% hunger","No reward"]
+      }
+    },
     "migratingbirds": {
       "intro": "A large flock of birds clogs the sky and nearly blocks out the sun. There's hundreds of them! It must be their annual migration.",
       "options": {
         "Count them": ["+3% energy","+2 HP"],
         "Follow the migration": ["+1-4 SC|imgsc|(<5000 SC)","+2% energy","+5 HP"]
+      }
+    },
+    "migratingwoodcocks": {
+      "intro": "A flock of chattering woodcocks fly annoyingly around your head. Don't they have anything better to do?",
+      "options": {
+        "Chatter back": ["+1 Acorn|imgacorn","+3 HP","No reward"],
+        "Follow": ["+1 Boneset|imgboneset","+2 HP","No reward"],
+        "Attack": ["+1 Woodcock Carcass|imgwoodcockcarcass","No reward"]
       }
     },
     "milksnake": {
@@ -567,6 +663,13 @@
       "notes": [
         "*@poolcommonegg"
       ]
+    },
+    "northamericanriverotter": {
+      "intro": "A curious otter asks you to play! You're busy, but...the otter is too cute to resist.",
+      "options": {
+        "Offer Acorn": ["+1 Recipe: Playful North American River Otter|imgrecipeanimal;imgplayfulnorthamericanriverotter"],
+        "Have fun": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","No reward"]
+      }
     },
     "northerncardinal": {
       "intro": "A beautiful red cardinal sings its song on a branch above your head. How lovely!",
@@ -751,7 +854,7 @@
       "intro": "A red squirrel is perched on a branch, clasping what looks like a pinecone in its paws. It would be a shame if it dropped it...",
       "options": {
         "Offer Acorn": ["+2-3 SC|imgsc","+1 random recipe from acorn pool*"],
-        "Bark": ["+2-3 SC|imgsc","No reward"]
+        "Bark": ["+2-3 SC|imgsc|(<5000 SC)","No reward"]
       },
       "notes": [
         "*@conditional1"
@@ -788,8 +891,8 @@
     "shortearedowl": {
       "intro": "A familiar shape catches your attention. It's an owl, staring at you so intensely that it's a bit unnerving.",
       "options": {
-        "Bark": ["+1 Owl Feather|imgowlfeather","+1-4 SC|imgsc","No reward"],
-        "Chase": ["+1 Lucky Foot|imgluckyfoot","+1-3 SC|imgsc","No reward"]
+        "Bark": ["+1 Owl Feather|imgowlfeather","+1-4 SC|imgsc|(<5000 SC)","No reward"],
+        "Chase": ["+1 Lucky Foot|imgluckyfoot","+1-3 SC|imgsc|(<5000 SC)","No reward"]
       }
     },
     "sinaloacrowmerchant": {
@@ -805,7 +908,7 @@
     "snowman": {
       "intro": "Big balls of snow are stacked on top of each other and seem to be dressed in human things. What a strange thing to do!",
       "options": {
-        "Dig Around": ["+1-5 SC|imgsc","+3 HP","No reward"],
+        "Dig Around": ["+1-5 SC|imgsc|(<5000 SC)","+3 HP","No reward"],
         "Investigate": ["+1 Carrot|imgcarrot","+2 HP","No reward"]
       }
     },
@@ -834,7 +937,7 @@
     "stripedskunk": {
       "intro": "This looks like an interesting, perhaps tasty creature... On second thought, it smells bad. Very very bad. Rancid, even. Time to run away!",
       "options": {
-        "Hold Your Breath": ["+2-4 SC|imgsc","No reward"]
+        "Hold Your Breath": ["+2-4 SC|imgsc|(<5000 SC)","No reward"]
       }
     },
     "swarmingrats": {
@@ -973,7 +1076,7 @@
       }
     },
     "barkraccoon": {
-      "intro": "",
+      "intro": "A raccoon covered in bark is observing you curiously from an open spot. It blends in well with the surrounding forest, making you wonder how many other raccoons are hidden in plain sight.",
       "options": {
         "Offer Walrus Pup Carcass": ["+1 LT|imglt//+1 Elk Bull Carcass|imgelkbullcarcass"],
         "Offer 20 SC": ["+1 LT|imglt//+10% energy//+10 HP"],
@@ -1090,6 +1193,19 @@
         "*@poolcavebuildingmaterial"
       ]
     },
+    "crestedmink": {
+      "intro": "The creature in front of you looks like a mink, but its head and tail glow - and it seems more curious than afraid of you.",
+      "options": {
+        "Hunt": ["+1 LT|imglt//+1 Mink Carcass|imgminkcarcass"],
+        "Greet": ["???*"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "*This option does not have any known results."
+      ]
+    },
     "dancingcnitharianwolves": {
       "intro": "You stumble upon a very personal moment. Two Cnitharian Wolves are dancing together in the moonlight. It seems playful, but full of harmony and serenity at the same time.",
       "options": {
@@ -1141,6 +1257,13 @@
         "**If you cannot store or collect any more daily Lunar Essence, you are instead rewarded nothing."
       ]
     },
+    "eelgrebe": {
+      "intro": "Ah! From a distance, you thought this creature was an eel, but up close it resembles a grebe. It slithers its long, slimy neck into the water to grab some shiny fish.",
+      "options": {
+        "Pounce": ["+1 LT|imglt//+1 Meat Chunks [Small]|imgmeatchunkssmall"],
+        "Dive": ["+1 LT|imglt//+2 Acorn//+1 Bone|imgacorn;imgacorn;imgbone"]
+      }
+    },
     "essenceparticles": {
       "intro": "Flickering dust falls from the sky. Tiny, blue, smoky trails resemble rain in slow motion.",
       "options": {
@@ -1166,6 +1289,14 @@
       "options": {
         "Investigate The Flowers": ["+1 LT|imglt//+4 HP","+1 LT|imglt"],
         "Investigate The Butterflies": ["+1 LT|imglt//+1 Butterfly Wing|imgbutterflywing"]
+      }
+    },
+    "fluvialraccoon": {
+      "intro": "With a loud splash, a Fluvial Raccoon jumps out of the water to greet you! It whips its watery tail around, eagerly waiting for you to decide if you're interested in some riverine wares.",
+      "options": {
+        "Offer 2 x Quail Eggs": ["+1 LT|imglt//+1 Swan Carcass|imgswancarcass"],
+        "Offer 20 SC": ["+1 LT|imglt//+10% energy//+10 HP"],
+        "Offer Acorn": ["+1 LT|imglt//+1 Cnitharian Tuggy Tendril|imgcnithariantuggytendril"]
       }
     },
     "foxsquirrel": {
@@ -1245,12 +1376,25 @@
         "Watch": ["+1 LT|imglt//+3 HP"]
       }
     },
+    "huntingtoad": {
+      "intro": "A spiny blue lunar toad sits nearby, its tongue flinging out as it snatches bugs from the air. As it devours the bugs, sparks of blue light up its throat as it consumes the lunar essence that the bugs are full of. Cool!",
+      "options": {
+        "Find More Insects": ["+2 LT|imglt","+1 LT|imglt"],
+        "Devour It": ["+1 LT|imglt//+4 HP"]
+      }
+    },
     "itchyraccoon": {
       "intro": "This raccoon-looking creature is scratching its ear. But... it has no ears... is it scratching a phantom itch? Or are the little Lunar Fleas bothering it?",
       "options": {
         "Offer Fleas Remedy": ["+2 LT|imglt"],
         "Offer Acorn": ["+1 LT|imglt//+7 HP"],
         "Offer Help": ["+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"]
+      }
+    },
+    "kingfisher": {
+      "intro": "Visibly in pain, a kingfisher unsuccessfully tries to remove something from its wing.",
+      "options": {
+        "Offer your help": ["+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt//+15% energy","+1 LT|imglt"]
       }
     },
     "knollraccoon": {
@@ -1364,6 +1508,23 @@
         "*@poolcavebuildingmaterial"
       ]
     },
+    "lunardragonflies": {
+      "intro": "Beautiful glowing dragonflies are racing along the river bank.",
+      "options": {
+        "Watch": ["+1 LT|imglt//+1 random cave-building material*"],
+        "Chase": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+1 LT|imglt"]
+      },
+      "notes": [
+        "*@poolcavebuildingmaterial"
+      ]
+    },
+    "lunarduck": {
+      "intro": "Gentle quacks echo in the night. A duck out of water seems like a nice midnight snack.",
+      "options": {
+        "Ambush!": ["+1 LT|imglt//+2 Duck Feather|imgduckfeather;imgduckfeather","+1 LT|imglt//+1 Meat Chunks [Small]|imgmeatchunkssmall","+1 LT|imglt"],
+        "Sniff Around": ["+1 LT|imglt//+1 Duck Egg|imgduckegg//+1 SC|imgsc|(<5000 SC)","+1 LT|imglt//+1 Duck Egg|imgduckegg|(>5000 SC)"]
+      }
+    },
     "lunareaglenest": {
       "intro": "You see a large bird's nest, but its scent is faint and difficult to recognize. There is nothing inside, and it appears to be abandoned.",
       "options": {
@@ -1378,6 +1539,13 @@
         "Whimper": ["+1 LT|imglt//+1 Rabbit Carcass|imgrabbitcarcass","+1 LT|imglt//-1 HP"]
       }
     },
+    "lunarfrog": {
+      "intro": "You smell something intense. You lower your head and spot a strong glow in the understory. A small Lunar Frog is sitting under the leaves, absorbing some night-time moisture full of lunar dust.",
+      "options": {
+        "Bap The Leaves": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt","+1 LT|imglt//-1 HP"],
+        "Bap The Frog": ["+1 LT|imglt//+1 Bone|imgbone","+1 LT|imglt//-1 HP"]
+      }
+    },
     "lunargroundsquirrel": {
       "intro": "An adorable, long-tailed lunar ground squirrel is busy looking for something in the grass. It's so focused on its task that it ignores everything around it.",
       "options": {
@@ -1390,6 +1558,12 @@
       "options": {
         "Help": ["+1 LT|imglt//+2 Grouse Feather|imggrousefeather;imggrousefeather","+1 LT|imglt"],
         "Ambush": ["+1 LT|imglt//+1 Grouse Carcass|imggrousecarcass","+1 LT|imglt"]
+      }
+    },
+    "lunarheron": {
+      "intro": "A quiet splash reveals a spot where a Lunar Heron is catching food in the shallow water.",
+      "options": {
+        "Splash!": ["+1 LT|imglt//+1 Dead Fish|imgdeadfish","+1 LT|imglt"]
       }
     },
     "lunarhoarymarmot": {
@@ -1464,6 +1638,26 @@
         "Ransack": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt"]
       }
     },
+    "lunarmudpuppy": {
+      "intro": "A blue glow shines within the murky water of a small, dark pond. It resembles a fish, but when you take a closer look, you notice tiny limbs attached to a snake-like body. The creature is so bizarre that you can't stop staring. ",
+      "options": {
+        "Poke It": ["+1 LT|imglt//+1 Medicine: Healing Salve","+1 LT|imglt//+1 random herb from Riparian Woodland*","+1 LT|imglt"],
+        "Catch": ["+1 LT|imglt//+4 HP","+1 LT|imglt"]
+      },
+      "notes": [
+        "*@poolherbriparianwoodland"
+      ]
+    },
+    "lunarmuskrat": {
+      "intro": "A large branch waves through the air in front of you, causing you to stop abrupty and stare. What on earth? It comes closer, and you realize it's being held by a muskrat lumbering along without a care in the world.",
+      "options": {
+        "Find a Fallen Tree": ["+1 LT|imglt//+1 random cave-building material*","+1 LT|imglt"],
+        "Pounce!": ["+1 LT|imglt//+1 Muskrat Carcass|imgmuskratcarcass","+1 LT|imglt//+4 HP","+1 LT|imglt"]
+      },
+      "notes": [
+        "*@poolcavebuildingmaterial"
+      ]
+    },
     "lunaroriole": {
       "intro": "A bright blue orb is bothering a Lunar Oriole. No matter where it sits, the orb follows.",
       "options": {
@@ -1474,6 +1668,13 @@
         "*@poolcavebuildingmaterial",
         "**@poolherbdeciduousforest"
       ]
+    },
+    "lunarotter": {
+      "intro": "A very energetic Lunar Otter is playing around on the sandy slope. It seems quite curious about you!",
+      "options": {
+        "Join": ["+1 LT|imglt//+1 Lucky Foot|imgluckyfoot","+1 LT|imglt//+5 HP","+1 LT|imglt"],
+        "Bark": ["+1 LT|imglt//+2 HP//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt//+2 HP (>5000 SC)"]
+      }
     },
     "lunarpheasant": {
       "intro": "This Lunar Pheasant seems unfazed by everything that approaches it, including a wolf. It must have a thick skull to survive with such a thick brain.",
@@ -1491,6 +1692,13 @@
       "notes": [
         "*@poolcavebuildingmaterial"
       ]
+    },
+    "lunarrabbit": {
+      "intro": "A glowing line of zig zags crosses your path. Inside, you spot a rabbit, who has paused to nibble on something.",
+      "options": {
+        "Sneak": ["+1 LT|imglt//+1 Rabbit Carcass|imgrabbitcarcass","+1 LT|imglt//+3 SC|imgsc|(<5000 SC)","+1 LT|imglt"],
+        "Hop About": ["+1 LT|imglt//+1 Rattle|imgrattle","+1 LT|imglt//+3 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"]
+      }
     },
     "lunarrobin": {
       "intro": "You're startled by a loud fluttering noise. A Lunar Robin has flown up close to check you out!",
@@ -1518,6 +1726,12 @@
       "options": {
         "Offer Acorn": ["+1 LT|imglt//+6 SC|imgsc"],
         "Pounce": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt//+1 Squirrel Carcass|imgsquirrelcarcass"]
+      }
+    },
+    "lunarswallow": {
+      "intro": "A Lunar Swallow darts in front of you, leaving a smoky blue trail behind. The trail still hovers in the air, even after the bird turns and swoops over the water.",
+      "options": {
+        "Run Along The Bank!": ["+1 LT|imglt//+1 Beaver Carcass|imgbeavercarcass","+1 LT|imglt"]
       }
     },
     "lunarwoodpecker": {
@@ -1572,6 +1786,12 @@
         "/biome/9": ["@poolherbconiferousforest"]
       }
     },
+    "perchedlunarrobin": {
+      "intro": "A small, glowing bird sits on a nearby branch, looking at you with caution.",
+      "options": {
+        "Sniff": ["+2 LT|imglt","+1 LT|imglt//+2% energy"]
+      }
+    },
     "pherrisrat": {
       "intro": "A loud screech causes you to halt and look intensely at an indentation in the rugged terrain. A large, reddish Pherris Rat is aggressively trying to taunt you!",
       "options": {
@@ -1592,6 +1812,21 @@
         "Offer 1 Charged Core": ["+3 LT|imglt//+20% energy"],
         "Offer 5 Glowing Spores": ["+2 LT|imglt//+20 HP"],
         "Check Out The Wares": ["+1 LT|imglt"]
+      }
+    },
+    "restingcormorant": {
+      "intro": "A cormorant is resting, letting its wings dry slowly in the damp air. The essence seems to help the water evaporate faster. It looks like there are some leftover fish around—perhaps the meal time is over.",
+      "options": {
+        "Bark at the bird": ["+1 LT|imglt//+1 Acorn|imgacorn"],
+        "Sniff around": ["+1 LT|imglt//+1 random biome-specific herb*","+1 LT|imglt//+1 random cave-building material**//+2 HP","+1 LT|imglt//+12 HP"]
+      },
+      "notes": [
+        "*@location1",
+        "**@poolcavebuildingmaterial"
+      ],
+      "location": {
+        "/biome/4": ["@poolherbriparianwoodland"],
+        "/biome/7": ["@poolherbswamp"]
       }
     },
     "singinglunarfinch": {
@@ -1745,12 +1980,25 @@
       }
     },
 
-
+    "deepmud": {
+      "intro": "At first, the ground is just wet and slippery, but as you walk further, you find yourself in deep mud. The mud slows you down, but you take some odd pleasure in splashing it around.",
+      "options": {
+        "Play": ["+1 Unidentified Fossil|imgunidentifiedfossil","+2 MT|imgmt","+10% energy"],
+        "Dig": ["+1 Unidentified Fossil|imgunidentifiedfossil","+1 Wealden Amber|imgwealdenamber","+1 MT|imgmt//+5% energy","+1 MT|imgmt"]
+      }
+    },
     "disturbeddirt": {
       "intro": "Hmm...the dirt has been displaced here, almost like someone was digging recently. Maybe something valuable is buried?",
       "options": {
         "Dig around": ["+1 MT|imgmt","No reward"],
         "Carefully scrape away the dirt": ["+1 Unidentified Fossil|imgunidentifiedfossil","No reward"]
+      }
+    },
+    "drycrumblingground": {
+      "intro": "The ground under your paws is so dry that it crumbles under your weight, raising clouds of dust. You cough a little and decide to take a closer look at your footsteps. You're almost certain that you feel something unusual.",
+      "options": {
+        "Sniff around": ["+5% energy//+5 HP"],
+        "Dig": ["+1 Unidentified Fossil|imgunidentifiedfossil", "+1 MT|imgmt"]
       }
     },
     "nearbycreeksound": {
@@ -1787,20 +2035,7 @@
         "Roll in it": ["+1 Large Leaf|imglargeleaf", "+1 Unidentified Fossil|imgunidentifiedfossil"]
       }
     },
-    "deepmud": {
-      "intro": "At first, the ground is just wet and slippery, but as you walk further, you find yourself in deep mud. The mud slows you down, but you take some odd pleasure in splashing it around.",
-      "options": {
-        "Play": ["+1 Unidentified Fossil|imgunidentifiedfossil","+2 MT|imgmt","+10% energy"],
-        "Dig": ["+1 Unidentified Fossil|imgunidentifiedfossil","+1 Wealden Amber|imgwealdenamber","+1 MT|imgmt//+5% energy","+1 MT|imgmt"]
-      }
-    },
-    "drycrumblingground": {
-      "intro": "The ground under your paws is so dry that it crumbles under your weight, raising clouds of dust. You cough a little and decide to take a closer look at your footsteps. You're almost certain that you feel something unusual.",
-      "options": {
-        "Sniff around": ["+5% energy//+5 HP"],
-        "Dig": ["+1 Unidentified Fossil|imgunidentifiedfossil", "+1 MT|imgmt"]
-      }
-    },
+
     "ammonitebed": {
       "intro": "One side of a huge, dark rock slab is completely smooth, but the other side looks like the bottom of the sea, with lots of shells of different sizes still stuck within it. You can tell they're older than any wolf can remember.",
       "options": {
