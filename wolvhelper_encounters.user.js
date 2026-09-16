@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.5.7
+// @version     1.5.8
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -739,10 +739,18 @@
 			let conditionalText = String(conditionalNote).trim();
 
 			const conditionalDetailsMatch = conditionalText.match(/^(\*+)@details(\d+)$/i);
+			const conditionalDetailsNoPrefixMatch = conditionalText.match(/^@details(\d+)$/i);
 
-			if (conditionalDetailsMatch) {
-				const detailPrefix = conditionalDetailsMatch[1] || '';
-				const detailIndex = Number(conditionalDetailsMatch[2]) - 1;
+			if (conditionalDetailsMatch || conditionalDetailsNoPrefixMatch) {
+				let detailPrefix = '';
+				let detailIndex;
+
+				if (conditionalDetailsMatch) {
+					detailPrefix = conditionalDetailsMatch[1] || '';
+					detailIndex = Number(conditionalDetailsMatch[2]) - 1;
+				} else {
+					detailIndex = Number(conditionalDetailsNoPrefixMatch[1]) - 1;
+				}
 
 				if (details?.[detailIndex] !== undefined) {
 					const detailLine = document.createElement('div');
