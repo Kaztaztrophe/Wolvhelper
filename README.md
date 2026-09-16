@@ -18,7 +18,7 @@
   <li>Grasslands Lunar Dream event and regular explore encounters</li>
   <li>Mountains Lunar Dreams event and regular explore encounters</li>
   <li>Riparian Woodland Lunar Dreams event and regular explore encounters</li>
-  <li>Some multi-biome regular and Lunar Dreams event explore encounters (DF, Gr, M)</li>
+  <li>Some multi-biome regular and Lunar Dreams event explore encounters (DF, Gr, M, RW)</li>
 </ul>
 
 <b>Wolvhelper</b> will receive updates to the database for the foreseeable future, including to add new information when it becomes available. 
