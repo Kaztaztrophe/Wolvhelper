@@ -194,6 +194,12 @@
         "Browse Wares": ["+50 EXP","+1 Raven Traders: American Crow Trader|imgraventradersamericancrowtrader"]
       }
     },
+    "americanpika": {
+      "intro": "A little furry brown American Pika comes bounding up to you, seemingly determined and unafraid of you.",
+      "options": {
+        "Approach": ["+10% energy"]
+      }
+    },
     "americanrobin": {
       "intro": "In a flurry of feathers, a robin flies in front of your face, startled into flight by your passing!",
       "options": {
@@ -435,11 +441,35 @@
         "Unless you have an active item quest with the questing snake, this option will always have no reward."
       ]
     },
+    "greatersagegrouse ": {
+      "intro": "Careful, straight ahead! A greater sage-grouse male seems to be prowling for challengers.",
+      "options": {
+        "Take a Chance": ["+1 Grouse Carcass|imggrousecarcass","+1 random recipe from grouse pool*","+1 random stat**","No reward"]
+      },
+      "notes": [
+        "*@poolrecipegrouse",
+        "**@poolstat"
+      ]
+    },
+    "hikers": {
+      "intro": "A group of humans is passing by, their voices echoing loudly enough to make the whole area aware of their presence. You're close enough to catch intriguing scents. Their bags must be full of treats and trinkets!",
+      "options": {
+        "Growl": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1-6 SC|imgsc|(<5000 SC)","No reward"],
+        "Act friendly": ["+5 HP","No reward"]
+      }
+    },
     "housefinch": {
       "intro": "A tiny bird sits on a nearby bush, observing you as its head tilts in curiosity.",
       "options": {
         "Play": ["+1 Bone|imgbone","+3% energy","No reward"],
         "Follow": ["+1 Small Doe Carcass|imgsmalldoecarcass","No reward"]
+      }
+    },
+    "lampshadespider": {
+      "intro": "A dark mass caught in a web draws your gaze. It's a lampshade spider, sitting on her nest. Creepy!",
+      "options": {
+        "Approach": ["+10 HP","No reward"],
+        "Observe": ["+1 Butterfly Wing|imgbutterflywing","+2% energy"]
       }
     },
     "lavendergrass": {
@@ -485,6 +515,40 @@
         "Kill": ["+1 Weasel Carcass|imgweaselcarcass","No reward"]
       }
     },
+    "migratingbirds": {
+      "intro": "A large flock of birds clogs the sky and nearly blocks out the sun. There's hundreds of them! It must be their annual migration.",
+      "options": {
+        "Count them": ["+3% energy","+2 HP"],
+        "Follow the migration": ["+1-4 SC|imgsc|(<5000 SC)","+2% energy","+5 HP"]
+      }
+    },
+    "milksnake": {
+      "intro": "A peculiar rustling sound catches your attention, leading you to an intriguing sight. You discover a nest full of eggs where a milk snake is about to devour one of them.",
+      "options": {
+        "Attack!": ["+1 Milk Snake Carcass|imgmilksnakecarcass","+3% energy//+10% hunger","No reward"],
+        "Steal": ["+4% energy","-3 HP","No reward"]
+      }
+    },
+    "mountainbeaver": {
+      "intro": "This mountain beaver is caught off-guard outside of its burrow! It quickly shows you its enormous teeth before you consider attacking. Yes, it's best not to engage.",
+      "options": {
+        "Offer Acorn": ["+1 Cliff Swallowtail|imgcliffswallowtail","+1 Lucky Foot|imgluckyfoot","+1 Recipe: @poolrecipeluckyfoot","+1 random recipe from acorn pool*","+1 random recipe from cave-building material pool**"]
+      },
+      "notes": [
+        "*@conditional1[Offer Acorn]",
+        "**@conditional2[Offer Acorn]"
+      ],
+      "conditional": {
+        "Offer Acorn": ["@poolrecipeacorn","@poolrecipecavebuildingmaterial"]
+      }
+    },
+    "mountainchickadee": {
+      "intro": "Chickadees are supposed to be small and cute, but why must they be so loud? Its shrill calls echo in your ears as it peers down at you without remorse.",
+      "options": {
+        "Shoo Away": ["+1 Hiker's Rope|imghikersrope","+3% energy","+10% hunger","No reward"],
+        "Yell back": ["+1 Winterfat|imgwinterfat","+3% energy","No reward"]
+      }
+    },
     "mountaingoat": {
       "intro": "A mountain billy goat is very determined not to allow you to pass any further.",
       "options": {
@@ -509,6 +573,13 @@
       "options": {
         "Listen": ["+1 Butterfly Wing|imgbutterflywing","+3 HP","No reward"],
         "Jump at": ["+1 Small Bird Meat|imgsmallbirdmeat","+2 HP","No reward"]
+      }
+    },
+    "northernpygmyowl": {
+      "intro": "A northern pygmy owl is staring down at you from the low-hanging branch of a tree. Its head is rotating in all directions as the wide, open eyes follow your every move.",
+      "options": {
+        "Hoot": ["+2-3 SC|imgsc|(<5000 SC)","No reward (>5000 SC)"],
+        "Bait": ["+1% hunger"]
       }
     },
     "northwesterncrowhawker": {
@@ -601,6 +672,13 @@
         "Investigate [Winter]": "@poolcommonfeather"
       }
     },
+    "rainbowtrout": {
+      "intro": "The strong smell of fish captures your attention, and you spot a rainbow trout's body shining on the nearby rocks. It's still very fresh and very tempting but you're not the sole visitor eager to claim it. It looks like a raccoon is also trying to get closer to the fish!",
+      "options": {
+        "Offer Acorn": ["+10% energy"],
+        "Hurry!": ["+5 HP","-3 HP","No reward"]
+      }
+    },
     "raven": {
       "intro": "A raven swoops down over your head and seems to be trying to get your attention.",
       "options": {
@@ -680,6 +758,20 @@
       ],
       "conditional": {
         "Offer Acorn": "@poolrecipeacorn"
+      }
+    },
+    "rockymountaintoad": {
+      "intro": "A thick, fat, and juicy Rocky Mountain toad is resting on this comfortable rock, protected from the weather by a coat of mucus and mud.",
+      "options": {
+        "Lick it": ["+1 Expression: Pfflrp|imgexpressionpfflrp","+5 HP","Gain illness: Poison","No reward"],
+        "Don't lick it": ["+1 SC|imgsc|(<5000 SC)","No reward"]
+      }
+    },
+    "sasquatchinthemist": {
+      "intro": "Your eyes catch movement in the mist ahead. The form looks human, and yet...it's furry, too. What could it be?",
+      "options": {
+        "Follow": ["+1 Old Doll|imgolddoll","+4 HP","No reward"],
+        "Track": ["+2 Redwood Sorrel|imgredwoodsorrel;imgredwoodsorrel","+2 HP","No reward"]
       }
     },
     "sharptailedgrouse": {
@@ -806,6 +898,30 @@
         "/biome/12": ["Arctic Wolf"]
       }
     },
+    "woodhousesscrubjay": {
+      "intro": "Two woodhouse's scrub jays are foraging for food. This place must be nice!",
+      "options": {
+        "Dig Around": ["+1 Acorn|imgacorn"],
+        "Chase": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*"]
+      },
+      "notes": [
+        "*@poolrecipecavebuildingmaterial"
+      ]
+    },
+    "yellowbelliedmarmot": {
+      "intro": "Two fluffy marmots have come out of their burrow anxiously, as if they can sense your presence.",
+      "options": {
+        "Investigate the area": ["+1 St. John's Wort|imgstjohnswort","No reward"],
+        "Dig": ["+1 Quail Carcass|imgquailcarcass","+1-5 SC|imgsc|(<5000 SC)","+4 HP","No reward"]
+      }
+    },
+    "yellowpinechipmunk": {
+      "intro": "You notice a tiny creature hiding in a fallen tree. You stay still and quiet and after a while, the creature reveals itself, looking at you with curiosity. It's a yellow-pine chipmunk, searching for something to eat.",
+      "options": {
+        "Investigate": ["+3 Cedar Bark|imgcedarbark;imgcedarbark;imgcedarbark","+2 HP","No reward"],
+        "Poke the chipmunk": ["+1 Lucky Foot|imgluckyfoot","+3 HP"]
+      }
+    },
 
 
     "lunardig": {
@@ -888,7 +1004,7 @@
     "circlingorbs": {
       "intro": "Unidentified glowing orbs are circling around you. You feel uneasy.",
       "options": {
-        "Run Away!": ["+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)","1 LT|imglt//-1 HP"],
+        "Run Away!": ["+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)","+1 LT|imglt//-1 HP"],
         "Dance In Circles": ["+1 LT|imglt"],
         "Pounce": ["+1 LT|imglt//+1 Lucky Foot|imgluckyfoot//-2 HP","+1 LT|imglt"]
       }
@@ -1363,7 +1479,7 @@
       "intro": "This Lunar Pheasant seems unfazed by everything that approaches it, including a wolf. It must have a thick skull to survive with such a thick brain.",
       "options": {
         "Not Today!": ["+1 LT|imglt//+1 Pheasant Rooster Carcass|imgpheasantroostercarcass","+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"],
-        "Let It Be": ["+1 LT|imglt//+1 Owl Talon|imgowltalon","+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","1 LT|imglt|(>5000 SC)"]
+        "Let It Be": ["+1 LT|imglt//+1 Owl Talon|imgowltalon","+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"]
       }
     },
     "lunarquail": {
