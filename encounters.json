@@ -1516,7 +1516,7 @@
       "intro": "What an interesting find! It's a wolf skull, but... it doesn't appear to be lifeless. The lunar essence surrounds it, making it seem like the skull's owner is calling you from the other side.",
       "options": {
         "Stare At It": ["+1 LT|imglt//+4 HP"],
-        "Touch It": ["+1 LT|imglt//+1 Wolf Skull|imgwolfskull","+1 LT||imglt"]
+        "Touch It": ["+1 LT|imglt//+1 Wolf Skull|imgwolfskull","+1 LT|imglt"]
       }
     },
     "glowingspiderweb": {
@@ -2851,14 +2851,8 @@
       "intro": "The creature above your head resembles a bat, but when youlook closer, you notice that it's actually a flying gecko!",
       "options": {
         "Friendly Bark": ["+1 LT|imglt//+1 Lunar Oil|imglunaroil"],
-        "Catch": ["?*"]
-      },
-      "notes": [
-        "*@details1"
-      ],
-      "details": [
-        "*This option does not have any known results."
-      ]
+        "Catch": ["+1 LT|imglt//+1 Lunar Chitin|imglunarchitin"]
+      }
     },
     "wingedpossum": {
       "intro": "This southern-looking Winged Opossum is prepping dinner... upside down!",
