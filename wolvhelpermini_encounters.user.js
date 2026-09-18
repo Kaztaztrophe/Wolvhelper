@@ -33,10 +33,10 @@
 			]);
 
 			if (!encountersResponse.ok) {
-				throw new Error(`[Wolvhelper] Failed to load encounters.json: HTTP ${encountersResponse.status}`);
+				throw new Error('[Wolvhelper] Failed to load encounters.json');
 			}
 			if (!poolsResponse.ok) {
-				throw new Error(`[Wolvhelper] Failed to load pools.json: HTTP ${poolsResponse.status}`);
+				throw new Error('[Wolvhelper] Failed to load pools.json');
 			}
 
 			encounterDatabase = await encountersResponse.json();
@@ -385,8 +385,12 @@
 				}
 
 				const noReward = document.createElement('i');
-				noReward.textContent = match[0];
+				noReward.textContent = 'No reward';
 				container.appendChild(noReward);
+
+				if (match[1]) {
+					container.appendChild(document.createTextNode(match[1]));
+				}
 
 				lastIndex = noRewardRegex.lastIndex;
 			}
@@ -507,11 +511,7 @@
 		while ((match = regex.exec(text)) !== null) {
 
 			if (match.index > lastIndex) {
-				container.appendChild(
-					document.createTextNode(
-						text.slice(lastIndex, match.index)
-					)
-				);
+				container.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
 			}
 
 			// Bold: '''text'''
