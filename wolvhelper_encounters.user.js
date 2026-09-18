@@ -427,8 +427,12 @@
 				}
 
 				const noReward = document.createElement('i');
-				noReward.textContent = match[0];
+				noReward.textContent = 'No reward';
 				container.appendChild(noReward);
+
+				if (match[1]) {
+					container.appendChild(document.createTextNode(match[1]));
+				}
 
 				lastIndex = noRewardRegex.lastIndex;
 			}
@@ -569,11 +573,7 @@
 		while ((match = regex.exec(text)) !== null) {
 
 			if (match.index > lastIndex) {
-				container.appendChild(
-					document.createTextNode(
-						text.slice(lastIndex, match.index)
-					)
-				);
+				container.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
 			}
 
 			// Bold: '''text'''
