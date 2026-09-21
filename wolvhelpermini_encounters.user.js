@@ -66,10 +66,7 @@
 	function normalizeText(text) {
 		return text
 			.toLowerCase()
-			.replace(/\*/g, '')
-			.replace(/\s+/g, ' ')
-			.trim()
-			.replace(/[!?.,:]+$/, '');
+			.replace(/[^a-z0-9]/g, '');
 	}
 
 	function isStepOption(optionValue) {
@@ -111,7 +108,7 @@
 		const normalizedButton = normalizeText(buttonText);
 		const normalizedOption = normalizeText(optionName);
 
-		return (normalizedButton === normalizedOption || normalizedButton.startsWith(normalizedOption + ' '));
+		return (normalizedButton === normalizedOption || normalizedButton.startsWith(normalizedOption + ''));
 	}
 
 	function getPlayerLevel() {
