@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters (Mini)
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.5.8
+// @version     1.5.9
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -373,26 +373,26 @@
 			}
 
 			const resultText = reward.result;
-			const noRewardRegex = /No reward(\**)/gi;
+			const noResultRegex = /No result(\**)/gi;
 
 			let lastIndex = 0;
 			let match;
 
-			while ((match = noRewardRegex.exec(resultText)) !== null) {
+			while ((match = noResultRegex.exec(resultText)) !== null) {
 
 				if (match.index > lastIndex) {
 					container.appendChild(document.createTextNode(resultText.slice(lastIndex, match.index)));
 				}
 
-				const noReward = document.createElement('i');
-				noReward.textContent = 'No reward';
-				container.appendChild(noReward);
+				const noResult = document.createElement('i');
+				noResult.textContent = 'No result';
+				container.appendChild(noResult);
 
 				if (match[1]) {
 					container.appendChild(document.createTextNode(match[1]));
 				}
 
-				lastIndex = noRewardRegex.lastIndex;
+				lastIndex = noResultRegex.lastIndex;
 			}
 
 			if (lastIndex < resultText.length) {
@@ -722,6 +722,32 @@
 		return container;
 	}
 
+	function isStepAction(button) {
+		const output = document.querySelector('#explore-output');
+		if (!output || !encounterDatabase) return false;
+
+		const encounter = findCurrentEncounter(output);
+		if (!encounter || !encounter.data) return false;
+
+		const buttonText = button.textContent.trim();
+
+		for (const [optionName, optionValue] of Object.entries(encounter.data.options || {})) {
+			if (matchOptionName(buttonText, optionName) && isStepOption(optionValue)) {
+				return true;
+			}
+		}
+
+		if (encounter.data.steps) {
+			for (const stepName of Object.keys(encounter.data.steps)) {
+				if (normalizeText(buttonText) === normalizeText(stepName)) {
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
 	function clearExploreHelper() {
 		const helpers = document.querySelectorAll('.' + HELPER_CLASS);
 
@@ -920,16 +946,22 @@
 	}
 
 	document.addEventListener('click', function (event) {
-
 		const exploreLink = event.target.closest('#explore-explore-link');
+		const outputButton = event.target.closest('#explore-output button');
 
-		if (!exploreLink) {
+		if (!exploreLink && !outputButton) {
 			return;
 		}
 
-		clearExploreHelper();
+		if (exploreLink) {
+			clearExploreHelper();
+			waitForExploreChange();
+			return;
+		}
 
-		waitForExploreChange();
+		if (outputButton && isStepAction(outputButton)) {
+			waitForExploreChange();
+		}
 	});
 
 	loadDatabase();
