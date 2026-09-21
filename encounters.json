@@ -1030,7 +1030,7 @@
     "lunardig": {
       "intro": "A faint scent of something special is right down this slope...",
       "options": {
-        "Dig": ["+2 LT|imglt","+1 LT|imglt//+1 Charcoal|imgcharcoal","+1 LT|imglt//+1 Gnawing Hoof|imggnawinghoof","+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+5 SC|imgsc|(<5000 SC)//+1 LT|imglt"]
+        "Dig": ["+2 LT|imglt","+1 LT|imglt//+1 Charcoal|imgcharcoal","+1 LT|imglt//+1 Gnawing Hoof|imggnawinghoof","+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+5 SC|imgsc//+1 LT|imglt|(<5000 SC)"]
       }
     },
     "lunarhpfiller": {
@@ -1065,8 +1065,8 @@
     "arguingwolves": {
       "intro": "You encounter two wolves traversing this world, much like you are. They seem to have gotten into a quarrel. Lunar essence is charging between them!",
       "options": {
-        "Rush In Barking": ["+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt"],
-        "Calm Them Down": ["+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt"]
+        "Rush In Barking": ["+2 SC|imgsc//+1 LT|imglt|(<5000 SC)","+1 LT|imglt"],
+        "Calm Them Down": ["+2 SC|imgsc//+1 LT|imglt|(<5000 SC)","+1 LT|imglt"]
       }
     },
     "aurorarat": {
@@ -1201,8 +1201,8 @@
     "cnitharianlady": {
       "intro": "You notice a lone Cnitharian wolf in front of you. She kindly asks if you need any help and explains you can refresh and heal yourself with her products.",
       "options": {
-        "Trade 40 SC": ["+1 LT|imglt//+10 HP//+10% energy"],
-        "Trade 3 LT": ["+1 LT|imglt//+50 HP//+50% energy"]
+        "Trade 40 SC": ["+1 LT|imglt//+10% energy//+10 HP"],
+        "Trade 3 LT": ["+1 LT|imglt//+50% energy//+50 HP"]
       }
     },
     "cnitharianmice": {
@@ -1306,7 +1306,7 @@
     "dancingdragonflies": {
       "intro": "Fluttering dragonflies appear to be dancing. You hear the susurrus of their metallic wings, rhythmically creating faintly audible melodies.",
       "options": {
-        "Try to catch one!": ["+1 LT|imglt//+3 LE*//+1 Flickering Flower|imgflickeringflower"],
+        "Try to catch one!": ["+3 LE*//+1 LT|imglt//+1 Flickering Flower|imgflickeringflower"],
         "Tap dance with your paws!": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve"]
       },
       "notes": [
@@ -1343,7 +1343,7 @@
       ],
       "details": [
         "If you cannot store or collect that much daily Lunar Essence, you are instead rewarded with +9-1 LE.",
-        "If you cannot store or collect any more daily Lunar Essence, you are instead rewarded nothing."
+        "If you cannot store or collect any more daily Lunar Essence, you are instead given nothing."
       ]
     },
     "eelgrebe": {
@@ -1569,8 +1569,8 @@
     "hatchingmothwolves": {
       "intro": "What's that noise? You spot a nearby branch, which seems to be emanating crackling sounds and... high-pitched yelps? Oh, it's a nest! Instead of birds, you find baby moth-wolves!",
       "options": {
-        "Feed Them": ["+1 LT|imglt//+1 Rat Carcass|imgratcarcass","+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"],
-        "Play With Them": ["+1 LT|imglt//+1 Owl Feather|imgowlfeather","+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"]
+        "Feed Them": ["+1 LT|imglt//+1 Rat Carcass|imgratcarcass","+2 SC|imgsc//+1 LT|imglt|(<5000 SC)","+1 LT|imglt|(>5000 SC)"],
+        "Play With Them": ["+1 LT|imglt//+1 Owl Feather|imgowlfeather","+2 SC|imgsc//+1 LT|imglt|(<5000 SC)","+1 LT|imglt|(>5000 SC)"]
       }
     },
     "healingitchyraccoon": {
@@ -1651,7 +1651,7 @@
       "options": {
         "Offer Fleas Remedy": ["+2 LT|imglt"],
         "Offer Acorn": ["+1 LT|imglt//+7 HP"],
-        "Offer Help": ["+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"]
+        "Offer Help": ["+2 SC|imgsc//+1 LT|imglt|(<5000 SC)","+1 LT|imglt|(>5000 SC)"]
       }
     },
     "jungleraccoon": {
@@ -1696,7 +1696,7 @@
     "lichenrocks": {
       "intro": "You stop to sniff around this fascinating spot. There are so many scents! This area is especially interesting. Which do you decide to check out?",
       "options": {
-        "Big Crack": ["+1 LT|imglt//+2-5 SC|imgsc|(<5000 SC)","+1 LT|imglt"],
+        "Big Crack": ["+2-5 SC|imgsc//+1 LT|imglt|(<5000 SC)","+1 LT|imglt"],
         "Mossy Growth": ["+1 LT|imglt//+1 Muskrat Carcass|imgmuskratcarcass","+1 LT|imglt"],
         "Soft Ground": ["+1 LT|imglt//+1 Mollusk Shell|imgmolluskshell","+1 LT|imglt"]
       }
@@ -1776,8 +1776,8 @@
     "lunarbat": {
       "intro": "A mystical Lunar Bat crosses your path! The glow from its flapping wings is hypnotising.",
       "options": {
-        "Grab It!": ["+1 LT|imglt//+4% hunger//+2 HP"],
-        "Chase It!": ["+1 LT|imglt//+1 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"]
+        "Grab It!": ["+1 LT|imglt//+2 HP//+4% hunger"],
+        "Chase It!": ["+1 SC|imgsc//+1 LT|imglt|(<5000 SC)","+1 LT|imglt|(>5000 SC)"]
       }
     },
     "lunarbighornsheep": {
@@ -2051,7 +2051,7 @@
     "lunarhornedlark": {
       "intro": "A Lunar Horned Lark is passing by on its way to gather food. It seems surprised by your presence!",
       "options": {
-        "Catch It!": ["+1 LT|imglt//+5 HP//+5% energy","+1 LT|imglt"],
+        "Catch It!": ["+1 LT|imglt//+5% energy//+5 HP","+1 LT|imglt"],
         "Follow It!": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+1 LT|imglt"]
       }
     },
@@ -2508,7 +2508,7 @@
       "intro": "A loud screech causes you to halt and look intensely at an indentation in the rugged terrain. A large, reddish Pherris Rat is aggressively trying to taunt you!",
       "options": {
         "Pounce": ["+1 LT|imglt//+1 Rat Carcass|imgratcarcass//-1 HP"],
-        "Growl": ["+1 LT|imglt//+5% hunger//-1 HP"]
+        "Growl": ["+1 LT|imglt//-1 HP//+5% hunger"]
       }
     },
     "plainsraccoon": {
@@ -2782,8 +2782,8 @@
     "volukrosrats": {
       "intro": "A few feathered Volukros Rats are scurrying around, sniffing every nook and cranny as if they were searching for something.",
       "options": {
-        "Growl And Dig": ["+1 LT|imglt//+4 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"],
-        "Help Out": ["+1 LT|imglt//+1 Turkey Egg|imgturkeyegg","+1 LT|imglt//+4 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)"]
+        "Growl And Dig": ["+4 SC|imgsc//+1 LT|imglt|(<5000 SC)","+1 LT|imglt|(>5000 SC)","+1 LT|imglt//-4 HP"],
+        "Help Out": ["+1 LT|imglt//+1 Turkey Egg|imgturkeyegg","+4 SC|imgsc//+1 LT|imglt|(<5000 SC)","+1 LT|imglt|(>5000 SC)"]
       }
     },
     "vulturebeaver": {
