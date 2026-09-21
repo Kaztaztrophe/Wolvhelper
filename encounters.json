@@ -7,8 +7,8 @@
         "Follow the bitter scent": ["+1 Bone|imgbone","+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock"],
         "Follow the delicious scent": ["+5-10% hunger"],
         "Follow the rancid scent": ["+1 Meat Chunks [Large]|imgmeatchunkslarge","+1 Meat Chunks [Medium]|imgmeatchunksmedium","+1 Meat Chunks [Small]|imgmeatchunkssmall"],
-        "Follow the stinky scent": ["+1-2 SC|imgsc|(<5000 SC)","No reward (>5000 SC)"],
-        "Follow the sweet scent": ["Initiates claiming a New Befriended Wolf","No reward*"]
+        "Follow the stinky scent": ["+1-2 SC|imgsc|(<5000 SC)","No result (>5000 SC)"],
+        "Follow the sweet scent": ["Initiates claiming a New Befriended Wolf","No result*"]
       },
       "notes": [
         "*@conditional1"
@@ -30,7 +30,7 @@
     "fillerbutterfly": {
       "intro": "Catching your breath, a small butterfly lands on your nose.",
       "options": {
-        "Watch": ["+1 random recipe from butterfly pool*","No reward"],
+        "Watch": ["+1 random recipe from butterfly pool*","No result"],
         "Chomp": ["+1 random recipe from butterfly pool*//+1% hunger","+1% hunger"]
       },
       "notes": [
@@ -86,7 +86,7 @@
     "checkoutpoop": {
       "intro": "You come across some poop... Normally, you'd roll all over it, but for some reason, something seems special about this poop.",
       "options": {
-        "Check it out": ["+1 biome-specific herb*","Gain illness: Diarrhea/No reward**"]
+        "Check it out": ["+1 biome-specific herb*","Gain illness: Diarrhea/No result**"]
       },
       "notes": [
         "*@location1",
@@ -202,8 +202,8 @@
     "americanrobin": {
       "intro": "In a flurry of feathers, a robin flies in front of your face, startled into flight by your passing!",
       "options": {
-        "Watch": ["+3% energy","No reward"],
-        "Snatch": ["+5% energy","Gain illness: Diarrhea/No reward*"]
+        "Watch": ["+3% energy","No result"],
+        "Snatch": ["+5% energy","Gain illness: Diarrhea/No result*"]
       },
       "notes": [
         "*@details1"
@@ -215,21 +215,21 @@
     "anhinga": {
       "intro": "A beautiful anhinga clings to a branch, its eyes trained on the water below as it looks for prey.",
       "options": {
-        "Scare": ["+1 Anhinga Feather|imganhingafeather","No reward"],
-        "Hunt": ["+2 Duck Egg|imgduckegg;imgduckegg","+1 Dead Fish|imgdeadfish","+1 Large Bird Meat|imglargebirdmeat","No reward"]
+        "Scare": ["+1 Anhinga Feather|imganhingafeather","No result"],
+        "Hunt": ["+2 Duck Egg|imgduckegg;imgduckegg","+1 Dead Fish|imgdeadfish","+1 Large Bird Meat|imglargebirdmeat","No result"]
       }
     },
     "barnowl": {
       "intro": "A barn owl swoops overhead, clutching something in its talons. Maybe something tasty?",
       "options": {
-        "Leap": ["+5-10% hunger","No reward"]
+        "Leap": ["+5-10% hunger","No result"]
       }
     },
     "beaver": {
       "intro": "A beaver appears startled at your sudden appearance, it seems to be in the middle of collecting materials.",
       "options": {
-        "Chase": ["+1 Beaver Carcass|imgbeavercarcass","No reward"],
-        "Growl": ["+1 Large Branch|imglargebranch","+1 random recipe from cave-building material pool*","+1 random recipe from rare jay pool**","No reward"]
+        "Chase": ["+1 Beaver Carcass|imgbeavercarcass","No result"],
+        "Growl": ["+1 Large Branch|imglargebranch","+1 random recipe from cave-building material pool*","+1 random recipe from rare jay pool**","No result"]
       },
       "notes": [
         "*@poolrecipecavebuildingmaterial",
@@ -240,27 +240,27 @@
       "intro": "This black-necked grebe is diving for something beneath the surface.",
       "options": {
         "Ambush": ["+1 Acorn|imgacorn","+1 Bone|imgbone","+1 random common feather item*"],
-        "Make a Request": ["+1 item for active snake quest","No reward**"]
+        "Make a Request": ["+1 item for active snake quest","No result**"]
       },
       "notes": [
         "*@poolcommonfeather",
         "**@details1"
       ],
       "details": [
-        "Unless you have an active item quest with the questing snake, this option will always have no reward."
+        "Unless you have an active item quest with the questing snake, this option will always have no result."
       ]
     },
     "blacktailedjackrabbit": {
       "intro": "The sight of the long ears makes you tighten your jaw unconsciously. Your instincts have kicked in and you feel the need to chase the rabbit!",
       "options": {
-        "Chase it": ["+1 Jackrabbit Carcass|imgjackrabbitcarcass","+1 Lucky Foot|imgluckyfoot","No reward"]
+        "Chase it": ["+1 Jackrabbit Carcass|imgjackrabbitcarcass","+1 Lucky Foot|imgluckyfoot","No result"]
       }
     },
     "blackwidow": {
       "intro": "A large black widow has just started spinning its web as night approaches. It's hauntingly beautiful and almost hypnotizing to watch.",
       "options": {
-        "Get a closer look": ["+10 HP","Gain illness: Poison","No reward"],
-        "Keep back": ["+1 Raccoon Carcass|imgraccooncarcass","No reward"]
+        "Get a closer look": ["+10 HP","Gain illness: Poison","No result"],
+        "Keep back": ["+1 Raccoon Carcass|imgraccooncarcass","No result"]
       }
     },
     "bluejay": {
@@ -283,22 +283,22 @@
     "breedingnorthernpikes": {
       "intro": "The loud, sudden sound of splashing intrigues you. As you move closer, you witness a rare and fascinating event: the northern pike breeding season. The water is filled with their energy, and their scales shimmer beautifully. It's mesmerizing!",
       "options": {
-        "Jump in": ["+1 Dead Fish|imgdeadfish","+4% energy","+4 HP","No reward"],
-        "Walk around": ["+1 Muskrat Carcass|imgmuskratcarcass","+4% energy","No reward"]
+        "Jump in": ["+1 Dead Fish|imgdeadfish","+4% energy","+4 HP","No result"],
+        "Walk around": ["+1 Muskrat Carcass|imgmuskratcarcass","+4% energy","No result"]
       }
     },
     "campinghumans": {
       "intro": "There's humans here! They've set up a funny cave and talk loudly in a circle. A delicious smell drifts from their funny box...hmm!",
       "options": {
-        "Sneak": ["+1-6 SC|imgsc|(<5000 SC)","+5 SC|imgsc|(<5000 SC)","+4 HP","+2 HP","No reward"],
-        "Grab the Box!": ["+1 Meat Chunks [Medium]|imgmeatchunksmedium","+5 HP","No reward"]
+        "Sneak": ["+1-6 SC|imgsc|(<5000 SC)","+5 SC|imgsc|(<5000 SC)","+4 HP","+2 HP","No result"],
+        "Grab the Box!": ["+1 Meat Chunks [Medium]|imgmeatchunksmedium","+5 HP","No result"]
       }
     },
     "campinghumans2": {
       "intro": "The forest is always full of various scents but only one type of creature feels foreign every time you feel its presence. When you follow the unusual scent, you discover a group of humans talking in front of an artificial structure that appears to be their place to sleep. How long do they plan to stay here?",
       "options": {
-        "Hide and sniff around": ["+3 HP","No reward"],
-        "Approach": ["+1 Delicate Meat|imgdelicatemeat","No reward"]
+        "Hide and sniff around": ["+3 HP","No result"],
+        "Approach": ["+1 Delicate Meat|imgdelicatemeat","No result"]
       }
     },
     "carolinaanole": {
@@ -311,7 +311,7 @@
       "intro": "The sound of two tiny birds catches your attention. When you look up, you see them right above your head, focused on their flight and unaware of your presence.",
       "options": {
         "Offer Acorn": ["+8 HP"],
-        "Chase": ["+1 Burning Bush|imgburningbush","+1-3 SC|imgsc|(<5000 SC)","No reward"]
+        "Chase": ["+1 Burning Bush|imgburningbush","+1-3 SC|imgsc|(<5000 SC)","No result"]
       }
     },
     "chihuahuanravenmerchant": {
@@ -327,8 +327,8 @@
     "chirpingbirds": {
       "intro": "A group of brightly colored birds sits among the leaves of a tree above your head, chatting up a storm. You don't speak bird, but they seem to be gossiping about something.",
       "options": {
-        "What are you gossiping about?": ["+1 Feverfew|imgfeverfew","No reward"],
-        "Pester": ["+1 Blue Jay Feather|imgbluejayfeather","+2% energy","No reward"]
+        "What are you gossiping about?": ["+1 Feverfew|imgfeverfew","No result"],
+        "Pester": ["+1 Blue Jay Feather|imgbluejayfeather","+2% energy","No result"]
       }
     },
     "commonravenmerchant": {
@@ -344,8 +344,8 @@
     "cottontail": {
       "intro": "A small fluffy bunny sits alert in the grass.",
       "options": {
-        "Stalk": ["+1 Rabbit Carcass//+1 Lucky Foot|imgrabbitcarcass;imgluckyfoot","+1 Rabbit Carcass|imgrabbitcarcass//+1 Recipe: @poolrecipeluckyfoot","+1 Wisdom stat","No reward"],
-        "Chase": ["+1 Rabbit Carcass//+1 Lucky Foot|imgrabbitcarcass;imgluckyfoot","+1 Rabbit Carcass|imgrabbitcarcass//+1 Recipe: @poolrecipeluckyfoot","+1 Speed stat","No reward"]
+        "Stalk": ["+1 Rabbit Carcass//+1 Lucky Foot|imgrabbitcarcass;imgluckyfoot","+1 Rabbit Carcass|imgrabbitcarcass//+1 Recipe: @poolrecipeluckyfoot","+1 Wisdom stat","No result"],
+        "Chase": ["+1 Rabbit Carcass//+1 Lucky Foot|imgrabbitcarcass;imgluckyfoot","+1 Rabbit Carcass|imgrabbitcarcass//+1 Recipe: @poolrecipeluckyfoot","+1 Speed stat","No result"]
       }
     },
     "cougarmom": {
@@ -370,8 +370,8 @@
     "dallsheep": {
       "intro": "A Dall sheep leaps across your path, too busy focusing on keeping its footing to notice you. Mutton on the menu, perhaps?",
       "options": {
-        "Race": ["+10% energy","Gain illness: Fleas/No reward*/-2 HP**"],
-        "Hunt": ["+1 Dall Sheep Carcass|imgdallsheepcarcass","No reward"]
+        "Race": ["+10% energy","Gain illness: Fleas/No result*/-2 HP**"],
+        "Hunt": ["+1 Dall Sheep Carcass|imgdallsheepcarcass","No result"]
       },
       "notes": [
         "*@details1",
@@ -391,22 +391,22 @@
     "deertrappedinice": {
       "intro": "You notice the silhouette of a deer in the distance. It struggles to move and keeps falling. The ice has trapped it!",
       "options": {
-        "Help": ["+6 HP","No reward"],
-        "Kill": ["+1 Venison Liver|imgvenisonliver","+2-4 SC|imgsc|(<5000 SC)","No reward"]
+        "Help": ["+6 HP","No result"],
+        "Kill": ["+1 Venison Liver|imgvenisonliver","+2-4 SC|imgsc|(<5000 SC)","No result"]
       }
     },
     "devildiver": {
       "intro": "The whooping call of a devil diver pulls you to the nearby water, and you watch as it flies into the air, clearly disturbed by something.",
       "options": {
-        "Ignore": ["+1 Turtle Shell|imgturtleshell","No reward"],
-        "Investigate": ["+1 Delicate Meat|imgdelicatemeat","+1 Yarrow|imgyarrow","No reward"]
+        "Ignore": ["+1 Turtle Shell|imgturtleshell","No result"],
+        "Investigate": ["+1 Delicate Meat|imgdelicatemeat","+1 Yarrow|imgyarrow","No result"]
       }
     },
     "easternchipmunk": {
       "intro": "An eastern chipmunk is perched upon the tree trunk, gingerly washing itself. As it notices you it leaps from the trunk and scurries off.",
       "options": {
-        "Follow": ["+1 Acorn|imgacorn","No reward"],
-        "Sniff Around": ["+1 Spicebush Swallowtail|imgspicebushswallowtail","No reward"]
+        "Follow": ["+1 Acorn|imgacorn","No result"],
+        "Sniff Around": ["+1 Spicebush Swallowtail|imgspicebushswallowtail","No result"]
       }
     },
     "easterncrowhawker": {
@@ -421,14 +421,14 @@
     "ebonyjewelwing": {
       "intro": "A beautiful ebony jewelwing flies past your head and lands on a small branch up ahead of you.",
       "options": {
-        "Tilt Head": ["+1 Ebony Jewelwing|imgebonyjewelwing","No reward"]
+        "Tilt Head": ["+1 Ebony Jewelwing|imgebonyjewelwing","No result"]
       }
     },
     "eel": {
       "intro": "You notice a long, black form wriggling in the mud up ahead. It's an eel!",
       "options": {
-        "Check it out": ["+1 Ginger|imgginger","+3 HP","No reward"],
-        "Catch": ["+4% energy","+4 HP","No reward"]
+        "Check it out": ["+1 Ginger|imgginger","+3 HP","No result"],
+        "Catch": ["+4% energy","+4 HP","No result"]
       }
     },
     "egg": {
@@ -444,8 +444,8 @@
     "eveningbat": {
       "intro": "A dark shadow dashes in front of your eyes, so silent that it startles you. When you focus your gaze on it, you recognize a bat in the middle of hunting.",
       "options": {
-        "Chase": ["+1 Bat Carcass|imgbatcarcass","No reward"],
-        "Follow": ["+6 HP","+4 HP","-3 HP","No reward"]
+        "Chase": ["+1 Bat Carcass|imgbatcarcass","No result"],
+        "Follow": ["+6 HP","+4 HP","-3 HP","No result"]
       }
     },
     "faultysteelwolftrap": {
@@ -477,9 +477,9 @@
     "fivelinedskink": {
       "intro": "A small lizard is relaxing on warm rocks nearby. It seems that it's aware of your presence but is choosing to ignore you.",
       "options": {
-        "Poke": ["+3-4 SC|imgsc|(<5000 SC)","+5 HP","No reward"],
-        "Intimidate": ["+1 Mollusk Shell|imgmolluskshell","+1 Mullein|imgmullein","+1 HP","No reward"],
-        "Catch": ["+1 Goldenseal|imggoldenseal","+1-3 SC|imgsc|(<5000 SC)","+2 HP","No reward"]
+        "Poke": ["+3-4 SC|imgsc|(<5000 SC)","+5 HP","No result"],
+        "Intimidate": ["+1 Mollusk Shell|imgmolluskshell","+1 Mullein|imgmullein","+1 HP","No result"],
+        "Catch": ["+1 Goldenseal|imggoldenseal","+1-3 SC|imgsc|(<5000 SC)","+2 HP","No result"]
       }
     },
     "floridacrowhawker": {
@@ -495,19 +495,19 @@
       "intro": "At first glance, this deer looks almost as if it's alive, but when you move closer, you realize that it's completely frozen and already torn into by another predator. What's most surprising is that you notice a tiny fawn by its side. It doesn't look at you and pretends to be invisible.",
       "options": {
         "Check it out": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1-4 SC|imgsc|(<5000 SC)","+1 HP"],
-        "Try to take a bite": ["+4 HP","No reward"]
+        "Try to take a bite": ["+4 HP","No result"]
       }
     },
     "gartersnake": {
       "intro": "This charming little snake slithers around in the grass and over the top of a large rock to peek from higher ground. It seems to be looking for something.",
       "options": {
-        "What's That?": ["+1 item for active snake quest","No reward*"]
+        "What's That?": ["+1 item for active snake quest","No result*"]
       },
       "notes": [
         "*@details1"
       ],
       "details": [
-        "Unless you have an active item quest with the questing snake, this option will always have no reward."
+        "Unless you have an active item quest with the questing snake, this option will always have no result."
       ]
     },
     "greatblueheron": {
@@ -519,7 +519,7 @@
     "greatersagegrouse ": {
       "intro": "Careful, straight ahead! A greater sage-grouse male seems to be prowling for challengers.",
       "options": {
-        "Take a Chance": ["+1 Grouse Carcass|imggrousecarcass","+1 random recipe from grouse pool*","+1 random stat**","No reward"]
+        "Take a Chance": ["+1 Grouse Carcass|imggrousecarcass","+1 random recipe from grouse pool*","+1 random stat**","No result"]
       },
       "notes": [
         "*@poolrecipegrouse",
@@ -529,28 +529,28 @@
     "greenheron": {
       "intro": "A green heron wanders along nearby slow-moving water. It's observing the swimming shadow of a fish. You can tell it hasn't yet noticed you.",
       "options": {
-        "Follow": ["+3-4 SC|imgsc|(<5000 SC)","No reward"],
+        "Follow": ["+3-4 SC|imgsc|(<5000 SC)","No result"],
         "Pounce": ["+3% hunger"]
       }
     },
     "hikers": {
       "intro": "A group of humans is passing by, their voices echoing loudly enough to make the whole area aware of their presence. You're close enough to catch intriguing scents. Their bags must be full of treats and trinkets!",
       "options": {
-        "Growl": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1-6 SC|imgsc|(<5000 SC)","No reward"],
-        "Act friendly": ["+5 HP","No reward"]
+        "Growl": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1-6 SC|imgsc|(<5000 SC)","No result"],
+        "Act friendly": ["+5 HP","No result"]
       }
     },
     "housefinch": {
       "intro": "A tiny bird sits on a nearby bush, observing you as its head tilts in curiosity.",
       "options": {
-        "Play": ["+1 Bone|imgbone","+3% energy","No reward"],
-        "Follow": ["+1 Small Doe Carcass|imgsmalldoecarcass","No reward"]
+        "Play": ["+1 Bone|imgbone","+3% energy","No result"],
+        "Follow": ["+1 Small Doe Carcass|imgsmalldoecarcass","No result"]
       }
     },
     "lampshadespider": {
       "intro": "A dark mass caught in a web draws your gaze. It's a lampshade spider, sitting on her nest. Creepy!",
       "options": {
-        "Approach": ["+10 HP","No reward"],
+        "Approach": ["+10 HP","No result"],
         "Observe": ["+1 Butterfly Wing|imgbutterflywing","+2% energy"]
       }
     },
@@ -558,7 +558,7 @@
       "intro": "The beautiful sight of lavender grass swaying gently in the wind, the buzzing of bees, and the serenity surrounding you make you want to stay here for a while.",
       "options": {
         "Roll": ["+1 random herb from Grasslands*","+1 HP"],
-        "Look Around": ["+5 HP","No reward"]
+        "Look Around": ["+5 HP","No result"]
       },
       "notes": [
         "*@poolherbgrasslands"
@@ -584,7 +584,7 @@
       "intro": "What a struggle! This long-eared owl just caught a gray ratsnake!",
       "options": {
         "Follow": ["+1 Bone|imgbone","+1 random recipe from bone pool*","-4 HP"],
-        "Bark": ["+1 Turkey Tom Carcass|imgturkeytomcarcass","No reward"]
+        "Bark": ["+1 Turkey Tom Carcass|imgturkeytomcarcass","No result"]
       },
       "notes": [
         "*@poolrecipebone"
@@ -593,14 +593,14 @@
     "longtailedweasel": {
       "intro": "A long-tailed weasel tries to slip past you, holding a rat carcass in its jaws.",
       "options": {
-        "Intimidate": ["+1 Rat Carcass|imgratcarcass","No reward"],
-        "Kill": ["+1 Weasel Carcass|imgweaselcarcass","No reward"]
+        "Intimidate": ["+1 Rat Carcass|imgratcarcass","No result"],
+        "Kill": ["+1 Weasel Carcass|imgweaselcarcass","No result"]
       }
     },
     "mallard": {
       "intro": "A beautiful male mallard duck is trying to impress a bored-looking female.",
       "options": {
-        "Pounce": ["+3% hunger","No reward"]
+        "Pounce": ["+3% hunger","No result"]
       }
     },
     "migratingbirds": {
@@ -613,16 +613,16 @@
     "migratingwoodcocks": {
       "intro": "A flock of chattering woodcocks fly annoyingly around your head. Don't they have anything better to do?",
       "options": {
-        "Chatter back": ["+1 Acorn|imgacorn","+3 HP","No reward"],
-        "Follow": ["+1 Boneset|imgboneset","+2 HP","No reward"],
-        "Attack": ["+1 Woodcock Carcass|imgwoodcockcarcass","No reward"]
+        "Chatter back": ["+1 Acorn|imgacorn","+3 HP","No result"],
+        "Follow": ["+1 Boneset|imgboneset","+2 HP","No result"],
+        "Attack": ["+1 Woodcock Carcass|imgwoodcockcarcass","No result"]
       }
     },
     "milksnake": {
       "intro": "A peculiar rustling sound catches your attention, leading you to an intriguing sight. You discover a nest full of eggs where a milk snake is about to devour one of them.",
       "options": {
-        "Attack!": ["+1 Milk Snake Carcass|imgmilksnakecarcass","+3% energy//+10% hunger","No reward"],
-        "Steal": ["+4% energy","-3 HP","No reward"]
+        "Attack!": ["+1 Milk Snake Carcass|imgmilksnakecarcass","+3% energy//+10% hunger","No result"],
+        "Steal": ["+4% energy","-3 HP","No result"]
       }
     },
     "mountainbeaver": {
@@ -641,14 +641,14 @@
     "mountainchickadee": {
       "intro": "Chickadees are supposed to be small and cute, but why must they be so loud? Its shrill calls echo in your ears as it peers down at you without remorse.",
       "options": {
-        "Shoo Away": ["+1 Hiker's Rope|imghikersrope","+3% energy","+10% hunger","No reward"],
-        "Yell back": ["+1 Winterfat|imgwinterfat","+3% energy","No reward"]
+        "Shoo Away": ["+1 Hiker's Rope|imghikersrope","+3% energy","+10% hunger","No result"],
+        "Yell back": ["+1 Winterfat|imgwinterfat","+3% energy","No result"]
       }
     },
     "mountaingoat": {
       "intro": "A mountain billy goat is very determined not to allow you to pass any further.",
       "options": {
-        "Growl": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*","No reward"]
+        "Growl": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*","No result"]
       },
       "notes": [
         "*@poolrecipecavebuildingmaterial"
@@ -668,20 +668,20 @@
       "intro": "A curious otter asks you to play! You're busy, but...the otter is too cute to resist.",
       "options": {
         "Offer Acorn": ["+1 Recipe: Playful North American River Otter|imgrecipeanimal;imgplayfulnorthamericanriverotter"],
-        "Have fun": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","No reward"]
+        "Have fun": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","No result"]
       }
     },
     "northerncardinal": {
       "intro": "A beautiful red cardinal sings its song on a branch above your head. How lovely!",
       "options": {
-        "Listen": ["+1 Butterfly Wing|imgbutterflywing","+3 HP","No reward"],
-        "Jump at": ["+1 Small Bird Meat|imgsmallbirdmeat","+2 HP","No reward"]
+        "Listen": ["+1 Butterfly Wing|imgbutterflywing","+3 HP","No result"],
+        "Jump at": ["+1 Small Bird Meat|imgsmallbirdmeat","+2 HP","No result"]
       }
     },
     "northernpygmyowl": {
       "intro": "A northern pygmy owl is staring down at you from the low-hanging branch of a tree. Its head is rotating in all directions as the wide, open eyes follow your every move.",
       "options": {
-        "Hoot": ["+2-3 SC|imgsc|(<5000 SC)","No reward (>5000 SC)"],
+        "Hoot": ["+2-3 SC|imgsc|(<5000 SC)","No result (>5000 SC)"],
         "Bait": ["+1% hunger"]
       }
     },
@@ -711,8 +711,8 @@
     "paintedturtle": {
       "intro": "Small and brightly colored, a little painted turtle stretches out on a nearby log, looking out over the territory. Is it watching for predators?",
       "options": {
-        "Inspect the log": ["+1 Catfish Skull|imgcatfishskull","No reward"],
-        "Play with the turtle": ["+4% energy","-2 HP","No reward"]
+        "Inspect the log": ["+1 Catfish Skull|imgcatfishskull","No result"],
+        "Play with the turtle": ["+4% energy","-2 HP","No result"]
       }
     },
     "peregrinefalcon": {
@@ -734,15 +734,15 @@
     "porcupine": {
       "intro": "Spiky and with a face only a mother could love, a porcupine perches on a rock and stares you down.",
       "options": {
-        "Pounce": ["+1 Porcupine Carcass|imgporcupinecarcass","No reward"],
-        "Approach": ["+1 Acorn|imgacorn","No reward"]
+        "Pounce": ["+1 Porcupine Carcass|imgporcupinecarcass","No result"],
+        "Approach": ["+1 Acorn|imgacorn","No result"]
       }
     },
     "prancingfawns": {
       "intro": "Two very young fawns are having fun prancing around. They haven't noticed you, and there is no sign of other deer nearby. Do they know that it's dangerous to be far away from their herd?",
       "options": {
-        "Join them": ["+4% energy","No reward"],
-        "Hunt": ["+1 Meat Chunks [Small]|imgmeatchunkssmall","No reward"]
+        "Join them": ["+4% energy","No result"],
+        "Hunt": ["+1 Meat Chunks [Small]|imgmeatchunkssmall","No result"]
       }
     },
     "pumpkinpatch": {
@@ -761,7 +761,7 @@
           "steps": ["Eat the kits","Rummage in stores"]
         },
         "Investigate[Summer]": ["Acorn|imgacorn","Chicken Egg|imgchickenegg","Duck Egg|imgduckegg","Quail Carcass|imgquailcarcass","Quail Egg|imgquailegg"],
-        "Investigate[Autumn]": ["+3-4 SC|imgsc|(<5000 SC)","No reward (>5000 SC)"],
+        "Investigate[Autumn]": ["+3-4 SC|imgsc|(<5000 SC)","No result (>5000 SC)"],
         "Investigate[Winter]": ["+1 Acorn|imgacorn","+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random common feather item*"]
       },
       "steps": {
@@ -779,13 +779,13 @@
       "intro": "The strong smell of fish captures your attention, and you spot a rainbow trout's body shining on the nearby rocks. It's still very fresh and very tempting but you're not the sole visitor eager to claim it. It looks like a raccoon is also trying to get closer to the fish!",
       "options": {
         "Offer Acorn": ["+10% energy"],
-        "Hurry!": ["+5 HP","-3 HP","No reward"]
+        "Hurry!": ["+5 HP","-3 HP","No result"]
       }
     },
     "raven": {
       "intro": "A raven swoops down over your head and seems to be trying to get your attention.",
       "options": {
-        "Follow": ["+1 Acorn|imgacorn","+1 Bone|imgbone","+1 random item from raven feather pool*","+1 random critter carcass**","+1 random herb***","+1 random recipe from amusement pool****","+1 random recipe from rare jay pool*****","+4-6 SC|imgsc|(<5000 SC)","+1-2 SC|imgsc|(>5000 SC)","No reward"]
+        "Follow": ["+1 Acorn|imgacorn","+1 Bone|imgbone","+1 random item from raven feather pool*","+1 random critter carcass**","+1 random herb***","+1 random recipe from amusement pool****","+1 random recipe from rare jay pool*****","+4-6 SC|imgsc|(<5000 SC)","+1-2 SC|imgsc|(>5000 SC)","No result"]
       },
       "notes": [
         "*@poolravenfeather",
@@ -837,14 +837,14 @@
       "intro": "Loud, rhythmic knocking makes you feel like something is drilling into your head. A red-bellied woodpecker is the source of the irritating noise, of course.",
       "options": {
         "Offer Acorn": ["+2-3 SC|imgsc","+1 random recipe from acorn pool**"],
-        "Tap the Tree": ["+1 item for active snake quest","No reward*"]
+        "Tap the Tree": ["+1 item for active snake quest","No result*"]
       },
       "notes": [
         "*@details1",
         "**@conditional1"
       ],
       "details": [
-        "Unless you have an active item quest with the questing snake, this option will always have no reward."
+        "Unless you have an active item quest with the questing snake, this option will always have no result."
       ],
       "conditional": {
         "Offer Acorn": "@poolrecipeacorn"
@@ -854,7 +854,7 @@
       "intro": "A red squirrel is perched on a branch, clasping what looks like a pinecone in its paws. It would be a shame if it dropped it...",
       "options": {
         "Offer Acorn": ["+2-3 SC|imgsc","+1 random recipe from acorn pool*"],
-        "Bark": ["+2-3 SC|imgsc|(<5000 SC)","No reward"]
+        "Bark": ["+2-3 SC|imgsc|(<5000 SC)","No result"]
       },
       "notes": [
         "*@conditional1"
@@ -866,23 +866,23 @@
     "rockymountaintoad": {
       "intro": "A thick, fat, and juicy Rocky Mountain toad is resting on this comfortable rock, protected from the weather by a coat of mucus and mud.",
       "options": {
-        "Lick it": ["+1 Expression: Pfflrp|imgexpressionpfflrp","+5 HP","Gain illness: Poison","No reward"],
-        "Don't lick it": ["+1 SC|imgsc|(<5000 SC)","No reward"]
+        "Lick it": ["+1 Expression: Pfflrp|imgexpressionpfflrp","+5 HP","Gain illness: Poison","No result"],
+        "Don't lick it": ["+1 SC|imgsc|(<5000 SC)","No result"]
       }
     },
     "sasquatchinthemist": {
       "intro": "Your eyes catch movement in the mist ahead. The form looks human, and yet...it's furry, too. What could it be?",
       "options": {
-        "Follow": ["+1 Old Doll|imgolddoll","+4 HP","No reward"],
-        "Track": ["+2 Redwood Sorrel|imgredwoodsorrel;imgredwoodsorrel","+2 HP","No reward"]
+        "Follow": ["+1 Old Doll|imgolddoll","+4 HP","No result"],
+        "Track": ["+2 Redwood Sorrel|imgredwoodsorrel;imgredwoodsorrel","+2 HP","No result"]
       }
     },
     "sharptailedgrouse": {
       "intro": "These two male Sharp-Tailed Grouse are making a lot of noise! Feathers fly as these ridiculous creatures viciously attack each other, scrambling for dominance over mating rights for a nearby female.",
       "options": {
-        "Break Up": ["+1 random recipe from grouse pool*","+1 Grouse Feather|imggrousefeather","No reward"],
-        "Wait": ["+1 Recipe: Grouse Feather Decor|imgrecipetrinket;imggrousefeatherdecor","+1 Grouse Feather|imggrousefeather","+5% hunger","No reward"],
-        "Search": ["+1 Grouse Carcass|imggrousecarcass","+1 Grouse Feather|imggrousefeather","No reward"]
+        "Break Up": ["+1 random recipe from grouse pool*","+1 Grouse Feather|imggrousefeather","No result"],
+        "Wait": ["+1 Recipe: Grouse Feather Decor|imgrecipetrinket;imggrousefeatherdecor","+1 Grouse Feather|imggrousefeather","+5% hunger","No result"],
+        "Search": ["+1 Grouse Carcass|imggrousecarcass","+1 Grouse Feather|imggrousefeather","No result"]
       },
       "notes": [
         "*@poolrecipegrouse"
@@ -891,8 +891,8 @@
     "shortearedowl": {
       "intro": "A familiar shape catches your attention. It's an owl, staring at you so intensely that it's a bit unnerving.",
       "options": {
-        "Bark": ["+1 Owl Feather|imgowlfeather","+1-4 SC|imgsc|(<5000 SC)","No reward"],
-        "Chase": ["+1 Lucky Foot|imgluckyfoot","+1-3 SC|imgsc|(<5000 SC)","No reward"]
+        "Bark": ["+1 Owl Feather|imgowlfeather","+1-4 SC|imgsc|(<5000 SC)","No result"],
+        "Chase": ["+1 Lucky Foot|imgluckyfoot","+1-3 SC|imgsc|(<5000 SC)","No result"]
       }
     },
     "sinaloacrowmerchant": {
@@ -908,8 +908,8 @@
     "snowman": {
       "intro": "Big balls of snow are stacked on top of each other and seem to be dressed in human things. What a strange thing to do!",
       "options": {
-        "Dig Around": ["+1-5 SC|imgsc|(<5000 SC)","+3 HP","No reward"],
-        "Investigate": ["+1 Carrot|imgcarrot","+2 HP","No reward"]
+        "Dig Around": ["+1-5 SC|imgsc|(<5000 SC)","+3 HP","No result"],
+        "Investigate": ["+1 Carrot|imgcarrot","+2 HP","No result"]
       }
     },
     "southerncrowhawker": {
@@ -930,14 +930,14 @@
     "spottedskunk": {
       "intro": "Balancing on its front legs, a skunk raises its bum in your direction, ready to spray!",
       "options": {
-        "Back Away": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","No reward"],
+        "Back Away": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","No result"],
         "Approach": ["+2 Rat Carcass|imgratcarcass;imgratcarcass","+1 Recipe: Playful Spotted Skunk|imgrecipeanimal;imgplayfulspottedskunk","-3 HP"]
       }
     },
     "stripedskunk": {
       "intro": "This looks like an interesting, perhaps tasty creature... On second thought, it smells bad. Very very bad. Rancid, even. Time to run away!",
       "options": {
-        "Hold Your Breath": ["+2-4 SC|imgsc|(<5000 SC)","No reward"]
+        "Hold Your Breath": ["+2-4 SC|imgsc|(<5000 SC)","No result"]
       }
     },
     "swarmingrats": {
@@ -983,7 +983,7 @@
     "wildturkey": {
       "intro": "This tom turkey is strutting and making drumming noises. Perhaps there are some females nearby he is trying to impress.",
       "options": {
-        "Stalk": ["+1 Turkey Tom Carcass|imgturkeytomcarcass","-2 HP","No reward"]
+        "Stalk": ["+1 Turkey Tom Carcass|imgturkeytomcarcass","-2 HP","No result"]
       }
     },
     "wolf": {
@@ -1014,14 +1014,14 @@
     "yellowbelliedmarmot": {
       "intro": "Two fluffy marmots have come out of their burrow anxiously, as if they can sense your presence.",
       "options": {
-        "Investigate the area": ["+1 St. John's Wort|imgstjohnswort","No reward"],
-        "Dig": ["+1 Quail Carcass|imgquailcarcass","+1-5 SC|imgsc|(<5000 SC)","+4 HP","No reward"]
+        "Investigate the area": ["+1 St. John's Wort|imgstjohnswort","No result"],
+        "Dig": ["+1 Quail Carcass|imgquailcarcass","+1-5 SC|imgsc|(<5000 SC)","+4 HP","No result"]
       }
     },
     "yellowpinechipmunk": {
       "intro": "You notice a tiny creature hiding in a fallen tree. You stay still and quiet and after a while, the creature reveals itself, looking at you with curiosity. It's a yellow-pine chipmunk, searching for something to eat.",
       "options": {
-        "Investigate": ["+3 Cedar Bark|imgcedarbark;imgcedarbark;imgcedarbark","+2 HP","No reward"],
+        "Investigate": ["+3 Cedar Bark|imgcedarbark;imgcedarbark;imgcedarbark","+2 HP","No result"],
         "Poke the chipmunk": ["+1 Lucky Foot|imgluckyfoot","+3 HP"]
       }
     },
@@ -1135,14 +1135,8 @@
       "intro": "A caribou fawn has caught your attention from afar. With its glowing fur it's easy to spot, and it appears to be wandering alone.",
       "options": {
         "Help": ["+1 LT|imglt//+5 HP"],
-        "Find mom": ["Automatic battle with enemy Charged Caribou*"]
-      },
-      "notes": [
-        "*@details1"
-      ],
-      "details": [
-        "This result is currently unconfirmed to be an automatic battle with enemy Charged Caribou."
-      ]
+        "Find mom": ["Automatic battle with enemy Lunar Caribou"]
+      }
     },
     "chattylunarwarbler": {
       "intro": "A very chatty Lunar Warbler is singing a tale of a nest made of wonderfully scented yarrow for his princess.",
@@ -1288,14 +1282,8 @@
       "intro": "The creature in front of you looks like a mink, but its head and tail glow - and it seems more curious than afraid of you.",
       "options": {
         "Hunt": ["+1 LT|imglt//+1 Mink Carcass|imgminkcarcass"],
-        "Greet": ["?*"]
-      },
-      "notes": [
-        "*@details1"
-      ],
-      "details": [
-        "*This option does not have any known results."
-      ]
+        "Greet": ["+1 LT|imglt//+1 Dandelion|imgdandelion"]
+      }
     },
     "curiousspidermonkey": {
       "intro": "The dark, elongated shape of a lunar spider monkey swings on lianas, but you can tell the creature is observing you cautiously. Its glowing eyes give it a slightly scary appearance, though it seems to be playful and is interested in you.",
@@ -1347,7 +1335,7 @@
       "options": {
         "Offer Glowing Blubber": ["+1 LT|imglt//+8% energy"],
         "Offer Glowing Tongue": ["+2 LT|imglt"],
-        "Growl": ["+10 LE*","No reward**"]
+        "Growl": ["+10 LE*","No result**"]
       },
       "notes": [
         "*@details1",
@@ -2466,7 +2454,7 @@
     "nobaby": {
       "intro": "A sudden, unexpected sight has stopped you in your tracks. This baby wolf... there's something wrong with it. You're deeply unsettled by its empty gaze, but you're terrified to look away. This wolf isn't like the other creatures you've seen, and you can't find a trace of lunar essence on its plain fur. Is it phasing through the world temporarily?",
       "options": {
-        "Avert Your Gaze": ["+2 LT|imglt//+5 Acorn|imgacorn;imgacorn;imgacorn;imgacorn;imgacorn","No reward"],
+        "Avert Your Gaze": ["+2 LT|imglt//+5 Acorn|imgacorn;imgacorn;imgacorn;imgacorn;imgacorn","No result"],
         "Keep Staring": ["+1 LT|imglt"],
         "Offer Shelter": ["+1 LT|imglt"]
       }
@@ -2908,8 +2896,8 @@
     "disturbeddirt": {
       "intro": "Hmm...the dirt has been displaced here, almost like someone was digging recently. Maybe something valuable is buried?",
       "options": {
-        "Dig around": ["+1 MT|imgmt","No reward"],
-        "Carefully scrape away the dirt": ["+1 Unidentified Fossil|imgunidentifiedfossil","No reward"]
+        "Dig around": ["+1 MT|imgmt","No result"],
+        "Carefully scrape away the dirt": ["+1 Unidentified Fossil|imgunidentifiedfossil","No result"]
       }
     },
     "drycrumblingground": {
@@ -2986,7 +2974,7 @@
       "intro": "A cliff rises to your left with fossils peeking out from a layer of rock. Maybe you should check it out!",
       "options": {
         "Check the fossils at the bottom": ["+1 Fossilized Bone Dust|imgfossilizedbonedust","+1 Unidentified Fossil|imgunidentifiedfossil","+1 MT|imgmt"],
-        "Check the fossils at the top": ["+1 Large Rock|imglargerock","+2 MT|imgmt","+4% energy","No reward"]
+        "Check the fossils at the top": ["+1 Large Rock|imglargerock","+2 MT|imgmt","+4% energy","No result"]
       }
     },
     "fossilcliffright": {
