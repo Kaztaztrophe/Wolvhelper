@@ -1030,7 +1030,7 @@
     "lunardig": {
       "intro": "A faint scent of something special is right down this slope...",
       "options": {
-        "Dig": ["+2 LT|imglt","+1 LT|imglt//+1 Charcoal|imgcharcoal","+1 LT|imglt//+1 Gnawing Hoof|imggnawinghoof","+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve"]
+        "Dig": ["+2 LT|imglt","+1 LT|imglt//+1 Charcoal|imgcharcoal","+1 LT|imglt//+1 Gnawing Hoof|imggnawinghoof","+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+5 SC|imgsc|(<5000 SC)//+1 LT|imglt"]
       }
     },
     "lunarhpfiller": {
@@ -1155,7 +1155,7 @@
     "circlingorbs": {
       "intro": "Unidentified glowing orbs are circling around you. You feel uneasy.",
       "options": {
-        "Run Away!": ["+1 LT|imglt//+2 SC|imgsc|(<5000 SC)","+1 LT|imglt|(>5000 SC)","+1 LT|imglt//-1 HP"],
+        "Run Away!": ["+2 SC|imgsc//+1 LT|imglt|(<5000 SC)","+1 LT|imglt|(>5000 SC)","+1 LT|imglt//-1 HP"],
         "Dance In Circles": ["+1 LT|imglt"],
         "Pounce": ["+1 LT|imglt//+1 Lucky Foot|imgluckyfoot//-2 HP","+1 LT|imglt"]
       }
@@ -1461,7 +1461,7 @@
       "intro": "It's impossible to walk past this... thing... without taking a closer look. An impressive arch covered in glowing fungi and various plants could be a gate to another realm, but you're already in one. Patches of rocks and wood can be seen between the growths, giving a hint of the arch's original shape. It looks so ancient that it surely hides some surprises for anyone patient enough to look for them.",
       "options": {
         "Dig": ["+1 LT|imglt//+1 Bat Carcass//+1 Volukros Squeaky Toy|imgbatcarcass;imgvolukrossqueakytoy"],
-        "Check it Out": ["+1 LT|imglt//+1 Growth Chunk//+1 Growth Root|imggrowthchunk;imggrowthroot","+1 LT|imglt//+1 Small Bird Meat//+2 Quail Egg|imgsmallbirdmeat;imgquailegg;imgquailegg"]
+        "Check it Out": ["+1 LT|imglt//+1 Small Bird Meat//+2 Quail Egg|imgsmallbirdmeat;imgquailegg;imgquailegg","+1 LT|imglt//+1 Growth Chunk//+1 Growth Root|imggrowthchunk;imggrowthroot"]
       }
     },
     "giantmantis": {
@@ -1497,7 +1497,7 @@
     "glowingrain": {
       "intro": "Rain isn't that unusual, but this kind of rain... You notice the droplets are glowing. The tiny splashes spread lunar essence on the ground.",
       "options": {
-        "Splash Around!": ["+2 LT|imglt//+2 HP","+1 LT|imglt","+1 LT|imglt//-1 HP"]
+        "Splash Around!": ["+1 LT|imglt//+2 HP","+1 LT|imglt","+1 LT|imglt//-1 HP"]
       }
     },
     "glowingskull": {
@@ -2876,7 +2876,7 @@
       "intro": "You spot a strange glowing plant resembling crops you've grown in your garden. Is this a special variety?",
       "options": {
         "Try to harvest": ["+1 @location1","+1 @location2","+1 @location3","+1 LT|imglt"],
-        "Study": ["+1-3 GP|imggp"]
+        "Study": ["+2-3 GP|imggp"]
       },
       "location": {
         "/biome/1|/biome/2|/biome/4|/biome/9": ["Flickering Lunar Violet Seeds|imgflickeringlunarvioletseeds","Glowing Gooseberry Seeds|imgglowinggooseberryseeds","Lunar Sandwort Seeds|imglunarsandwortseeds"],
