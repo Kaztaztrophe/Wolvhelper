@@ -1,0 +1,204 @@
+{
+  "trophies": {
+
+    "agitatedbull": {
+      "name": "Agitated Bull",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "americanbadger": {
+      "name": "American Badger",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "angryfarmer": {
+      "name": "Angry Farmer",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "blacktailedbuck": {
+      "name": "Blacktail Buck",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "bobcat": {
+      "name": "Bobcat",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "cougar": {
+      "name": "Cougar",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "coyote": {
+      "name": "Coyote",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "coyotepack": {
+      "name": "Coyote Pack",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "easterncopperhead": {
+      "name": "Eastern Copperhead",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "easternwolf": {
+      "name": "Eastern Wolf",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "easternwolfpack": {
+      "name": "Eastern Wolf Pack",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "": {
+      "name": "",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "enragedcanadagoose": {
+      "name": "Enraged Canada Goose",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "feraldogpack": {
+      "name": "Feral Dog Pack",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "frenziedrazorback": {
+      "name": "Frenzied Razorback",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "grayfox": {
+      "name": "Gray Fox",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "loneviciousblackwolf": {
+      "name": "Lone Vicious Black Wolf",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "loneviciousgraywolf": {
+      "name": "Lone Vicious Gray Wolf",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "mustangherd": {
+      "name": "Mustang Herd",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "mustangstallion": {
+      "name": "Mustang Stallion",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "pronghornherd": {
+      "name": "Pronghorn Herd",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "redfox": {
+      "name": "Red Fox",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "starvingwolf": {
+      "name": "Starving Wolf",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "starvingwolfpack": {
+      "name": "Starving Wolf Pack",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "turkeyvulture": {
+      "name": "Turkey Vulture",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+    "wanderingwolfpack": {
+      "name": "Wandering Wolf Pack",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+
+    "wanderingtala": {
+      "name": "Wandering Tala",
+      "drops": {
+        "items": "WIP",
+        "recipes": "WIP"
+      }
+    },
+
+    "ancientbadger": {
+      "name": "Ancient Badger",
+      "drops": {
+        "items": "Glowing Claw|imgglowingclaw, Glowing Tongue|imgglowingtongue, Scar: Scratched Side|imgscarscratchedside",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+      }
+    }
+
+  }
+}
