@@ -4,183 +4,183 @@
     "agitatedbull": {
       "name": "Agitated Bull",
       "drops": {
-        "items": "WIP",
+        "items": "Bovine Carcass|imgbovinecarcass, Large Hoof|imglargehoof, Odd Teeth|imgoddteeth, Scar: Abdomen|imgscarabdomen",
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "americanbadger": {
       "name": "American Badger",
       "drops": {
-        "items": "WIP",
-        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+        "items": "Badger Pelt, Badger Skull, Mustelid Claws, Mustelid Fangs, Scar: Bite",
+        "recipes": "Base Applicator [Badger], Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Mustelid Fangs Tail Jewelry"
       }
     },
     "angryfarmer": {
       "name": "Angry Farmer",
       "drops": {
-        "items": "WIP",
-        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+        "items": "Chicken Roast, Odd Teeth, Old Horseshoe, Shoe",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Odd Teeth Bracelets, Odd Teeth Tiara"
       }
     },
     "blacktailedbuck": {
       "name": "Blacktail Buck",
       "drops": {
-        "items": "WIP",
-        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+        "items": "Blacktail Antlers, Broken Antler, Deer Ear, Gnawing Hoof, Scar: Eyeless [Left], Scar: Eyeless [Right]",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Gnawing Hoof Trinket, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "bobcat": {
       "name": "Bobcat",
       "drops": {
-        "items": "WIP",
+        "items": "Big Cat Claw, Bobcat Pelt, Bobcat Skull, Bobcat Tail, Scar: Eye - Small [Left], Scar: Eye - Small [Right], Scar: Scratched Thigh [Left], Scar: Scratched Thigh [Right]",
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "cougar": {
       "name": "Cougar",
       "drops": {
-        "items": "WIP",
-        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+        "items": "Big Cat Claw, Cougar Pelt, Cougar Skull, Cougar Tail, Scar: Eye - Large [Left], Scar: Eye - Large [Right], Scar: Scratched Front Leg [Left], Scar: Scratched Front Leg [Right], Scar: Scratched Side, Scar: Scratched Upper Leg [Left], Scar: Scratched Upper Leg [Right]",
+        "recipes": "Big Cat Claw Necklace, Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "coyote": {
       "name": "Coyote",
       "drops": {
-        "items": "WIP",
-        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+        "items": "Canine Claw, Canine Fang, Coyote Pelt, Coyote Skull, Coyote Tail, Scar: Foot",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Canine Fang Necklace, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "coyotepack": {
       "name": "Coyote Pack",
       "drops": {
-        "items": "WIP",
-        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+        "items": "Canine Claw, Canine Fang, Coyote Pelt, Coyote Skull, Coyote Tail",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Canine Fang Necklace, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "easterncopperhead": {
       "name": "Eastern Copperhead",
       "drops": {
-        "items": "WIP",
+        "items": "Light Viper Skin, Snake Meat, Venom Gland, Viper Skull, Scar: Foot",
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "easternwolf": {
       "name": "Eastern Wolf",
       "drops": {
-        "items": "WIP",
-        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+        "items": "Canine Claw, Canine Fang, Wolf Pelt [Brown], Wolf Skull, Wolf Tail, Scar: Ear [Left], Scar: Ear [Right]",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Pelt Merchant Outfit, Wolf Trophy Tail Band [Black], Wolf Trophy Tail Band [Timber], Wolf Trophy Tail Band [White], Wolf Trophy Tail Necklace [Black], Wolf Trophy Tail Necklace [Timber], Wolf Trophy Tail Necklace [White]"
       }
     },
     "easternwolfpack": {
       "name": "Eastern Wolf Pack",
       "drops": {
-        "items": "WIP",
-        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+        "items": "Canine Claw, Canine Fang, Wolf Pelt [Brown], Wolf Skull, Wolf Tail, Scar: Hind Leg [Left], Scar: Hind Leg [Right]",
+        "recipes": "Base Applicator [Skull], Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Pelt Merchant Outfit, Wolf Trophy Tail Band [Black], Wolf Trophy Tail Band [Timber], Wolf Trophy Tail Band [White], Wolf Trophy Tail Necklace [Black], Wolf Trophy Tail Necklace [Timber], Wolf Trophy Tail Necklace [White]"
       }
     },
     "enragedcanadagoose": {
       "name": "Enraged Canada Goose",
       "drops": {
-        "items": "WIP",
+        "items": "Goose Beak, Goose Leg, Goose Skull, Large Bird Meat, Scar: Front Paw [Left], Scar: Front Paw [Right]",
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "feraldogpack": {
       "name": "Feral Dog Pack",
       "drops": {
-        "items": "WIP",
-        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+        "items": "Canine Claw, Canine Fang, Dog Pelt, Dog Skull, Scar: Lip, Scar: Nose",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Canine Fang Necklace, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Pelt Merchant Outfit"
       }
     },
     "frenziedrazorback": {
       "name": "Frenzied Razorback",
       "drops": {
-        "items": "WIP",
+        "items": "Boar Pelt, Boar Skull, Boar Tusks, Gnawing Hoof, Scar: Nose Bridge, Scar: Nose Bridge [High], Scar: Nose Bridge [Low]",
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "grayfox": {
       "name": "Gray Fox",
       "drops": {
-        "items": "WIP",
-        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+        "items": "Canine Claw, Canine Fang, Fox Pelt [Gray], Fox Skull, Fox Tail [Gray], Scar: Foot",
+        "recipes": "Base Applicator [Fox], Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Eye Applicator [Fox], Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "loneviciousblackwolf": {
       "name": "Lone Vicious Black Wolf",
       "drops": {
-        "items": "WIP",
+        "items": "Canine Claw, Canine Fang, Wolf Pelt [Black], Wolf Skull, Wolf Tail",
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "loneviciousgraywolf": {
       "name": "Lone Vicious Gray Wolf",
       "drops": {
-        "items": "WIP",
+        "items": "Canine Claw, Canine Fang, Wolf Pelt [Light], Wolf Skull, Wolf Tail",
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "mustangherd": {
       "name": "Mustang Herd",
       "drops": {
-        "items": "WIP",
-        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+        "items": "Horse Carcass, Horse Skull, Large Hoof, Scar: Ear [Left], Scar: Ear [Right]",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Odd Teeth Bracelets, Odd Teeth Tiara"
       }
     },
     "mustangstallion": {
       "name": "Mustang Stallion",
       "drops": {
-        "items": "WIP",
-        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+        "items": "Horse Skull, Horse Tail, Large Hoof, Odd Teeth, Scar: Nose",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Odd Teeth Bracelets, Odd Teeth Tiara"
       }
     },
     "pronghornherd": {
       "name": "Pronghorn Herd",
       "drops": {
-        "items": "WIP",
+        "items": "Gnawing Hoof, Pronghorn Horns, Pronghorn Pelt, Pronghorn Skull, Scar: Forehead",
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "redfox": {
       "name": "Red Fox",
       "drops": {
-        "items": "WIP",
-        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+        "items": "Canine Claw, Canine Fang, Fox Pelt [Red], Fox Skull, Fox Tail [Red], Scar: Foot",
+        "recipes": "Base Applicator [Fox], Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Eye Applicator [Fox], Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "starvingwolf": {
       "name": "Starving Wolf",
       "drops": {
-        "items": "WIP",
+        "items": "Canine Fang, Wolf Pelt [Brown], Wolf Pelt [Dark], Wolf Skull, Wolf Tail",
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "starvingwolfpack": {
       "name": "Starving Wolf Pack",
       "drops": {
-        "items": "WIP",
-        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+        "items": "Canine Claw, Wolf Skull, Wolf Tail",
+        "recipes": "Base Applicator [Skull], Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "turkeyvulture": {
       "name": "Turkey Vulture",
       "drops": {
-        "items": "WIP",
+        "items": "Large Bird Meat, Vulture Eggs, Vulture Skull, Vulture Talon, Scar: Eye - Medium [Left], Scar: Eye - Medium [Right]",
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
     "wanderingwolfpack": {
       "name": "Wandering Wolf Pack",
       "drops": {
-        "items": "WIP",
-        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+        "items": "Canine Claw, Canine Fang, Wolf Pelt [Brown], Wolf Pelt [Dark], Wolf Pelt [Light], Wolf Pelt [Tawny], Wolf Skull, Wolf Tail",
+        "recipes": "Base Applicator [Skull], Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
 
     "wanderingtala": {
       "name": "Wandering Tala",
       "drops": {
-        "items": "WIP",
+        "items": "Medicine: Cure-For-All, Medicine: Rich Healing Salve",
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
