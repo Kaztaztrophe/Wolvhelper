@@ -176,6 +176,13 @@
         "recipes": "Base Applicator [Skull], Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
+    "whitetailbuck": {
+      "name": "Whitetail Buck",
+      "drops": {
+        "items": "Broken Antler, Deer Ear, Gnawing Hoof, Whitetail Antlers, Scar: Eyeless [Left], Scar: Eyeless [Right]",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Gnawing Hoof Trinket, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+      }
+    },
 
     "wanderingtala": {
       "name": "Wandering Tala",
