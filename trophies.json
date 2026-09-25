@@ -187,7 +187,7 @@
     "wanderingtala": {
       "name": "Wandering Tala",
       "drops": {
-        "items": "Medicine: Cure-For-All, Medicine: Rich Healing Salve",
+        "items": "Medicine: Cure-For-All|imgmedicinecureforall, Medicine: Rich Healing Salve|imgmedicinerichhealingsalve",
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
