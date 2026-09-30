@@ -2,7 +2,7 @@
 
 🐺 <b>Wolvhelper</b> is an explore helper which displays encounter outcomes and additional information when you are exploring on <i>Wolvden</i>. The userscript can be installed through extensions like Violentmonkey on desktop and Userscripts on iOS. The .user.js file is the only file you need to install, as the .json referenced within it are managed independently.</div>
 
-<p align="center">🐺 <a href="https://github.com/Kaztaztrophe/Wolvhelper/blob/main/wolvhelper_encounters.user.js">Wolvhelper Explore Encounters</a> | <a href="https://github.com/Kaztaztrophe/Wolvhelper/blob/main/wolvhelpermini_encounters.user.js">WolvhelperMini Explore Encounters</a> 🐺<br><b>Last Updated:</b> September 30th, 2026 at 10:45 UTC (v1.6.0)</p>
+<p align="center">🐺 <a href="https://github.com/Kaztaztrophe/Wolvhelper/blob/main/wolvhelper_encounters.user.js">Wolvhelper Explore Encounters</a> | <a href="https://github.com/Kaztaztrophe/Wolvhelper/blob/main/wolvhelpermini_encounters.user.js">WolvhelperMini Explore Encounters</a> 🐺<br><b>Last Updated:</b> September 30th, 2026 at 15:10 UTC (v1.6.1)</p>
 
 <p align="center"><i>Data sourced from the <a href="https://grousehouse.wiki/">Grouse House Wiki</a></i></p>
 
