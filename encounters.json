@@ -67,7 +67,7 @@
     "fillerscentpath": {
       "intro": "You catch a strange scent on the ground, a mingling of two different scents. You follow them until they part ways.",
       "options": {
-        "Follow North": ["+1 random single-use food item*","+1-3 SC|imgsc|(<5000 SC)"],
+        "Follow North": ["+1-3 SC|imgsc|(<5000 SC)//+1 random single-use food item*"],
         "Follow West": ["+1 random meat chunks item**//+1 random cave-building material***"]
       },
       "notes": [
@@ -162,8 +162,7 @@
         "Give Massive Pinecone": ["+4 SC|imgsc//+2% energy"],
         "Give Owl Talon": ["+1 Large Bird Meat|imglargebirdmeat"],
         "Browse Wares": ["+50 EXP","+1 Raven Traders: American Crow Buyer|imgraventradersamericancrowbuyer"]
-      },
-      "trophies": "@wanderingtala"
+      }
     },
     "americancrowseller": {
       "intro": "You find a spot where an adorable American crow is selling shiny things. You don't have your silver cones with you, but maybe you can offer something more specific?",
@@ -182,8 +181,7 @@
       },
       "details": [
         "This result can give '''ANY''' recipe in the game."
-      ],
-      "trophies": "@wanderingtala"
+      ]
     },
     "americancrowtrader": {
       "intro": "A big American crow with a curious-looking pouch lands in front of you, asking if you have cool items to trade. Let's see...",
@@ -193,8 +191,7 @@
         "Give Bone": ["+1 Sausage|imgsausage"],
         "Offer Acorn": ["+1 Raccoon Carcass|imgraccooncarcass"],
         "Browse Wares": ["+50 EXP","+1 Raven Traders: American Crow Trader|imgraventradersamericancrowtrader"]
-      },
-      "trophies": "@wanderingtala"
+      }
     },
     "americanpika": {
       "intro": "A little furry brown American Pika comes bounding up to you, seemingly determined and unafraid of you.",
@@ -281,8 +278,7 @@
       ],
       "conditional": {
         "Offer Acorn": ["@pooluncommonamusement","@poolrecipeacorn","@poolrecipeamusement","@poolrecipejaycommon, @poolrecipejayrare"]
-      },
-      "trophies": "@wanderingtala"
+      }
     },
     "breedingnorthernpikes": {
       "intro": "The loud, sudden sound of splashing intrigues you. As you move closer, you witness a rare and fascinating event: the northern pike breeding season. The water is filled with their energy, and their scales shimmer beautifully. It's mesmerizing!",
@@ -390,8 +386,7 @@
       "intro": "A familiar scent reaches your nose before you can see its source. You see a large, dead cow. It's still very fresh and looks as if it only died moments ago.",
       "options": {
         "Take it": ["+1 Bovine Carcass|imgbovinecarcass"]
-      },
-      "trophies": "@wanderingtala"
+      }
     },
     "deertrappedinice": {
       "intro": "You notice the silhouette of a deer in the distance. It struggles to move and keeps falling. The ice has trapped it!",
@@ -711,8 +706,7 @@
       "conditional": {
         "Meanly Offer Acorn": ["@poolrecipeacorn"],
         "Kindly Offer Acorn": ["@poolrecipeacorn"]
-      },
-      "trophies": "@wanderingtala"
+      }
     },
     "paintedturtle": {
       "intro": "Small and brightly colored, a little painted turtle stretches out on a nearby log, looking out over the territory. Is it watching for predators?",
@@ -779,8 +773,7 @@
       ],
       "conditional": {
         "Investigate [Winter]": "@poolcommonfeather"
-      },
-      "trophies": "@wanderingtala"
+      }
     },
     "rainbowtrout": {
       "intro": "The strong smell of fish captures your attention, and you spot a rainbow trout's body shining on the nearby rocks. It's still very fresh and very tempting but you're not the sole visitor eager to claim it. It looks like a raccoon is also trying to get closer to the fish!",
@@ -800,8 +793,7 @@
         "***@poolherbany",
         "****@poolrecipeamusement",
         "*****@poolrecipejayrare"
-      ],
-      "trophies": "@wanderingtala"
+      ]
     },
     "ravenantlerpurveyor": {
       "intro": "You notice a big raven showing off its antler collection. It's looking for more. Maybe you have something to offer?",
@@ -2591,7 +2583,7 @@
         "Dig Around": ["+1 LT|imglt//+5% hunger//+1 random herb from Glacier*"]
       },
       "notes": [
-        "*@poolherglacier",
+        "*@poolherbglacier",
         "**@conditional1"
       ],
       "conditional": {
