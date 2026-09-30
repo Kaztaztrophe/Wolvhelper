@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.6.0
+// @version     1.6.1
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -17,7 +17,7 @@
   'use strict';
 
   const CACHE_KEY = 'wolvhelper_cache'; // Wolvhelper version ONLY
-  const CACHE_SCHEMA = 1; // Bumped when shape of JSON files change
+  const CACHE_SCHEMA = 2; // Bumped when shape of JSON files change
   const UPDATE_COOLDOWN = 10 * 60 * 1000; // 10 minutes
   const FETCH_TIMEOUT = 10 * 1000; // 10 seconds
 
@@ -151,9 +151,28 @@
   }
 
   function buildLookups() {
-    encounterIdLookup = Object.keys(encounterDatabase.encounters)
-      .map(id => ({ id, normalized: normalizeText(id), intro: normalizeText(encounterDatabase.encounters[id]?.intro || '') }))
-      .sort((a, b) => b.normalized.length - a.normalized.length);
+    encounterIdLookup = [];
+
+    for (const [key, data] of Object.entries(encounterDatabase.encounters)) {
+      const multiIds = key.split('|').map(s => s.trim());
+
+      let prompts = [];
+      if (Array.isArray(data?.prompt)) {
+        prompts = data.prompt.map(normalizeText);
+      } else if (typeof data?.prompt === 'string' && data.prompt.trim()) {
+        prompts = data.prompt.split('|').map(normalizeText);
+      }
+
+      for (const multiId of multiIds) {
+        encounterIdLookup.push({
+          id: key,
+          normalized: normalizeText(multiId),
+          prompts: prompts
+        });
+      }
+    }
+
+    encounterIdLookup.sort((a, b) => b.normalized.length - a.normalized.length);
 
     if (enemyDatabase?.trophies) {
       enemyIdLookup = Object.keys(enemyDatabase.trophies)
@@ -178,6 +197,8 @@
   }
 
   function matchScore(buttonText, optionName) {
+    const cleanButton = buttonText.replace(/\s*[.*?]|\s*(.*?)/g, '').trim();
+
     const seasonalMatch = optionName.match(/\s*\[(spring|summer|autumn|winter)\]$/i);
     if (seasonalMatch) {
       const optionSeason = seasonalMatch[1].toLowerCase();
@@ -186,7 +207,7 @@
       optionName = optionName.slice(0, seasonalMatch.index).trim();
     }
 
-    const normalizedButton = normalizeText(buttonText);
+    const normalizedButton = normalizeText(cleanButton);
     const normalizedOption = normalizeText(optionName);
     if (!normalizedOption) return 0;
     if (normalizedButton === normalizedOption) return 1000 + normalizedOption.length;
@@ -311,19 +332,19 @@
     return entry ? { id: entry.id, data: encounterDatabase.encounters[entry.id] } : null;
   }
 
-  function findEncounterByIntro(output) {
+  function findEncounterByPrompt(output) {
     const normalizedParagraphs = Array.from(output.querySelectorAll('p'))
       .map(paragraph => normalizeText(paragraph.textContent));
 
     for (const entry of encounterIdLookup) {
-      const encounter = encounterDatabase.encounters[entry.id];
-      if (!entry.intro) continue;
+      if (!entry.prompts || entry.prompts.length === 0) continue;
 
-      const target = entry.intro;
-      if (!target) continue;
+      const matched = entry.prompts.some(target => 
+        target && normalizedParagraphs.some(paragraphText => paragraphText.includes(target))
+      );
 
-      if (normalizedParagraphs.some(paragraphText => paragraphText.includes(target))) {
-        return { id: entry.id, data: encounter };
+      if (matched) {
+        return { id: entry.id, data: encounterDatabase.encounters[entry.id] };
       }
     }
     return null;
@@ -335,7 +356,8 @@
 
     return [...output.querySelectorAll('button')].some(button => {
       const buttonText = button.textContent.trim();
-      return optionNames.some(name => matchOptionName(buttonText, name)) || stepNames.includes(normalizeText(buttonText));
+      const cleanButton = buttonText.replace(/\s*[.*?]|\s*(.*?)/g, '').trim();
+      return optionNames.some(name => matchOptionName(buttonText, name)) || stepNames.includes(normalizeText(cleanButton));
     });
   }
 
@@ -344,7 +366,7 @@
       const current = { id: activeEncounterId, data: encounterDatabase.encounters[activeEncounterId] };
       if (encounterMatchesButtons(current, output)) return current;
 
-      const replacement = findEncounterByButton(output) || findEncounterByIntro(output);
+      const replacement = findEncounterByButton(output) || findEncounterByPrompt(output);
       if (replacement && replacement.id !== activeEncounterId) {
         activeEncounterId = replacement.id;
         return replacement;
@@ -352,7 +374,7 @@
       return current;
     }
 
-    const results = findEncounterByButton(output) || findEncounterByImage(output) || findEncounterByIntro(output);
+    const results = findEncounterByButton(output) || findEncounterByImage(output) || findEncounterByPrompt(output);
     if (results) activeEncounterId = results.id;
     return results;
   }
@@ -367,12 +389,21 @@
       const match = background.match(/\/enemies\/([^\/?#]+)\.(?:png|jpg|jpeg|webp)/i);
 
       if (match) {
-        let filename = match[1].toLowerCase().replace(/[_-]/g, '');
+        let rawFilename = match[1].toLowerCase();
+        let filename = rawFilename.replace(/[_-]/g, '');
         filename = filename.replace(/(?:spring|summer|autumn|winter)?(?:day|dawn|dusk|night)$|(?:spring|summer|autumn|winter)$/i, '');
+
+        const isCorrupted = /corrupt/i.test(filename);
 
         for (const entry of enemyIdLookup) {
           if (filename.includes(entry.normalized)) {
-            return enemyDatabase.trophies[entry.id];
+            const trophy = enemyDatabase.trophies[entry.id];
+            if (!trophy) continue;
+
+            if (isCorrupted && !trophy.name?.toLowerCase().startsWith('corrupted')) {
+              return { ...trophy, name: `Corrupted ${trophy.name}` };
+            }
+            return trophy;
           }
         }
       }
@@ -383,12 +414,18 @@
 
     if (enemyParagraph) {
       const normalizedContent = normalizeText(enemyParagraph);
+      const isCorrupted = /corrupt/i.test(enemyParagraph);
 
       for (const entry of enemyIdLookup) {
         const trophyObject = enemyDatabase.trophies[entry.id];
         const normalizedName = entry.normalizedName;
 
         if (normalizedContent.includes(entry.normalized) || (normalizedName && normalizedContent.includes(normalizedName))) {
+          if (!trophyObject) continue;
+
+          if (isCorrupted && !trophyObject.name?.toLowerCase().startsWith('corrupted')) {
+            return { ...trophyObject, name: `Corrupted ${trophyObject.name}` };
+          }
           return trophyObject;
         }
       }
@@ -606,9 +643,8 @@ function createResultElement(rewards) {
         }
       });
 
-      if (afterText) wrapperElements.push(document.createTextNode(afterText));
+      if (afterText) wrapperElements.push(document.createTextNode(' ' + afterText));
       if (i < parts.length - 1) wrapperElements.push(document.createTextNode(',' + (imageNames.length ? TEXT_SPACE : ' '))); // Wolvhelper version ONLY
-      // if (i < parts.length - 1) wrapperElements.push(document.createTextNode(',' + TEXT_SPACE)); // WolvhelperMini version ONLY
 
       partWrapper.append(...wrapperElements);
       partsToAppend.push(partWrapper);
@@ -699,15 +735,48 @@ function createResultElement(rewards) {
         }
       });
 
-      if (afterText) wrapperElements.push(document.createTextNode(afterText));
+      if (afterText) wrapperElements.push(document.createTextNode(' ' + afterText));
       if (i < parts.length - 1) wrapperElements.push(document.createTextNode(',' + (imageNames.length ? TEXT_SPACE : ' '))); // Wolvhelper version ONLY
-      // if (i < parts.length - 1) wrapperElements.push(document.createTextNode(',' + TEXT_SPACE)); // WolvhelperMini version ONLY
 
       partWrapper.append(...wrapperElements);
       partsToAppend.push(partWrapper);
     });
 
     line.append(...partsToAppend);
+    return line;
+  }
+
+  function createDetailLine(detailText) {
+    const line = document.createElement('div');
+    line.className = 'wh-line-detail'; // Wolvhelper version ONLY
+
+    const parts = detailText.split('|');
+
+    for (let i = 0; i < parts.length; i += 2) {
+      const textBefore = parts[i];
+      const imageKeys = parts[i + 1]; // Wolvhelper version ONLY
+
+      if (textBefore) {
+        let textToAppend = textBefore;
+        if (i > 0 && parts[i - 1] && /^[a-zA-Z0-9]/.test(textBefore)) {
+          textToAppend = ' ' + textBefore;
+        }
+        appendFormattedText(line, textToAppend);
+      }
+
+      // Wolvhelper version ONLY
+      if (imageKeys) {
+        const imageNames = imageKeys.split(';').map(x => x.trim()).filter(Boolean);
+        imageNames.forEach((imageName, imageIndex) => {
+          const image = createRewardImage(imageName, textBefore);
+          if (image) {
+            image.className = imageIndex === 0 ? 'wh-reward-image-mini wh-reward-image-first' : 'wh-reward-image-mini';
+            line.appendChild(image);
+          }
+        });
+      }
+    }
+
     return line;
   }
 
@@ -769,11 +838,8 @@ function createResultElement(rewards) {
           }
 
           if (details?.[detailIndex] !== undefined) {
-            const detailLine = document.createElement('div');
-            detailLine.className = 'wh-line-detail'; // Wolvhelper version ONLY
             const detailText = conditionalPrefix + detailPrefix + resolveReferences(String(details[detailIndex]), location);
-            appendFormattedText(detailLine, detailText);
-            container.appendChild(detailLine);
+            container.appendChild(createDetailLine(detailText));
           }
           continue;
         }
@@ -789,11 +855,8 @@ function createResultElement(rewards) {
         const detailIndex = Number(detailsMatch[2]) - 1;
 
         if (details?.[detailIndex] !== undefined) {
-          const detailLine = document.createElement('div');
-          detailLine.className = 'wh-line-detail'; // Wolvhelper version ONLY
           const detailText = detailPrefix + resolveReferences(String(details[detailIndex]), location);
-          appendFormattedText(detailLine, detailText);
-          container.appendChild(detailLine);
+          container.appendChild(createDetailLine(detailText));
         }
         continue;
       }
@@ -869,6 +932,7 @@ function createResultElement(rewards) {
     const resultLines = [];
     for (const button of buttons) {
       const buttonText = button.textContent.trim();
+      const cleanButton = buttonText.replace(/\s*[.*?]|\s*(.*?)/g, '').trim();
       let matchedName = null;
       let matchedValue = null;
       let matchedOption = null;
@@ -893,7 +957,7 @@ function createResultElement(rewards) {
 
       if (matchedName === null && encounter.data.steps) {
         for (const stepName of Object.keys(encounter.data.steps)) {
-          if (normalizeText(buttonText) === normalizeText(stepName)) {
+          if (normalizeText(cleanButton) === normalizeText(stepName)) {
             matchedName = stepName;
             matchedValue = encounter.data.steps[stepName];
             break;
