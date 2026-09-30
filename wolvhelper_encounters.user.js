@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.5.10
+// @version     1.6.0
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -14,1037 +14,980 @@
 // ==/UserScript==
 
 (function () {
-	'use strict';
+  'use strict';
 
-	const ENCOUNTERS_URL = 'https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/encounters.json';
-	// Full Explore Helper version only
-	const IMAGES_URL = 'https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/images.json';
-	const POOLS_URL = 'https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/pools.json';
-	const HELPER_CLASS = 'explore-helper';
-	const HELPER_MARGINS = '10px';
-	const IMAGE_WIDTH = '25px';
-	const IMAGE_HEIGHT = '25px';
-	const LINE_HEIGHT = '25px';
-	const WAIT_TIMEOUT = 7500;
+  const CACHE_KEY = 'wolvhelper_cache'; // Wolvhelper version ONLY
+  const CACHE_SCHEMA = 1; // Bumped when shape of JSON files change
+  const UPDATE_COOLDOWN = 10 * 60 * 1000; // 10 minutes
+  const FETCH_TIMEOUT = 10 * 1000; // 10 seconds
 
-	let encounterDatabase = null;
-	let encounterIdLookup = [];
+  const URL_ENCOUNTERS = 'https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/encounters.json';
+  const URL_IMAGES = 'https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/images.json'; // Wolvhelper version ONLY
+  const URL_POOLS = 'https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/pools.json';
+  const URL_TROPHIES = 'https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/trophies.json';
 
-	async function loadDatabase() {
-		try {
-			const [encountersResponse, imagesResponse, poolsResponse] = await Promise.all([
-				fetch(ENCOUNTERS_URL),
-				fetch(IMAGES_URL),
-				fetch(POOLS_URL)
-			]);
+  const TEXT_SPACE = '\u00A0'; // Wolvhelper version ONLY
 
-			if (!encountersResponse.ok) {
-				throw new Error(`[Wolvhelper] Failed to load encounters.json: HTTP ${encountersResponse.status}`);
-			}
-			// Full Explore Helper version only
-			if (!imagesResponse.ok) {
-				throw new Error(`[Wolvhelper] Failed to load images.json: HTTP ${imagesResponse.status}`);
-			}
-			if (!poolsResponse.ok) {
-				throw new Error(`[Wolvhelper] Failed to load pools.json: HTTP ${poolsResponse.status}`);
-			}
+  // Wolvhelper version ONLY
+  function injectStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+      .explore-helper { margin: 10px 0; }
+      .wh-container { margin-top: 8px; text-align: left; }
+      .wh-wrapper-part { display: inline-block; white-space: nowrap; }
+      .wh-wrapper-result { display: inline-block; white-space: nowrap; }
+      .wh-header-enemy { margin-bottom: 4px; text-align: left; }
+      .wh-line-default { text-align: left; line-height: 25px; }
+      .wh-line-normal { text-align: left; }
+      .wh-line-detail { white-space: normal; }
+      .wh-line-step { margin-left: 16px; text-align: left; }
+      .wh-separator { margin-left: 4px; margin-right: 4px; }
+      .wh-reward-image { display: inline-block; vertical-align: middle; width: 25px; height: 25px; }
+      .wh-reward-image-mini { width: 16px; height: 16px; margin-left: 0px; }
+      .wh-reward-image-first { margin-left: 4px; }
+    `;
+    document.head.appendChild(style);
+  }
 
-			encounterDatabase = await encountersResponse.json();
-			// Full Explore Helper version only
-			encounterDatabase.images = await imagesResponse.json();
-			encounterDatabase.pools = await poolsResponse.json();
+  let encounterDatabase = null;
+  let encounterIdLookup = [];
+  let enemyDatabase = null;
+  let enemyIdLookup = [];
+  let activeEncounterId = null;
 
-			if (!encounterDatabase.encounters || typeof encounterDatabase.encounters !== 'object') {
-				throw new Error('[Wolvhelper] Database is missing "encounters"');
-			}
-			// Full Explore Helper version only
-			if (!encounterDatabase.images || typeof encounterDatabase.images !== 'object') {
-				throw new Error('[Wolvhelper] Images database is invalid');
-			}
-			if (!encounterDatabase.pools || typeof encounterDatabase.pools !== 'object') {
-				throw new Error('[Wolvhelper] Pools database is invalid');
-			}
+  async function fetchData(url) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT);
+    try {
+      const response = await fetch(url, { signal: controller.signal });
+      if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
+      return await response.json();
+    } finally {
+      clearTimeout(timer);
+    }
+  }
 
-			encounterIdLookup = Object.keys(encounterDatabase.encounters)
-				.map(id => ({
-					id: id,
-					normalized: id.toLowerCase()
-				}))
-				.sort((a, b) => b.normalized.length - a.normalized.length);
+  let databaseRequested = false;
 
-			updateExploreOutput();
+  function ensureDatabase() {
+    if (databaseRequested) return;
+    databaseRequested = true;
+    loadDatabase();
+  }
 
-		} catch (error) {
-			console.error('[Wolvhelper] Failed to load database:', error);
-		}
-	}
+  async function loadDatabase() {
+    const cachedData = localStorage.getItem(CACHE_KEY);
+    let loadedFromCache = false;
 
-	function normalizeText(text) {
-		return text
-			.toLowerCase()
-			.replace(/[^a-z0-9]/g, '');
-	}
+    if (cachedData) {
+      try {
+        const parsed = JSON.parse(cachedData);
+        if (parsed.schema === CACHE_SCHEMA && parsed.encounterDatabase && parsed.encounterDatabase.encounters) {
+          encounterDatabase = parsed.encounterDatabase;
+          enemyDatabase = parsed.enemyDatabase;
 
-	function isStepOption(optionValue) {
-		return (optionValue && typeof optionValue === 'object' && !Array.isArray(optionValue) && Array.isArray(optionValue.steps));
-	}
+          buildLookups();
+          checkExploreOutput();
+          loadedFromCache = true;
 
-	function getCurrentSeason() {
-		const seasonIcon = document.querySelector('img.seasonIcon[data-original-title], img.seasonIcon[title]');
+          if (Date.now() - parsed.timestamp < UPDATE_COOLDOWN) {
+            return; 
+          }
+        }
+      } catch (error) {
+        console.warn('[Wolvhelper] Cache corrupted, resetting.', error);
+      }
+    }
 
-		if (!seasonIcon) {
-			return null;
-		}
+    try {
+      // Wolvhelper version ONLY
+      const [encountersResult, imagesResult, poolsResult, trophiesResult] = await Promise.allSettled([
+        fetchData(URL_ENCOUNTERS), fetchData(URL_IMAGES), fetchData(URL_POOLS), fetchData(URL_TROPHIES)
+      ]);
 
-		const season = seasonIcon.getAttribute('data-original-title') || seasonIcon.getAttribute('title');
+      const useResult = (result, fallback, name) => {
+        if (result.status === 'fulfilled') return result.value;
+        console.warn(`[Wolvhelper] Could not update ${name}:`, result.reason);
+        return fallback;
+      };
 
-		if (!season) {
-			return null;
-		}
+      const newEncounterData = useResult(encountersResult, encounterDatabase && { encounters: encounterDatabase.encounters }, 'encounters.json');
+      if (!newEncounterData) throw new Error('[Wolvhelper] Could not download encounters.json');
+      newEncounterData.images = useResult(imagesResult, encounterDatabase?.images, 'images.json') || {}; // Wolvhelper version ONLY
+      newEncounterData.pools = useResult(poolsResult, encounterDatabase?.pools, 'pools.json') || {};
+      const newEnemyData = useResult(trophiesResult, enemyDatabase, 'trophies.json');
 
-		return season.trim().toLowerCase();
-	}
+      if (!newEncounterData.encounters || typeof newEncounterData.encounters !== 'object') {
+        throw new Error('[Wolvhelper] Downloaded database is missing "encounters"');
+      }
+      if (!newEnemyData?.trophies || typeof newEnemyData.trophies !== 'object') {
+        throw new Error('[Wolvhelper] Downloaded database is missing "trophies"');
+      }
 
-	function matchOptionName(buttonText, optionName) {
-		const seasonalMatch = optionName.match(/\s*\[(spring|summer|autumn|winter)\]$/i);
+      try {
+        localStorage.setItem(CACHE_KEY, JSON.stringify({
+          schema: CACHE_SCHEMA,
+          timestamp: Date.now(),
+          encounterDatabase: newEncounterData,
+          enemyDatabase: newEnemyData
+        }));
+      } catch (error) {
+        console.warn('[Wolvhelper] Could not write cache.', error);
+      }
 
-		if (seasonalMatch) {
-			const optionSeason = seasonalMatch[1].toLowerCase();
-			const currentSeason = getCurrentSeason();
+      encounterDatabase = newEncounterData;
+      enemyDatabase = newEnemyData;
 
-			if (!currentSeason || currentSeason !== optionSeason) {
-				return false;
-			}
+      buildLookups();
+      lastSignature = '';
 
-			optionName = optionName
-				.slice(0, seasonalMatch.index)
-				.trim();
-		}
+      checkExploreOutput();
 
-		const normalizedButton = normalizeText(buttonText);
-		const normalizedOption = normalizeText(optionName);
+    } catch (error) {
+      if (!loadedFromCache) {
+        console.error('[Wolvhelper] Failed to load database:', error);
+      }
+    }
+  }
 
-		return (normalizedButton === normalizedOption || normalizedButton.startsWith(normalizedOption + ''));
-	}
+  function buildLookups() {
+    encounterIdLookup = Object.keys(encounterDatabase.encounters)
+      .map(id => ({ id, normalized: normalizeText(id), intro: normalizeText(encounterDatabase.encounters[id]?.intro || '') }))
+      .sort((a, b) => b.normalized.length - a.normalized.length);
 
-	function getPlayerLevel() {
-		const levelElement = [...document.querySelectorAll('.card-body b')]
-			.find(element => element.parentElement?.textContent.includes('Level'));
+    if (enemyDatabase?.trophies) {
+      enemyIdLookup = Object.keys(enemyDatabase.trophies)
+        .map(id => ({ id, normalized: normalizeText(id), normalizedName: normalizeText(enemyDatabase.trophies[id]?.name || '') }))
+        .sort((a, b) => Math.max(b.normalized.length, b.normalizedName.length) - Math.max(a.normalized.length, a.normalizedName.length));
+    }
+  }
 
-		if (!levelElement) {
-			return null;
-		}
+  function normalizeText(text) {
+    return text.toLowerCase().replace(/[^a-z0-9]/g, '');
+  }
 
-		const level = Number(levelElement.textContent.trim());
+  function isStepOption(optionValue) {
+    return optionValue && typeof optionValue === 'object' && !Array.isArray(optionValue) && Array.isArray(optionValue.steps);
+  }
 
-		return Number.isFinite(level) ? level : null;
-	}
+  function getCurrentSeason() {
+    const seasonIcon = document.querySelector('img.seasonIcon[data-original-title], img.seasonIcon[title]');
+    if (!seasonIcon) return null;
+    const season = seasonIcon.getAttribute('data-original-title') || seasonIcon.getAttribute('title');
+    return season ? season.trim().toLowerCase() : null;
+  }
 
-	function resolveLevelExpressions(text) {
-		const level = getPlayerLevel();
+  function matchScore(buttonText, optionName) {
+    const seasonalMatch = optionName.match(/\s*\[(spring|summer|autumn|winter)\]$/i);
+    if (seasonalMatch) {
+      const optionSeason = seasonalMatch[1].toLowerCase();
+      const currentSeason = getCurrentSeason();
+      if (!currentSeason || currentSeason !== optionSeason) return 0;
+      optionName = optionName.slice(0, seasonalMatch.index).trim();
+    }
 
-		if (level === null) {
-			return text;
-		}
+    const normalizedButton = normalizeText(buttonText);
+    const normalizedOption = normalizeText(optionName);
+    if (!normalizedOption) return 0;
+    if (normalizedButton === normalizedOption) return 1000 + normalizedOption.length;
+    return normalizedButton.startsWith(normalizedOption) ? normalizedOption.length : 0;
+  }
 
-		return text.replace(/\(LVL\s*([+*])\s*(\d+)\)/gi, (match, operator, number) => {
-			const value = Number(number);
+  function matchOptionName(buttonText, optionName) {
+    return matchScore(buttonText, optionName) > 0;
+  }
 
-			if (operator === '+') {
-				return String(level + value);
-			}
+  function getPlayerLevel() {
+    const levelElement = [...document.querySelectorAll('#card-user .card-body b')]
+      .find(element => element.parentElement?.textContent.includes('Level'));
+    if (!levelElement) return null;
 
-			if (operator === '*') {
-				return String(level * value);
-			}
+    const level = Number(levelElement.textContent.trim());
+    return Number.isFinite(level) ? level : null;
+  }
 
-			return match;
-		});
-	}
+  function resolveLevelExpressions(text) {
+    const level = getPlayerLevel();
+    if (level === null) return text.replace(/\(LVL\s*([+*])\s*(\d+)\)/gi, 'LVL$1$2');
 
-	function getLocationValues(location) {
-		if (!location || typeof location !== 'object') {
-			return [];
-		}
+    return text.replace(/\(LVL\s*([+*])\s*(\d+)\)/gi, (match, operator, number) => {
+      const value = Number(number);
+      if (operator === '+') return String(level + value);
+      if (operator === '*') return String(level * value);
+      return match;
+    });
+  }
 
-		const currentPath = window.location.pathname.replace(/\/+$/, '');
+  function getLocationValues(location) {
+    if (!location || typeof location !== 'object') return [];
+    const currentPath = window.location.pathname.replace(/\/+$/, '');
 
-		for (const [locationPaths, value] of Object.entries(location)) {
-			const paths = locationPaths
-				.split('|')
-				.map(path => path.trim().replace(/\/+$/, ''));
+    for (const [locationPaths, value] of Object.entries(location)) {
+      const paths = locationPaths.split('|').map(path => path.trim().replace(/\/+$/, ''));
+      if (paths.some(path => currentPath === path || currentPath.startsWith(path + '/'))) {
+        return Array.isArray(value) ? value : value ? [value] : [];
+      }
+    }
+    return [];
+  }
 
-			for (const normalizedLocationPath of paths) {
-				if (currentPath === normalizedLocationPath || currentPath.startsWith(normalizedLocationPath + '/')) {
-					return Array.isArray(value) ? value : value ? [value] : [];
-				}
-			}
-		}
+  function resolveReferences(text, location) {
+    const locationValues = getLocationValues(location);
+    let previousText;
+    let maxDepth = 10;
 
-		return [];
-	}
+    do {
+      previousText = text;
+      text = text.replace(/(\**)\@([a-zA-Z0-9_]+)/g, (match, prefix, key) => {
+        const locationMatch = key.match(/^location(\d+)$/);
+        if (locationMatch) {
+          const index = Number(locationMatch[1]) - 1;
+          return locationValues[index] !== undefined ? prefix + locationValues[index] : match;
+        }
+        if (encounterDatabase.pools?.[key]) return prefix + encounterDatabase.pools[key];
+        if (encounterDatabase.notes?.[key]) return prefix + encounterDatabase.notes[key];
+        return match;
+      });
+      maxDepth--;
+    } while (text !== previousText && maxDepth > 0);
 
-	function resolveReferences(text, location) {
-		const locationValues = getLocationValues(location);
+    return text;
+  }
 
-		let previousText;
-
-		do {
-			previousText = text;
-
-			text = text.replace(/(\**)\@([a-zA-Z0-9_]+)/g, (match, prefix, key) => {
-
-					const locationMatch = key.match(/^location(\d+)$/);
-
-					if (locationMatch) {
-						const index = Number(locationMatch[1]) - 1;
-
-						if (locationValues[index] !== undefined) {
-							return prefix + locationValues[index];
-						}
-
-						return match;
-					}
-
-					if (encounterDatabase.pools?.[key]) {
-						return prefix + encounterDatabase.pools[key];
-					}
-
-					if (encounterDatabase.notes?.[key]) {
-						return prefix + encounterDatabase.notes[key];
-					}
-
-					return match;
-				}
-			);
-
-		} while (text !== previousText);
-
-		return text;
-	}
-
-	function findEncounterIdFromAction(action) {
+  function findEncounterIdFromAction(action) {
     if (!action || encounterIdLookup.length === 0) {
       return null;
     }
 
-    const normalizedAction = action.toLowerCase();
+    const rawAction = action.toLowerCase();
+    const actionTokens = rawAction.split(/[^a-z0-9]+/);
 
     for (const entry of encounterIdLookup) {
-
-      if (normalizedAction.includes(entry.normalized)) {
+      if (actionTokens.includes(entry.normalized)) {
         return entry.id;
       }
 
       if (entry.normalized.startsWith('filler')) {
-        const fillerActionName = 'filler_' + entry.normalized.slice(6);
-
-        if (normalizedAction.includes(fillerActionName)) {
+        const fillerSuffix = entry.normalized.slice(6);
+        if (actionTokens.includes('filler_' + fillerSuffix) || (actionTokens.includes('filler') && actionTokens.includes(fillerSuffix))) {
           return entry.id;
         }
       }
     }
 
     return null;
-	}
+  }
 
-	function findEncounterByButton(output) {
-		const buttons = output.querySelectorAll('button');
+  function findEncounterByButton(output) {
+    const buttons = output.querySelectorAll('button');
 
-		for (const button of buttons) {
-			const action = button.dataset.action;
-			const id = findEncounterIdFromAction(action);
+    for (const button of buttons) {
+      const action = button.dataset.action;
+      const id = findEncounterIdFromAction(action);
 
-			if (id && encounterDatabase.encounters[id]) {
-				return {
-					id: id,
-					data: encounterDatabase.encounters[id]
-				};
-			}
-		}
-
-		return null;
-	}
-
-	function findEncounterByImage(output) {
-		const foreground = output.querySelector('#explore-foreground');
-
-		if (!foreground) {
-			return null;
-		}
-
-		const backgroundImage = foreground.style.backgroundImage;
-
-		if (!backgroundImage) {
-			return null;
-		}
-
-		const match = backgroundImage.match(/\/([^\/?#]+)\.(?:png|jpg|jpeg|webp)(?:[?#].*)?$/i);
-
-		if (!match) {
-			return null;
-		}
-
-		let filename = match[1].toLowerCase();
-
-		filename = filename.replace(/[_-]/g, '');
-
-		filename = filename.replace(/(?:spring|summer|autumn|winter)?(?:day|dawn|dusk|night)$|(?:spring|summer|autumn|winter)$/i, '');
-
-		for (const entry of encounterIdLookup) {
-			if (filename.includes(entry.normalized)) {
-				return {
-					id: entry.id,
-					data: encounterDatabase.encounters[entry.id]
-				};
-			}
-		}
-
-		return null;
-	}
-
-	function findEncounterByIntro(output) {
-		const paragraphs = output.querySelectorAll('p');
-
-		for (const entry of encounterIdLookup) {
-			const encounter = encounterDatabase.encounters[entry.id];
-
-			if (!encounter.intro) {
-				continue;
-			}
-
-			const target = normalizeText(encounter.intro);
-
-			for (const paragraph of paragraphs) {
-				if (normalizeText(paragraph.textContent).includes(target)) {
-					return {
-						id: entry.id,
-						data: encounter
-					};
-				}
-			}
-		}
-
-		return null;
-	}
-
-	function findCurrentEncounter(output) {
-		const byButton = findEncounterByButton(output);
-
-		if (byButton) {
-			return byButton;
-		}
-
-		const byImage = findEncounterByImage(output);
-
-		if (byImage) {
-			return byImage;
-		}
-
-		return findEncounterByIntro(output);
-	}
-
-	function parseSingleReward(value, location) {
-		let resolvedValue = resolveLevelExpressions(value);
-
-		resolvedValue = resolveReferences(resolvedValue, location);
-
-		const parts = resolvedValue.split('|');
-
-		const result = parts[0].trim();
-
-		// Full Explore Helper version only
-		const images = parts[1] ? parts[1].split(';').map(x => x.trim()).filter(Boolean) : [];
-
-		const afterText = parts.slice(2).join('|').trim();
-		
-		return {
-			result: result,
-			images: images,
-			afterText: afterText
-		};
-	}
-
-	function parseCompoundResult(value, location) {
-		return value
-			.split('//')
-			.map(part => part.trim())
-			.filter(Boolean)
-			.map(part => parseSingleReward(part, location));
-	}
-
-	function parseResult(value, location) {
-		if (Array.isArray(value)) {
-			return value.map(outcome => parseCompoundResult(outcome, location));
-		}
-
-		return [parseCompoundResult(value, location)];
-	}
-
-	// Full Explore Helper version only
-	function createRewardImage(imageName) {
-    const imageUrl = encounterDatabase.images[imageName];
-
-    if (!imageUrl) {
-        console.warn('[Wolvhelper] Unknown image:', imageName);
-        return null;
+      if (id && encounterDatabase.encounters[id]) {
+        return {
+          id: id,
+          data: encounterDatabase.encounters[id]
+        };
+      }
     }
 
-    const img = document.createElement('img');
+    return null;
+  }
 
+  function findEncounterByImage(output) {
+    const foreground = output.querySelector('#explore-foreground');
+    const backgroundImage = foreground?.style.backgroundImage;
+    if (!backgroundImage) return null;
+
+    const match = backgroundImage.match(/\/([^\/?#]+)\.(?:png|jpg|jpeg|webp)(?:[?#][^"')]*)?["')]*$/i);
+    if (!match) return null;
+
+    let filename = match[1].toLowerCase().replace(/[_-]/g, '');
+    filename = filename.replace(/(?:spring|summer|autumn|winter)?(?:day|dawn|dusk|night)$|(?:spring|summer|autumn|winter)$/i, '');
+
+    const entry = encounterIdLookup.find(encounter => filename === encounter.normalized) || encounterIdLookup.find(encounter => encounter.normalized.length >= 5 && filename.includes(encounter.normalized));
+    return entry ? { id: entry.id, data: encounterDatabase.encounters[entry.id] } : null;
+  }
+
+  function findEncounterByIntro(output) {
+    const normalizedParagraphs = Array.from(output.querySelectorAll('p'))
+      .map(paragraph => normalizeText(paragraph.textContent));
+
+    for (const entry of encounterIdLookup) {
+      const encounter = encounterDatabase.encounters[entry.id];
+      if (!entry.intro) continue;
+
+      const target = entry.intro;
+      if (!target) continue;
+
+      if (normalizedParagraphs.some(paragraphText => paragraphText.includes(target))) {
+        return { id: entry.id, data: encounter };
+      }
+    }
+    return null;
+  }
+
+  function encounterMatchesButtons(encounter, output) {
+    const optionNames = Object.keys(encounter.data.options || {});
+    const stepNames = Object.keys(encounter.data.steps || {}).map(normalizeText);
+
+    return [...output.querySelectorAll('button')].some(button => {
+      const buttonText = button.textContent.trim();
+      return optionNames.some(name => matchOptionName(buttonText, name)) || stepNames.includes(normalizeText(buttonText));
+    });
+  }
+
+  function findCurrentEncounter(output) {
+    if (activeEncounterId && encounterDatabase.encounters[activeEncounterId]) {
+      const current = { id: activeEncounterId, data: encounterDatabase.encounters[activeEncounterId] };
+      if (encounterMatchesButtons(current, output)) return current;
+
+      const replacement = findEncounterByButton(output) || findEncounterByIntro(output);
+      if (replacement && replacement.id !== activeEncounterId) {
+        activeEncounterId = replacement.id;
+        return replacement;
+      }
+      return current;
+    }
+
+    const results = findEncounterByButton(output) || findEncounterByImage(output) || findEncounterByIntro(output);
+    if (results) activeEncounterId = results.id;
+    return results;
+  }
+
+  function findEnemy(output) {
+    if (!enemyDatabase || !enemyIdLookup.length) return null;
+
+    const foreground = output.querySelector('#explore-foreground');
+
+    if (foreground && foreground.style.backgroundImage) {
+      const background = foreground.style.backgroundImage;
+      const match = background.match(/\/enemies\/([^\/?#]+)\.(?:png|jpg|jpeg|webp)/i);
+
+      if (match) {
+        let filename = match[1].toLowerCase().replace(/[_-]/g, '');
+        filename = filename.replace(/(?:spring|summer|autumn|winter)?(?:day|dawn|dusk|night)$|(?:spring|summer|autumn|winter)$/i, '');
+
+        for (const entry of enemyIdLookup) {
+          if (filename.includes(entry.normalized)) {
+            return enemyDatabase.trophies[entry.id];
+          }
+        }
+      }
+    }
+
+    const paragraphsText = Array.from(output.querySelectorAll('p')).map(paragraph => paragraph.textContent);
+    const enemyParagraph = paragraphsText.find(text => /oh\s+no!/i.test(text));
+
+    if (enemyParagraph) {
+      const normalizedContent = normalizeText(enemyParagraph);
+
+      for (const entry of enemyIdLookup) {
+        const trophyObject = enemyDatabase.trophies[entry.id];
+        const normalizedName = entry.normalizedName;
+
+        if (normalizedContent.includes(entry.normalized) || (normalizedName && normalizedContent.includes(normalizedName))) {
+          return trophyObject;
+        }
+      }
+    }
+
+    return null;
+  }
+
+  // Wolvhelper version ONLY
+  function createRewardImage(imageName) {
+    const imageUrl = encounterDatabase.images[imageName];
+    if (!imageUrl) { console.warn('[Wolvhelper] Unknown image:', imageName); return null; }
+
+    const img = document.createElement('img');
     img.src = imageUrl;
     img.loading = 'lazy';
 
-    img.style.display = 'inline-block';
-    img.style.verticalAlign = 'middle';
-    img.style.width = IMAGE_WIDTH;
-    img.style.height = IMAGE_HEIGHT;
-
+    img.className = 'wh-reward-image';
     return img;
-	}
+  }
+
+  function appendFormattedText(container, text) {
+    let lastIndex = 0;
+    const elementsToAppend = [];
+
+    for (const match of text.matchAll(/'''([^']+)'''|''([^']+)''/g)) {
+      if (match.index > lastIndex) {
+        elementsToAppend.push(document.createTextNode(text.slice(lastIndex, match.index)));
+      }
+
+      if (match[1] !== undefined) {
+        // Bold: '''text'''
+        const bold = document.createElement('b');
+        bold.textContent = match[1];
+        elementsToAppend.push(bold);
+      } else if (match[2] !== undefined) {
+        // Italic: ''text''
+        const italic = document.createElement('i');
+        italic.textContent = match[2];
+        elementsToAppend.push(italic);
+      }
+      lastIndex = match.index + match[0].length; 
+    }
+
+    if (lastIndex < text.length) {
+      elementsToAppend.push(document.createTextNode(text.slice(lastIndex)));
+    }
+
+    container.append(...elementsToAppend);
+  }
+
+  function parseSingleReward(value, location) {
+    let resolvedValue = resolveLevelExpressions(value);
+    resolvedValue = resolveReferences(resolvedValue, location);
+
+    const parts = resolvedValue.split('|');
+    return {
+      result: parts[0].trim(),
+      images: parts[1] ? parts[1].split(';').map(x => x.trim()).filter(Boolean) : [], // Wolvhelper version ONLY
+      afterText: parts.slice(2).join('|').trim()
+    };
+  }
+
+  function parseCompoundResult(value, location) {
+    return value.split('//').reduce((accumulator, part) => {
+      const trimmed = part.trim();
+      if (trimmed) {
+        accumulator.push(parseSingleReward(trimmed, location));
+      }
+      return accumulator;
+    }, []);
+  }
+
+  function parseResult(value, location) {
+    return Array.isArray(value) ? value.map(outcome => parseCompoundResult(outcome, location)) : [parseCompoundResult(value, location)];
+  }
+
+function createResultElement(rewards) {
+    const container = document.createElement('span');
+
+    const elementsToAppend = [];
+
+    rewards.forEach((reward, index) => {
+      if (index > 0) elementsToAppend.push(document.createTextNode(' & '));
+
+      const resultText = reward.result;
+      const noResultRegex = /No result(\**)/gi;
+      let lastIndex = 0;
+      let match;
+
+      while ((match = noResultRegex.exec(resultText)) !== null) {
+        if (match.index > lastIndex) elementsToAppend.push(document.createTextNode(resultText.slice(lastIndex, match.index)));
+
+        const noResult = document.createElement('i');
+        noResult.textContent = 'No result';
+        elementsToAppend.push(noResult);
+
+        if (match[1]) elementsToAppend.push(document.createTextNode(match[1]));
+        lastIndex = noResultRegex.lastIndex;
+      }
+
+      if (lastIndex < resultText.length) elementsToAppend.push(document.createTextNode(resultText.slice(lastIndex)));
+
+      // Wolvhelper version ONLY
+      reward.images?.forEach((imageName, imageIndex) => {
+        const image = createRewardImage(imageName, resultText);
+        if (image) {
+          if (imageIndex === 0) elementsToAppend.push(document.createTextNode(' '));
+          elementsToAppend.push(image);
+        }
+      });
+
+      if (reward.afterText) elementsToAppend.push(document.createTextNode(' ' + reward.afterText));
+    });
+
+    container.append(...elementsToAppend);
+    return container;
+  }
+
+  function createStepPreviewLines(buttonText, steps, encounter) {
+    const lines = [];
+    const previewLine = document.createElement('div');
+    previewLine.className = 'wh-line-normal';
+
+    const label = document.createElement('b');
+    label.textContent = buttonText + ': ';
+    previewLine.appendChild(label);
+
+    steps.forEach((step, index) => {
+      if (index > 0) {
+        const separator = document.createElement('span');
+        separator.textContent = 'or';
+        separator.className = 'wh-separator';
+        previewLine.appendChild(separator);
+      }
+      const stepLabel = document.createElement('b');
+      stepLabel.textContent = step;
+      previewLine.appendChild(stepLabel);
+    });
+
+    lines.push(previewLine);
+
+    steps.forEach(stepName => {
+      const stepValue = encounter.data.steps?.[stepName];
+      if (stepValue === undefined) return;
+
+      const stepLine = createResultLine(stepName, parseResult(stepValue, encounter.data.location));
+      stepLine.className = 'wh-line-step';
+      lines.push(stepLine);
+    });
+
+    return lines;
+  }
+
+  function createResultLine(buttonText, outcomes) {
+    const line = document.createElement('div');
+    line.className = 'wh-line-default';
+
+    const label = document.createElement('b');
+    label.textContent = buttonText + ': ';
+    line.appendChild(label);
+
+    outcomes.forEach((outcome, index) => {
+      const resultWrapper = document.createElement('span');
+      resultWrapper.className = 'wh-wrapper-result'; // Wolvhelper version ONLY
+
+      if (index > 0) {
+        const separator = document.createElement('span');
+        separator.textContent = 'OR';
+        separator.className = 'wh-separator';
+        separator.style.fontWeight = 'bold';
+
+        resultWrapper.appendChild(separator);
+      }
+      resultWrapper.appendChild(createResultElement(outcome));
+      line.appendChild(resultWrapper);
+    });
+
+    return line;
+  }
+
+  function createTrophyLine(labelText, dropString) {
+    const line = document.createElement('div');
+    line.className = 'wh-line-normal';
 
-	function createResultElement(rewards) {
-		const container = document.createElement('span');
+    const labelBold = document.createElement('b');
+    labelBold.textContent = labelText + ': ';
 
-		rewards.forEach((reward, index) => {
-			if (index > 0) {
-				container.appendChild(document.createTextNode(' & '));
-			}
+    const partsToAppend = [labelBold];
 
-			const resultText = reward.result;
-			const noResultRegex = /No result(\**)/gi;
+    const parts = dropString.split(',');
+    parts.forEach((part, i) => {
+      const trimmed = part.trim();
+      if (!trimmed) return;
 
-			let lastIndex = 0;
-			let match;
+      const partWrapper = document.createElement('span');
 
-			while ((match = noResultRegex.exec(resultText)) !== null) {
+      const separators = trimmed.split('|');
+      const text = separators[0].trim();
+      const imageNames = separators[1] ? separators[1].split(';').map(x => x.trim()).filter(Boolean) : []; // Wolvhelper version ONLY
+      const afterText = separators.length > 2 ? separators.slice(2).join('|').trim() : '';
 
-				if (match.index > lastIndex) {
-					container.appendChild(document.createTextNode(resultText.slice(lastIndex, match.index)));
-				}
+      const wrapperElements = [];
 
-				const noResult = document.createElement('i');
-				noResult.textContent = 'No result';
-				container.appendChild(noResult);
+      if (imageNames.length) partWrapper.className = 'wh-wrapper-part'; // Wolvhelper version ONLY
 
-				if (match[1]) {
-					container.appendChild(document.createTextNode(match[1]));
-				}
+      if (text) appendFormattedText(partWrapper, text);
 
-				lastIndex = noResultRegex.lastIndex;
-			}
+      // Wolvhelper version ONLY
+      imageNames.forEach((imageName, imageIndex) => {
+        const image = createRewardImage(imageName, text);
+        if (image) {
+          image.className = imageIndex === 0 ? 'wh-reward-image-mini wh-reward-image-first' : 'wh-reward-image-mini';
+          wrapperElements.push(image);
+        }
+      });
 
-			if (lastIndex < resultText.length) {
-				container.appendChild(document.createTextNode(resultText.slice(lastIndex)));
-			}
+      if (afterText) wrapperElements.push(document.createTextNode(afterText));
+      if (i < parts.length - 1) wrapperElements.push(document.createTextNode(',' + (imageNames.length ? TEXT_SPACE : ' '))); // Wolvhelper version ONLY
+      // if (i < parts.length - 1) wrapperElements.push(document.createTextNode(',' + TEXT_SPACE)); // WolvhelperMini version ONLY
 
-			// Full Explore Helper version only
-			if (reward.images) {
-				for (const [imageIndex, imageName] of reward.images.entries()) {
-					const img = createRewardImage(imageName);
+      partWrapper.append(...wrapperElements);
+      partsToAppend.push(partWrapper);
+    });
 
-					if (img) {
-						if (imageIndex === 0) {
-							container.appendChild(document.createTextNode(' '));
-						}
+    line.append(...partsToAppend);
+    return line;
+  }
 
-						container.appendChild(img);
-					}
-				}
-			}
+  function createTrophiesElement(encounter, buttons, enemyDatabase) {
+    if (!encounter || !encounter.data || !encounter.data.trophies) return null;
 
-			if (reward.afterText) {
-				container.appendChild(document.createTextNode(' ' + reward.afterText));
-			}
-		});
+    let activeTrophyId = null;
 
-		return container;
-	}
+    if (typeof encounter.data.trophies === 'string') {
+      const isFirstStep = [...buttons].some(button => Object.keys(encounter.data.options || {}).some(optionName => matchOptionName(button.textContent.trim(), optionName)));
 
-	function createStepPreviewLines(buttonText, steps, encounter) {
-		const lines = [];
+      if (isFirstStep || !encounter.data.options) {
+        activeTrophyId = encounter.data.trophies;
+      }
+    } else if (typeof encounter.data.trophies === 'object') {
+      for (const [stepName, trophyId] of Object.entries(encounter.data.trophies)) {
+        const isMatch = [...buttons].some(button => matchOptionName(button.textContent.trim(), stepName)
+        );
 
-		const previewLine = document.createElement('div');
-		previewLine.style.textAlign = 'left';
+        if (isMatch) {
+          activeTrophyId = trophyId;
+          break;
+        }
+      }
+    }
 
-		const label = document.createElement('b');
-		label.textContent = buttonText + ': ';
+    if (!activeTrophyId) return null;
+
+    const rawId = String(activeTrophyId);
+    const trophyId = (rawId.startsWith('@') ? rawId.slice(1) : rawId).toLowerCase();
+    const trophyData = enemyDatabase?.trophies?.[trophyId];
+
+    if (!trophyData) return null;
 
-		previewLine.appendChild(label);
+    const encounterTrophies = document.createElement('div');
+    encounterTrophies.className = 'wh-container';
 
-		steps.forEach((step, index) => {
-			if (index > 0) {
-				const separator = document.createElement('span');
-				separator.textContent = 'or';
-				separator.style.marginLeft = '4px';
-				separator.style.marginRight = '4px';
+    const trophyHeader = document.createElement('div');
+    trophyHeader.className = 'wh-header-enemy';
 
-				previewLine.appendChild(separator);
-			}
+    const trophyHeaderText = document.createElement('b');
+    trophyHeaderText.textContent = `${trophyData.name || trophyId} Trophies`;
+    trophyHeader.append(trophyHeaderText);
 
-			const stepLabel = document.createElement('b');
-			stepLabel.textContent = step;
+    const itemsLine = trophyData.drops?.items ? createTrophyLine('Items', trophyData.drops.items) : null;
+    const recipesLine = trophyData.drops?.recipes ? createTrophyLine('Recipes', trophyData.drops.recipes) : null;
 
-			previewLine.appendChild(stepLabel);
-		});
+    encounterTrophies.append(...[trophyHeader, itemsLine, recipesLine].filter(Boolean));
 
-		lines.push(previewLine);
-
-		for (const stepName of steps) {
-			const stepValue = encounter.data.steps?.[stepName];
-
-			if (stepValue === undefined) {
-				continue;
-			}
-
-			const stepLine = createResultLine(stepName, parseResult(stepValue, encounter.data.location));
-
-			stepLine.style.marginLeft = '15px';
-
-			lines.push(stepLine);
-		}
-
-		return lines;
-	}
-
-	function createStepResultLines(encounter, stepNames) {
-		const resultLines = [];
-
-		for (const stepName of stepNames) {
-			const stepValue = encounter.data.steps?.[stepName];
-
-			if (stepValue === undefined) {
-				continue;
-			}
-
-			const outcomes = parseResult(stepValue, encounter.data.location);
-
-			resultLines.push(createResultLine(stepName, outcomes));
-		}
-
-		return resultLines;
-	}
-
-	function createResultLine(buttonText, outcomes) {
-		const line = document.createElement('div');
-		// Full Explore Helper version only
-		line.style.lineHeight = LINE_HEIGHT;
-		line.style.textAlign = 'left';
-
-		const label = document.createElement('b');
-
-		label.textContent = buttonText + ': ';
-
-		line.appendChild(label);
-
-		outcomes.forEach((outcome, index) => {
-
-			const resultWrapper = document.createElement('span');
-			// Full Explore Helper version only
-			resultWrapper.style.display = 'inline-block';
-			resultWrapper.style.whiteSpace = 'nowrap';
-
-			if (index > 0) {
-				const separator = document.createElement('span');
-				separator.textContent = 'OR';
-				separator.style.fontWeight = 'bold';
-				separator.style.marginLeft = '4px';
-				separator.style.marginRight = '4px';
-
-				resultWrapper.appendChild(separator);
-			}
-
-			resultWrapper.appendChild(createResultElement(outcome));
-
-			line.appendChild(resultWrapper);
-		});
-
-		return line;
-	}
-
-	function appendFormattedText(container, text) {
-		const regex = /'''([^']+)'''|''([^']+)''/g;
-		let lastIndex = 0;
-		let match;
-
-		while ((match = regex.exec(text)) !== null) {
-
-			if (match.index > lastIndex) {
-				container.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
-			}
-
-			// Bold: '''text'''
-			if (match[1] !== undefined) {
-				const bold = document.createElement('b');
-				bold.textContent = match[1];
-				container.appendChild(bold);
-			}
-
-			// Italic: ''text''
-			else if (match[2] !== undefined) {
-				const italic = document.createElement('i');
-				italic.textContent = match[2];
-				container.appendChild(italic);
-			}
-
-			lastIndex = regex.lastIndex;
-		}
-
-		if (lastIndex < text.length) {
-			container.appendChild(document.createTextNode(text.slice(lastIndex)));
-		}
-	}
-
-	function createNoteLine(noteText) {
-		const line = document.createElement('div');
-
-		const parts = noteText.split(',');
-
-		for (let i = 0; i < parts.length; i++) {
-			const part = parts[i].trim();
-
-			if (!part) {
-				continue;
-			}
-
-			const separator = part.indexOf('|');
-
-			const partWrapper = document.createElement('span');
-			// Full Explore Helper version only
-			partWrapper.style.display = 'inline-block';
-			partWrapper.style.whiteSpace = 'nowrap';
-
-			if (separator === -1) {
-				appendFormattedText(partWrapper, part);
-			} else {
-				const separators = part.split('|');
-
-				const text = separators[0].trim();
-				// Full Explore Helper version only
-				const imageNames = separators[1]
-					? separators[1].split(';').map(x => x.trim()).filter(Boolean)
-					: [];
-
-				const afterText = separators.slice(2).join('|').trim();
-
-				if (text) {
-					appendFormattedText(partWrapper, text);
-				}
-
-				// Full Explore Helper version only
-				for (const [imageIndex, imageName] of imageNames.entries()) {
-					const img = createRewardImage(imageName);
-
-					if (img) {
-						img.style.marginLeft = imageIndex === 0 ? '4px' : '0px';
-
-						img.style.height = '16px';
-						img.style.width = '16px';
-
-						partWrapper.appendChild(img);
-					}
-				}
-
-				if (afterText) {
-					partWrapper.appendChild(document.createTextNode(afterText));
-				}
-			}
-
-			// Full Explore Helper version only
-			if (i < parts.length - 1) {
-				partWrapper.appendChild(document.createTextNode(',\u00A0'));
-			}
-
-			line.appendChild(partWrapper);
-		}
-
-		return line;
-	}
-
-	function createNotesElement(notes, conditional, details, location, buttons) {
-		if (!notes && !conditional && !details && !location) {
-			return null;
-		}
-
-		const noteList = Array.isArray(notes) ? [...notes] : notes ? [notes] : [];
-
-		if (noteList.length === 0) {
-			return null;
-		}
-
-		const container = document.createElement('div');
-		container.style.marginTop = '8px';
-		container.style.textAlign = 'left';
-
-		const label = document.createElement('b');
-		label.textContent = 'Notes:';
-		container.appendChild(label);
-
-		for (const note of noteList) {
-
-    let noteText = String(note).trim();
-
-		const conditionalMatch = noteText.match(/^(\*+)@conditional(\d+)(?:\[([^\]]+)\])?$/i);
-
-		if (conditionalMatch) {
-			const conditionalPrefix = conditionalMatch[1] || '';
-			const conditionalIndex = Number(conditionalMatch[2]) - 1;
-			const specifiedOption = conditionalMatch[3]?.trim() || null;
-
-			const conditionalEntries = conditional ? Object.entries(conditional) : [];
-
-			let matchingConditional = null;
-
-			if (specifiedOption) {
-				matchingConditional = conditionalEntries.find(
-					([buttonName]) => {
-						if (!matchOptionName(buttonName, specifiedOption)) {
-							return false;
-						}
-
-						return [...buttons].some(button =>
-							matchOptionName(button.textContent, specifiedOption)
-						);
-					}
-				);
-			}
-
-			if (!specifiedOption) {
-				matchingConditional = conditionalEntries.find(
-					([buttonName]) => {
-						return [...buttons].some(button =>
-							matchOptionName(button.textContent, buttonName)
-						);
-					}
-				);
-			}
-
-			if (!matchingConditional) {
-				continue;
-			}
-
-			const [buttonName, conditionalValue] = matchingConditional;
-
-			const conditionalNotes = Array.isArray(conditionalValue) ? conditionalValue : [conditionalValue];
-
-			const conditionalNote = conditionalNotes[conditionalIndex];
-
-			if (conditionalNote === undefined) {
-				continue;
-			}
-
-			let conditionalText = String(conditionalNote).trim();
-
-			const conditionalDetailsMatch = conditionalText.match(/^(\*+)@details(\d+)$/i);
-			const conditionalDetailsNoPrefixMatch = conditionalText.match(/^@details(\d+)$/i);
-
-			if (conditionalDetailsMatch || conditionalDetailsNoPrefixMatch) {
-				let detailPrefix = '';
-				let detailIndex;
-
-				if (conditionalDetailsMatch) {
-					detailPrefix = conditionalDetailsMatch[1] || '';
-					detailIndex = Number(conditionalDetailsMatch[2]) - 1;
-				} else {
-					detailIndex = Number(conditionalDetailsNoPrefixMatch[1]) - 1;
-				}
-
-				if (details?.[detailIndex] !== undefined) {
-					const detailLine = document.createElement('div');
-					detailLine.style.whiteSpace = 'normal';
-
-					const detailText = conditionalPrefix + detailPrefix + resolveReferences(String(details[detailIndex]), location);
-
-					appendFormattedText(detailLine, detailText);
-
-					container.appendChild(detailLine);
-				}
-
-				continue;
-			}
-
-			conditionalText = conditionalPrefix + resolveReferences(conditionalText, location);
-
-			container.appendChild(createNoteLine(conditionalText));
-
-			continue;
-		}
-
-    const detailsMatch = noteText.match(/^(\*+)@details(\d+)$/i);
-
-		if (detailsMatch) {
-			const detailPrefix = detailsMatch[1] || '';
-			const detailIndex = Number(detailsMatch[2]) - 1;
-
-			if (details?.[detailIndex] !== undefined) {
-				const detailLine = document.createElement('div');
-				detailLine.style.whiteSpace = 'normal';
-
-				const detailText = detailPrefix + resolveReferences(String(details[detailIndex]), location);
-
-				appendFormattedText(detailLine, detailText);
-
-				container.appendChild(detailLine);
-			}
-
-			continue;
-		}
-
-    noteText = resolveReferences(noteText, location);
-
-		container.appendChild(createNoteLine(noteText));
-
-		}
-
-		if (container.children.length === 1) {
-			return null;
-		}
-
-		return container;
-	}
-
-	function isStepAction(button) {
-		const output = document.querySelector('#explore-output');
-		if (!output || !encounterDatabase) return false;
-
-		const encounter = findCurrentEncounter(output);
-		if (!encounter || !encounter.data) return false;
-
-		const buttonText = button.textContent.trim();
-
-		for (const [optionName, optionValue] of Object.entries(encounter.data.options || {})) {
-			if (matchOptionName(buttonText, optionName) && isStepOption(optionValue)) {
-				return true;
-			}
-		}
-
-		if (encounter.data.steps) {
-			for (const stepName of Object.keys(encounter.data.steps)) {
-				if (normalizeText(buttonText) === normalizeText(stepName)) {
-					return true;
-				}
-			}
-		}
-
-		return false;
-	}
-
-	function clearExploreHelper() {
-		const helpers = document.querySelectorAll('.' + HELPER_CLASS);
-
-		helpers.forEach(helper => helper.remove());
-	}
-
-	function updateExploreOutput() {
-		const output = document.querySelector('#explore-output');
-
-		if (!output || !encounterDatabase) {
-			return;
-		}
-
-		const encounter = findCurrentEncounter(output);
-
-		if (!encounter) {
-			clearExploreHelper();
-			return;
-		}
-
-		const buttons = output.querySelectorAll('button');
-
-		const resultLines = [];
-
-		for (const button of buttons) {
-			const buttonText = button.textContent.trim();
-
-			let matchedName = null;
-			let matchedValue = null;
-			let matchedOption = null;
-
-			for (const [optionName, optionValue] of Object.entries(encounter.data.options || {})) {
-				if (!matchOptionName(buttonText, optionName)) {
-					continue;
-				}
-
-				const isSeasonal = /\s*\[(spring|summer|autumn|winter)\]$/i.test(optionName);
-
-				const candidate = {
-					name: optionName,
-					value: optionValue,
-					isSeasonal: isSeasonal
-				};
-
-				if (!matchedOption) {
-					matchedOption = candidate;
-					continue;
-				}
-
-				if (isSeasonal && !matchedOption.isSeasonal) {
-					matchedOption = candidate;
-				}
-			}
-
-			if (matchedOption) {
-				matchedName = matchedOption.name;
-				matchedValue = matchedOption.value;
-			}
-
-			if (matchedName === null && encounter.data.steps) {
-				for (const stepName of Object.keys(encounter.data.steps)) {
-					if (normalizeText(buttonText) === normalizeText(stepName)) {
-						resultLines.push(...createStepResultLines(encounter, [stepName]));
-
-						matchedName = stepName;
-						break;
-					}
-				}
-			}
-
-			if (matchedName === null) {
-				continue;
-			}
-
-			if (isStepOption(matchedValue)) {
-				resultLines.push(
-					...createStepPreviewLines(buttonText, matchedValue.steps, encounter)
-				);
-
-				continue;
-			}
-
-			resultLines.push(
-				createResultLine(
-					matchedName.replace(/\s*\[(spring|summer|autumn|winter)\]$/i, ''), 
-					parseResult(matchedValue, encounter.data.location)
-				)
-			);
-		}
-
-		if (resultLines.length === 0) {
-
-			const notes = createNotesElement(encounter.data.notes, encounter.data.conditional, encounter.data.details, encounter.data.location, buttons);
-
-			clearExploreHelper();
-
-			if (!notes) {
-				return;
-			}
-
-			const helper = document.createElement('div');
-			helper.className = HELPER_CLASS;
-			helper.style.marginTop = HELPER_MARGINS;
-			helper.style.marginBottom = HELPER_MARGINS;
-
-			if (notes) {
-				helper.appendChild(notes);
-			}
-
-			const energyMessage = [...output.querySelectorAll('p')]
-				.find(p => /^\s*you lost\s+-\d+%\s+energy exploring\.?\s*$/i.test(p.textContent.trim()));
-
-			const essenceMessage = [...output.querySelectorAll('p')]
-				.find(p => /^\s*-\d+\s+lunar essence\s*$/i.test(p.textContent.trim()));
-
-			if (energyMessage) {
-				energyMessage.before(helper);
-			} else if (essenceMessage) {
-				essenceMessage.before(helper);
-			} else {
-				output.appendChild(helper);
-			}
-
-			return;
-		}
-
-		let helper = output.querySelector('.' + HELPER_CLASS);
-
-		if (!helper) {
-			helper = document.createElement('div');
-			helper.className = HELPER_CLASS;
-			helper.style.marginTop = HELPER_MARGINS;
-			helper.style.marginBottom = HELPER_MARGINS;
-		}
-
-		helper.replaceChildren();
-
-		for (const line of resultLines) {
-			helper.appendChild(line);
-		}
-
-		const notes = createNotesElement(encounter.data.notes, encounter.data.conditional, encounter.data.details, encounter.data.location, buttons);
-
-		if (notes) {
-			helper.appendChild(notes);
-		}
-
-		const energyMessage = [...output.querySelectorAll('p')]
-			.find(p => /^\s*you lost\s+-\d+%\s+energy exploring\.?\s*$/i.test(p.textContent.trim()));
-
-		const essenceMessage = [...output.querySelectorAll('p')]
-			.find(p => /^\s*-\d+\s+lunar essence\s*$/i.test(p.textContent.trim()));
-
-		if (energyMessage) {
-			energyMessage.before(helper);
-		} else if (essenceMessage) {
-			essenceMessage.before(helper);
-		} else {
-			output.appendChild(helper);
-		}
-	}
-
-	function waitForExploreChange() {
-		const output = document.querySelector('#explore-output');
-
-		if (!output) {
-			setTimeout(waitForExploreChange, 50);
-			return;
-		}
-
-		const oldHTML = output.innerHTML;
-		let changed = false;
-
-		const observer = new MutationObserver(() => {
-			if (changed || output.innerHTML === oldHTML) {
-				return;
-			}
-
-			changed = true;
-			observer.disconnect();
-
-			requestAnimationFrame(() => {
-				updateExploreOutput();
-			});
-		});
-
-		observer.observe(output, {
-			childList: true,
-			subtree: true,
-			characterData: true
-		});
-
-		setTimeout(() => {
-			observer.disconnect();
-		}, WAIT_TIMEOUT);
-	}
-
-	document.addEventListener('click', function (event) {
-		const exploreLink = event.target.closest('#explore-explore-link');
-		const outputButton = event.target.closest('#explore-output button');
-
-		if (!exploreLink && !outputButton) {
-			return;
-		}
-
-		if (exploreLink) {
-			clearExploreHelper();
-			waitForExploreChange();
-			return;
-		}
-
-		if (outputButton && isStepAction(outputButton)) {
-			waitForExploreChange();
-		}
-	});
-
-loadDatabase();
-
+    return encounterTrophies;
+  }
+
+  function createNoteLine(noteText) {
+    const line = document.createElement('div');
+    const parts = noteText.split(',');
+
+    const partsToAppend = [];
+
+    parts.forEach((part, i) => {
+      const trimmed = part.trim();
+      if (!trimmed) return;
+
+      const partWrapper = document.createElement('span');
+
+      const separators = trimmed.split('|');
+      const text = separators[0].trim();
+      const imageNames = separators[1] ? separators[1].split(';').map(x => x.trim()).filter(Boolean) : []; // Wolvhelper version ONLY
+      const afterText = separators.length > 2 ? separators.slice(2).join('|').trim() : '';
+
+      const wrapperElements = [];
+
+      if (imageNames.length) partWrapper.className = 'wh-wrapper-part'; // Wolvhelper version ONLY
+
+      if (text) appendFormattedText(partWrapper, text);
+
+      // Wolvhelper version ONLY
+      imageNames.forEach((imageName, imageIndex) => {
+        const image = createRewardImage(imageName, text);
+        if (image) {
+          image.className = imageIndex === 0 ? 'wh-reward-image-mini wh-reward-image-first' : 'wh-reward-image-mini';
+          wrapperElements.push(image);
+        }
+      });
+
+      if (afterText) wrapperElements.push(document.createTextNode(afterText));
+      if (i < parts.length - 1) wrapperElements.push(document.createTextNode(',' + (imageNames.length ? TEXT_SPACE : ' '))); // Wolvhelper version ONLY
+      // if (i < parts.length - 1) wrapperElements.push(document.createTextNode(',' + TEXT_SPACE)); // WolvhelperMini version ONLY
+
+      partWrapper.append(...wrapperElements);
+      partsToAppend.push(partWrapper);
+    });
+
+    line.append(...partsToAppend);
+    return line;
+  }
+
+  function createNotesElement(notes, conditional, details, location, buttons) {
+    if (!notes && !conditional && !details && !location) return null;
+
+    const noteList = Array.isArray(notes) ? [...notes] : notes ? [notes] : [];
+    if (noteList.length === 0) return null;
+
+    const container = document.createElement('div');
+    container.className = 'wh-container';
+
+    const label = document.createElement('b');
+    label.textContent = 'Notes:';
+    container.appendChild(label);
+
+    for (const note of noteList) {
+      let noteText = String(note).trim();
+      const conditionalMatch = noteText.match(/^(\*+)@conditional(\d+)(?:\[([^\]]+)\])?$/i);
+
+      if (conditionalMatch) {
+        const conditionalPrefix = conditionalMatch[1] || '';
+        const conditionalIndex = Number(conditionalMatch[2]) - 1;
+        const specifiedOption = conditionalMatch[3]?.trim() || null;
+        const conditionalEntries = conditional ? Object.entries(conditional) : [];
+
+        let matchingConditional = null;
+        if (specifiedOption) {
+          matchingConditional = conditionalEntries.find(([buttonName]) => {
+            return matchOptionName(buttonName, specifiedOption) && [...buttons].some(button => matchOptionName(button.textContent, specifiedOption));
+          });
+        } else {
+          matchingConditional = conditionalEntries.find(([buttonName]) => {
+            return [...buttons].some(button => matchOptionName(button.textContent, buttonName));
+          });
+        }
+
+        if (!matchingConditional) continue;
+
+        const [, conditionalValue] = matchingConditional;
+        const conditionalNotes = Array.isArray(conditionalValue) ? conditionalValue : [conditionalValue];
+        const conditionalNote = conditionalNotes[conditionalIndex];
+
+        if (conditionalNote === undefined) continue;
+
+        let conditionalText = String(conditionalNote).trim();
+        const conditionalDetailsMatch = conditionalText.match(/^(\*+)@details(\d+)$/i);
+        const conditionalDetailsNoPrefixMatch = conditionalText.match(/^@details(\d+)$/i);
+
+        if (conditionalDetailsMatch || conditionalDetailsNoPrefixMatch) {
+          let detailPrefix = '';
+          let detailIndex;
+
+          if (conditionalDetailsMatch) {
+            detailPrefix = conditionalDetailsMatch[1] || '';
+            detailIndex = Number(conditionalDetailsMatch[2]) - 1;
+          } else {
+            detailIndex = Number(conditionalDetailsNoPrefixMatch[1]) - 1;
+          }
+
+          if (details?.[detailIndex] !== undefined) {
+            const detailLine = document.createElement('div');
+            detailLine.className = 'wh-line-detail'; // Wolvhelper version ONLY
+            const detailText = conditionalPrefix + detailPrefix + resolveReferences(String(details[detailIndex]), location);
+            appendFormattedText(detailLine, detailText);
+            container.appendChild(detailLine);
+          }
+          continue;
+        }
+
+        conditionalText = conditionalPrefix + resolveReferences(conditionalText, location);
+        container.appendChild(createNoteLine(conditionalText));
+        continue;
+      }
+
+      const detailsMatch = noteText.match(/^(\*+)@details(\d+)$/i);
+      if (detailsMatch) {
+        const detailPrefix = detailsMatch[1] || '';
+        const detailIndex = Number(detailsMatch[2]) - 1;
+
+        if (details?.[detailIndex] !== undefined) {
+          const detailLine = document.createElement('div');
+          detailLine.className = 'wh-line-detail'; // Wolvhelper version ONLY
+          const detailText = detailPrefix + resolveReferences(String(details[detailIndex]), location);
+          appendFormattedText(detailLine, detailText);
+          container.appendChild(detailLine);
+        }
+        continue;
+      }
+
+      noteText = resolveReferences(noteText, location);
+      container.appendChild(createNoteLine(noteText));
+    }
+
+    return container.children.length === 1 ? null : container;
+  }
+
+  function clearExploreHelper(fullReset = false) {
+    if (fullReset) activeEncounterId = null;
+    document.querySelectorAll('.explore-helper').forEach(helper => helper.remove());
+  }
+
+  function getOrCreateHelper(output) {
+    let helper = output.querySelector('.explore-helper');
+    if (!helper) {
+      helper = document.createElement('div');
+      helper.className = 'explore-helper';
+    } else {
+      helper.replaceChildren();
+    }
+    return helper;
+  }
+
+  function appendHelperToOutput(output, helper) {
+    if (helper.parentNode) return;
+    const energyMessage = [...output.querySelectorAll('p')].find(paragraph => /^\s*you lost\s+-\d+%\s+energy exploring\.?\s*$/i.test(paragraph.textContent.trim()));
+    const essenceMessage = [...output.querySelectorAll('p')].find(paragraph => /^\s*-\d+\s+lunar essence\s*$/i.test(paragraph.textContent.trim()));
+
+    if (energyMessage) {
+      energyMessage.before(helper);
+    } else if (essenceMessage) {
+      essenceMessage.before(helper);
+    } else {
+      output.appendChild(helper);
+    }
+  }
+
+  function updateExploreOutput() {
+    const output = document.querySelector('#explore-output');
+    if (!output || !encounterDatabase) return;
+
+    const enemyData = findEnemy(output);
+    if (enemyData) {
+      const helper = getOrCreateHelper(output);
+      const enemyHeader = document.createElement('div');
+      enemyHeader.className = 'wh-header-enemy';
+
+      const enemyHeaderText = document.createElement('b');
+      const displayName = enemyData.name || enemyData;
+
+      enemyHeaderText.textContent = `${displayName} Trophies`;
+      enemyHeader.appendChild(enemyHeaderText);
+      helper.appendChild(enemyHeader);
+
+      if (enemyData.drops?.items) helper.appendChild(createTrophyLine('Items', enemyData.drops.items));
+      if (enemyData.drops?.recipes) helper.appendChild(createTrophyLine('Recipes', enemyData.drops.recipes));
+
+      appendHelperToOutput(output, helper);
+      return;
+    }
+
+    const encounter = findCurrentEncounter(output);
+    const buttons = output.querySelectorAll('button');
+    if (!encounter || buttons.length === 0) {
+      clearExploreHelper(false);
+      return;
+    }
+
+    const resultLines = [];
+    for (const button of buttons) {
+      const buttonText = button.textContent.trim();
+      let matchedName = null;
+      let matchedValue = null;
+      let matchedOption = null;
+
+      for (const [optionName, optionValue] of Object.entries(encounter.data.options || {})) {
+        const score = matchScore(buttonText, optionName);
+        if (!score) continue;
+
+        const isSeasonal = /\s*\[(spring|summer|autumn|winter)\]$/i.test(optionName);
+        const candidate = { name: optionName, value: optionValue, isSeasonal, score };
+
+        if (!matchedOption || score > matchedOption.score ||
+            (score === matchedOption.score && isSeasonal && !matchedOption.isSeasonal)) {
+          matchedOption = candidate;
+        }
+      }
+
+      if (matchedOption) {
+        matchedName = matchedOption.name;
+        matchedValue = matchedOption.value;
+      }
+
+      if (matchedName === null && encounter.data.steps) {
+        for (const stepName of Object.keys(encounter.data.steps)) {
+          if (normalizeText(buttonText) === normalizeText(stepName)) {
+            matchedName = stepName;
+            matchedValue = encounter.data.steps[stepName];
+            break;
+          }
+        }
+      }
+
+      if (matchedName === null) continue;
+
+      if (isStepOption(matchedValue)) {
+        resultLines.push(...createStepPreviewLines(buttonText, matchedValue.steps, encounter));
+        continue;
+      }
+
+      resultLines.push(
+        createResultLine(
+          matchedName.replace(/\s*\[(spring|summer|autumn|winter)\]$/i, ''),
+          parseResult(matchedValue, encounter.data.location)
+        )
+      );
+    }
+
+    const notes = createNotesElement(encounter.data.notes, encounter.data.conditional, encounter.data.details, encounter.data.location, buttons);
+
+    const encounterTrophies = createTrophiesElement(encounter, buttons, enemyDatabase);
+
+    if (!resultLines.length && !notes && !encounterTrophies) {
+      clearExploreHelper();
+      return;
+    }
+
+    const helper = getOrCreateHelper(output);
+    const elementsToAppend = [...resultLines, encounterTrophies, notes].filter(Boolean);
+    helper.append(...elementsToAppend);
+
+    appendHelperToOutput(output, helper);
+  }
+
+  let isPending = false;
+  let lastSignature = '';
+
+  function getOutputSignature(output) {
+    const buttons = [...output.querySelectorAll('button')].map(button => button.dataset.action || button.textContent.trim()).join('|');
+    const background = output.querySelector('#explore-foreground')?.style.backgroundImage || '';
+    const paragraphCount = output.querySelectorAll('p').length;
+    return `${buttons}::${background}::${paragraphCount}`;
+  }
+
+  function checkExploreOutput() {
+    const output = document.querySelector('#explore-output');
+    if (!output) {
+      if (activeEncounterId !== null) {
+        activeEncounterId = null;
+        clearExploreHelper(true);
+      }
+      lastSignature = '';
+      return;
+    }
+
+    if (!encounterDatabase) {
+      ensureDatabase();
+      return;
+    }
+
+    const currentSignature = getOutputSignature(output);
+    if (currentSignature !== lastSignature) {
+      lastSignature = currentSignature;
+      updateExploreOutput();
+    }
+  }
+
+  const observer = new MutationObserver(() => {
+    if (isPending) return;
+    isPending = true;
+
+    requestAnimationFrame(() => {
+      checkExploreOutput();
+      isPending = false;
+    });
+  });
+
+  function startObserving() {
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+
+  document.addEventListener('click', function (event) {
+    const exploreLink = event.target.closest('#explore-explore-link');
+    if (exploreLink) {
+      clearExploreHelper(true);
+      lastSignature = '';
+    }
+  });
+
+  injectStyles();
+  startObserving();
+  checkExploreOutput();
 })();
