@@ -3168,9 +3168,7 @@
       "options": {
         "Battle": ["Automatic battle with enemy Corrupted Abomination"]
       },
-      "trophies": [
-        "@corruptedabomination"
-      ]
+      "trophies": "@corruptedabomination"
     },
     "deadhandstree": {
       "prompt": "A huge, dead tree appears to scratch the sky with its distorted, twisted branches that resemble clawed hands. Its exposed roots give the impression that the tree i in the midst of stepping out of the ground. Maybe it really is alive...?",
