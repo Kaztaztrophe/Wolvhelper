@@ -3113,51 +3113,54 @@
     "aggressiveaffectedbat": {
       "prompt": "At first, it looks like a common bat, but as soon as you notice its glowing eyes and the growths on its skin, you realize it's twisted beyond normalcy. Its mind is clouded, and the only emotions it can feel now are rage and pain.",
       "options": {
-        "Chase": [""],
-        "Kill": [""]
+        "Chase": ["+2 ME|imgme//+1 random herb*","-5 HP"],
+        "Kill": ["+5% energy","-5% energy"]
       },
       "notes": [
-        ""
+        "*@poolherbany"
       ]
     },
     "albinowitchwolf": {
       "prompt": "This majestic white wolf has an aura of both danger and mystery. Its white cloak adorned with bones clinks ominously. Contact with the witches is a risk, but you'll never know what you could gain if you don't try.",
       "options": {
-        "Greet with respect": [""],
-        "Greet casually": [""]
-      },
-      "notes": [
-        ""
-      ]
+        "Greet with respect": ["+1 ME|imgme//+1 Squirrel Carcass|imgsquirrelcarcass"],
+        "Greet casually": ["+2 ME|imgme//-5% energy"]
+      }
     },
     "blindwitchwolf": {
       "prompt": "You see a witch wolf following a raven. After watching them for a few moments, you realize that the bird serves as her eyes, guiding her wherever she needs to go. For some reason, you feel uneasy. Legends about blind ones being able to sense the spirit world much better hover in the back of your mind.",
       "options": {
-        "Follow": [""],
-        "Approach": [""]
+        "Follow": ["+4 ME|imgme//Gain illness: Cough/+4 ME|imgme|*/+4 ME|imgme|**"],
+        "Approach": ["+1 ME|imgme//+1% energy//-2 HP"]
       },
       "notes": [
-        ""
+        "*@details1",
+        "**@details2"
+      ],
+      "details": [
+        "If your lead wolf is currently sick.",
+        "If your lead wolf is currently immune to illness."
       ]
     },
     "bluebonefire": {
       "prompt": "A huge, blue flame is painting the sky and the surrounding area with cold tones, contrasting with the flaming red of the setting sun. The scenery is both beautiful and unsettling, leaving you with conflicting feelings.",
       "options": {
-        "Watch the flames": [""],
-        "Investigate": [""]
+        "Watch the flames": ["+1 ME|imgme//+3 HP"],
+        "Investigate": ["+2 ME|imgme//+1 random herb*"]
       },
       "notes": [
-        ""
+        "*@poolherbany"
       ]
     },
     "carcassaffecteddeer": {
       "prompt": "While the deer is undoubtedly dead, its afflicted body seems to possess a life of its own with red, glowing veins and growths that appear to move. It looks like it's breathing! Spooky.",
       "options": {
-        "Investigate": [""],
-        "Eat": [""]
+        "Investigate": ["+3 ME|imgme//+1 random amusement item from toy bundle pool*//+1 random carcass from critter bundle pool**"],
+        "Eat": ["+2 ME|imgme//+5 HP","+1 ME|imgme//-5 HP"]
       },
       "notes": [
-        ""
+        "*@pooltoybundle",
+        "**@poolcritterbundle"
       ]
     },
     "corruptedabomination": {
@@ -3221,21 +3224,23 @@
     "giantspiderhuman": {
       "prompt": "The creature in front of you appears to be just a giant spider. As you look closer, you realize its head resembles a human skull, emitting a constant, unsettling hissing sound. What a nightmare! There is no way to go forward without catching its attention.",
       "options": {
-        "Attack": [""]
+        "Attack": ["+2 ME|imgme//+1 random carcass from critter bundle pool*","+2 ME|imgme//-3 HP","Gain illness: Infection/No result**"]
       },
       "notes": [
-        ""
+        "*@poolcritterbundle",
+        "**@details2"
+      ],
+      "details": [
+        "If your lead wolf is currently sick.",
+        "If your lead wolf is currently immune to illness."
       ]
     },
     "greenbonefire": {
       "prompt": "A strange glow shines through the leaves, visibly different from the morning sun's rays dancing among the trees. As you approach, you see a huge, green flame that looks otherworldly and a bit unsettling. What is it doing here?",
       "options": {
-        "Stare in awe": [""],
-        "Go closer": [""]
-      },
-      "notes": [
-        ""
-      ]
+        "Stare in awe": ["+1 ME|imgme//+5% energy"],
+        "Go closer": ["+1 ME|imgme//-3 HP"]
+      }
     },
     "hangingeffigy": {
       "prompt": "You notice something oddly-shaped attached to an overhang of a rather tall eroded cliff. What the heck is it? It's not a natural object, somebody definitely made this.",
@@ -3246,69 +3251,62 @@
     "hauntedcave": {
       "prompt": "The cold, gaping maw of this cave isn't as dark as you expect it to be. A green, unsettling glow can be seen on the rocks inside. Drawing nearer, you notice ethereal, half-transparent silhouettes drifting soundlessly above your head, seemingly oblivious to your presence. At least for now.",
       "options": {
-        "Try to communicate with them": [""]
-      },
-      "notes": [
-        ""
-      ]
+        "Try to communicate with them": ["+3 ME|imgme//+3% energy","+1 ME|imgme//+4 HP"]
+      }
     },
     "hauntedlake": {
       "prompt": "A mesmerizing, emerald glow beckons from a distance, capturing your attention. When you move closer, you see strange orbs floating above the surface of a shallow lake. You watch as the green flames dance in the air soundlessly. After a while, you notice that everything is abnormally silent, as if this area is a bubble of an alternate dimension.",
       "options": {
-        "Go into the water": [""],
-        "Investigate": [""]
+        "Go into the water": ["+1 ME|imgme"],
+        "Investigate": ["+2 ME|imgme//+1 random herb*"]
       },
       "notes": [
-        ""
+        "*@poolherbany"
       ]
     },
     "hauntedmine": {
       "prompt": "No matter how hard you try to see inside, the long, empty corridor is shrouded with deep shadows and reveals nothing. A faint echo, resembling a deep, low growl, reaches your ears, but the source of the sound is a mystery. Is it just your imagination?",
       "options": {
-        "Investigate": [""]
-      },
-      "notes": [
-        ""
-      ]
+        "Investigate": ["+3 ME|imgme//-3 HP"]
+      }
     },
     "headlesshorseman": {
       "prompt": "A shadowy figure looms up ahead, and as it moves closer you can see it's a human riding a horse! Yet then you realize...it has no head. You get an odd feeling in your stomach. The rider is holding a large pumpkin with glowing eyes, and you wonder if that's how it sees the world.",
       "options": {
-        "Bark": [""],
-        "Chase": [""]
-      },
-      "notes": [
-        ""
-      ]
+        "Bark": ["+2 ME|imgme"],
+        "Chase": ["+10% energy//-15 HP"]
+      }
     },
     "herbonhalloween": {
       "prompt": "The familiar silhouette of a bear appears in front of you. It's Herb with his cubs, enjoying a special night together. While he looks a bit tired, his cubs are more than eager to trick or treat with you, trying to appear scary with their costumes. However, no matter what they do, they are just incredibly cute.",
       "options": {
-        "Trick": [""],
-        "Treat*": [""]
+        "Trick": ["+1 ME|imgme"],
+        "Treat*": ["+2 ME|imgme","No result**"]
       },
       "notes": [
-        ""
+        "*This option will remove a 1-4 use critter carcass from your hoard.",
+        "**This option will give nothing if you have no critter carcass in your hoard."
       ]
     },
     "hollowedtree": {
       "prompt": "A big tree appears to be hunched over your path. It looks a bit knotted and hollow inside, as if somebody twisted strings and strands in place of the trunk.",
       "options": {
-        "Dig around it": [""],
-        "Check inside": [""]
+        "Dig around it": ["+1 ME|imgme//+1 random amusement item from toy bundle pool*","+1 ME|imgme"],
+        "Check inside": ["+2 ME|imgme//-1% energy"]
       },
       "notes": [
-        ""
+        "*@pooltoybundle"
       ]
     },
     "hoodedwitchwolf": {
       "prompt": "A witch wolf in a dark cloak stares at you from beneath her hood. You cannot clearly read her expression, but she appears to be waiting for you. The sudden urge to get closer is irresistible. You know you're risking a lot; the witches don't give anything for free.",
       "options": {
-        "Ask for magical help": [""],
-        "Greet": [""]
+        "Ask for magical help": ["4 ME|imgme//-10 HP"],
+        "Greet": ["+1 ME|imgme///+1 random carcass from critter bundle pool*//+1 random herb**"]
       },
       "notes": [
-        ""
+        "*@poolcritterbundle",
+        "*@poolherbany"
       ]
     },
     "livingeffigy": {
@@ -3321,42 +3319,33 @@
     "massiveeffigy": {
       "prompt": "You come across a weird construction towering over you, loosely resembles a human shape. Had humans made it? Whatever the case, it feels sinister.",
       "options": {
-        "Destroy the effigy": [""],
-        "Leave an offering": [""]
-      },
-      "notes": [
-        ""
-      ]
+        "Destroy the effigy": ["+1 ME|imgme//+1 Large Branch|imglargebranch"],
+        "Leave an offering": ["+1 ME|imgme//+5% energy"]
+      }
     },
     "merwolf": {
       "prompt": "You can't seem to wrap your head around this hybrid of a wolf and a fish. How does it exist and adapt to both surface and aquatic environments? The creature seems to be thriving, looking at you without any fear.",
       "options": {
-        "Chase away": [""],
-        "Approach with curiosity": [""],
-        "Play": [""]
-      },
-      "notes": [
-        ""
-      ]
+        "Chase away": ["+1 ME|imgme//+1 Oar|imgoar//+1 Crab Leg|imgcrableg"],
+        "Approach with curiosity": ["+1 ME|imgme//+3 Dead Fish|imgdeadfish;imgdeadfish;imgdeadfish"],
+        "Play": ["+1 ME|imgme//+5% energy//+1 Medicine: Healing Salve|imgmedicinehealingsalve//+5 HP"]
+      }
     },
     "miststalkers": {
       "prompt": "You're used to dark forests and all kinds of noises that they bring, but this place feels different and eerie. You feel observed not by one, but many sets of eyes, that follow your every movement. Shadowy silhouettes dance in the corners of your eyes but when you try to look at them, they vanish and reappear to haunt you from a different spot.",
       "options": {
-        "Bark": [""],
-        "Chase": [""]
-      },
-      "notes": [
-        ""
-      ]
+        "Bark": ["2 ME|imgme","+1 ME|imgme//-5% energy"],
+        "Chase": ["+3 ME|imgme//-5% energy//-5% hunger"]
+      }
     },
     "nightmarestallion": {
       "prompt": "You can't believe your eyes at first. What appears to be a large black stallion turns out to be some sort of nightmarish monster. Its ribcage is grotesquely exposed, glowing with a molten, lava-like substance that oozes from its open sides. Not exactly as appetizing as you had hoped.",
       "options": {
-        "Growl": [""],
-        "Follow": [""]
+        "Growl": ["+3 ME|imgme//-1 HP"],
+        "Follow": ["+1 ME|imgme//+1 random amusement item from toy bundle pool*"]
       },
       "notes": [
-        ""
+        "*@pooltoybundle"
       ]
     },
     "prettyflowerteeth": {
@@ -3372,10 +3361,10 @@
     "pumpkinscarecrow": {
       "prompt": "You stumble upon a desolate field, with only the wind howling between the destroyed remains of crops. A dark, tall shadow is guarding this forgotten place. You recognize the figure as a scarecrow, but this one is different. A skeletal silhouette with a pumpkin for a head appears to follow your every step, and the grotesque grin on its face feels sentient. Did it just move?",
       "options": {
-        "Knock the pumpkin down": [""]
+        "Knock the pumpkin down": ["+2 ME|imgme//+1 random herb*","+1 ME|imgme"]
       },
       "notes": [
-        ""
+        "*@poolherbany"
       ]
     },
     "redmist": {
@@ -3391,23 +3380,17 @@
     "redrain": {
       "prompt": "The familiar sound of rain is usually soothing, but the bloody red drops that fall from the sky set you on edge. Though you know it's water from the smell, the crimson hue of red puddles forming on the ground is unsettling.",
       "options": {
-        "Feel it on your fur": [""],
-        "Hide": [""]
-      },
-      "notes": [
-        ""
-      ]
+        "Feel it on your fur": ["+2 ME|imgme//+3 HP","+2 ME|imgme//-2 HP"],
+        "Hide": ["+2 SC|imgsc|(<5000 SC)//+1 ME|imgme","+1 ME|imgme|(>5000 SC)"]
+      }
     },
     "rottingpumpkinfield": {
       "prompt": "The smell of this pumpkin field is so intense and intriguing that you ignore the spooky atmosphere it creates. Most of the pumpkins are in various stages of decay and their mixed scents are driving you crazy.",
       "options": {
-        "Roll": [""],
-        "Dig": [""],
-        "Eat": [""]
-      },
-      "notes": [
-        ""
-      ]
+        "Roll": ["+1 ME|imgme"],
+        "Dig": ["+3 ME|imgme"],
+        "Eat": ["+4 ME|imgme","+2 ME|imgme"]
+      }
     },
     "skulkingwerewolf": {
       "prompt": "From afar, this creature reminds you of an unusually large wolf, but as you look at it more closely, you notice its strange proportions. Its weirdly shaped front paws resemble human hands, and the hind legs are unusually long. It has to be a hybrid of some sort, and the torn clothing on its rump is a sign that whatever happened, happened rapidly. It's best to be cautious.",
@@ -3431,11 +3414,12 @@
     "skulltree": {
       "prompt": "You stop in your tracks, startled by seeing a face when there shouldn't be one here at all. After taking another look, it appears to just be an odd, bulbous growth on a tree, creating the illusion of a face.",
       "options": {
-        "Climb": [""],
-        "Cover them": [""]
+        "Climb": ["+2 ME|imgme","+1 ME|imgme//+1 random carcass from critter bundle pool*//+1 Bone|imgbone","+1 ME|imgme//-2 HP"],
+        "Cover them": ["+1 ME|imgme//+1 random herb**//+1 Large Leaf|imglargeleaf"]
       },
       "notes": [
-        ""
+        "*@poolcritterbundle",
+        "**@poolherbany"
       ]
     },
     "smalleffigy": {
@@ -3456,34 +3440,29 @@
     "snowyowleggs": {
       "prompt": "You stumble upon a nest full of eggs and nobody is watching! It would be a waste to just leave them.",
       "options": {
-        "Eat": [""],
-        "Wait for the mother": [""]
-      },
-      "notes": [
-        ""
-      ]
+        "Eat": ["+2 ME|imgme//+5% hunger","+2 ME|imgme//-4 HP"],
+        "Wait for the mother": ["+2 ME|imgme//+1 Large Bird Meat|imglargebirdmeat","+1 ME|imgme//+1 Snowy Owl Feathers|imgsnowyowlfeathers","Automatic battle with enemy Affected Snowy Owl"]
+      }
     },
     "talaeggonhalloween": {
-      "prompt": "",
+      "prompt": "Two wolf silhouettes in front of you are familiar even with the costumes. As you approach, you recognize Tala and Egg, enjoying a special night together. Egg’s sides are adorned with fake spider legs, looking realistic enough to send a chill down your spine. Tala is dressed as a ghost, but it's more cute than scary, making you smile.",
       "options": {
-        "Trick": [""],
-        "Treat": [""],
-        "Join": [""]
+        "Trick": ["2 ME|imgme//-1 HP"],
+        "Treat": ["+1 ME|imgme//+1 random herb*"],
+        "Join": ["+1 ME|imgme//+1 random amusement item from toy bundle pool**"]
       },
       "notes": [
-        ""
+        "*@poolherbany",
+        "**@pooltoybundle"
       ]
     },
     "twistedtree": {
-      "prompt": "",
+      "prompt": "You did not expect to find something so unusual on this well-tread path. A twisted, dead tree is curving in an unnatural way, filling you with unease.",
       "options": {
-        "Check inside": [""],
-        "Mark scent": [""],
-        "Find buried stash": [""]
-      },
-      "notes": [
-        ""
-      ]
+        "Check inside": ["+3 SC|imgsc|(<5000 SC)//+1 ME|imgme","+1 ME|imgme|(>5000 SC)"],
+        "Mark scent": ["+1 ME|imgme//+1% energy"],
+        "Find buried stash": ["+1 ME|imgme//-2% energy//+1 Medicine: Healing Salve|imgmedicinehealingsalve"]
+      }
     }
 
   }
