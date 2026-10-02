@@ -3188,22 +3188,29 @@
     "deepholeblood": {
       "prompt": "You warily approach a deep hole, pelt prickling. The water inside this hole has a reddish tone and appears oddly dense...just like blood. Is it even possible for water to look like blood? Even the hole itself doesn't appear entirely natural, and more like someone dug it. You're almost certain you notice movement right beneath the surface, too.",
       "options": {
-        "Hunt": [""],
-        "Investigate": [""],
-        "Drink": [""]
+        "Hunt": ["+2 ME|imgme//+1 Dead Fish|imgdeadfish"],
+        "Investigate": ["+3 ME|imgme//+1 random item from a random pool*//+1 random item from a random pool*","+2 ME|imgme//+1 random carcass from food bundle pool**"],
+        "Drink": ["+5% energy//+5 HP","Gain illness: Diarrhea"]
       },
       "notes": [
-        ""
+        "*The items that drop may be from any of the following pools:",
+        "@poolboneremains",
+        "@poolherbany",
+        "@poolmixedcarcass",
+        "**@poolfoodbundle"
       ]
     },
     "deerantlereyes": {
       "prompt": "The silhouette of a deer looks both familiar and a bit unsettling, and you can't quite pinpoint why at first. As the deer turns to face you, you notice its eye sockets are hollow while its glowing red eyes stare malevolently from its antlers. It's as if the creature can see into your soul.",
       "options": {
-        "Staring contest": [""],
-        "Growl": [""]
+        "Staring contest": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random item from bone remains pool*","+2 ME|imgme//+1 random herb***","+1 ME|imgme//-4 HP"],
+        "Growl": ["+2 ME|imgme//+1 random carcass from critter bundle pool*","+1 ME|imgme//-3 HP"]
       },
       "notes": [
-        ""
+        "*@poolmixedcarcass",
+        "**@poolboneremains",
+        "***@poolherbany",
+        "****@poolcritterbundle"
       ]
     },
     "effigy1|effigy2|effigy3|effigy4|effigy5|effigy6|effigy7|effigy8|effigy9|effigy10|effigy11|effigy12|effigy13|effigy14|effigy15|effigy16|effigy17|effigy18|effigy19|effigy20": {
@@ -3214,11 +3221,14 @@
     "energyspot": {
       "prompt": "You stop mid-step when you feel a strange, energizing sensation. While everything around looks normal, you definitely feel different here. The air feels refreshing, and even just standing here makes you feel better.",
       "options": {
-        "Close your eyes": [""],
-        "Look around": [""]
+        "Close your eyes": ["+3% energy//+3 HP"],
+        "Look around": ["+2 ME|imgme//+1 random 1-10 use carcass**//+1 random amusement item from toy bundle pool*","+2 ME|imgme//+1 random item from bones remain pool***//+1 random amusement item from toy bundle pool*","+2 ME|imgme//+1 random herb****//+1 random amusement item from toy bundle pool*"]
       },
       "notes": [
-        ""
+        "*@pooltoybunle",
+        "**@poolmixedcarcass",
+        "***@poolboneremains",
+        "****@poolherbany"
       ]
     },
     "giantspiderhuman": {
@@ -3351,11 +3361,13 @@
     "prettyflowerteeth": {
       "prompt": "This area is usually full of strange and beautiful plants. There is no way to remember them all, and there's always something new to discover. However, you're quite sure that you've never seen anything quite like this. The growths inside this flower resemble teeth. How is that possible?",
       "options": {
-        "Sniff": [""],
-        "Destroy": [""]
+        "Sniff": ["+2 ME|imgme//+5% energy","+1 ME|imgme//-2 HP"],
+        "Destroy": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random item from bone remains pool**","+2 ME|imgme//+1 random herb***"]
       },
       "notes": [
-        ""
+        "*@poolmixedcarcass",
+        "**@poolboneremains",
+        "***@poolherbany"
       ]
     },
     "pumpkinscarecrow": {
@@ -3370,11 +3382,13 @@
     "redmist": {
       "prompt": "Without warning, a strange red mist envelopes you and you have no chance to observe where it came from. Your breathing isn't affected, but the air feels oddly sticky in your lungs.",
       "options": {
-        "Take a deep breath": [""],
-        "Hold your breath and escape": [""]
+        "Take a deep breath": ["+1 ME|imgme//+3% energy","-3% energy//+1 random 1-10 use carcass*","-3% energy//+1 random item from bone remains pool**","-3% energy//+1 random herb***"],
+        "Hold your breath and escape": ["+2 ME|imgme"]
       },
       "notes": [
-        ""
+        "*@poolmixedcarcass",
+        "**@poolboneremains",
+        "***@poolherbany"
       ]
     },
     "redrain": {
@@ -3395,20 +3409,23 @@
     "skulkingwerewolf": {
       "prompt": "From afar, this creature reminds you of an unusually large wolf, but as you look at it more closely, you notice its strange proportions. Its weirdly shaped front paws resemble human hands, and the hind legs are unusually long. It has to be a hybrid of some sort, and the torn clothing on its rump is a sign that whatever happened, happened rapidly. It's best to be cautious.",
       "options": {
-        "Hunt together": [""],
-        "Approach": [""]
+        "Hunt together*": ["+1 ME|imgme"],
+        "Approach**": ["+1 ME|imgme"]
       },
       "notes": [
-        ""
+        "*This option unlocks the challenger achievement Hunt with the Big One.",
+        "**This option unlocks the challenger achievement Illness: Humanity?."
       ]
     },
     "skullshapedrock": {
       "prompt": "Two empty eye sockets of an abnormally large human skull peer at you maliciously. As you move closer, you realize that it's just an odd-shaped rock. It doesn't make the rock any less creepy; the resemblance is just too close.",
       "options": {
-        "Check it Out": [""]
+        "Check it Out": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random item from bone remains pool*","+2 ME|imgme//+1 random herb***","+5 SC|imgsc|(<5000 SC)//+2 ME|imgme"]
       },
       "notes": [
-        ""
+        "*@poolmixedcarcass",
+        "**@poolboneremains",
+        "***@poolherbany"
       ]
     },
     "skulltree": {
