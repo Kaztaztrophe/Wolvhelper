@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        WolvhelperMini: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.6.1
+// @version     1.6.2
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -505,7 +505,11 @@ function createResultElement(rewards) {
       }
 
       if (lastIndex < resultText.length) elementsToAppend.push(document.createTextNode(resultText.slice(lastIndex)));
-      if (reward.afterText) elementsToAppend.push(document.createTextNode(' ' + reward.afterText));
+
+      if (reward.afterText) {
+        const needsSpace = !/^[*,.;!?]/.test(reward.afterText);
+        elementsToAppend.push(document.createTextNode((needsSpace ? ' ' : '') + reward.afterText));
+      }
     });
 
     container.append(...elementsToAppend);
