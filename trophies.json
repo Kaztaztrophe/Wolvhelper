@@ -199,6 +199,15 @@
         "items": "Glowing Claw|imgglowingclaw, Glowing Tongue|imgglowingtongue, Scar: Scratched Side|imgscarscratchedside",
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
+    },
+
+
+    "corruptedabomination": {
+      "name": "Corrupted Abomination",
+      "drops": {
+        "items": "Anaconda Skull|imganacondaskull, Badger Skull|imgbadgerskull, Bear Skull|imgbearskull, Bighorn Skull|imgbighornskull, Bison Skull|imgbisonskull, Blacktail Antlers|imgblacktailantlers, Boar Skull|imgboarskull, Bobcat Skull|imgbobcatskull, Broken Antler|imgbrokenantler, Bush Dog Skull|imgbushdogskull, Caribou Antlers|imgcaribouantlers, Cottonmouth Skull|imgcottonmouthskull, Cougar Skull|imgcougarskull, Crocodile Skull|imgcrocodileskull, Crow Skull|imgcrowskull, Dog Skull|imgdogskull, Eagle Skull|imgeagleskull, Elk Antlers|imgelkantlers, Fox Skull|imgfoxskull, Goose Skull|imggooseskull, Horse Skull|imghorseskull, Jaguar Skull|imgjaguarskull, Jaguarundi Skull|imgjaguarundiskull, Lynx Skull|imglynxskull, Moose Antler|imgmooseantler, Muskox Skull|imgmuskoxskull, Ocelot Skull|imgocelotskull, Owl Skull|imgimgowlskull, Polar Bear Skull|imgpolarbearskull, Pronghorn Skull|imgpronghornskull, Rattlesnake Skull|imgrattlesnakeskull, Seal Skull|imgsealskull, Sheep Skull|imgsheepskull, Tayra Skull|imgtayraskull, Vulture Skull|imgvultureskull, Walrus Skull|imgwalrusskull, Whitetail Antlers|imgwhitetailantlers, Wolverine Skull|imgwolverineskull",
+        "recipes": "Big Cat Claw Necklace|imgrecipeornament;imgbigcatclawnecklace, Bone Decor|imgrecipetrinket;imgbonedecor, Eternal Slumber|imgrecipebackground;imgeternalslumber, Gnawing Hoof Trinket|imgrecipetrinket;imggnawinghooftrinket, Leftover Bones|imgrecipebackground;imgleftoverbones, Owl Talon Necklace|imgrecipeornament;imgowltalonnecklace, Scattered Bones|imgrecipetrinket;imgscatteredbones"
+      }
     }
 
   }
