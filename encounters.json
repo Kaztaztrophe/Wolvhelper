@@ -44,7 +44,7 @@
         "Turn Back": ["+1 random single-use food item*"]
       },
       "notes": [
-        "*@poolsingleusefood"
+        "*@poolfoodsingleuse"
       ],
       "location": {
         "/biome/1|/biome/4|/biome/6": ["Eastern Wolf"],
@@ -71,7 +71,7 @@
         "Follow West": ["+1 random meat chunks item**//+1 random cave-building material***"]
       },
       "notes": [
-        "*@poolsingleusefood",
+        "*@poolfoodsingleuse",
         "**@poolmeatchunks",
         "***@poolcavebuildingmaterial"
       ]
@@ -79,7 +79,7 @@
     "fillerwaterpool": {
       "prompt": "A small pool of water appears up ahead, and as you approach you notice that there is a dim blue light glowing from beneath the surface of the water.",
       "options": {
-        "Inspect": ["+1 Large Leaf//+1 Large Rock//+1 Large Branch|imglargebranch;imglargeleaf;imglargerock","+1 Medicine: Healing Salve|imgmedicinehealingsalve"],
+        "Inspect": ["+1 Large Leaf|imglargeleaf//+1 Large Rock|imglargerock//+1 Large Branch|imglargebranch","+1 Medicine: Healing Salve|imgmedicinehealingsalve"],
         "Drink": ["+5-15 HP"]
       }
     },
@@ -243,7 +243,7 @@
         "Make a Request": ["+1 item for active snake quest","No result**"]
       },
       "notes": [
-        "*@poolcommonfeather",
+        "*@poolfeathercommon",
         "**@details1"
       ],
       "details": [
@@ -277,7 +277,7 @@
         "*****@conditional4[Offer Acorn]"
       ],
       "conditional": {
-        "Offer Acorn": ["@pooluncommonamusement","@poolrecipeacorn","@poolrecipeamusement","@poolrecipejaycommon, @poolrecipejayrare"]
+        "Offer Acorn": ["@poolamusementuncommon","@poolrecipeacorn","@poolrecipeamusement","@poolrecipejaycommon, @poolrecipejayrare"]
       }
     },
     "breedingnorthernpikes": {
@@ -344,8 +344,8 @@
     "cottontail": {
       "prompt": "A small fluffy bunny sits alert in the grass.",
       "options": {
-        "Stalk": ["+1 Rabbit Carcass//+1 Lucky Foot|imgrabbitcarcass;imgluckyfoot","+1 Rabbit Carcass|imgrabbitcarcass//+1 Recipe: @poolrecipeluckyfoot","+1 Wisdom stat","No result"],
-        "Chase": ["+1 Rabbit Carcass//+1 Lucky Foot|imgrabbitcarcass;imgluckyfoot","+1 Rabbit Carcass|imgrabbitcarcass//+1 Recipe: @poolrecipeluckyfoot","+1 Speed stat","No result"]
+        "Stalk": ["+1 Rabbit Carcass|imgrabbitcarcass//+1 Lucky Foot|imgluckyfoot","+1 Rabbit Carcass|imgrabbitcarcass//+1 Recipe: @poolrecipeluckyfoot","+1 Wisdom stat","No result"],
+        "Chase": ["+1 Rabbit Carcass|imgrabbitcarcass//+1 Lucky Foot|imgluckyfoot","+1 Rabbit Carcass|imgrabbitcarcass//+1 Recipe: @poolrecipeluckyfoot","+1 Speed stat","No result"]
       }
     },
     "cougarmom": {
@@ -438,7 +438,7 @@
         "Intervene": ["+1 Lucky Foot|imgluckyfoot"]
       },
       "notes": [
-        "*@poolcommonegg"
+        "*@pooleggcommon"
       ]
     },
     "eveningbat": {
@@ -661,7 +661,7 @@
         "Chase": ["+4% hunger","-1 HP"]
       },
       "notes": [
-        "*@poolcommonegg"
+        "*@pooleggcommon"
       ]
     },
     "northamericanriverotter": {
@@ -772,7 +772,7 @@
         "*@conditional1"
       ],
       "conditional": {
-        "Investigate [Winter]": "@poolcommonfeather"
+        "Investigate [Winter]": "@poolfeathercommon"
       }
     },
     "rainbowtrout": {
@@ -1059,7 +1059,7 @@
     "anotherdreamingwolf": {
       "prompt": "A familiar shape has caught your eye. A wolf from your world crosses the path before you. In this glowing realm, a creature without this feature always looks out of place. You realize how much you both stand out.",
       "options": {
-        "A friend!": ["+1 LT|imglt//+1 Medicine: Healing Salve//+1 Essence-Covered Egg|imgmedicinehealingsalve;imgessencecoveredegg"],
+        "A friend!": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve//+1 Essence-Covered Egg|imgessencecoveredegg"],
         "Seems suspicious...": ["+2 LT|imglt//-8 HP"]
       }
     },
@@ -1195,7 +1195,7 @@
       "prompt": "A Cnitharian Fox is preparing the area and setting up a trading post to exchange goods with wolves.",
       "options": {
         "Offer 5 SC": ["+1 LT|imglt//+1 Rabbit Carcass|imgrabbitcarcass"],
-        "Offer Acorn": ["+1 LT|imglt//+1 Glowing Spores//+1 Stoat Carcass|imgglowingspores;imgstoatcarcass"],
+        "Offer Acorn": ["+1 LT|imglt//+1 Glowing Spores|imgglowingspores//+1 Stoat Carcass|imgstoatcarcass"],
         "Offer Help": ["+1 LT|imglt"]
       }
     },
@@ -1351,7 +1351,7 @@
       "prompt": "Ah! From a distance, you thought this creature was an eel, but up close it resembles a grebe. It slithers its long, slimy neck into the water to grab some shiny fish.",
       "options": {
         "Pounce": ["+1 LT|imglt//+1 Meat Chunks [Small]|imgmeatchunkssmall"],
-        "Dive": ["+1 LT|imglt//+2 Acorn//+1 Bone|imgacorn;imgacorn;imgbone"]
+        "Dive": ["+1 LT|imglt//+2 Acorn|imgacorn;imgacorn//+1 Bone|imgbone"]
       }
     },
     "essenceparticles": {
@@ -1461,8 +1461,8 @@
     "fungalarch": {
       "prompt": "It's impossible to walk past this... thing... without taking a closer look. An impressive arch covered in glowing fungi and various plants could be a gate to another realm, but you're already in one. Patches of rocks and wood can be seen between the growths, giving a hint of the arch's original shape. It looks so ancient that it surely hides some surprises for anyone patient enough to look for them.",
       "options": {
-        "Dig": ["+1 LT|imglt//+1 Bat Carcass//+1 Volukros Squeaky Toy|imgbatcarcass;imgvolukrossqueakytoy"],
-        "Check it Out": ["+1 LT|imglt//+1 Small Bird Meat//+2 Quail Egg|imgsmallbirdmeat;imgquailegg;imgquailegg","+1 LT|imglt//+1 Growth Chunk//+1 Growth Root|imggrowthchunk;imggrowthroot"]
+        "Dig": ["+1 LT|imglt//+1 Bat Carcass|imgbatcarcass//+1 Volukros Squeaky Toy|imgvolukrossqueakytoy"],
+        "Check it Out": ["+1 LT|imglt//+1 Small Bird Meat|imgsmallbirdmeat//+2 Quail Egg|imgquailegg;imgquailegg","+1 LT|imglt//+1 Growth Chunk|imggrowthchunk//+1 Growth Root|imggrowthroot"]
       }
     },
     "giantmantis": {
@@ -1723,7 +1723,7 @@
       "options": {
         "Race": ["+1 LT|imglt//+2 Rattle|imgrattle;imgrattle"],
         "Chase": ["+1 LT|imglt//+1 Jackrabbit Carcass|imgjackrabbitcarcass//+3% energy"],
-        "Follow": ["+1 LT|imglt//+2 Growth Root//+1 Glowing Spores|imggrowthroot;imggrowthroot;imgglowingspores"]
+        "Follow": ["+1 LT|imglt//+2 Growth Root|imggrowthroot;imggrowthroot//+1 Glowing Spores|imgglowingspores"]
       }
     },
     "lostwhitetailfawn": {
@@ -2227,7 +2227,7 @@
     "lunarocelotcubs": {
       "prompt": "Young ocelot cubs are chasing a glowing butterfly, stopping from time to time to wrestle playfully.",
       "options": {
-        "Catch the butterfly": ["+1 LT|imglt//+2 Butterfly Wing//+3 Glowing Spores|imgbutterflywing;imgbutterflywing;imgglowingspores;imgglowingspores;imgglowingspores"],
+        "Catch the butterfly": ["+1 LT|imglt//+2 Butterfly Wing|imgbutterflywing;imgbutterflywing//+3 Glowing Spores|imgglowingspores;imgglowingspores;imgglowingspores"],
         "Attack": ["+1 LT|imglt//+1 Ocelot Tail|imgocelottail//+5% hunger"],
         "Play": ["+1 LT|imglt//+2 Volukros Squeaky Toy|imgvolukrossqueakytoy;imgvolukrossqueakytoy"]
       }
@@ -2926,7 +2926,7 @@
       "prompt": "Your ears catch the sound of rocks crashing down a slope nearby. You probably should stay away to be safe, but your curiosity begs you to check it out.",
       "options": {
         "Investigate": ["+1 Large Rock|imglargerock","+1 Rusty Pickaxe|imgrustypickaxe","+1 MT|imgmt"],
-        "Proceed with caution": ["+2 Large Rock//+1 Rabbit Carcass|imglargerock;imglargerock;imgrabbitcarcass","+1 Unidentified Fossil|imgunidentifiedfossil","-5 HP"]
+        "Proceed with caution": ["+2 Large Rock|imglargerock;imglargerock//+1 Rabbit Carcass|imgrabbitcarcass","+1 Unidentified Fossil|imgunidentifiedfossil","-5 HP"]
       }
     },
     "slippedonarock": {
@@ -2981,7 +2981,7 @@
     "fossilcliffright": {
       "prompt": "A cliff rises to your right with a column of...something crumbling from where it's embedded in the rock. Is it some sort of old human structure?",
       "options": {
-        "Check out the column": ["+1 Wealden Amber//+1 Hiker's Rope|imgwealdenamber;imghikersrope","+1 Fossilized Bone Dust|imgfossilizedbonedust","+1 Unidentified Fossil|imgunidentifiedfossil","+1 MT|imgmt"],
+        "Check out the column": ["+1 Wealden Amber|imgwealdenamber;//+1 Hiker's Rope|imghikersrope","+1 Fossilized Bone Dust|imgfossilizedbonedust","+1 Unidentified Fossil|imgunidentifiedfossil","+1 MT|imgmt"],
         "Check out the crevices in the rock": ["+1 MT|imgmt"]
       }
     },
@@ -2989,7 +2989,7 @@
       "prompt": "This cliff used to be a solid wall of rock, but now it has split and revealed numerous fossils from millions of years ago. What a find! How many are there? It will take ages to look through them all. The sight is fascinating and daunting at the same time.",
       "options": {
         "Follow the wall": ["+1 MT|imgmt//+1 Charcoal|imgcharcoal"],
-        "Paw at one of the fossils": ["+1 Iron Scrap//+1 Fossilized Bone Dust|imgironscrap;imgfossilizedbonedust","+1 Unidentified Fossil|imgunidentifiedfossil","+1 MT|imgmt"]
+        "Paw at one of the fossils": ["+1 Iron Scrap|imgironscrap;//+1 Fossilized Bone Dust|imgfossilizedbonedust","+1 Unidentified Fossil|imgunidentifiedfossil","+1 MT|imgmt"]
       }
     },
     "fossilrelief": {
@@ -3022,7 +3022,7 @@
     "fossilizedtree": {
       "prompt": "From a distance, the remains of the broken tree look ordinary. Upon coming closer, you realize that you don't recognize the type of tree. Its fossilized bark feels strange to the touch.",
       "options": {
-        "Scrape the bark": ["+1 Acorn//+1 Rat Carcass|imgacorn;imgratcarcass","+1 Large Branch//+1 Charcoal|imglargebranch;imgcharcoal","+1 MT|imgmt"],
+        "Scrape the bark": ["+1 Acorn|imgacorn//+1 Rat Carcass|imgratcarcass","+1 Large Branch|imglargebranch//+1 Charcoal|imgcharcoal","+1 MT|imgmt"],
         "Dig under the tree": ["+1 Massive Pinecone|imgmassivepinecone","+1 Unidentified Fossil|imgunidentifiedfossil","+1 MT|imgmt"]
       }
     },
@@ -3037,9 +3037,9 @@
     "landsliderocks": {
       "prompt": "Rocks have tumbled down the mountain here recently, and look quite strange compared to the plain rocks you normally see. They have strange impressions in them, almost as if there were beings that once dwelled in them...",
       "options": {
-        "Check out the fossil": ["+1 Fossilized Bone Dust//+1 Unidentified Fossil|imgfossilizedbonedust;imgunidentifiedfossil","+1 MT|imgmt//+1 Large Rock|imglargerock"],
+        "Check out the fossil": ["+1 Fossilized Bone Dust|imgfossilizedbonedust//+1 Unidentified Fossil|imgunidentifiedfossil","+1 MT|imgmt//+1 Large Rock|imglargerock"],
         "Check around the rocks": ["+2 MT|imgmt"],
-        "Dig under the rocks": ["+1 Rusty Pickaxe//+1 Unidentified Fossil|imgrustypickaxe;imgunidentifiedfossil"]
+        "Dig under the rocks": ["+1 Rusty Pickaxe|imgrustypickaxe//+1 Unidentified Fossil|imgunidentifiedfossil"]
       }
     },
     "openfossilbed": {
@@ -3047,7 +3047,7 @@
       "options": {
         "Investigate the lower layer": ["+1 MT|imgmt//+5% energy"],
         "Check the middle layer": ["+1 Unidentified Fossil|imgunidentifiedfossil"],
-        "Climb to the upper layer": ["+2 Rabbit Carcass//+1 Butterfly Wing|imgrabbitcarcass;imgrabbitcarcass;imgbutterflywing"]
+        "Climb to the upper layer": ["+2 Rabbit Carcass|imgrabbitcarcass;imgrabbitcarcass//+1 Butterfly Wing|imgbutterflywing"]
       }
     },
     "raisedfossilcliff": {
@@ -3178,7 +3178,7 @@
       },
       "notes": [
         "*@pooltoybundle",
-        "**@poolmixedcarcass",
+        "**@poolcarcassmaxten",
         "***@poolboneremains",
         "****@poolherbany"
       ]
@@ -3194,7 +3194,7 @@
         "*The items that drop may be from any of the following pools:",
         "@poolboneremains",
         "@poolherbany",
-        "@poolmixedcarcass",
+        "@poolcarcassmaxten",
         "**@poolfoodbundle"
       ]
     },
@@ -3205,7 +3205,7 @@
         "Growl": ["+2 ME|imgme//+1 random critter bundle carcass*","+1 ME|imgme//-3 HP"]
       },
       "notes": [
-        "*@poolmixedcarcass",
+        "*@poolcarcassmaxten",
         "**@poolboneremains",
         "***@poolherbany",
         "****@poolcritterbundle"
@@ -3224,7 +3224,7 @@
       },
       "notes": [
         "*@pooltoybundle",
-        "**@poolmixedcarcass",
+        "**@poolcarcassmaxten",
         "***@poolboneremains",
         "****@poolherbany"
       ]
@@ -3363,7 +3363,7 @@
         "Destroy": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random bone remains item**","+2 ME|imgme//+1 random herb***"]
       },
       "notes": [
-        "*@poolmixedcarcass",
+        "*@poolcarcassmaxten",
         "**@poolboneremains",
         "***@poolherbany"
       ]
@@ -3384,7 +3384,7 @@
         "Hold your breath and escape": ["+2 ME|imgme"]
       },
       "notes": [
-        "*@poolmixedcarcass",
+        "*@poolcarcassmaxten",
         "**@poolboneremains",
         "***@poolherbany"
       ]
@@ -3421,7 +3421,7 @@
         "Check it Out": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random bone remains item*","+2 ME|imgme//+1 random herb***","+5 SC|imgsc|(<5000 SC)//+2 ME|imgme"]
       },
       "notes": [
-        "*@poolmixedcarcass",
+        "*@poolcarcassmaxten",
         "**@poolboneremains",
         "***@poolherbany"
       ]
@@ -3448,8 +3448,8 @@
         "**@details2"
       ],
       "details": [
-        "*This option will remove a Large Branch|imglargebranch|item from your hoard.",
-        "**This option will give nothing if you have no Large Branch|imglargebranch|item in your hoard."
+        "This option will remove a Large Branch|imglargebranch|item from your hoard.",
+        "This option will give nothing if you have no Large Branch|imglargebranch|item in your hoard."
       ]
     },
     "snowyowleggs": {
