@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        WolvhelperMini: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.6.2
+// @version     1.6.3
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -17,7 +17,7 @@
   'use strict';
 
   const CACHE_KEY = 'wolvhelpermini_cache'; // WolvhelperMini version ONLY
-  const CACHE_SCHEMA = 2; // Bumped when shape of JSON files change
+  const CACHE_SCHEMA = 3; // Bumped when shape of JSON files change
   const UPDATE_COOLDOWN = 10 * 60 * 1000; // 10 minutes
   const FETCH_TIMEOUT = 10 * 1000; // 10 seconds
 
@@ -31,7 +31,7 @@
   function injectStyles() {
     const style = document.createElement('style');
     style.textContent = `
-      .explore-helper { margin: 10px 0; }
+      .explore-helper { overflow: hidden; margin: 10px 0; }
       .wh-container { margin-top: 8px; text-align: left; }
       .wh-header-enemy { margin-bottom: 4px; text-align: left; }
       .wh-line-normal { text-align: left; }
@@ -46,6 +46,8 @@
   let enemyDatabase = null;
   let enemyIdLookup = [];
   let activeEncounterId = null;
+  let isPending = false;
+  let lastSignature = '';
 
   async function fetchData(url) {
     const controller = new AbortController();
@@ -188,7 +190,7 @@
   }
 
   function matchScore(buttonText, optionName) {
-    const cleanButton = buttonText.replace(/\s*[.*?]|\s*(.*?)/g, '').trim();
+    const cleanButton = buttonText.replace(/\s*\[.*?\]|\s*\(.*?\)/g, '').trim();
     
     const seasonalMatch = optionName.match(/\s*\[(spring|summer|autumn|winter)\]$/i);
     if (seasonalMatch) {
@@ -266,6 +268,21 @@
     return text;
   }
 
+  function findEncounterByImage() {
+    const foreground = document.querySelector('#explore-foreground');
+    const backgroundImage = foreground?.style.backgroundImage;
+    if (!backgroundImage) return null;
+
+    const match = backgroundImage.match(/\/([^\/?#]+)\.(?:png|jpg|jpeg|webp)(?:[?#][^"')]*)?["')]*$/i);
+    if (!match) return null;
+
+    let filename = match[1].toLowerCase().replace(/[_-]/g, '');
+    filename = filename.replace(/(?:spring|summer|autumn|winter)?(?:day|dawn|dusk|night)$|(?:spring|summer|autumn|winter)$/i, '');
+
+    const entry = encounterIdLookup.find(encounter => filename === encounter.normalized) || encounterIdLookup.find(encounter => encounter.normalized.length >= 5 && filename.includes(encounter.normalized));
+    return entry ? { id: entry.id, data: encounterDatabase.encounters[entry.id] } : null;
+  }
+
   function findEncounterIdFromAction(action) {
     if (!action || encounterIdLookup.length === 0) {
       return null;
@@ -308,21 +325,6 @@
     return null;
   }
 
-  function findEncounterByImage(output) {
-    const foreground = output.querySelector('#explore-foreground');
-    const backgroundImage = foreground?.style.backgroundImage;
-    if (!backgroundImage) return null;
-
-    const match = backgroundImage.match(/\/([^\/?#]+)\.(?:png|jpg|jpeg|webp)(?:[?#][^"')]*)?["')]*$/i);
-    if (!match) return null;
-
-    let filename = match[1].toLowerCase().replace(/[_-]/g, '');
-    filename = filename.replace(/(?:spring|summer|autumn|winter)?(?:day|dawn|dusk|night)$|(?:spring|summer|autumn|winter)$/i, '');
-
-    const entry = encounterIdLookup.find(encounter => filename === encounter.normalized) || encounterIdLookup.find(encounter => encounter.normalized.length >= 5 && filename.includes(encounter.normalized));
-    return entry ? { id: entry.id, data: encounterDatabase.encounters[entry.id] } : null;
-  }
-
   function findEncounterByPrompt(output) {
     const normalizedParagraphs = Array.from(output.querySelectorAll('p'))
       .map(paragraph => normalizeText(paragraph.textContent));
@@ -347,27 +349,28 @@
 
     return [...output.querySelectorAll('button')].some(button => {
       const buttonText = button.textContent.trim();
-      const cleanButton = buttonText.replace(/\s*[.*?]|\s*(.*?)/g, '').trim();
+      const cleanButton = buttonText.replace(/\s*\[.*?\]|\s*\(.*?\)/g, '').trim();
       return optionNames.some(name => matchOptionName(buttonText, name)) || stepNames.includes(normalizeText(cleanButton));
     });
   }
 
   function findCurrentEncounter(output) {
+    const newResult = findEncounterByImage(output) || findEncounterByButton(output) || findEncounterByPrompt(output);
+
+    if (newResult) {
+      if (activeEncounterId !== newResult.id) {
+        activeEncounterId = newResult.id;
+      }
+      return newResult;
+    }
+
     if (activeEncounterId && encounterDatabase.encounters[activeEncounterId]) {
       const current = { id: activeEncounterId, data: encounterDatabase.encounters[activeEncounterId] };
       if (encounterMatchesButtons(current, output)) return current;
-
-      const replacement = findEncounterByButton(output) || findEncounterByPrompt(output);
-      if (replacement && replacement.id !== activeEncounterId) {
-        activeEncounterId = replacement.id;
-        return replacement;
-      }
-      return current;
     }
 
-    const results = findEncounterByButton(output) || findEncounterByImage(output) || findEncounterByPrompt(output);
-    if (results) activeEncounterId = results.id;
-    return results;
+    activeEncounterId = null;
+    return null;
   }
 
   function findEnemy(output) {
@@ -460,10 +463,14 @@
     resolvedValue = resolveReferences(resolvedValue, location);
 
     const parts = resolvedValue.split('|');
-    return {
-      result: parts[0].trim(),
-      afterText: parts.slice(2).join('|').trim()
-    };
+    const segments = [];
+    for (let i = 0; i < parts.length; i += 2) {
+      segments.push({
+        text: parts[i] ? parts[i].trim() : ''
+      });
+    }
+
+    return { segments };
   }
 
   function parseCompoundResult(value, location) {
@@ -480,36 +487,40 @@
     return Array.isArray(value) ? value.map(outcome => parseCompoundResult(outcome, location)) : [parseCompoundResult(value, location)];
   }
 
-function createResultElement(rewards) {
+  function createResultElement(rewards) {
     const container = document.createElement('span');
-
     const elementsToAppend = [];
 
     rewards.forEach((reward, index) => {
       if (index > 0) elementsToAppend.push(document.createTextNode(' & '));
 
-      const resultText = reward.result;
-      const noResultRegex = /No result(\**)/gi;
-      let lastIndex = 0;
-      let match;
+      reward.segments.forEach((segment, segIndex) => {
+        const resultText = segment.text;
 
-      while ((match = noResultRegex.exec(resultText)) !== null) {
-        if (match.index > lastIndex) elementsToAppend.push(document.createTextNode(resultText.slice(lastIndex, match.index)));
+        if (resultText) {
+          let textToAppend = resultText;
+          if (segIndex > 0 && !/^[*,.;!?]/.test(resultText)) {
+            textToAppend = ' ' + textToAppend;
+          }
 
-        const noResult = document.createElement('i');
-        noResult.textContent = 'No result';
-        elementsToAppend.push(noResult);
+          const noResultRegex = /No result(\**)/gi;
+          let lastIndex = 0;
+          let match;
 
-        if (match[1]) elementsToAppend.push(document.createTextNode(match[1]));
-        lastIndex = noResultRegex.lastIndex;
-      }
+          while ((match = noResultRegex.exec(textToAppend)) !== null) {
+            if (match.index > lastIndex) elementsToAppend.push(document.createTextNode(textToAppend.slice(lastIndex, match.index)));
 
-      if (lastIndex < resultText.length) elementsToAppend.push(document.createTextNode(resultText.slice(lastIndex)));
+            const noResult = document.createElement('i');
+            noResult.textContent = 'No result';
+            elementsToAppend.push(noResult);
 
-      if (reward.afterText) {
-        const needsSpace = !/^[*,.;!?]/.test(reward.afterText);
-        elementsToAppend.push(document.createTextNode((needsSpace ? ' ' : '') + reward.afterText));
-      }
+            if (match[1]) elementsToAppend.push(document.createTextNode(match[1]));
+            lastIndex = noResultRegex.lastIndex;
+          }
+
+          if (lastIndex < textToAppend.length) elementsToAppend.push(document.createTextNode(textToAppend.slice(lastIndex)));
+        }
+      });
     });
 
     container.append(...elementsToAppend);
@@ -592,16 +603,23 @@ function createResultElement(rewards) {
       if (!trimmed) return;
 
       const partWrapper = document.createElement('span');
-
-      const separators = trimmed.split('|');
-      const text = separators[0].trim();
-      const afterText = separators.length > 2 ? separators.slice(2).join('|').trim() : '';
-
       const wrapperElements = [];
 
-      if (text) appendFormattedText(partWrapper, text);
+      const separators = trimmed.split('|');
+      for (let j = 0; j < separators.length; j += 2) {
+        const textBefore = separators[j] ? separators[j].trim() : '';
 
-      if (afterText) wrapperElements.push(document.createTextNode(' ' + afterText));
+        if (textBefore) {
+          let textToAppend = textBefore;
+          if (j > 0 && !/^[*,.;!?]/.test(textBefore)) {
+            textToAppend = ' ' + textBefore;
+          }
+          const tempSpan = document.createElement('span');
+          appendFormattedText(tempSpan, textToAppend);
+          wrapperElements.push(...tempSpan.childNodes);
+        }
+      }
+
       if (i < parts.length - 1) wrapperElements.push(document.createTextNode(',' + TEXT_SPACE)); // WolvhelperMini version ONLY
 
       partWrapper.append(...wrapperElements);
@@ -672,16 +690,23 @@ function createResultElement(rewards) {
       if (!trimmed) return;
 
       const partWrapper = document.createElement('span');
-
-      const separators = trimmed.split('|');
-      const text = separators[0].trim();
-      const afterText = separators.length > 2 ? separators.slice(2).join('|').trim() : '';
-
       const wrapperElements = [];
 
-      if (text) appendFormattedText(partWrapper, text);
+      const separators = trimmed.split('|');
+      for (let j = 0; j < separators.length; j += 2) {
+        const textBefore = separators[j] ? separators[j].trim() : '';
 
-      if (afterText) wrapperElements.push(document.createTextNode(' ' + afterText));
+        if (textBefore) {
+          let textToAppend = textBefore;
+          if (j > 0 && !/^[*,.;!?]/.test(textBefore)) {
+            textToAppend = ' ' + textBefore;
+          }
+          const tempSpan = document.createElement('span');
+          appendFormattedText(tempSpan, textToAppend);
+          wrapperElements.push(...tempSpan.childNodes);
+        }
+      }
+
       if (i < parts.length - 1) wrapperElements.push(document.createTextNode(',' + TEXT_SPACE)); // WolvhelperMini version ONLY
 
       partWrapper.append(...wrapperElements);
@@ -834,6 +859,13 @@ function createResultElement(rewards) {
     const output = document.querySelector('#explore-output');
     if (!output || !encounterDatabase) return;
 
+    const encounter = findCurrentEncounter(output);
+    const buttons = output.querySelectorAll('button');
+    if (!encounter || buttons.length === 0) {
+      clearExploreHelper(false);
+      return;
+    }
+
     const enemyData = findEnemy(output);
     if (enemyData) {
       const helper = getOrCreateHelper(output);
@@ -854,17 +886,10 @@ function createResultElement(rewards) {
       return;
     }
 
-    const encounter = findCurrentEncounter(output);
-    const buttons = output.querySelectorAll('button');
-    if (!encounter || buttons.length === 0) {
-      clearExploreHelper(false);
-      return;
-    }
-
     const resultLines = [];
     for (const button of buttons) {
       const buttonText = button.textContent.trim();
-      const cleanButton = buttonText.replace(/\s*[.*?]|\s*(.*?)/g, '').trim();
+      const cleanButton = buttonText.replace(/\s*\[.*?\]|\s*\(.*?\)/g, '').trim();
       let matchedName = null;
       let matchedValue = null;
       let matchedOption = null;
@@ -927,9 +952,6 @@ function createResultElement(rewards) {
 
     appendHelperToOutput(output, helper);
   }
-
-  let isPending = false;
-  let lastSignature = '';
 
   function getOutputSignature(output) {
     const buttons = [...output.querySelectorAll('button')].map(button => button.dataset.action || button.textContent.trim()).join('|');
