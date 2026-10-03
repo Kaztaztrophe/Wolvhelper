@@ -785,7 +785,7 @@
     "raven": {
       "prompt": "A raven swoops down over your head and seems to be trying to get your attention.",
       "options": {
-        "Follow": ["+1 random amusement item from toy bundle pool*","+1 random carcass from critter bundle pool**","+1 random herb***","+1 random recipe from amusement pool****","+1 random recipe from rare jay pool*****","+4-6 SC|imgsc|(<5000 SC)","+1-2 SC|imgsc|(>5000 SC)","No result"]
+        "Follow": ["+1 random toy bundle item*","+1 random critter carcass**","+1 random herb***","+1 random recipe from amusement pool****","+1 random recipe from rare jay pool*****","+4-6 SC|imgsc|(<5000 SC)","+1-2 SC|imgsc|(>5000 SC)","No result"]
       },
       "notes": [
         "*@pooltoybundle",
@@ -3087,7 +3087,7 @@
       "prompt": "From a distance, the body of this small fox cub appears to be a carcass. As you approach, you uncover the horrible truth—it's still alive, but barely breathing. Demonic growths have contorted its body in a painful manner, leaving it almost unable to move.",
       "options": {
         "End its Pain": ["+2 ME|imgme//+1 random herb*"],
-        "Take it to the herbalist": ["+2 ME|imgme//+1 random herb*//+1 random carcass from critter bundle pool**"]
+        "Take it to the herbalist": ["+2 ME|imgme//+1 random herb*//+1 random critter carcass**"]
       },
       "notes": [
         "*@poolherbany",
@@ -3155,7 +3155,7 @@
     "carcassaffecteddeer": {
       "prompt": "While the deer is undoubtedly dead, its afflicted body seems to possess a life of its own with red, glowing veins and growths that appear to move. It looks like it's breathing! Spooky.",
       "options": {
-        "Investigate": ["+3 ME|imgme//+1 random amusement item from toy bundle pool*//+1 random carcass from critter bundle pool**"],
+        "Investigate": ["+3 ME|imgme//+1 random toy bundle item*//+1 random critter carcass**"],
         "Eat": ["+2 ME|imgme//+5 HP","+1 ME|imgme//-5 HP"]
       },
       "notes": [
@@ -3173,7 +3173,7 @@
     "deadhandstree": {
       "prompt": "A huge, dead tree appears to scratch the sky with its distorted, twisted branches that resemble clawed hands. Its exposed roots give the impression that the tree i in the midst of stepping out of the ground. Maybe it really is alive...?",
       "options": {
-        "Rest": ["+2 ME|imgme//+1 random amusement item from toy bundle pool*","+1 ME|imgme//-5% energy"],
+        "Rest": ["+2 ME|imgme//+1 random toy bundle item*","+1 ME|imgme//-5% energy"],
         "Dig": ["+3 ME|imgme//+1 random 1-10 use carcass*","+3 ME|imgme//+1 random bone remains item***","+3 ME|imgme//+1 random herb****","+2 ME|imgme//-5 HP"]
       },
       "notes": [
@@ -3201,8 +3201,8 @@
     "deerantlereyes": {
       "prompt": "The silhouette of a deer looks both familiar and a bit unsettling, and you can't quite pinpoint why at first. As the deer turns to face you, you notice its eye sockets are hollow while its glowing red eyes stare malevolently from its antlers. It's as if the creature can see into your soul.",
       "options": {
-        "Staring contest": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random item from bone remains pool*","+2 ME|imgme//+1 random herb***","+1 ME|imgme//-4 HP"],
-        "Growl": ["+2 ME|imgme//+1 random carcass from critter bundle pool*","+1 ME|imgme//-3 HP"]
+        "Staring contest": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random bone remains item*","+2 ME|imgme//+1 random herb***","+1 ME|imgme//-4 HP"],
+        "Growl": ["+2 ME|imgme//+1 random critter carcass*","+1 ME|imgme//-3 HP"]
       },
       "notes": [
         "*@poolmixedcarcass",
@@ -3220,10 +3220,10 @@
       "prompt": "You stop mid-step when you feel a strange, energizing sensation. While everything around looks normal, you definitely feel different here. The air feels refreshing, and even just standing here makes you feel better.",
       "options": {
         "Close your eyes": ["+3% energy//+3 HP"],
-        "Look around": ["+2 ME|imgme//+1 random 1-10 use carcass**//+1 random amusement item from toy bundle pool*","+2 ME|imgme//+1 random item from bones remain pool***//+1 random amusement item from toy bundle pool*","+2 ME|imgme//+1 random herb****//+1 random amusement item from toy bundle pool*"]
+        "Look around": ["+2 ME|imgme//+1 random 1-10 use carcass**//+1 random toy bundle item*","+2 ME|imgme//+1 random bone remains item***//+1 random toy bundle item*","+2 ME|imgme//+1 random herb****//+1 random toy bundle item*"]
       },
       "notes": [
-        "*@pooltoybunle",
+        "*@pooltoybundle",
         "**@poolmixedcarcass",
         "***@poolboneremains",
         "****@poolherbany"
@@ -3232,7 +3232,7 @@
     "giantspiderhuman": {
       "prompt": "The creature in front of you appears to be just a giant spider. As you look closer, you realize its head resembles a human skull, emitting a constant, unsettling hissing sound. What a nightmare! There is no way to go forward without catching its attention.",
       "options": {
-        "Attack": ["+2 ME|imgme//+1 random carcass from critter bundle pool*","+2 ME|imgme//-3 HP","Gain illness: Infection/No result**"]
+        "Attack": ["+2 ME|imgme//+1 random critter carcass*","+2 ME|imgme//-3 HP","Gain illness: Infection/No result**"]
       },
       "notes": [
         "*@poolcritterbundle",
@@ -3299,7 +3299,7 @@
     "hollowedtree": {
       "prompt": "A big tree appears to be hunched over your path. It looks a bit knotted and hollow inside, as if somebody twisted strings and strands in place of the trunk.",
       "options": {
-        "Dig around it": ["+1 ME|imgme//+1 random amusement item from toy bundle pool*","+1 ME|imgme"],
+        "Dig around it": ["+1 ME|imgme//+1 random toy bundle item*","+1 ME|imgme"],
         "Check inside": ["+2 ME|imgme//-1% energy"]
       },
       "notes": [
@@ -3310,7 +3310,7 @@
       "prompt": "A witch wolf in a dark cloak stares at you from beneath her hood. You cannot clearly read her expression, but she appears to be waiting for you. The sudden urge to get closer is irresistible. You know you're risking a lot; the witches don't give anything for free.",
       "options": {
         "Ask for magical help": ["4 ME|imgme//-10 HP"],
-        "Greet": ["+1 ME|imgme///+1 random carcass from critter bundle pool*//+1 random herb**"]
+        "Greet": ["+1 ME|imgme///+1 random critter carcass*//+1 random herb**"]
       },
       "notes": [
         "*@poolcritterbundle",
@@ -3350,7 +3350,7 @@
       "prompt": "You can't believe your eyes at first. What appears to be a large black stallion turns out to be some sort of nightmarish monster. Its ribcage is grotesquely exposed, glowing with a molten, lava-like substance that oozes from its open sides. Not exactly as appetizing as you had hoped.",
       "options": {
         "Growl": ["+3 ME|imgme//-1 HP"],
-        "Follow": ["+1 ME|imgme//+1 random amusement item from toy bundle pool*"]
+        "Follow": ["+1 ME|imgme//+1 random toy bundle item*"]
       },
       "notes": [
         "*@pooltoybundle"
@@ -3360,7 +3360,7 @@
       "prompt": "This area is usually full of strange and beautiful plants. There is no way to remember them all, and there's always something new to discover. However, you're quite sure that you've never seen anything quite like this. The growths inside this flower resemble teeth. How is that possible?",
       "options": {
         "Sniff": ["+2 ME|imgme//+5% energy","+1 ME|imgme//-2 HP"],
-        "Destroy": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random item from bone remains pool**","+2 ME|imgme//+1 random herb***"]
+        "Destroy": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random bone remains item**","+2 ME|imgme//+1 random herb***"]
       },
       "notes": [
         "*@poolmixedcarcass",
@@ -3380,7 +3380,7 @@
     "redmist": {
       "prompt": "Without warning, a strange red mist envelopes you and you have no chance to observe where it came from. Your breathing isn't affected, but the air feels oddly sticky in your lungs.",
       "options": {
-        "Take a deep breath": ["+1 ME|imgme//+3% energy","-3% energy//+1 random 1-10 use carcass*","-3% energy//+1 random item from bone remains pool**","-3% energy//+1 random herb***"],
+        "Take a deep breath": ["+1 ME|imgme//+3% energy","-3% energy//+1 random 1-10 use carcass*","-3% energy//+1 random bone remains item**","-3% energy//+1 random herb***"],
         "Hold your breath and escape": ["+2 ME|imgme"]
       },
       "notes": [
@@ -3418,7 +3418,7 @@
     "skullshapedrock": {
       "prompt": "Two empty eye sockets of an abnormally large human skull peer at you maliciously. As you move closer, you realize that it's just an odd-shaped rock. It doesn't make the rock any less creepy; the resemblance is just too close.",
       "options": {
-        "Check it Out": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random item from bone remains pool*","+2 ME|imgme//+1 random herb***","+5 SC|imgsc|(<5000 SC)//+2 ME|imgme"]
+        "Check it Out": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random bone remains item*","+2 ME|imgme//+1 random herb***","+5 SC|imgsc|(<5000 SC)//+2 ME|imgme"]
       },
       "notes": [
         "*@poolmixedcarcass",
@@ -3429,7 +3429,7 @@
     "skulltree": {
       "prompt": "You stop in your tracks, startled by seeing a face when there shouldn't be one here at all. After taking another look, it appears to just be an odd, bulbous growth on a tree, creating the illusion of a face.",
       "options": {
-        "Climb": ["+2 ME|imgme","+1 ME|imgme//+1 random carcass from critter bundle pool*//+1 Bone|imgbone","+1 ME|imgme//-2 HP"],
+        "Climb": ["+2 ME|imgme","+1 ME|imgme//+1 random critter carcass*//+1 Bone|imgbone","+1 ME|imgme//-2 HP"],
         "Cover them": ["+1 ME|imgme//+1 random herb**//+1 Large Leaf|imglargeleaf"]
       },
       "notes": [
@@ -3464,7 +3464,7 @@
       "options": {
         "Trick": ["2 ME|imgme//-1 HP"],
         "Treat": ["+1 ME|imgme//+1 random herb*"],
-        "Join": ["+1 ME|imgme//+1 random amusement item from toy bundle pool**"]
+        "Join": ["+1 ME|imgme//+1 random toy bundle item**"]
       },
       "notes": [
         "*@poolherbany",
