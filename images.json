@@ -2,8 +2,8 @@
 
   "/currency/": {
     "imgsc": "silvercone.png",
-    "imggp": "glowpetal.png",
     "imglt": "lunartear.png",
+    "imggp": "glowpetal.png",
     "imgmt": "megalodonteeth.png",
     "imgme": "mysteriouseffigy.png"
   },
