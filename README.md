@@ -19,7 +19,9 @@
   <li>Grasslands regular explore encounters and enemy trophies</li>
   <li>Mountains regular explore encounters</li>
   <li>Riparian Woodland regular explore encounters</li>
-  <li>Some multi-biome regular explore encounters (DF, Gr, M, RW)</li>
+  <li>Prairie regular explore encounters</li>
+  <li>Coniferous Forest regular explore encounters</li>
+  <li>Some multi-biome regular explore encounters (DF, Gr, M, RW, P, CF)</li>
 </ul>
 
 <b>Wolvhelper</b> will receive updates to the database for the foreseeable future, including to add new information when it becomes available. 
