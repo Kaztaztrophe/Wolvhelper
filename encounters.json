@@ -236,6 +236,19 @@
         "**@poolrecipejayrare"
       ]
     },
+    "blackfootedferret": {
+      "prompt": "Gasp! A very rare black-footed ferret is sniffing the ground, perhaps looking for some prairie dogs!",
+      "options": {
+        "Dig": ["No result*"],
+        "Chase": ["No result*"]
+      },
+      "notes": [
+        "*@details"
+      ],
+      "details": [
+        "*This encounter has effects that are not yet implemented in the game, so it will always have no result."
+      ]
+    },
     "blackneckedgrebe": {
       "prompt": "This black-necked grebe is diving for something beneath the surface.",
       "options": {
@@ -254,6 +267,13 @@
       "prompt": "The sight of the long ears makes you tighten your jaw unconsciously. Your instincts have kicked in and you feel the need to chase the rabbit!",
       "options": {
         "Chase it": ["+1 Jackrabbit Carcass|imgjackrabbitcarcass","+1 Lucky Foot|imgluckyfoot","No result"]
+      }
+    },
+    "blacktailedprairiedog": {
+      "prompt": "A sentry black-tailed prairie dog starts calling out quickly as it watches you approach.",
+      "options": {
+        "Approach": ["+1 Acorn|imgacorn","No result"],
+        "Dig": ["+1 Acorn|imgacorn"]
       }
     },
     "blackwidow": {
@@ -357,6 +377,13 @@
         "*@poolscarfresh"
       ]
     },
+    "cowboyherd": {
+      "prompt": "A herd of cows slowly crosses your path. You brighten at the thought of an easy hunt, but then you notice the humans at the back, herding them along. It makes the situation a little more complicated, but there's nothing beyond your skills, right?",
+      "options": {
+        "Follow": ["+1 Bone|imgbone","No result"],
+        "Hunt": ["+5 HP","No result"]
+      }
+    },
     "crowsnakeskinpurveyor": {
       "prompt": "What a fancy crow! It shows off its latest purchases, obviously fascinated by all types of shed snake skins. Maybe you have some for trade?",
       "options": {
@@ -457,6 +484,21 @@
         "*@poolscarfresh"
       ]
     },
+    "firefightingplanes": {
+      "prompt": "A plane flies low in the sky, dumping water in its wake!",
+      "options": {
+        "Run away!": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+4-6 SC|imgsc|(<5000 SC)","-2 HP","No result"]
+      }
+    },
+    "ferruginoushawk": {
+      "prompt": "A large ferruginous hawk soars above you in the sky.",
+      "options": {
+        "Follow": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*","2-3 SC|imgsc|(<5000 SC)","No result"]
+      },
+      "notes": [
+        "*@poolrecipecavebuildingmaterial"
+      ]
+    },
     "fishcrowmerchant": {
       "prompt": "On a rotten trunk among the tall trees, a fish crow croaks at you, inviting you to check out its wares. Looks like there's a high demand for certain items.",
       "options": {
@@ -516,6 +558,13 @@
         "Roll Over": ["+10% energy"]
       }
     },
+    "greaterprairiechickendance": {
+      "prompt": "You spot strange movement in the grass. Upon moving closer, you discover two greater prairie chickens in the middle of a love dance. Well, the female is observing the dancing male in silence, looking a bit bored.",
+      "options": {
+        "Observe": ["+1 Grouse Feather|imggrousefeather","+1 SC|imgsc|(<5000 SC)","No result"],
+        "Chase": ["+1 Grouse Carcass|imggrousecarcass","+10% hunger","No result"]
+      }
+    },
     "greatersagegrouse ": {
       "prompt": "Careful, straight ahead! A greater sage-grouse male seems to be prowling for challengers.",
       "options": {
@@ -570,6 +619,20 @@
         "Play": ["+10% energy"]
       }
     },
+    "lesserprairiechicken": {
+      "prompt": "A male lesser prairie chicken is practicing his moves on a buffalo skull.",
+      "options": {
+        "Offer Acorn": ["+1 random specific food item*","+1 random recipe from acorn pool**"],
+        "Strut": ["+2 Grouse Feather|imggrousefeather;imggrousefeather","No result"]
+      },
+      "notes": [
+        "*@conditional1[Offer Acorn]",
+        "**@conditional2[Offer Acorn]"
+      ],
+      "conditional": {
+        "Offer Acorn": ["@poollesserprairiechickenfood","@poolrecipeacorn"]
+      }
+    },
     "leucisticravenmerchant": {
       "prompt": "Your eyes water in awe when checking out all the pretty wares this leucistic raven merchant has in store. You ask if it's looking for anything to trade, but it's hard to hide your delight. The prices might be high!",
       "options": {
@@ -608,6 +671,13 @@
       "options": {
         "Count them": ["+3% energy","+2 HP"],
         "Follow the migration": ["+1-4 SC|imgsc|(<5000 SC)","+2% energy","+5 HP"]
+      }
+    },
+    "migratingbisonherd": {
+      "prompt": "A familiar rumbling sound is unmistakable. In the distance, you see a huge bison herd moving forward like a flood.",
+      "options": {
+        "Follow": ["+2 Tansy|imgtansy;imgtansy//+1 Winterfat|imgwinterfat","No result"],
+        "Hunt": ["+1 Bison Carcass|imgbisoncarcass","+1 Tobacco|imgtobacco"]
       }
     },
     "migratingwoodcocks": {
@@ -678,6 +748,13 @@
         "Jump at": ["+1 Small Bird Meat|imgsmallbirdmeat","+2 HP","No result"]
       }
     },
+    "northerngrasshoppermouse": {
+      "prompt": "You hear scratching from a nearby fence pole. There's an energetic northern grasshopper mouse on it.",
+      "options": {
+        "Mark Scent": ["+1 Regal Fritillary|imgregalfritillary","No result"],
+        "Eat It": ["+2% hunger","No result"]
+      }
+    },
     "northernpygmyowl": {
       "prompt": "A northern pygmy owl is staring down at you from the low-hanging branch of a tree. Its head is rotating in all directions as the wide, open eyes follow your every move.",
       "options": {
@@ -731,12 +808,28 @@
         "Browse Wares": ["+(LVL*60) EXP","+1 Raven Traders: Pied Raven Peddler|imgraventraderspiedravenpeddler"]
       }
     },
+    "plainspocketgopher": {
+      "prompt": "A fluffy gopher pokes his head out of its burrow, checking if it is safe to emerge.",
+      "options": {
+        "Offer Acorn": ["+8 HP"],
+        "Tease": ["+1 Buffaloberry|imgbuffaloberry","No result"]
+      }
+    },
     "porcupine": {
       "prompt": "Spiky and with a face only a mother could love, a porcupine perches on a rock and stares you down.",
       "options": {
         "Pounce": ["+1 Porcupine Carcass|imgporcupinecarcass","No result"],
         "Approach": ["+1 Acorn|imgacorn","No result"]
       }
+    },
+    "prairiekingsnake": {
+      "prompt": "What's that rattling...?! It's a snake! Oh no, it's a snake... but, phew, it's not a rattlesnake, thank goodness. It's a prairie kingsnake, who is rather nervous about your presence.",
+      "options": {
+        "Pester": ["+2 Bone|imgbone;imgbone","+1 random recipe from bone pool*","+2-3 SC|imgsc|(<5000 SC)","No result"]
+      },
+      "notes": [
+        "*@poolrecipebone"
+      ]
     },
     "prancingfawns": {
       "prompt": "Two very young fawns are having fun prancing around. They haven't noticed you, and there is no sign of other deer nearby. Do they know that it's dangerous to be far away from their herd?",
