@@ -212,6 +212,13 @@
         "If your lead wolf is currently immune to illness."
       ]
     },
+    "americantreesparrow": {
+      "prompt": "You have the feeling of being observed. When you look around, you notice a small bird watching you with curiosity.",
+      "options": {
+        "Chat": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+2 HP","No result"],
+        "Catch": ["+5 HP","No result"]
+      }
+    },
     "anhinga": {
       "prompt": "A beautiful anhinga clings to a branch, its eyes trained on the water below as it looks for prey.",
       "options": {
@@ -223,6 +230,20 @@
       "prompt": "A barn owl swoops overhead, clutching something in its talons. Maybe something tasty?",
       "options": {
         "Leap": ["+5-10% hunger","No result"]
+      }
+    },
+    "barnspider": {
+      "prompt": "Bloop! A little barn spider drops on a silken thread in front of your nose. Well, that's one way to make an entrance! You can feel its tiny eyes on you.",
+      "options": {
+        "Blow on": ["+1 Butterfly Wing|imgbutterflywing","+4 HP","No result"],
+        "Say hello": ["+1 Whitetail Carcass|imgwhitetailcarcass","+1 HP","No result"]
+      }
+    },
+    "barredowl": {
+      "prompt": "A majestic owl flies past you in a grand manner, as if showing off. It lands nearby and twists its head around to look at you in interest.",
+      "options": {
+        "Show off": ["+3% energy","+3 HP","No result"],
+        "Play": ["+7% energy","-3 HP","No result"]
       }
     },
     "beaver": {
@@ -286,7 +307,7 @@
     "bluejay": {
       "prompt": "A blue jay is aggressively chasing and screaming at another bird - presumably one that got too close to its nest. In the chaos, you notice something fall to the ground in front of you.",
       "options": {
-        "Offer Acorn": ["+1 Lucky Foot|imgluckyfoot","+1 Recipe: @poolrecipeluckyfoot","+1 random uncommon amusement item**","+1 random recipe from acorn pool***","+1 random recipe from amusement pool****","+1 random recipe from jay pool*****"],
+        "Offer Acorn": ["+1 Lucky Foot|imgluckyfoot|/+1 Recipe: @poolrecipeluckyfoot","+1 random uncommon amusement item**","+1 random recipe from acorn pool***","+1 random recipe from amusement pool****","+1 random recipe from jay pool*****"],
         "Take": ["+1 Blue Jay Feather|imgbluejayfeather","+1 Recipe: @poolrecipejaycommon","+1 random herb*"]
       },
       "notes": [
@@ -305,6 +326,13 @@
       "options": {
         "Jump in": ["+1 Dead Fish|imgdeadfish","+4% energy","+4 HP","No result"],
         "Walk around": ["+1 Muskrat Carcass|imgmuskratcarcass","+4% energy","No result"]
+      }
+    },
+    "bumblebees": {
+      "prompt": "Bumblebees cluster around some flowers, bouncing gently in the air as they go from bloom to bloom, harvesting nectar.",
+      "options": {
+        "Explore the flowers": ["+3 Mullein|imgmullein;imgmullein;imgmullein","+2 Yarrow|imgyarrow;imgyarrow","+1 Dandelion|imgdandelion","-2 HP","No result"],
+        "Watch the bees": ["+3-5 SC|imgsc|(<5000 SC)","+4 HP","No result"]
       }
     },
     "campinghumans": {
@@ -332,6 +360,21 @@
       "options": {
         "Offer Acorn": ["+8 HP"],
         "Chase": ["+1 Burning Bush|imgburningbush","+1-3 SC|imgsc|(<5000 SC)","No result"]
+      }
+    },
+    "cedarwaxwing": {
+      "prompt": "A small bird swoops down in front of you, startling you momentarily, before it rudely lands on top of your head.",
+      "options": {
+        "Offer Acorn": ["+1 Lucky Foot|imgluckyfoot|/+1 Recipe: @poolrecipeluckyfoot","+1 random uncommon amusement item**","+1 random recipe from acorn pool***"],
+        "Shake": ["No result*"]
+      },
+      "notes": [
+        "*This option has effects that are not yet implemented in the game, so it will always have no result.",
+        "**@conditional1[Offer Acorn]",
+        "***@conditional2[Offer Acorn]"
+      ],
+      "conditional": {
+        "Offer Acorn": ["@poolamusementuncommon","@poolrecipeacorn"]
       }
     },
     "chihuahuanravenmerchant": {
@@ -364,8 +407,8 @@
     "cottontail": {
       "prompt": "A small fluffy bunny sits alert in the grass.",
       "options": {
-        "Stalk": ["+1 Rabbit Carcass|imgrabbitcarcass//+1 Lucky Foot|imgluckyfoot","+1 Rabbit Carcass|imgrabbitcarcass//+1 Recipe: @poolrecipeluckyfoot","+1 Wisdom stat","No result"],
-        "Chase": ["+1 Rabbit Carcass|imgrabbitcarcass//+1 Lucky Foot|imgluckyfoot","+1 Rabbit Carcass|imgrabbitcarcass//+1 Recipe: @poolrecipeluckyfoot","+1 Speed stat","No result"]
+        "Stalk": ["+1 Rabbit Carcass|imgrabbitcarcass//+1 Lucky Foot|imgluckyfoot|/+1 Recipe: @poolrecipeluckyfoot","+1 Wisdom stat","No result"],
+        "Chase": ["+1 Rabbit Carcass|imgrabbitcarcass//+1 Lucky Foot|imgluckyfoot|/+1 Recipe: @poolrecipeluckyfoot","+1 Speed stat","No result"]
       }
     },
     "cougarmom": {
@@ -484,10 +527,27 @@
         "*@poolscarfresh"
       ]
     },
+    "fightingstags": {
+      "prompt": "The sounds of clashing antlers and angry snorts lead you to two stags locked in combat. They don't notice you at all. As they charge at each other again, their antlers become interlocked.",
+      "options": {
+        "Wait for the winner": ["+1 Entwined Antlers|imgentwinedantlers","+1-3 SC|imgsc|(<5000 SC)"],
+        "Use the opportunity": ["+1 Whitetail Carcass|imgwhitetailcarcass","Gain illness: Open Wound/-4 HP*"]
+      },
+      "notes": [
+        "*If your lead wolf is currently immune to illness."
+      ]
+    },
     "firefightingplanes": {
       "prompt": "A plane flies low in the sky, dumping water in its wake!",
       "options": {
         "Run away!": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+4-6 SC|imgsc|(<5000 SC)","-2 HP","No result"]
+      }
+    },
+    "fireflies": {
+      "prompt": "Bright spots of light blink in and out of existence in the warm dark air of the forest. What a pleasant show!",
+      "options": {
+        "Follow their path": ["+2 Redwood Sorrel|imgredwoodsorrel;imgredwoodsorrel","+1 Goldenseal|imggoldenseal","+1 Lucky Foot|imgluckyfoot","No result"],
+        "Catch!": ["+5 HP","+2 HP","No result"]
       }
     },
     "ferruginoushawk": {
@@ -508,6 +568,20 @@
         "Give Catfish Skull": ["+1 Venison Liver|imgvenisonliver"],
         "Browse Wares": ["+(LVL*20) EXP","+1 Raven Traders: Fish Crow Merchant|imgraventradersfishcrowmerchant"]
       }
+    },
+    "fisher": {
+      "prompt": "You hear a violent scrabble and various hissing noises coming from nearby! You wander over to see a fisher in the throes of battle with a lynx.",
+      "options": {
+        "Intervene": ["+1 Rabbit Carcass|imgrabbitcarcass","2-3 SC|imgsc|(<5000 SC)"],
+        "Negotiate": ["+1 item for active snake quest","No result*"],
+        "Steal": ["+1 Small Doe Carcass|imgsmalldoecarcass","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "Unless you have an active item quest with the questing snake, this option will always have no result."
+      ]
     },
     "fishermen": {
       "prompt": "Humans with long sticks are standing by the nearby waterway. They wave them around and you watch as a line goes into the water. They smell of fish. What are they doing?",
@@ -574,6 +648,13 @@
         "*@poolrecipegrouse",
         "**@poolstat"
       ]
+    },
+    "greatgreyowlday": {
+      "prompt": "A massive, majestic great grey owl is landing right in front of you!",
+      "options": {
+        "Playful bow!": ["+1 Weasel Carcass|imgweaselcarcass","-1 HP"],
+        "Taunt!": ["+3 Owl Feather|imgowlfeather;imgowlfeather;imgowlfeather","-1 HP"]
+      }
     },
     "greenheron": {
       "prompt": "A green heron wanders along nearby slow-moving water. It's observing the swimming shadow of a fish. You can tell it hasn't yet noticed you.",
@@ -666,6 +747,13 @@
         "Pounce": ["+3% hunger","No result"]
       }
     },
+    "merlin": {
+      "prompt": "A beautiful merlin has landed in front of you! Its wise gaze beckons you to exchange knowledge.",
+      "options": {
+        "Attack!": ["+1 Merlin Carcass|imgmerlincarcass","+1-4 SC|imgsc|(<5000 SC)","+10% hunger"],
+        "Speak": ["+2 Amusement Scraps|imgamusementscraps;imgamusementscraps","+2 Carrionflower|imgcarrionflower;imgcarrionflower","No result"]
+      }
+    },
     "migratingbirds": {
       "prompt": "A large flock of birds clogs the sky and nearly blocks out the sun. There's hundreds of them! It must be their annual migration.",
       "options": {
@@ -698,7 +786,7 @@
     "mountainbeaver": {
       "prompt": "This mountain beaver is caught off-guard outside of its burrow! It quickly shows you its enormous teeth before you consider attacking. Yes, it's best not to engage.",
       "options": {
-        "Offer Acorn": ["+1 Cliff Swallowtail|imgcliffswallowtail","+1 Lucky Foot|imgluckyfoot","+1 Recipe: @poolrecipeluckyfoot","+1 random recipe from acorn pool*","+1 random recipe from cave-building material pool**"]
+        "Offer Acorn": ["+1 Cliff Swallowtail|imgcliffswallowtail","+1 Lucky Foot|imgluckyfoot|/+1 Recipe: @poolrecipeluckyfoot","+1 random recipe from acorn pool*","+1 random recipe from cave-building material pool**"]
       },
       "notes": [
         "*@conditional1[Offer Acorn]",
@@ -748,11 +836,25 @@
         "Jump at": ["+1 Small Bird Meat|imgsmallbirdmeat","+2 HP","No result"]
       }
     },
+    "northerngoshawk": {
+      "prompt": "A northern goshawk is flying through the forest clearing. The squirrel it was chasing just dashed between your legs!",
+      "options": {
+        "Hide It": ["+2 Grouse Feather|imggrousefeather;imggrousefeather"],
+        "Eat It": ["+3% hunger"],
+        "Reveal It": ["+1 Medicine: Healing Salve|imgmedicinehealingsalve"]
+      }
+    },
     "northerngrasshoppermouse": {
       "prompt": "You hear scratching from a nearby fence pole. There's an energetic northern grasshopper mouse on it.",
       "options": {
         "Mark Scent": ["+1 Regal Fritillary|imgregalfritillary","No result"],
         "Eat It": ["+2% hunger","No result"]
+      }
+    },
+    "northernlongearedbat": {
+      "prompt": "You hear high-pitched chirping and fluttering. A northern long-eared bat is flying around you among the spruce trees! You can tell there are many more not too far away, but this one is really annoying.",
+      "options": {
+        "Catch": ["+2 HP","+5% hunger","No result"]
       }
     },
     "northernpygmyowl": {
@@ -821,6 +923,21 @@
         "Pounce": ["+1 Porcupine Carcass|imgporcupinecarcass","No result"],
         "Approach": ["+1 Acorn|imgacorn","No result"]
       }
+    },
+    "playingravens": {
+      "prompt": "You spot two ravens flying around each other and tussling on the ground. It appears as if they are fighting, but upon second glance, you realize they are just having fun.",
+      "options": {
+        "Join": ["+10% energy","-100% energy//Gain illness: Influenza/No result*/-2 HP**"],
+        "Chase": ["+3 Amusement Scraps|imgamusementscraps;imgamusementscraps;imgamusementscraps","+1 Moose Cow Carcass|imgmoosecowcarcass","No result"]
+      },
+      "notes": [
+        "*@details1",
+        "**@details2"
+      ],
+      "details": [
+        "If your lead wolf is currently sick.",
+        "If your lead wolf is currently immune to illness."
+      ]
     },
     "prairiekingsnake": {
       "prompt": "What's that rattling...?! It's a snake! Oh no, it's a snake... but, phew, it's not a rattlesnake, thank goodness. It's a prairie kingsnake, who is rather nervous about your presence.",
@@ -943,6 +1060,13 @@
         "Offer Acorn": "@poolrecipeacorn"
       }
     },
+    "redcockadedwoodpecker": {
+      "prompt": "A woodpecker clings to a nearby tree, it's head buried in a hole. Suddenly it yanks back, a squirming insect trapped in its beak! The bug disappears in one swallow and the woodpecker watches you with interest.",
+      "options": {
+        "Sniff": ["+2 Garlic|imggarlic;imggarlic","+1 Feverfew|imgfeverfew","+5 HP","No result"],
+        "Pounce": ["+1 Woodpecker Carcass|imgwoodpeckercarcass","+2 HP//+5% hunger"]
+      }
+    },
     "redsquirrel": {
       "prompt": "A red squirrel is perched on a branch, clasping what looks like a pinecone in its paws. It would be a shame if it dropped it...",
       "options": {
@@ -1011,6 +1135,13 @@
         "Investigate": ["+1 Carrot|imgcarrot","+2 HP","No result"]
       }
     },
+    "snowshoehare": {
+      "prompt": "As it gets darker and darker, you notice a snowshoe hare quietly hopping around its burrow, getting ready to forage for the night.",
+      "options": {
+        "Ambush": ["+1 Lucky Foot|imgluckyfoot|/+1 Recipe: @poolrecipeluckyfoot","+2-4 SC|imgsc|(<5000 SC)","No result"],
+        "Follow it": ["+1 Lucky Foot|imgluckyfoot|/+1 Recipe: @poolrecipeluckyfoot","+1 item for active snake quest","No result"]
+      }
+    },
     "southerncrowhawker": {
       "prompt": "You spot a southern crow hawker high in the sky as it announces a gathering of merchants just down by the river.",
       "options": {
@@ -1069,6 +1200,18 @@
       "options": {
         "Jump!": ["+1 Swan Carcass|imgswancarcass","+1 Swan Feather|imgswanfeather"],
         "Howl": ["+2 Swan Feather|imgswanfeather;imgswanfeather"]
+      }
+    },
+    "twobarredcrossbill": {
+      "prompt": "A two-barred crossbill is chilling on a branch. It has quite a special-looking beak. Perhaps it can use it to find special things?",
+      "options": {
+        "Offer Acorn": ["+1 Baltimore Checkerspot|imgbaltimorecheckerspot","+1 random recipe from acorn pool*","+5% hunger"]
+      },
+      "notes": [
+        "*@conditional1"
+      ],
+      "conditional": {
+        "Offer Acorn": "@poolrecipeacorn"
       }
     },
     "westerncrowhawker": {
