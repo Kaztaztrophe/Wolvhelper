@@ -15,6 +15,7 @@
     "/items/": {
       "amusement/": {
         "imgacorn": "acorn.png",
+        "imgamusementscraps": "amusementscraps.png",
         "imganhingafeather": "anhingafeather.png",
         "imgbluejayfeather": "bluejayfeather.png",
         "imgbone": "bone.png",
@@ -22,6 +23,7 @@
         "imgcnithariantuggytendril": "cnithariantuggytendril.png",
         "imgcrowskull": "crowskull.png",
         "imgduckfeather": "duckfeather.png",
+        "imgentwinedantlers": "entwinedantlers.png",
         "imgessencecoveredfeather": "essencecoveredfeather.png",
         "imggrousefeather": "grousefeather.png",
         "imggullfeather": "gullfeather.png",
@@ -372,6 +374,7 @@
           "imgazurehoodedjay": "Azurehoodedjay.png",
           "imgbackgroundrocksbrown": "Backgroundrocksbrown.png",
           "imgbackgroundrocksgray": "Backgroundrocksgray.png",
+          "imgbaltimorecheckerspot": "Baltimorecheckerspot",
           "imgbigcatclawnecklace": "Bigcatclawnecklace.png",
           "imgbirdsnestbranch": "Birdsnestbranch.png",
           "imgbirdsnestbush": "Birdsnestbush.png",
