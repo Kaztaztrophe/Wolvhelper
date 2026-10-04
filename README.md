@@ -2,7 +2,7 @@
 
 🐺 <b>Wolvhelper</b> is an explore helper which displays encounter outcomes and additional information when you are exploring on <i>Wolvden</i>. The userscript can be installed through extensions like Violentmonkey on desktop and Userscripts on iOS. The .user.js file is the only file you need to install, as the .json referenced within it are managed independently.</div>
 
-<p align="center">🐺 <a href="https://github.com/Kaztaztrophe/Wolvhelper/blob/main/wolvhelper_encounters.user.js">Wolvhelper Explore Encounters</a> | <a href="https://github.com/Kaztaztrophe/Wolvhelper/blob/main/wolvhelpermini_encounters.user.js">WolvhelperMini Explore Encounters</a> 🐺<br><b>Last Updated:</b> October 4th, 2026 at 18:30 UTC (v1.6.6)</p>
+<p align="center">🐺 <a href="https://github.com/Kaztaztrophe/Wolvhelper/blob/main/wolvhelper_encounters.user.js">Wolvhelper Explore Encounters</a> | <a href="https://github.com/Kaztaztrophe/Wolvhelper/blob/main/wolvhelpermini_encounters.user.js">WolvhelperMini Explore Encounters</a> 🐺<br><b>Last Updated:</b> October 4th, 2026 at 19:30 UTC (v1.6.6)</p>
 
 <p align="center"><i>Data sourced from the <a href="https://grousehouse.wiki/">Grouse House Wiki</a></i></p>
 
@@ -10,19 +10,20 @@
 
 <b>Currently Supports:</b>
 <ul>
-  <li>Lunar Dreams event encounters</li>
-  <li>Halloween Spectacle event encounters</li>
-  <li>Echoes of the Ancient event encounters</li>
-  <li>Universal regular explore encounters</li>
-  <li>Raven Traders explore encounters</li>
-  <li>Deciduous Forest regular explore encounters</li>
-  <li>Grasslands regular explore encounters and enemy trophies</li>
-  <li>Mountains regular explore encounters</li>
-  <li>Riparian Woodland regular explore encounters</li>
-  <li>Prairie regular explore encounters</li>
-  <li>Coniferous Forest regular explore encounters</li>
-  <li>Desert regular explore encounters</li>
-  <li>Some multi-biome regular explore encounters (DF, Gr, M, RW, P, CF, De)</li>
+  <li><b>Lunar Dreams event encounters</b></li>
+  <li><b>Halloween Spectacle event encounters</b></li>
+  <li><b>Echoes of the Ancient event encounters</b></li>
+  <li><b>Universal regular explore encounters</b></li>
+  <li><b>Raven Traders</b> explore encounters</li>
+  <li><b>Grasslands</b> regular explore encounters and enemy trophies</li>
+  <li><b>Deciduous Forest</b> regular explore encounters</li>
+  <li><b>Mountains</b> regular explore encounters</li>
+  <li><b>Riparian</b> Woodland regular explore encounters</li>
+  <li><b>Prairie</b> regular explore encounters</li>
+  <li><b>Coniferous Forest</b> regular explore encounters</li>
+  <li><b>Desert</b> regular explore encounters</li>
+  <li><b>Taiga</b> regular explore encounters</li>
+  <li>Some <b>multi-biome regular explore encounters</b> (DF, Gr, M, RW, P, CF, De, Ta)</li>
 </ul>
 
 <b>Wolvhelper</b> will receive updates to the database for the foreseeable future, including to add new information when it becomes available. 
