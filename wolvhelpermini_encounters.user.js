@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        WolvhelperMini: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.6.3
+// @version     1.6.4
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -17,7 +17,7 @@
   'use strict';
 
   const CACHE_KEY = 'wolvhelpermini_cache'; // WolvhelperMini version ONLY
-  const CACHE_SCHEMA = 3; // Bumped when shape of JSON files change
+  const CACHE_SCHEMA = 4; // Bumped when shape of JSON files change
   const UPDATE_COOLDOWN = 10 * 60 * 1000; // 10 minutes
   const FETCH_TIMEOUT = 10 * 1000; // 10 seconds
 
@@ -105,15 +105,18 @@
         return fallback;
       };
 
-      const newEncounterData = useResult(encountersResult, encounterDatabase && { encounters: encounterDatabase.encounters }, 'encounters.json');
-      if (!newEncounterData) throw new Error('[Wolvhelper] Could not download encounters.json');
-      newEncounterData.pools = useResult(poolsResult, encounterDatabase?.pools, 'pools.json') || {};
-      const newEnemyData = useResult(trophiesResult, enemyDatabase, 'trophies.json');
+      const encounterData = useResult(encountersResult, encounterDatabase && { encounters: encounterDatabase.encounters }, 'encounters.json');
+      if (!encounterData) throw new Error('[Wolvhelper] Could not download encounters.json');
 
-      if (!newEncounterData.encounters || typeof newEncounterData.encounters !== 'object') {
+      const poolsData = useResult(poolsResult, null, 'pools.json');
+      encounterData.pools = poolsData?.pools ? poolsData.pools : (poolsData || encounterDatabase?.pools || {});
+
+      const enemyData = useResult(trophiesResult, enemyDatabase, 'trophies.json');
+
+      if (!encounterData.encounters || typeof encounterData.encounters !== 'object') {
         throw new Error('[Wolvhelper] Downloaded database is missing "encounters"');
       }
-      if (!newEnemyData?.trophies || typeof newEnemyData.trophies !== 'object') {
+      if (!enemyData?.trophies || typeof enemyData.trophies !== 'object') {
         throw new Error('[Wolvhelper] Downloaded database is missing "trophies"');
       }
 
@@ -121,15 +124,15 @@
         localStorage.setItem(CACHE_KEY, JSON.stringify({
           schema: CACHE_SCHEMA,
           timestamp: Date.now(),
-          encounterDatabase: newEncounterData,
-          enemyDatabase: newEnemyData
+          encounterDatabase: encounterData,
+          enemyDatabase: enemyData
         }));
       } catch (error) {
         console.warn('[Wolvhelper] Could not write cache.', error);
       }
 
-      encounterDatabase = newEncounterData;
-      enemyDatabase = newEnemyData;
+      encounterDatabase = encounterData;
+      enemyDatabase = enemyData;
 
       buildLookups();
       lastSignature = '';
@@ -859,13 +862,6 @@
     const output = document.querySelector('#explore-output');
     if (!output || !encounterDatabase) return;
 
-    const encounter = findCurrentEncounter(output);
-    const buttons = output.querySelectorAll('button');
-    if (!encounter || buttons.length === 0) {
-      clearExploreHelper(false);
-      return;
-    }
-
     const enemyData = findEnemy(output);
     if (enemyData) {
       const helper = getOrCreateHelper(output);
@@ -883,6 +879,13 @@
       if (enemyData.drops?.recipes) helper.appendChild(createTrophyLine('Recipes', enemyData.drops.recipes));
 
       appendHelperToOutput(output, helper);
+      return;
+    }
+
+    const encounter = findCurrentEncounter(output);
+    const buttons = output.querySelectorAll('button');
+    if (!encounter || buttons.length === 0) {
+      clearExploreHelper(false);
       return;
     }
 
