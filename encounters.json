@@ -226,6 +226,19 @@
         "Hunt": ["+2 Duck Egg|imgduckegg;imgduckegg","+1 Dead Fish|imgdeadfish","+1 Large Bird Meat|imglargebirdmeat","No result"]
       }
     },
+    "antelopejackrabbit": {
+      "prompt": "You can't mistake these ears for anything else. It's a jackrabbit running in your direction! When it notices you, it jumps to the side, trying its best to avoid meeting you.",
+      "options": {
+        "Follow": ["+1 Aloe|imgaloe","+1 Rattle|imgrattle","No result"],
+        "Catch": ["+4 HP//+10% hunger","No result"]
+      }
+    },
+    "bandeddesertcentipede": {
+      "prompt": "You catch your paw on a stone and stumble, kicking it across the path in front of you. It reveals a scary, spiky looking creature that tries to scurry away.",
+      "options": {
+        "Eat": ["+10% energy","-5% energy"]
+      }
+    },
     "barnowl": {
       "prompt": "A barn owl swoops overhead, clutching something in its talons. Maybe something tasty?",
       "options": {
@@ -394,6 +407,20 @@
         "Pester": ["+1 Blue Jay Feather|imgbluejayfeather","+2% energy","No result"]
       }
     },
+    "collaredpeccary": {
+      "prompt": "A small herd of collared peccary are moving through a rocky passage, trying to stay unnoticed. There could be more predators nearby.",
+      "options": {
+        "Climb the rocks!": ["Automatic battle with enemy Cougar"]
+      },
+      "trophies": "@cougar"
+    },
+    "commonchuckwalla": {
+      "prompt": "A common chuckwalla emerges from its desert burrow.",
+      "options": {
+        "Check Burrow": ["+1 Lucky Foot|imgluckyfoot","+2-4 SC|imgsc|(<5000 SC)"],
+        "Grab the Tail!": ["+10% hunger"]
+      }
+    },
     "commonravenmerchant": {
       "prompt": "A low croak from above catches your attention. A big common raven merchant is seeking some items to refill its stock.",
       "options": {
@@ -404,8 +431,18 @@
         "Browse Wares": ["+50 EXP","+1 Raven Traders: Common Raven Merchant|imgraventraderscommonravenmerchant"]
       }
     },
-    "cottontail": {
-      "prompt": "A small fluffy bunny sits alert in the grass.",
+    "costashummingbird": {
+      "prompt": "An odd-looking, vibrantly coloured bird flutters around a flower, probably feeding on the nectar. Birds are weird.",
+      "options": {
+        "Watch": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*","No result"],
+        "Eat the flower": ["+8 HP"]
+      },
+      "notes": [
+        "*@poolrecipecavebuildingmaterial"
+      ]
+    },
+    "cottontail|desertcottontail": {
+      "prompt": ["A small fluffy bunny sits alert in the grass.","Between the leaves of some desert brush, you see a small brown bunny absently chewing on some leaves.."],
       "options": {
         "Stalk": ["+1 Rabbit Carcass|imgrabbitcarcass//+1 Lucky Foot|imgluckyfoot|/+1 Recipe: @poolrecipeluckyfoot","+1 Wisdom stat","No result"],
         "Chase": ["+1 Rabbit Carcass|imgrabbitcarcass//+1 Lucky Foot|imgluckyfoot|/+1 Recipe: @poolrecipeluckyfoot","+1 Speed stat","No result"]
@@ -465,11 +502,61 @@
         "Kill": ["+1 Venison Liver|imgvenisonliver","+2-4 SC|imgsc|(<5000 SC)","No result"]
       }
     },
+    "deserthornedlizard": {
+      "prompt": "Sunbathing on a nearby rock, a little horned lizard has its eyes closed as it enjoys the warmth of the sun. When it senses your movement, its eyes snap open and lock you in a deadly stare, as if daring you to disturb it.",
+      "options": {
+        "Chase": ["+1 Bone|imgbone","+2-5 SC|imgsc|(<5000 SC)","+3 HP","No result"],
+        "Investigate the rocks": ["+1 Crow Skull|imgcrowskull","+1 Roadrunner Feather|imgroadrunnerfeather","No result"]
+      }
+    },
+    "desertsnow": {
+      "prompt": "Snow in this area is a rare sight, and you feel a wave of excitement. This is something that won't happen again anytime soon!",
+      "options": {
+        "Run!": ["+10% energy","Gain illness: Open Wound/Lose all HP*/-4 HP**"],
+        "Sniff": ["+1 Donkey Carcass|imgdonkeycarcass","+1 Rusty Pickaxe|imgrustypickaxe"]
+      },
+      "notes": [
+        "*@details1",
+        "**@details2"
+      ],
+      "details": [
+        "If your lead wolf is currently sick.",
+        "If your lead wolf is currently immune to illness."
+      ]
+    },
+    "desertmillipede": {
+      "prompt": "A large, spiral-shaped object is resting on the ground, completely still. What is this weird creature?",
+      "options": {
+        "Eat": ["+3 HP","No result"],
+        "Touch": ["+1 Rattle|imgrattle","+2-3 SC|imgsc|(<5000 SC)","No result"]
+      }
+    },
+    "deserttortoise": {
+      "prompt": "A slow, stumbling creature ambles through the desert. It looks hard and difficult to eat.",
+      "options": {
+        "Protect It!": ["+1 Condor Feather|imgcondorfeather","No result"],
+        "Kill It!": ["+1 Tortoise Shell|imgtortoiseshell","No result"],
+        "Follow": ["+1 item for active snake quest","No result*"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "Unless you have an active item quest with the questing snake, this option will always have no result."
+      ]
+    },
     "devildiver": {
       "prompt": "The whooping call of a devil diver pulls you to the nearby water, and you watch as it flies into the air, clearly disturbed by something.",
       "options": {
         "Ignore": ["+1 Turtle Shell|imgturtleshell","No result"],
         "Investigate": ["+1 Delicate Meat|imgdelicatemeat","+1 Yarrow|imgyarrow","No result"]
+      }
+    },
+    "dustdevil": {
+      "prompt": "A spinning cloud of dust moves with dizzying speed across the desert plain. It's coming right toward you!",
+      "options": {
+        "Run!": ["+1-3 SC|imgsc|(<5000 SC)","+4% energy","-2 HP","No result"],
+        "Take cover!": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1-3 SC|imgsc|(<5000 SC)","+2% energy","No result"]
       }
     },
     "easternchipmunk": {
@@ -510,6 +597,18 @@
       "notes": [
         "*@pooleggcommon"
       ]
+    },
+    "elfowl": {
+      "prompt": "A tiny elf owl peeks out from its enclosed cactus home. You wonder if you can reach it.",
+      "options": {
+        "Offer Acorn": ["+1 random specific food item*"]
+      },
+      "notes": [
+        "*@conditional1[Offer Acorn]"
+      ],
+      "conditional": {
+        "Offer Acorn": ["@poolelfowlfood"]
+      }
     },
     "eveningbat": {
       "prompt": "A dark shadow dashes in front of your eyes, so silent that it startles you. When you focus your gaze on it, you recognize a bat in the middle of hunting.",
@@ -614,6 +713,14 @@
         "Try to take a bite": ["+4 HP","No result"]
       }
     },
+    "gambelsquail": {
+      "prompt": "A peculiar looking quail struts in front of you, looking like it's very busy doing...quail things. What do quails do, anyway?",
+      "options": {
+        "Approach": ["+1 Oregano|imgoregano","+1-5 SC|imgsc|(<5000 SC)","+2% energy","No result"],
+        "Follow": ["+1 Condor Feather|imgcondorfeather","+1 Chaparral|imgchaparral","+1% energy","No result"],
+        "Antagonize": ["+1-3 SC|imgsc|(<5000 SC)","+5% energy","No result"]
+      }
+    },
     "gartersnake": {
       "prompt": "This charming little snake slithers around in the grass and over the top of a large rock to peek from higher ground. It seems to be looking for something.",
       "options": {
@@ -625,6 +732,13 @@
       "details": [
         "Unless you have an active item quest with the questing snake, this option will always have no result."
       ]
+    },
+    "gilawoodpeckercacti": {
+      "prompt": "A very busy Gila woodpecker is sitting on the top of a cactus, looking around nervously, as if it has something to hide.",
+      "options": {
+        "Wait": ["+1 Aloe|imgaloe","+1 Bone|imgbone"],
+        "Intimidate": ["+1 Vulture Talon|imgvulturetalon","No result"]
+      }
     },
     "greatblueheron": {
       "prompt": "A magnificent, gigantic great blue heron clatters its bill at you as a warning sign. Is the warning for you, or for its peers?",
@@ -638,6 +752,16 @@
         "Observe": ["+1 Grouse Feather|imggrousefeather","+1 SC|imgsc|(<5000 SC)","No result"],
         "Chase": ["+1 Grouse Carcass|imggrousecarcass","+10% hunger","No result"]
       }
+    },
+    "greaterroadrunner": {
+      "prompt": "You see a strange bird scurrying at high speed across the desert floor.",
+      "options": {
+        "Meep Meep": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*"],
+        "Corner It!": ["+2% hunger"]
+      },
+      "notes": [
+        "*@poolrecipecavebuildingmaterial"
+      ]
     },
     "greatersagegrouse ": {
       "prompt": "Careful, straight ahead! A greater sage-grouse male seems to be prowling for challengers.",
@@ -754,6 +878,12 @@
         "Speak": ["+2 Amusement Scraps|imgamusementscraps;imgamusementscraps","+2 Carrionflower|imgcarrionflower;imgcarrionflower","No result"]
       }
     },
+    "mexicanlongtonguedbat": {
+      "prompt": "A long-faced Mexican long-tongued bat is feeding on an agave plant.",
+      "options": {
+        "Chow Down!": ["+5% hunger","No result"]
+      }
+    },
     "migratingbirds": {
       "prompt": "A large flock of birds clogs the sky and nearly blocks out the sun. There's hundreds of them! It must be their annual migration.",
       "options": {
@@ -782,6 +912,19 @@
         "Attack!": ["+1 Milk Snake Carcass|imgmilksnakecarcass","+3% energy//+10% hunger","No result"],
         "Steal": ["+4% energy","-3 HP","No result"]
       }
+    },
+    "mojavetarantula": {
+      "prompt": "A large and very hairy tarantula eyes you from a nearby rock.Hmm...friend or foe?",
+      "options": {
+        "Pounce": ["+10 HP","Gain illness: Poison/No result*"],
+        "Poke": ["+4 HP","-3 HP","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "If your lead wolf is currently sick."
+      ]
     },
     "mountainbeaver": {
       "prompt": "This mountain beaver is caught off-guard outside of its burrow! It quickly shows you its enormous teeth before you consider attacking. Yes, it's best not to engage.",
@@ -1080,6 +1223,16 @@
         "Offer Acorn": "@poolrecipeacorn"
       }
     },
+    "ringtailedcat": {
+      "prompt": "You hear clicking and chattering. After locating the source of the sound with your mobile ears, you spot a ring-tailed cat on a branch!",
+      "options": {
+        "Wag tail": ["+1 Bone|imgbone","+1 random recipe from bone pool*","No result"],
+        "Growl": ["+1 Rabbit Carcass|imgrabbitcarcass","No result"]
+      },
+      "notes": [
+        "*@poolrecipebone"
+      ]
+    },
     "rockymountaintoad": {
       "prompt": "A thick, fat, and juicy Rocky Mountain toad is resting on this comfortable rock, protected from the weather by a coat of mucus and mud.",
       "options": {
@@ -1092,6 +1245,12 @@
       "details": [
         "If your lead wolf is currently immune to illness."
       ]
+    },
+    "salicetsphinx": {
+      "prompt": "A Salicet sphinx moth is stretching its wings, getting ready to hide from the incoming day.",
+      "options": {
+        "Poke It": ["+1 Butterfly Wing|imgbutterflywing","No result"]
+      }
     },
     "sasquatchinthemist": {
       "prompt": "Your eyes catch movement in the mist ahead. The form looks human, and yet...it's furry, too. What could it be?",
@@ -1195,11 +1354,25 @@
         "Spread the Word": ["+5% energy","+1 Raven Traders: Tamaulipas Crow Hawker|imgraventraderstamaulipascrowhawker"]
       }
     },
+    "texasbandedgecko": {
+      "prompt": "This vibrantly colored gecko is hard to spot among the rocks. It's so tiny, too!",
+      "options": {
+        "Poke": ["+1 Butterfly Wing|imgbutterflywing","+1 Old Horseshoe|imgoldhorseshoe"],
+        "Chase": ["+1 Bighorn Sheep Ewe Carcass|imgbighornsheepewecarcass","+10% hunger","No result"]
+      }
+    },
     "trumpeterswan": {
       "prompt": "A trumpeter swan flying by has startled you!",
       "options": {
         "Jump!": ["+1 Swan Carcass|imgswancarcass","+1 Swan Feather|imgswanfeather"],
         "Howl": ["+2 Swan Feather|imgswanfeather;imgswanfeather"]
+      }
+    },
+    "tumbleweed": {
+      "prompt": "A rolling tumbleweed makes a rattling sound as it crosses your path. It moves with a purpose, almost like it's alive!",
+      "options": {
+        "Check it out": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+2 HP","No result"],
+        "Chase": ["+2 Tobacco|imgtobacco;imgtobacco","+2 HP","No result"]
       }
     },
     "twobarredcrossbill": {
@@ -1221,6 +1394,13 @@
         "Tempt with Rat Carcass": ["+1 Lucky Foot|imgluckyfoot//-2 HP"],
         "Tempt with Large Meat Chunk": ["+2 SC|imgsc//+5% energy//+4 HP"],
         "Spread the Word": ["+5% energy","+1 Raven Traders: Western Crow Hawker|imgraventraderswesterncrowhawker"]
+      }
+    },
+    "whitetailedantelopesquirrel": {
+      "prompt": "A small rodent walks quickly through the sand in front of you. It's so tiny that it doesn't even make your mouth water. No meat on that little thing. It freezes upon noticing you.",
+      "options": {
+        "Offer Acorn": ["+10% energy"],
+        "Chase": ["+1 Chaparral|imgchaparral","+1 Lucky Foot|imgluckyfoot","No result"]
       }
     },
     "wildturkey": {
@@ -1266,6 +1446,13 @@
       "options": {
         "Investigate": ["+3 Cedar Bark|imgcedarbark;imgcedarbark;imgcedarbark","+2 HP","No result"],
         "Poke the chipmunk": ["+1 Lucky Foot|imgluckyfoot","+3 HP"]
+      }
+    },
+    "zebratailedlizard": {
+      "prompt": "You spot a zebra-tailed lizard on a warm rock.",
+      "options": {
+        "Observe": ["+1 Peccary Carcass|imgpeccarycarcass","No result"],
+        "Bap Its Head": ["+1 Bone|imgbone","No result"]
       }
     },
 
