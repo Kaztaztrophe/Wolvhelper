@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.6.5
+// @version     1.6.6
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -37,7 +37,7 @@
       .explore-helper { overflow: hidden; margin: 10px 0; }
       .wh-container { margin-top: 8px; text-align: left; }
       .wh-wrapper-part { display: inline-block; white-space: nowrap; }
-      .wh-wrapper-result { display: inline-block; white-space: nowrap; }
+      .wh-wrapper-result { display: inline; white-space: normal; }
       .wh-header-enemy { margin-bottom: 4px; text-align: left; }
       .wh-line-default { text-align: left; line-height: 25px; }
       .wh-line-normal { text-align: left; }
@@ -575,9 +575,14 @@
     const elementsToAppend = [];
 
     rewards.forEach((reward, index) => {
-      if (index > 0) elementsToAppend.push(document.createTextNode(' & '));
+      if (index > 0) {
+        elementsToAppend.push(document.createTextNode(' &' + TEXT_SPACE));
+      }
 
       reward.segments.forEach((segment, segIndex) => {
+        const segmentSpan = document.createElement('span');
+        segmentSpan.className = 'wh-wrapper-part'; // Wolvhelper version ONLY
+
         const resultText = segment.text;
 
         if (resultText) {
@@ -591,27 +596,37 @@
           let match;
 
           while ((match = noResultRegex.exec(textToAppend)) !== null) {
-            if (match.index > lastIndex) elementsToAppend.push(document.createTextNode(textToAppend.slice(lastIndex, match.index)));
+            if (match.index > lastIndex) {
+              segmentSpan.appendChild(document.createTextNode(textToAppend.slice(lastIndex, match.index)));
+            }
 
             const noResult = document.createElement('i');
             noResult.textContent = 'No result';
-            elementsToAppend.push(noResult);
+            segmentSpan.appendChild(noResult);
 
-            if (match[1]) elementsToAppend.push(document.createTextNode(match[1]));
+            if (match[1]) {
+              segmentSpan.appendChild(document.createTextNode(match[1]));
+            }
             lastIndex = noResultRegex.lastIndex;
           }
 
-          if (lastIndex < textToAppend.length) elementsToAppend.push(document.createTextNode(textToAppend.slice(lastIndex)));
+          if (lastIndex < textToAppend.length) {
+            segmentSpan.appendChild(document.createTextNode(textToAppend.slice(lastIndex)));
+          }
         }
 
         // Wolvhelper version ONLY
         segment.images?.forEach((imageName, imageIndex) => {
           const image = createRewardImage(imageName, resultText);
           if (image) {
-            if (imageIndex === 0) elementsToAppend.push(document.createTextNode(' '));
-            elementsToAppend.push(image);
+            if (imageIndex === 0 && resultText) {
+              segmentSpan.appendChild(document.createTextNode(' '));
+            }
+            segmentSpan.appendChild(image);
           }
         });
+
+        elementsToAppend.push(segmentSpan);
       });
     });
 

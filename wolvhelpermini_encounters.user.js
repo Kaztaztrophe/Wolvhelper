@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        WolvhelperMini: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.6.5
+// @version     1.6.6
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -495,9 +495,13 @@
     const elementsToAppend = [];
 
     rewards.forEach((reward, index) => {
-      if (index > 0) elementsToAppend.push(document.createTextNode(' & '));
+      if (index > 0) {
+        elementsToAppend.push(document.createTextNode(' &' + TEXT_SPACE));
+      }
 
       reward.segments.forEach((segment, segIndex) => {
+        const segmentSpan = document.createElement('span');
+
         const resultText = segment.text;
 
         if (resultText) {
@@ -511,18 +515,26 @@
           let match;
 
           while ((match = noResultRegex.exec(textToAppend)) !== null) {
-            if (match.index > lastIndex) elementsToAppend.push(document.createTextNode(textToAppend.slice(lastIndex, match.index)));
+            if (match.index > lastIndex) {
+              segmentSpan.appendChild(document.createTextNode(textToAppend.slice(lastIndex, match.index)));
+            }
 
             const noResult = document.createElement('i');
             noResult.textContent = 'No result';
-            elementsToAppend.push(noResult);
+            segmentSpan.appendChild(noResult);
 
-            if (match[1]) elementsToAppend.push(document.createTextNode(match[1]));
+            if (match[1]) {
+              segmentSpan.appendChild(document.createTextNode(match[1]));
+            }
             lastIndex = noResultRegex.lastIndex;
           }
 
-          if (lastIndex < textToAppend.length) elementsToAppend.push(document.createTextNode(textToAppend.slice(lastIndex)));
+          if (lastIndex < textToAppend.length) {
+            segmentSpan.appendChild(document.createTextNode(textToAppend.slice(lastIndex)));
+          }
         }
+
+        elementsToAppend.push(segmentSpan);
       });
     });
 
