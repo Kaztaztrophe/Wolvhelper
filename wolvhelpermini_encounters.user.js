@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        WolvhelperMini: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.6.4
+// @version     1.6.5
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -502,7 +502,7 @@
 
         if (resultText) {
           let textToAppend = resultText;
-          if (segIndex > 0 && !/^[*,.;!?]/.test(resultText)) {
+          if (segIndex > 0 && !/^[*,.;!?/]/.test(resultText)) {
             textToAppend = ' ' + textToAppend;
           }
 
@@ -614,7 +614,7 @@
 
         if (textBefore) {
           let textToAppend = textBefore;
-          if (j > 0 && !/^[*,.;!?]/.test(textBefore)) {
+          if (j > 0 && !/^[*,.;!?/]/.test(textBefore)) {
             textToAppend = ' ' + textBefore;
           }
           const tempSpan = document.createElement('span');
@@ -701,7 +701,7 @@
 
         if (textBefore) {
           let textToAppend = textBefore;
-          if (j > 0 && !/^[*,.;!?]/.test(textBefore)) {
+          if (j > 0 && !/^[*,.;!?/]/.test(textBefore)) {
             textToAppend = ' ' + textBefore;
           }
           const tempSpan = document.createElement('span');
