@@ -259,6 +259,12 @@
         "Play": ["+7% energy","-3 HP","No result"]
       }
     },
+    "bearcubswrestling": {
+      "prompt": "A strange sound catches your attention. As you round the bend, you see two young bear cubs wrestling with each other with determined expressions. You watch them curiously, wondering who the victor will be.",
+      "options": {
+        "Join": ["+5% energy","+4 HP","-3 HP","No result"]
+      }
+    },
     "beaver": {
       "prompt": "A beaver appears startled at your sudden appearance, it seems to be in the middle of collecting materials.",
       "options": {
@@ -268,6 +274,19 @@
       "notes": [
         "*@poolrecipecavebuildingmaterial",
         "**@poolrecipejayrare"
+      ]
+    },
+    "berrybear": {
+      "prompt": "The rustle of leaves and a low grunting sound catches your attention. When you look, you notice a bear focused on eating berries with such an eager expression that it makes you want to taste them, too.",
+      "options": {
+        "Small talk": ["+3 Bearberry|imgbearberry;imgbearberry;imgbearberry","+1 Gull Feather|imggullfeather","No result"],
+        "Join": ["+10% energy","Gain illness: Constipation/-2 HP*"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "If your lead wolf is currently immune to illness."
       ]
     },
     "blackfootedferret": {
@@ -334,6 +353,19 @@
         "Offer Acorn": ["@poolamusementuncommon","@poolrecipeacorn","@poolrecipeamusement","@poolrecipejaycommon, @poolrecipejayrare"]
       }
     },
+    "borealchickadee": {
+      "prompt": "Loud trilling calls sound above your head and a little chickadee flies into view. It seems very adamant about getting your attention.",
+      "options": {
+        "Follow": ["+2 Bone|imgbone;imgbone","+2 HP","-2 HP"],
+        "Have a chat": ["+3% energy","+2 HP","No result"]
+      }
+    },
+    "borealowl": {
+      "prompt": "A soft hooting noise sounds out just above you. You look up and spot a boreal owl, staring down at you with large eyes from its perch on a branch.",
+      "options": {
+        "Howl": ["+1 Lucky Foot|imgluckyfoot","+1 Owl Feather|imgowlfeather","No result"]
+      }
+    },
     "breedingnorthernpikes": {
       "prompt": "The loud, sudden sound of splashing intrigues you. As you move closer, you witness a rare and fascinating event: the northern pike breeding season. The water is filled with their energy, and their scales shimmer beautifully. It's mesmerizing!",
       "options": {
@@ -360,6 +392,19 @@
       "options": {
         "Hide and sniff around": ["+3 HP","No result"],
         "Approach": ["+1 Delicate Meat|imgdelicatemeat","No result"]
+      }
+    },
+    "campers": {
+      "prompt": "A group of humans has chosen this place to stay for a while. They are usually loud and don't try to hide, which you find odd but also fascinating. All the scents surrounding their tent are incredibly tempting.",
+      "options": {
+        "Sniff around the tent": ["+1 Shoe|imgshoe","+4-5 SC|imgsc|(<5000 SC)","No result"],
+        "Steal": ["+4 HP","+2 HP","No result"]
+      }
+    },
+    "canadageese": {
+      "prompt": "A flock of Canada geese are congregating by the water. The nearby sounds are completely smothered by the jarring squawks of the geese. You manage to find two birds separated in a more secluded area.",
+      "options": {
+        "Prowl": ["+1 Lucky Foot|imgluckyfoot|/+1 Recipe: @poolrecipeluckyfoot","+8% hunger","No result"]
       }
     },
     "carolinaanole": {
@@ -462,6 +507,13 @@
       "options": {
         "Follow": ["+1 Bone|imgbone","No result"],
         "Hunt": ["+5 HP","No result"]
+      }
+    },
+    "crossfox": {
+      "prompt": "Trotting along as if on a mission, a cross fox passes by, shooting glances at you out of the corner of its eye.",
+      "options": {
+        "Follow": ["+1 Mink Carcass|imgminkcarcass","+3% energy//-3 HP","-2 HP","No result"],
+        "Join for a hunt": ["+2 Swan Feather|imgswanfeather;imgswanfeather","+1 Swan Carcass|imgswancarcass","+2% energy","-2 HP"]
       }
     },
     "crowsnakeskinpurveyor": {
@@ -787,6 +839,16 @@
         "Pounce": ["+3% hunger"]
       }
     },
+    "greyjay": {
+      "prompt": "A grey jay is caching some food for the coldest months within dead tree bark. It notices you and is very vocal about you leaving immediately! The noise could attract some unwanted attention.",
+      "options": {
+        "Chase": ["+1 Agility stat","No result"],
+        "Turn Around": ["Automatic battle with random Taiga enemy*"]
+      },
+      "notes": [
+        "*@poolenemytaiga"
+      ]
+    },
     "hikers": {
       "prompt": "A group of humans is passing by, their voices echoing loudly enough to make the whole area aware of their presence. You're close enough to catch intriguing scents. Their bags must be full of treats and trinkets!",
       "options": {
@@ -970,6 +1032,13 @@
       "options": {
         "Offer Acorn": ["+1 Recipe: Playful North American River Otter|imgrecipeanimal;imgplayfulnorthamericanriverotter"],
         "Have fun": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","No result"]
+      }
+    },
+    "northernboglemming": {
+      "prompt": "Two little lemmings look like they're very focused on something. Maybe you should see if they'll share...or you could just take it by force and get a meal out of it, too.",
+      "options": {
+        "Enquire": ["+2 Gyrfalcon Feather|imggyrfalconfeather;imggyrfalconfeather","+1 Bearberry|imgbearberry","+2 HP","No result"],
+        "Hunt": ["+5 Lemming Carcass|imglemmingcarcass;imglemmingcarcass;imglemmingcarcass;imglemmingcarcass;imglemmingcarcass","+3 HP//+5% hunger","No result"]
       }
     },
     "northerncardinal": {
@@ -1210,6 +1279,13 @@
         "Pounce": ["+1 Woodpecker Carcass|imgwoodpeckercarcass","+2 HP//+5% hunger"]
       }
     },
+    "redneckedgrebe": {
+      "prompt": "A striking red-necked grebe lands in the nearby water, fluffing its feathers as it glides across the glass-like surface.",
+      "options": {
+        "Follow along the shore": ["+1 Mollusk Shell|imgmolluskshell","+4 HP"],
+        "Find its nest": ["+1 Grebe Feather|imggrebefeather","+2 HP","No result"]
+      }
+    },
     "redsquirrel": {
       "prompt": "A red squirrel is perched on a branch, clasping what looks like a pinecone in its paws. It would be a shame if it dropped it...",
       "options": {
@@ -1285,6 +1361,12 @@
         "Give Odd Teeth": ["+1 SC|imgsc//+8% energy//+2 HP"],
         "Give Old Doll": ["+1 Blubber|imgblubber","+1 Medicine: Cure-For-All|imgmedicinecureforall"],
         "Browse Wares": ["+(LVL*20) EXP","+1 Raven Traders: Sinaloa Crow Merchant|imgraventraderssinaloacrowmerchant"]
+      }
+    },
+    "sitkadeer": {
+      "prompt": "This Sitka deer is wandering out in the open. It hasn't noticed you yet, as you're hidden well behind some fallen spruce trees.",
+      "options": {
+        "Hunt": ["+1 Meat Chunks [Large]|imgmeatchunkslarge","No result"]
       }
     },
     "snowman": {
@@ -1385,6 +1467,13 @@
       ],
       "conditional": {
         "Offer Acorn": "@poolrecipeacorn"
+      }
+    },
+    "variedthrush": {
+      "prompt": "A distinctive little thrush perches on a branch, preening and looking around from time to time. It doesn't have a care in the world! You wouldn't either if you stayed up high enough that no one could reach you.",
+      "options": {
+        "Call up to it": ["+1 Butterfly Wing|imgbutterfly","+1 Lucky Foot|imgluckyfoot","+3 HP","No result"],
+        "Shake the tree": ["+1 Massive Pinecone|imgmassivepinecone","+4 HP","+2 HP","No result"]
       }
     },
     "westerncrowhawker": {
