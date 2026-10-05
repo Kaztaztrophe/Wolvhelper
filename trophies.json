@@ -200,6 +200,27 @@
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
+    "chargedeagle": {
+      "name": "Charged Eagle",
+      "drops": {
+        "items": "Charged Eyeball|imgchargedeyeball, Eagle Beak|imgeaglebeak, Eagle Skull|imgeagleskull, Eagle Talon|imgeagletalon, Essence-Covered Egg|imgessencecoveredegg, Essence-Covered Feather|imgessencecoveredfeather, Glowing Talon|imgglowingtalon, Scar: Eye - Large [Left]|imgscareyelargeleft",
+        "recipes": "Blue Lunar Backline Fluff [Body]|imgrecipelunar;imgbluelunarbacklinefluffbody, Blue Lunar Backline Fluff [Head]|imgrecipelunar;imgbluelunarbacklinefluffhead, Blue Lunar Backline Fluff [Tail]|imgrecipelunar;imgbluelunarbacklineflufftail, Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Charged Particles|imgrecipelunar;imgchargedparticles, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Purple Lunar Backline Fluff [Body]|imgrecipelunar;imgpurplelunarbacklinefluffbody, Purple Lunar Backline Fluff [Head]|imgrecipelunar;imgpurplelunarbacklinefluffhead, Purple Lunar Backline Fluff [Tail]|imgrecipelunar;imgpurplelunarbacklineflufftail, Supercharged Arc|imgrecipelunar;imgsuperchargedarc, Supercharged Fur|imgrecipelunar;imgsuperchargedfur"
+      }
+    },
+    "lunarcaribou": {
+      "name": "Lunar Caribou",
+      "drops": {
+        "items": "Broken Antler|imgbrokenantler, Caribou Antlers|imgcaribouantlers, Essence-Covered Fur Clump|imgessencecoveredfurclump, Frozen Pearl|imgfrozenpearl, Glowing Tongue|imgglowingtongue, Gnawing Hoof|imggnawinghoof, Scar: Forehead|imgscarforehead",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Eye Applicator [Rangifer]|imgrecipeapplicator;imgeyeapplicatorrangifer, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+      }
+    },
+    "wisefox": {
+      "name": "Wise Fox",
+      "drops": {
+        "items": "Canine Claw|imgcanineclaw, Canine Fang|imgcaninefang, Essence-Covered Fur Clump|imgessencecoveredfurclump, Fox Skull|imgfoxskull, Glowing Claw|imgglowingclaw, Glowing Fang|imgglowingfang, Scar: Nose|imgscarnose",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+      }
+    },
 
 
     "corruptedabomination": {
