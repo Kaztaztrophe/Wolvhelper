@@ -340,8 +340,8 @@
       "name": "Beached Dead Whale",
       "prompt": "An enormous mountain of meat rests on the shore. It's a whale that has been dead for a while but the cool weather has kept it fresh and very tempting.",
       "options": {
-        "Check": [""],
-        "Eat": [""]
+        "Check": ["+1 Charcoal|imgcharcoal","+1 Whale Rib Bone|imgwhaleribbone","+3% energy"],
+        "Eat": ["+1 Whale Meat|imgwhalemeat","+3% energy","No result"]
       }
     },
     "bearcubswrestling":{
@@ -749,8 +749,8 @@
       "name": "Dungeness Crab",
       "prompt": "This hard-shelled friend smells salty like the sea and is funny to watch scuttle across the ground. Where could it be going?",
       "options": {
-        "Follow": [""],
-        "Approach": [""]
+        "Follow": ["+1 Skua Feather|imgskuafeather","+4 HP","No result"],
+        "Approach": ["+4% energy","-3 HP","No result"]
       }
     },
     "dustdevil":{
@@ -922,8 +922,8 @@
       "name": "Fledging Parakeet Auklet",
       "prompt": "With its tiny size and considerable floof, this little auklet can't be older than a fledgling. It looks like it's waiting for something. Maybe its parents are due back soon?",
       "options": {
-        "Investigate": [""],
-        "Snatch": [""]
+        "Investigate": ["+2 Dandelion|imgdandelion;imgdandelion","+1 Mollusk Shell|imgmolluskshell","No result"],
+        "Snatch": ["+1-5 SC|imgsc|(<5000 SC)","+10% hunger","No result"]
       }
     },
     "floodwater": {
@@ -1053,8 +1053,8 @@
       "name": "Gulls Flying",
       "prompt": "The unbearable noise above your head is all-too familiar. The sight of so many gulls means one thing for sure: there is something they're after, and it might be worth your while to check it out.",
       "options": {
-        "Follow": [""],
-        "Chase": [""]
+        "Follow": ["+1 Lucky Foot|imgluckyfoot","+2-5 SC|imgsc|(<5000 SC)","+3 HP","No result"],
+        "Chase": ["+10 HP"]
       }
     },
     "hikers":{
@@ -1066,10 +1066,10 @@
       }
     },
     "harlequinduck": {
-      "name": "Harlequin Duck",
+      "name": "Harlequin Ducks",
       "prompt": "A harlequin duck is taking a little break from swimming. You see it's dozing off from time to time.",
       "options": {
-        "Take a chance": [""]
+        "Take a chance": ["+1 Duck Feather|imgduckfeather","+5-10% hunger","No result"]
       }
     },
     "housefinch":{
@@ -1092,7 +1092,7 @@
       "name": "Gyrfalcon",
       "prompt": "You smell something nice. A small investigation leads you to a big gyrfalcon eating something on the ground. Nearly finished with its meal, it peeks at you from time to time, to make sure you don't try anything funny.",
       "options": {
-        "Chase": [""]
+        "Chase": ["+1 Gyrfalcon Feather|imggyrfalconfeather","No result"]
       }
     },
     "jacksonschameleon": {
@@ -1118,11 +1118,11 @@
       "name": "King Eider",
       "prompt": "What a colourful face! This king eider dragged a crab to the shore to eat in peace and quiet.",
       "options": {
-        "Charge": [""],
-        "Search for the nest": [""]
+        "Charge": ["+1 Crab Leg|imgcrableg","No result"],
+        "Search for the nest": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*","No result"]
       },
       "notes": [
-        ""
+        "*@poolrecipecavebuildingmaterial"
       ]
     },
     "lampshadespider":{
@@ -1283,13 +1283,10 @@
       "name": "Molting Elephant Seal Pup",
       "prompt": "A trail of smelly skin patches scattered on the frozen ground leads you to a moulting elephant seal pup.",
       "options": {
-        "Easy prey...": [""],
-        "Search for the mom": [""]
+        "Easy prey...": ["+1 Seal Pup Carcass|imgsealpupcarcass","No result"],
+        "Search for the mom": ["Automatic battle with enemy Elephant Seal"]
       },
-      "trophies": "@elephantseal",
-      "notes": [
-        ""
-      ]
+      "trophies": "@elephantseal"
     },
     "mosquitoes": {
       "name": "Mosquitoes",
@@ -1370,7 +1367,7 @@
       "name": "Northern Fur Seal",
       "prompt": "What's that noise? Oh. A large northern fur seal, announcing his new territory to everyone.",
       "options": {
-        "Howl": [""]
+        "Howl": ["+1 Seal Pup Carcass|imgsealpupcarcass","+2-4 SC|imgsc|(<5000 SC)","No result"]
       }
     },
     "northerngoshawk":{
@@ -1455,8 +1452,8 @@
       "name": "Pacific Loon",
       "prompt": "Hearing some rustling, you turn to spot a Pacific loon sitting on its nest.",
       "options": {
-        "Warm up": [""],
-        "Scare away": [""]
+        "Warm up": ["+2-4 SC|imgsc|(<5000 SC)","No result"],
+        "Scare away": ["+1 Dead Fish|imgdeadfish"]
       }
     },
     "paintedturtle":{
@@ -1497,8 +1494,8 @@
       "name": "Pomarine Skua",
       "prompt": "The calls of a skua make you pause and your eyes catch the form of one diving up and down at something on the ground. It must be harassing its next meal!",
       "options": {
-        "Antagonize": [""],
-        "Attack": [""]
+        "Antagonize": ["+1 Delicate Meat|imgdelicatemeat","+1 Skua Skull|imgskuaskull","No result"],
+        "Attack": ["+2-4 HP"]
       }
     },
     "porcupine":{
@@ -1691,8 +1688,8 @@
       "name": "Ribbon Seal",
       "prompt": "A large, black-and-white ribbon seal is resting on the icy shore.",
       "options": {
-        "Harass": [""],
-        "Swim": [""]
+        "Harass": ["+1 Gull Carcass|imggullcarcass","+2-4 HP","No result"],
+        "Swim": ["+1 Walrus Pup Carcass|imgwalruspupcarcass","-2-4 HP","No result"]
       }
     },
     "ringtailedcat":{
@@ -1739,7 +1736,7 @@
       "name": "Sea Otter",
       "prompt": "You find a sea otter looking for rocks to open the shells it foraged for in the water.",
       "options": {
-        "Dig for rocks": [""]
+        "Dig for rocks": ["+1 Muskox Calf Carcass|imgmuskoxcalfcarcass","No result"]
       }
     },
     "sharptailedgrouse":{
@@ -1777,8 +1774,8 @@
       "name": "Sitka Brown Bears",
       "prompt": "Growls and squeaks fill the air as you happen upon a mother bear and her three cubs. It must be their first outing after hibernating for the winter!",
       "options": {
-        "Play": [""],
-        "Find the den": [""]
+        "Play": ["+4 HP","-3 HP"],
+        "Find the den": ["+2 Rugged Flipper|imgruggedflipper;imgruggedflipper","+1 Walrus Pup Carcass|imgwalruspupcarcass","+1 HP","No result"]
       }
     },
     "sitkadeer":{
@@ -1884,11 +1881,11 @@
       "name": "Tufted Puffin",
       "prompt": "A tufted puffin is drying off in the first rays of the sun after a long diving session.",
       "options": {
-        "Pounce!": [""],
-        "Look for the nest": [""]
+        "Pounce!": ["+1 Puffin Feather|imgpuffinfeather","No result"],
+        "Look for the nest": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*"]
       },
       "notes": [
-        ""
+        "*@poolrecipecavebuildingmaterial"
       ]
     },
     "tumbleweed":{
@@ -1903,8 +1900,8 @@
       "name": "Tundra Swan",
       "prompt": "This tundra swan doesn't seem to be afraid of you. It comes off almost cocky the way it looks at you, taunting a predator with its big, honky beak.",
       "options": {
-        "Offer Acorn": [""],
-        "Chase!": [""]
+        "Offer Acorn": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock"],
+        "Chase!": ["+1 Swan Feather|imgswanfeather"]
       }
     },
     "twobarredcrossbill":{
@@ -4822,13 +4819,13 @@
       }
     },
 
-    "ashenoath_step1": {
+    "ashenoathstep1": {
       "name": "Ashen Oath: Step 1",
       "options": {
-        "I'll find it": [""]
+        "I'll find it": ["Test"]
       },
       "notes": [
-        ""
+        "Test"
       ]
     }
 
