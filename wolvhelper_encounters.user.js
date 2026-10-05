@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.6.6
+// @version     1.6.7
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -17,7 +17,7 @@
   'use strict';
 
   const CACHE_KEY = 'wolvhelper_cache'; // Wolvhelper version ONLY
-  const CACHE_SCHEMA = 4; // Bumped when shape of JSON files change
+  const CACHE_SCHEMA = 5; // Bumped when shape of JSON files change
   const UPDATE_COOLDOWN = 10 * 60 * 1000; // 10 minutes
   const FETCH_TIMEOUT = 10 * 1000; // 10 seconds
 
@@ -460,7 +460,7 @@
   }
 
   // Wolvhelper version ONLY
-  function createRewardImage(imageName, textContext = '') {
+  function createRewardImage(imageName, textContext = '', imageIndex = 0) {
     const imagePath = encounterDatabase?.images?.[imageName];
     if (!imagePath) {
       console.warn('[Wolvhelper] Unknown image:', imageName);
@@ -468,8 +468,7 @@
     }
 
     const image = document.createElement('img');
-
-    const formattedLabel = formatImageLabel(imageName, textContext);
+    const formattedLabel = formatImageLabel(imageName, textContext, imageIndex);
 
     image.loading = 'lazy';
     image.decoding = 'async';
@@ -486,28 +485,34 @@
   }
 
   // Wolvhelper version ONLY
-  function formatImageLabel(imageName, rawTextContext = '') {
-    if (IMAGE_LABELS[imageName]) {
-      return IMAGE_LABELS[imageName];
-    }
+  function formatImageLabel(imageName, rawTextContext = '', imageIndex = 0) {
+    let label = IMAGE_LABELS[imageName];
 
-    let cleanTitle = rawTextContext
-      .replace(/^[\+\-\d%\s\(\)\*\/]+/, '')
-      .trim();
-
-    if (!cleanTitle) {
-      cleanTitle = imageName
-        .replace(/^img/, '')
-        .replace(/([A-Z])/g, ' $1')
+    if (!label) {
+      let cleanTitle = rawTextContext
+        .replace(/^[\+\-\d%\s\(\)\*\/]+/, '')
         .trim();
+
+      if (!cleanTitle) {
+        cleanTitle = imageName
+          .replace(/^img/, '')
+          .replace(/([A-Z])/g, ' $1')
+          .trim();
+      }
+
+      if (imageName.startsWith('imgrecipe')) {
+        cleanTitle = cleanTitle.replace(/^recipe:\s*/i, '');
+        label = `Recipe: ${cleanTitle}`;
+      } else {
+        label = cleanTitle;
+      }
     }
 
-    if (imageName.startsWith('imgrecipe')) {
-      cleanTitle = cleanTitle.replace(/^recipe:\s*/i, '');
-      return `Recipe: ${cleanTitle}`;
+    if (imageIndex > 0) {
+      label = label.replace(/^recipe:\s*/i, '');
     }
 
-    return cleanTitle;
+    return label;
   }
 
   function appendFormattedText(container, text) {
@@ -570,18 +575,32 @@
     return Array.isArray(value) ? value.map(outcome => parseCompoundResult(outcome, location)) : [parseCompoundResult(value, location)];
   }
 
-  function createResultElement(rewards) {
+  // Wolvhelper version ONLY (segmentSpan)
+  function createResultElement(rewards, isOr = false) {
     const container = document.createElement('span');
     const elementsToAppend = [];
 
     rewards.forEach((reward, index) => {
-      if (index > 0) {
-        elementsToAppend.push(document.createTextNode(' &' + TEXT_SPACE));
-      }
+      let needsSeparator = index > 0;
+      let needsOr = isOr && index === 0;
 
       reward.segments.forEach((segment, segIndex) => {
         const segmentSpan = document.createElement('span');
-        segmentSpan.className = 'wh-wrapper-part'; // Wolvhelper version ONLY
+        segmentSpan.className = 'wh-wrapper-part';
+
+        if (needsOr) {
+          const separator = document.createElement('span');
+          separator.textContent = 'OR';
+          separator.className = 'wh-separator';
+          separator.style.fontWeight = 'bold';
+          segmentSpan.appendChild(separator);
+          needsOr = false;
+        }
+
+        if (needsSeparator) {
+          segmentSpan.appendChild(document.createTextNode(TEXT_SPACE + '&' + TEXT_SPACE));
+          needsSeparator = false;
+        }
 
         const resultText = segment.text;
 
@@ -615,9 +634,8 @@
           }
         }
 
-        // Wolvhelper version ONLY
         segment.images?.forEach((imageName, imageIndex) => {
-          const image = createRewardImage(imageName, resultText);
+          const image = createRewardImage(imageName, resultText, imageIndex);
           if (image) {
             if (imageIndex === 0 && resultText) {
               segmentSpan.appendChild(document.createTextNode(' '));
@@ -681,15 +699,7 @@
       const resultWrapper = document.createElement('span');
       resultWrapper.className = 'wh-wrapper-result'; // Wolvhelper version ONLY
 
-      if (index > 0) {
-        const separator = document.createElement('span');
-        separator.textContent = 'OR';
-        separator.className = 'wh-separator';
-        separator.style.fontWeight = 'bold';
-
-        resultWrapper.appendChild(separator);
-      }
-      resultWrapper.appendChild(createResultElement(outcome));
+      resultWrapper.appendChild(createResultElement(outcome, index > 0));
       line.appendChild(resultWrapper);
     });
 

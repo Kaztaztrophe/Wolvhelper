@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        WolvhelperMini: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.6.6
+// @version     1.6.7
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -17,7 +17,7 @@
   'use strict';
 
   const CACHE_KEY = 'wolvhelpermini_cache'; // WolvhelperMini version ONLY
-  const CACHE_SCHEMA = 4; // Bumped when shape of JSON files change
+  const CACHE_SCHEMA = 5; // Bumped when shape of JSON files change
   const UPDATE_COOLDOWN = 10 * 60 * 1000; // 10 minutes
   const FETCH_TIMEOUT = 10 * 1000; // 10 seconds
 
@@ -490,17 +490,29 @@
     return Array.isArray(value) ? value.map(outcome => parseCompoundResult(outcome, location)) : [parseCompoundResult(value, location)];
   }
 
-  function createResultElement(rewards) {
+  // WolvhelperMini version ONLY (elementsToAppend)
+  function createResultElement(rewards, isOr = false) {
     const container = document.createElement('span');
     const elementsToAppend = [];
 
     rewards.forEach((reward, index) => {
-      if (index > 0) {
-        elementsToAppend.push(document.createTextNode(' &' + TEXT_SPACE));
-      }
+      let needsSeparator = index > 0;
+      let needsOr = isOr && index === 0;
 
       reward.segments.forEach((segment, segIndex) => {
-        const segmentSpan = document.createElement('span');
+        if (needsOr) {
+          const separator = document.createElement('span');
+          separator.textContent = 'OR';
+          separator.className = 'wh-separator';
+          separator.style.fontWeight = 'bold';
+          elementsToAppend.push(separator);
+          needsOr = false;
+        }
+
+        if (needsSeparator) {
+          elementsToAppend.push(document.createTextNode(TEXT_SPACE + '&' + TEXT_SPACE));
+          needsSeparator = false;
+        }
 
         const resultText = segment.text;
 
@@ -516,25 +528,23 @@
 
           while ((match = noResultRegex.exec(textToAppend)) !== null) {
             if (match.index > lastIndex) {
-              segmentSpan.appendChild(document.createTextNode(textToAppend.slice(lastIndex, match.index)));
+              elementsToAppend.push(document.createTextNode(textToAppend.slice(lastIndex, match.index)));
             }
 
             const noResult = document.createElement('i');
             noResult.textContent = 'No result';
-            segmentSpan.appendChild(noResult);
+            elementsToAppend.push(noResult);
 
             if (match[1]) {
-              segmentSpan.appendChild(document.createTextNode(match[1]));
+              elementsToAppend.push(document.createTextNode(match[1]));
             }
             lastIndex = noResultRegex.lastIndex;
           }
 
           if (lastIndex < textToAppend.length) {
-            segmentSpan.appendChild(document.createTextNode(textToAppend.slice(lastIndex)));
+            elementsToAppend.push(document.createTextNode(textToAppend.slice(lastIndex)));
           }
         }
-
-        elementsToAppend.push(segmentSpan);
       });
     });
 
@@ -588,15 +598,7 @@
     outcomes.forEach((outcome, index) => {
       const resultWrapper = document.createElement('span');
 
-      if (index > 0) {
-        const separator = document.createElement('span');
-        separator.textContent = 'OR';
-        separator.className = 'wh-separator';
-        separator.style.fontWeight = 'bold';
-
-        resultWrapper.appendChild(separator);
-      }
-      resultWrapper.appendChild(createResultElement(outcome));
+      resultWrapper.appendChild(createResultElement(outcome, index > 0));
       line.appendChild(resultWrapper);
     });
 
