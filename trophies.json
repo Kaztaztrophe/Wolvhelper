@@ -85,6 +85,13 @@
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
+    "elephantseal": {
+      "name": "Elephant Seal",
+      "drops": {
+        "items": "Blubber|imgblubber, Rugged Flipper|imgruggedflipper, Seal Skull|imgsealskull, Seal Teeth|imgsealteeth, Scar: Muzzle|imgscarmuzzle, Scar: Ripped Leg [Left]|imgscarrippedlegleft, Scar: Ripped Leg [Right]|imgscarrippedlegright",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+      }
+    },
     "feraldogpack": {
       "name": "Feral Dog Pack",
       "drops": {
