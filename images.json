@@ -45,6 +45,7 @@
         "imgpherrisrollingball": "pherrisrollingball.png",
         "imgpuffinfeather": "puffinfeather.png",
         "imgrattle": "rattle.png",
+        "imgrattlingspine": "rattlingspine.png",
         "imgroadrunnerfeather": "roadrunnerfeather.png",
         "imgrustypickaxe": "rustypickaxe.png",
         "imgsheepskull": "sheepskull.png",
@@ -379,6 +380,7 @@
       "decorations/": {
         "thumbnails/": {
           "imgacornbundledecor": "Acornbundledecor.png",
+          "imgarcticwhite": "Arcticwhite.png",
           "imgarizonawhiteoaksapling": "Arizonawhiteoaksapling.png",
           "imgazurehoodedjay": "Azurehoodedjay.png",
           "imgbackgroundrocksbrown": "Backgroundrocksbrown.png",
