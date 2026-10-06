@@ -511,8 +511,8 @@
       "name": "Cacomistle",
       "prompt": "A playful cacomistle peers at you cutely from a branch, looking like it wants to play. It teases you and repeatedly tries to grab your attention, causing you to finally give in.",
       "options": {
-        "Offer Acorn": [""],
-        "Play": [""]
+        "Offer Acorn": ["+1 Recipe: Playful Cacomistle|imgrecipeanimal;imgplayfulcacomistle"],
+        "Play": ["+1 Eagle Talon|imgeagletalon","+1 Ibis Feather|imgibisfeather","No result"]
       }
     },
     "campinghumans":{
@@ -1004,11 +1004,13 @@
       "name": "Giant Anteater",
       "prompt": "A giant anteater is foraging through the brush, looking for tasty insects.",
       "options": {
-        "Forage as well": [""],
+        "Forage as well": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 Lucky Foot|imgluckyfoot","+1 Recipe: @poolrecipeluckyfoot","+1 random recipe from cave-building material pool*","2-3 SC|imgsc|(<5000 SC)","Automatic battle with enemy Frenzied Razorback"],
         "Dig!": ["+1 item for active snake quest","No result*"]
       },
+      "trophies": "@frenziedrazorback",
       "notes": [
-        "*@details1"
+        "*@poolrecipecavebuildingmaterial",
+        "**@details1"
       ],
       "details": [
         "Unless you have an active item quest with the questing snake, this option will always have no result."
@@ -1033,7 +1035,7 @@
       "name": "Greater Grison",
       "prompt": "The snake-like movements of this creature startled you! When it lifts its head, you recognise it's a greater grison. You've heard they spray a vile odour like skunks do, so maybe it's best not to attack this creature.",
       "options": {
-        "Offer Acorn": [""]
+        "Offer Acorn": ["+1 Lucky Foot|imgluckyfoot","+1 Recipe: @poolrecipeluckyfoot","+1 Tortoise Shell|imgtortoiseshell","+1 random recipe from acorn pool*","-1 HP"]
       },
       "notes": [
         "*@conditional1"
@@ -1092,16 +1094,16 @@
       "name": "Green Iguana",
       "prompt": "A beautiful green iguana is chilling on the rocks.",
       "options": {
-        "Play": [""],
-        "Grab the tail": [""]
+        "Play": ["2-3 SC|imgsc|(<5000 SC)","No result"],
+        "Grab the tail": ["+5-10% hunger","No result"]
       }
     },
     "greenparakeet": {
       "name": "Green Parakeet",
       "prompt": "It's much easier to hear this green parakeet, rather than see it among the foliage. The bird is making tons of noise, excited to see you, a new, fluffy creature.",
       "options": {
-        "Play": [""],
-        "Howl": [""]
+        "Play": ["+1 Parrot Feather|imgparrotfeather","+2-4 SC|imgsc|(<5000 SC)","No result"],
+        "Howl": ["+1 Banded Sphinx Moth|imgbandedsphinxmoth","+1 Lucky Foot|imgluckyfoot","+1 Recipe: @poolrecipeluckyfoot","No result"]
       }
     },
     "greyjay":{
@@ -1158,8 +1160,8 @@
       "name": "Hunting Crocodile",
       "prompt": "A huge crocodile waits patiently for its prey to move closer. Then, with surprisingly unexpected speed and agility, it goes after its prey!",
       "options": {
-        "Steal": [""],
-        "Fight": [""]
+        "Steal": ["+3 Meat Chunks [Small]|imgmeatchunkssmall;imgmeatchunkssmall;imgmeatchunkssmall","Gain illness: Open Wound/Lose all HP*/-5 HP**"],
+        "Fight": ["+1 Crocodile Leg|imgcrocodileleg//+1 Crocodile Tail|imgcrocodiletail","+30% hunger","-3 HP"]
       },
       "notes": [
         "*@details1",
@@ -1189,8 +1191,8 @@
       "name": "Jaguar Cub Chasing Birds",
       "prompt": "A young jaguar cub is having fun chasing some birds. It seems like it's trying to polish its hunting moves, but it's still so young that it's far from being intimidating.",
       "options": {
-        "Hunting lesson": [""],
-        "Join": [""]
+        "Hunting lesson": ["+1-6 SC|imgsc|(<5000 SC)","+6% energy","No result"],
+        "Join": ["+1 Lucky Foot|imgluckyfoot","+4% energy"]
       }
     },
     "keydeer": {
@@ -1297,16 +1299,16 @@
       "name": "Mantled Howler",
       "prompt": "You don't even have to look up to know where the howls are coming from. The mantled howler has a distinctive sound, and right now that sound is drilling right into your skull as it screams in your face.",
       "options": {
-        "Swipe at": [""],
-        "Scream back": [""]
+        "Swipe at": ["+1 Large Branch|imglargebranch","+4% energy","No result"],
+        "Scream back": ["+1 Amusement Scraps|imgamusementscraps","+3% energy","No result"]
       }
     },
     "margay": {
       "name": "Margay",
       "prompt": "A nervous margay is walking by, dragging its kill. It doesn't seem to want to engage in a fight.",
       "options": {
-        "Play": [""],
-        "Steal": [""]
+        "Play": ["+3-4 SC|imgsc|(<5000 SC)","No result"],
+        "Steal": ["+1 Opossum Carcass|imgopossumcarcass","No result"]
       }
     },
     "merlin":{
@@ -1358,8 +1360,8 @@
       "name": "Migrating Monarch Butterflies",
       "prompt": "A huge, orange cloud moves slowly across the sky. You hear the flutter of countless wings of butterflies dancing gracefully above your head as they fly toward their destination. It feels ethereal.",
       "options": {
-        "Have some fun": [""],
-        "Follow": [""]
+        "Have some fun": ["+8% energy","+3% energy"],
+        "Follow": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+6 SC|imgsc|(<5000 SC)","+1-3 SC|imgsc|(<5000 SC)","+3% energy","No result"]
       }
     },
     "migratingwoodcocks":{
@@ -1403,11 +1405,11 @@
       "trophies": "@elephantseal"
     },
     "monkparakeet": {
-      "name": "Monk Parakeet",
+      "name": "Monk Parakeets",
       "prompt": "A flock of loud little parakeets sit in a nearby tree, surely gossiping about you as they watch you with disdain.",
       "options": {
-        "Interrupt": [""],
-        "Reason": [""]
+        "Interrupt": ["+2 Parrot Feather|imgparrotfeather;imgparrotfeather","+1 Butterfly Wing|imgbutterflywing","No result"],
+        "Reason": ["+1 Parrot Feather|imgparrotfeather","+4 HP","No result"]
       }
     },
     "mosquitoes": {
@@ -1528,8 +1530,8 @@
       "name": "Northern Olingo",
       "prompt": "With its bright red eyes and grin of sharp teeth, this olingo looks like it's up to something. What does it want with a wolf like you?",
       "options": {
-        "Talk": [""],
-        "Intimidate": [""]
+        "Talk": ["+1 Acorn|imgacorn","+1 Lucky Foot|imgluckyfoot"],
+        "Intimidate": ["+1 Peccary Carcass|imgpeccarycarcass","No result"]
       }
     },
     "northernpygmyowl":{
@@ -1544,8 +1546,8 @@
       "name": "Northern Tamandua",
       "prompt": "This tamandua is definitely more suited to a life in the trees. As it walks awkwardly across your path in a weird, ambling gait, this may just be the perfect opportunity for an easy kill.",
       "options": {
-        "Approach": [""],
-        "Follow": [""]
+        "Approach": ["+5% energy//-2 HP","+3% energy","No result"],
+        "Follow": ["+1-6 SC|imgsc|(<5000 SC)","+2 HP","No result"]
       }
     },
     "northwesterncrowhawker":{
@@ -1575,8 +1577,8 @@
       "name": "Oncilla",
       "prompt": "You find a cat prowling around in the nearby bush. It's an oncilla, hoping to grab its last snack before hiding in preparation for the upcoming day.",
       "options": {
-        "Offer Acorn": [""],
-        "Ambush": [""]
+        "Offer Acorn": ["+1 Rattle|imgrattle","+1 random recipe from acorn pool*"],
+        "Ambush": ["+2-5 SC|imgsc|(<5000 SC)","No result"]
       },
       "notes": [
         "*@conditional1"
@@ -2073,10 +2075,10 @@
       "name": "Vampire Bat",
       "prompt": "You feel a sharp sting in the darkness. As you jump aside, something flutters very close nearby! It's a vampire bat!",
       "options": {
-        "Catch": [""]
+        "Catch": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*","+5% hunger","No result"]
       },
       "notes": [
-        ""
+        "*@poolrecipecavebuildingmaterial"
       ]
     },
     "variedthrush":{
@@ -2109,8 +2111,8 @@
       "name": "White-Nosed Coati",
       "prompt": "A white-nosed coati is searching the area for food.",
       "options": {
-        "Follow": [""],
-        "Help out!": [""]
+        "Follow": ["+1 Owl Talon|imgowltalon","No result"],
+        "Help out!": ["+2-5 HP"]
       }
     },
     "whitetailedantelopesquirrel":{
@@ -2196,7 +2198,7 @@
       "name": "Yellow-Throated Toucan",
       "prompt": "Oh! It's a yellow-throated toucan, seeking fruit among the foliage.",
       "options": {
-        "Shake the branch": [""]
+        "Shake the branch": ["+1 Toucan Feather|imgtoucanfeather","+2-5 HP","No result"]
       }
     },
     "zebratailedlizard":{
@@ -4997,15 +4999,15 @@
     },
 
     "ashenoathstep1": {
-      "name": "Ashen Oath: Step 1",
+      "name": "Ashen Oath: Pre-storyline",
       "options": {
         "I'll find it": ["Begins a quest to start the Ashen Oath storyline"]
       }
     },
     "ashenoathstep1a": {
-      "name": "Ashen Oath: Step 1a",
+      "name": "Ashen Oath: Pre-storyline",
       "options": {
-        "Take it to the wolf": ["Completes quest to continue with Ashen Oath storyline"]
+        "Take it to the wolf": ["Completes quest for the Ashen Oath storyline"]
       }
     }
 
