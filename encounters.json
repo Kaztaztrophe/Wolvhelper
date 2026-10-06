@@ -50,7 +50,7 @@
       ]
     },
     "fillerbirdrest": {
-      "name": "Bird Rest",
+      "name": "Sound of Birds",
       "prompt": "You hear the faint twitter of birds somewhere nearby. You look up to the sky and watch them swooping overhead. What would it feel like to fly? You find a nice comfortable spot in the shade and rest for a moment.",
       "options": {
         "Sleep": ["+5-10% energy"],
@@ -88,7 +88,7 @@
       }
     },
     "fillerdirtsnuffle": {
-      "name": "Dirt Snuffle",
+      "name": "Dirt",
       "prompt": "You snuffle around in the dirt. It's here somewhere.. Yes! Jackpot!",
       "options": {
         "Dig": ["+1 Acorn|imgacorn","+1 Bone|imgbone","+1 Mollusk Skull|imgmolluskshell","+1 Owl Talon|imgowltalon","+1 random recipe from bone pool*","+1-3 SC|imgsc|(<5000 SC)"]
@@ -98,7 +98,7 @@
       ]
     },
     "fillerscentpath": {
-      "name": "Scent Path",
+      "name": "Directional Scent",
       "prompt": "You catch a strange scent on the ground, a mingling of two different scents. You follow them until they part ways.",
       "options": {
         "Follow North": ["+1-3 SC|imgsc|(<5000 SC)//+1 random single-use food item*"],
@@ -2023,6 +2023,14 @@
         "Chase": ["+1 Bighorn Sheep Ewe Carcass|imgbighornsheepewecarcass","+10% hunger","No result"]
       }
     },
+    "tourists": {
+      "name": "Tourists",
+      "prompt": "A group of humans treks along the path quite a distance ahead, their colorful pelts making it easy to see them. They haven't noticed you...perhaps there's an opportunity here.",
+      "options": {
+        "Track": ["+1 Sausage|imgsausage","-2 HP","No result"],
+        "Scare": ["+3 HP","No result"]
+      }
+    },
     "trumpeterswan":{
       "name": "",
       "prompt": "A trumpeter swan flying by has startled you!",
@@ -2200,6 +2208,20 @@
       "options": {
         "Shake the branch": ["+1 Toucan Feather|imgtoucanfeather","+2-5 HP","No result"]
       }
+    },
+    "yucatanbrownbrocket": {
+      "name": "Yucatan Brown Brocket",
+      "prompt": "Small and a bit round, this little deer doesn't look quite as intimidating as its cousins. Hmm...meal or no meal?",
+      "options": {
+        "Attack": ["+1 Doe Carcass|imgdoecarcass","Gain illness: Ticks/-2 HP*"],
+        "Follow": ["+2 Kava|imgkava;imgkava","+1 Oregano|imgoregano","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "If your lead wolf is currently immune to illness."
+      ]
     },
     "zebratailedlizard":{
       "name": "",
