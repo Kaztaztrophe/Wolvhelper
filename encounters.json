@@ -4822,11 +4822,8 @@
     "ashenoathstep1": {
       "name": "Ashen Oath: Step 1",
       "options": {
-        "I'll find it": ["Test"]
-      },
-      "notes": [
-        "Test"
-      ]
+        "I'll find it": ["Begins a quest to start the Ashen Oath storyline"]
+      }
     }
 
   }
