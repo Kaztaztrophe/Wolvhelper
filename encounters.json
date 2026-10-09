@@ -299,12 +299,56 @@
         "Charge!": ["+1 Arctic White|imgarcticwhite","No result"]
       }
     },
-    "aurora2": {
+    "arcticwoolybearmoth": {
+      "name": "Arctic Woolly Bear Moth Caterpillar",
+      "prompt": "A small, fluffy caterpillar is crawling on these rocks.",
+      "options": {
+        "Snatch": ["+1 Arctic Woolly Bear Moth|imgarcticwoollybearmoth","+1 random item from toy bundle pool*","+1 random recipe from amusement pool**"],
+        "Watch": ["+2 SC|imgsc|(<5000 SC)","No result"]
+      },
+      "notes": [
+        "*@pooltoybundle",
+        "**@poolrecipeamusement"
+      ]
+    },
+    "atlanticpuffin": {
+      "name": "Atlantic Puffin and Skua",
+      "prompt": "A skua is harassing an atlantic puffin, hoping some fish will fall out of its beak.",
+      "options": {
+        "Chase the skua": ["+1 Skua Feather|imgskuafeather"],
+        "Follow": ["2-3 SC|imgsc|(<5000 SC)","No result"]
+      }
+    },
+    "aurora": {
       "name": "Aurora",
+      "prompt": "A beautiful glow brightens the sky, making it difficult to focus your gaze on anything else.",
+      "options": {
+        "Admire the view": ["+1 Lucky Foot|imgluckyfoot","+5% energy"],
+        "Look around": ["+1 Caribou Calf Carcass|imgcariboucalfcarcass","+3-6 SC|imgsc|(<5000 SC)","+3% energy","No result"]
+      }
+    },
+    "aurora2": {
+      "name": "Aurora 2",
       "prompt": "Glowing waves of light are dancing above your head, making you feel as if you have entered another realm.",
       "options": {
         "Enjoy the moment": ["+1 Butterfly Wing|imgbutterflywing","+6 HP","+3 HP"]
       }
+    },
+    "aurora3": {
+      "name": "Aurora 3",
+      "prompt": "A breathtaking view above your head stops you in your tracks. Glowing waves of light are shimmering and the silence around you feels so serene, as if you are in a dream.",
+      "options": {
+        "Enjoy the view": ["+10% energy","Gain illness: Cough/-2 HP*/-2 HP**"],
+        "Look around": ["+1 Butterfly Wing|imgbutterflywing","+2-6 SC|imgsc|(<5000 SC)","+4% energy","+2% energy","No result"]
+      },
+      "notes": [
+        "*@details1",
+        "**@details2"
+      ],
+      "details": [
+        "If your lead wolf is currently sick.",
+        "If your lead wolf is currently immune to illness."
+      ]
     },
     "bandeddesertcentipede":{
       "name": "",
@@ -366,6 +410,14 @@
         "Join": ["+5% energy","+4 HP","-3 HP","No result"]
       }
     },
+    "beardedseal": {
+      "name": "Bearded Seal",
+      "prompt": "A large bearded seal blocks your way, looking at you almost as if it intends to provoke you. Whatever its intentions are, it's quite intimidating.",
+      "options": {
+        "Be friendly": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 Lucky Foot|imgluckyfoot"],
+        "Growl": ["+1 Blubber|imgblubber","+1 Dead Fish|imgdeadfish","No result"]
+      }
+    },
     "beaver":{
       "name": "",
       "prompt": "A beaver appears startled at your sudden appearance, it seems to be in the middle of collecting materials.",
@@ -377,6 +429,14 @@
         "*@poolrecipecavebuildingmaterial",
         "**@poolrecipejayrare"
       ]
+    },
+    "beluga": {
+      "name": "Beluga",
+      "prompt": "At first you're fooled into thinking a chunk of ice is floating your way. You quickly realize that it's not ice at all--it's a beluga swimming towards you!",
+      "options": {
+        "Bark": ["+2 Puffin Feather|imgpuffinfeather;imgpuffinfeather","No result"],
+        "Play": ["+1 Expression: Happy|imgexpressionhappy","+1 Gull Feather|imggullfeather","+1 Skua Feather|imgskuafeather","No result"]
+      }
     },
     "berrybear":{
       "name": "",
@@ -461,6 +521,16 @@
       "conditional": {
         "Offer Acorn": ["@poolamusementuncommon","@poolrecipeacorn","@poolrecipeamusement","@poolrecipejaycommon, @poolrecipejayrare"]
       }
+    },
+    "bluewhale": {
+      "name": "Blue Whale",
+      "prompt": "Off in the distance within the glistening indigo ocean, you spot a shining mass cresting gently out of the water, spouting a fountain of water up into the air.",
+      "options": {
+        "Run along the shore!": ["+1 random stat*","No result"]
+      },
+      "notes": [
+        "*@poolstat"
+      ]
     },
     "borealchickadee":{
       "name": "",
@@ -705,6 +775,20 @@
         "Take it": ["+1 Bovine Carcass|imgbovinecarcass"]
       }
     },
+    "deadmuskox": {
+      "name": "Dead Muskox",
+      "prompt": "You notice a huge muskox carcass in front of you. It's fresh and untouched; you're the first to discover it. Suddenly a loud seagull shriek breaks the silence, and your pelt prickles. You will have guests soon.",
+      "options": {
+        "Protect": ["+1 Muskox Carcass|imgmuskoxcarcass","-3 HP"],
+        "Chase the gulls": ["+3 Gull Feather|imggullfeather;imggullfeather;imggullfeather","+1 Meat Chunks [Small]|imgmeatchunkssmall","+20% hunger","-100% energy//Gain illness: Influenza/-2 HP*"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "If your lead wolf is currently immune to illness."
+      ]
+    },
     "deertrappedinice":{
       "name": "",
       "prompt": "You notice the silhouette of a deer in the distance. It struggles to move and keeps falling. The ice has trapped it!",
@@ -725,7 +809,7 @@
       "name": "",
       "prompt": "Snow in this area is a rare sight, and you feel a wave of excitement. This is something that won't happen again anytime soon!",
       "options": {
-        "Run!": ["+10% energy","Gain illness: Open Wound/Lose all HP*/-4 HP**"],
+        "Run!": ["+10% energy","Lose all HP//Gain illness: Open Wound/Lose all HP*/-4 HP**"],
         "Sniff": ["+1 Donkey Carcass|imgdonkeycarcass","+1 Rusty Pickaxe|imgrustypickaxe"]
       },
       "notes": [
@@ -932,6 +1016,13 @@
         "Investigate": ["+1 Butterfly Wing|imgbutterflywing","+1 Duck Feather|imgduckfeather","+2 HP"]
       }
     },
+    "fishermen2": {
+      "name": "Fishermen 2",
+      "prompt": "It's always wise to avoid humans, but a harsh environment makes it even easier to want to avoid them. They have tools to dig holes in the ice, and even more tools to take food out of them. Those things look dangerous!",
+      "options": {
+        "Steal": ["+3 Charcoal|imgcharcoal;imgcharcoal;imgcharcoal","+3 HP","No result"]
+      }
+    },
     "fivelinedskink":{
       "name": "",
       "prompt": "A small lizard is relaxing on warm rocks nearby. It seems that it's aware of your presence but is choosing to ignore you.",
@@ -1024,6 +1115,14 @@
         "Intimidate": ["+1 Vulture Talon|imgvulturetalon","No result"]
       }
     },
+    "glaucousgull": {
+      "name": "Glaucous Gull",
+      "prompt": "A very loud glaucous gull is strutting around in front of you.",
+      "options": {
+        "Attack!": ["+1 Gull Carcass|imggullcarcass","No result"],
+        "Play!": ["+1 Gull Feather|imggullfeather","No result"]
+      }
+    },
     "greatblueheron":{
       "name": "",
       "prompt": "A magnificent, gigantic great blue heron clatters its bill at you as a warning sign. Is the warning for you, or for its peers?",
@@ -1082,6 +1181,20 @@
         "Taunt!": ["+3 Owl Feather|imgowlfeather;imgowlfeather;imgowlfeather","-1 HP"]
       }
     },
+    "greatskua": {
+      "name": "Great Skua",
+      "prompt": "This great skua is circling the area, likely in search of food. Its curiosity is piqued at your arrival, and it flies much lower now, squawking at you to turn around.",
+      "options": {
+        "Offer Acorn": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from acorn pool*"],
+        "Turn around": ["+1 Lucky Foot|imgluckyfoot","+1 Recipe: @poolrecipeluckyfoot","Automatic battle with enemy Arctic Wolf","No result"]
+      },
+      "notes": [
+        "*@conditional1[Offer Acorn]"
+      ],
+      "conditional": {
+        "Offer Acorn": ["@poolrecipeacorn"]
+      }
+    },
     "greenheron":{
       "name": "",
       "prompt": "A green heron wanders along nearby slow-moving water. It's observing the swimming shadow of a fish. You can tell it hasn't yet noticed you.",
@@ -1125,12 +1238,11 @@
         "Chase": ["+10 HP"]
       }
     },
-    "hikers":{
-      "name": "",
-      "prompt": "A group of humans is passing by, their voices echoing loudly enough to make the whole area aware of their presence. You're close enough to catch intriguing scents. Their bags must be full of treats and trinkets!",
+    "harbourporpoise": {
+      "name": "Harbour Porpoise",
+      "prompt": "You spot a harbour porpoise jumping in the shallow water!",
       "options": {
-        "Growl": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1-6 SC|imgsc|(<5000 SC)","No result"],
-        "Act friendly": ["+5 HP","No result"]
+        "Play!": ["+2-4 SC|imgsc|(<5000 SC)","+10 HP","No result"]
       }
     },
     "harlequinduck": {
@@ -1138,6 +1250,22 @@
       "prompt": "A harlequin duck is taking a little break from swimming. You see it's dozing off from time to time.",
       "options": {
         "Take a chance": ["+1 Duck Feather|imgduckfeather","+5-10% hunger","No result"]
+      }
+    },
+    "harpseal": {
+      "name": "Harp Seals",
+      "prompt": "A harp seal rests calmly on the snow with its fluffy pup by its side. The little pup looks at you with curiosity rather than fear.",
+      "options": {
+        "Hunt": ["+2 Bone|imgbone;imgbone","+1 Seal Pup Carcass|imgsealpupcarcass","-2 HP","No result"],
+        "Play": ["+2 Duck Egg|imgduckegg;imgduckegg","+1 Acorn|imgacorn","No result"]
+      }
+    },
+    "hikers":{
+      "name": "",
+      "prompt": "A group of humans is passing by, their voices echoing loudly enough to make the whole area aware of their presence. You're close enough to catch intriguing scents. Their bags must be full of treats and trinkets!",
+      "options": {
+        "Growl": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1-6 SC|imgsc|(<5000 SC)","No result"],
+        "Act friendly": ["+5 HP","No result"]
       }
     },
     "housefinch":{
@@ -1156,11 +1284,18 @@
         "Investigate": ["+1 Acorn|imgacorn","+1 Oar|imgoar","+2% energy//+1 HP","No result"]
       }
     },
+    "humpbackwhale": {
+      "name": "Humpback Whale",
+      "prompt": "A gigantic creature is emerging from the waters! You watch the humpback whale take a few breaths, following it up with a geyser of water... or spit.",
+      "options": {
+        "Howl": ["+10% energy"]
+      }
+    },
     "huntingcrocodile": {
       "name": "Hunting Crocodile",
       "prompt": "A huge crocodile waits patiently for its prey to move closer. Then, with surprisingly unexpected speed and agility, it goes after its prey!",
       "options": {
-        "Steal": ["+3 Meat Chunks [Small]|imgmeatchunkssmall;imgmeatchunkssmall;imgmeatchunkssmall","Gain illness: Open Wound/Lose all HP*/-5 HP**"],
+        "Steal": ["+3 Meat Chunks [Small]|imgmeatchunkssmall;imgmeatchunkssmall;imgmeatchunkssmall","Lose all HP//Gain illness: Open Wound/Lose all HP*/-5 HP**"],
         "Fight": ["+1 Crocodile Leg|imgcrocodileleg//+1 Crocodile Tail|imgcrocodiletail","+30% hunger","-3 HP"]
       },
       "notes": [
@@ -1269,6 +1404,20 @@
         "Browse Wares": ["+(LVL*20) EXP","+1 Raven Traders: Leucistic Raven Merchant|imgraventradersleucisticravenmerchant"]
       }
     },
+    "littleauk": {
+      "name": "Little Auk",
+      "prompt": "This little auk must have gotten separated from its colony. You hear gulls flying above. Perhaps they're harassing this little bird.",
+      "options": {
+        "Offer Acorn": ["+5 Mollusk Shell|imgmolluskshell;imgmolluskshell;imgmolluskshell;imgmolluskshell;imgmolluskshell","+1 random recipe from acorn pool*"],
+        "Bark": ["+1 Gull Feather|imggullfeather","No result"]
+      },
+      "notes": [
+        "*@conditional1[Offer Acorn]"
+      ],
+      "conditional": {
+        "Offer Acorn": ["@poolrecipeacorn"]
+      }
+    },
     "longearedowl":{
       "name": "",
       "prompt": "What a struggle! This long-eared owl just caught a gray ratsnake!",
@@ -1301,6 +1450,14 @@
       "options": {
         "Swipe at": ["+1 Large Branch|imglargebranch","+4% energy","No result"],
         "Scream back": ["+1 Amusement Scraps|imgamusementscraps","+3% energy","No result"]
+      }
+    },
+    "massivewalrusherd": {
+      "name": "Massive Walrus Herd",
+      "prompt": "Loud noises, a nasty smell, and aggressive thumping give away the fact that you're approaching a massive walrus herd.",
+      "options": {
+        "Scavenge carefully": ["+1 Whale Rib Bone|imgwhaleribbone","+5% hunger","-5 HP","No result"],
+        "Harass": ["Automatic battle with enemy Walrus","Automatic battle with enemy Walrus Group"]
       }
     },
     "margay": {
@@ -1357,7 +1514,7 @@
       ]
     },
     "migratingmonarchbutterflies2": {
-      "name": "Migrating Monarch Butterflies",
+      "name": "Migrating Monarch Butterflies 2",
       "prompt": "A huge, orange cloud moves slowly across the sky. You hear the flutter of countless wings of butterflies dancing gracefully above your head as they fly toward their destination. It feels ethereal.",
       "options": {
         "Have some fun": ["+8% energy","+3% energy"],
@@ -1486,6 +1643,21 @@
         "Listen": ["+1 Butterfly Wing|imgbutterflywing","+3 HP","No result"],
         "Jump at": ["+1 Small Bird Meat|imgsmallbirdmeat","+2 HP","No result"]
       }
+    },
+    "northerncollaredlemming": {
+      "name": "Northern Collared Lemming",
+      "prompt": "What's that... a rat? You tilt your head a little. The rodent is carrying some sedge to its burrow. Ah, it must be a northern collared lemming!",
+      "options": {
+        "Chase": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*","No result"],
+        "Dig": ["No result**"]
+      },
+      "notes": [
+        "*@poolrecipecavebuildingmaterial",
+        "**@details"
+      ],
+      "details": [
+        "This option has effects that are not yet implemented in the game, so it will always have no result."
+      ]
     },
     "northernfurseal": {
       "name": "Northern Fur Seal",
@@ -1618,6 +1790,21 @@
         "Play with the turtle": ["+4% energy","-2 HP","No result"]
       }
     },
+    "parasiticjaeger": {
+      "name": "Parasitic Jaeger",
+      "prompt": "An annoying squawking sound from above makes it difficult to focus. When your patience reaches its limit, you look up, prepared to take action.",
+      "options": {
+        "Offer Acorn": ["+1 Recipe: Playful Jaeger|imgrecipeanimal;imgplayfuljaeger"],
+        "Jump": ["+1 Jaeger Feather|imgjaegerfeather","+10% hunger","No result"]
+      }
+    },
+    "peopleonsleds": {
+      "name": "People on Sleds",
+      "prompt": "The human voice is so specific that you realize immediately what the shrieking noises are; but these humans are laughing, which makes curiosity boil under your skin. When you follow the sound, you see two of humans enjoying sliding down a snowy hill.",
+      "options": {
+        "Approach the hill": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 Whale Rib Bone|imgwhaleribbone","No result"]
+      }
+    },
     "peregrinefalcon":{
       "name": "",
       "prompt": "A Peregrine Falcon soars overhead, it's impossibly fast, you almost don't notice it. You watch as something drops from it.",
@@ -1642,6 +1829,14 @@
       "options": {
         "Offer Acorn": ["+8 HP"],
         "Tease": ["+1 Buffaloberry|imgbuffaloberry","No result"]
+      }
+    },
+    "polarbearcubs": {
+      "name": "Polar Bear Cubs",
+      "prompt": "You find two polar bear cubs playing in the snow on your path.",
+      "options": {
+        "Play": ["+2-5 SC|imgsc|(<5000 SC)","No result"],
+        "Follow": ["+1 Whale Rib Bone|imgwhaleribbone","-2 HP"]
       }
     },
     "pomarineskua": {
@@ -1846,6 +2041,14 @@
         "Swim": ["+1 Walrus Pup Carcass|imgwalruspupcarcass","-2-4 HP","No result"]
       }
     },
+    "ringedseal": {
+      "name": "Ringed Seal",
+      "prompt": "A ringed seal observes you with a bored expression, following your every step. You feel its judgmental gaze.",
+      "options": {
+        "Join": ["+1 Dead Fish|imgdeadfish","+3% energy","+3 HP","-2 HP","No result"],
+        "Approach": ["+1 Crab Leg|imgcrableg","+1 Delicate Meat|imgdelicatemeat","+2 HP","No result"]
+      }
+    },
     "ringtailedcat":{
       "name": "",
       "prompt": "You hear clicking and chattering. After locating the source of the sound with your mobile ears, you spot a ring-tailed cat on a branch!",
@@ -1871,6 +2074,14 @@
         "If your lead wolf is currently immune to illness."
       ]
     },
+    "roseatespoonbill": {
+      "name": "Roseate Spoonbill",
+      "prompt": "This beautiful pink spoonbill glides gracefully through the water looking like something out of a fairytale in this swampy place.",
+      "options": {
+        "Compliment its feathers": ["+1 Spoonbill Feather|imgspoonbillfeather","+2% energy","No result"],
+        "Pounce": ["+5% energy//+5% hunger","No result"]
+      }
+    },
     "salicetsphinx":{
       "name": "",
       "prompt": "A Salicet sphinx moth is stretching its wings, getting ready to hide from the incoming day.",
@@ -1884,6 +2095,14 @@
       "options": {
         "Follow": ["+1 Old Doll|imgolddoll","+4 HP","No result"],
         "Track": ["+2 Redwood Sorrel|imgredwoodsorrel;imgredwoodsorrel","+2 HP","No result"]
+      }
+    },
+    "scientificexpeditionship": {
+      "name": "Scientific Expedition Ship",
+      "prompt": "This may be the biggest boat you've ever seen! It seems like humans live on it temporarily while they explore the area. When you spot them on the shore, they appear tiny in comparison to the massive construction.",
+      "options": {
+        "Sneak in": ["+1 Chicken Roast|imgchickenroast","+1 Lucky Foot|imgluckyfoot"],
+        "Sniff around": ["+5 HP","+2 HP","No result"]
       }
     },
     "seaotter": {
@@ -1939,6 +2158,14 @@
         "Hunt": ["+1 Meat Chunks [Large]|imgmeatchunkslarge","No result"]
       }
     },
+    "snowgeesemigrating": {
+      "name": "Migrating Snow Geese",
+      "prompt": "Endless honking erupts in the air as a large flock of geese block out the sky. They must be on their way to seek warmer weather for the winter!",
+      "options": {
+        "Follow their path": ["+1 Yarrow|imgyarrow","+4 HP","No result"],
+        "Get their attention": ["+1-6 SC|imgsc|(<5000 SC)","+4 HP","No result"]
+      }
+    },
     "snowman":{
       "name": "",
       "prompt": "Big balls of snow are stacked on top of each other and seem to be dressed in human things. What a strange thing to do!",
@@ -1971,6 +2198,22 @@
       "options": {
         "Watch": ["+1 Acorn|imgacorn","+7% hunger","No result"]
       }
+    },
+    "spermwhale": {
+      "name": "Sperm Whale",
+      "prompt": "A dark mass emerges from the icy waters, making you stop in your tracks. It's a sperm whale, resurfacing to take a breath. The size of the creature is intimidating even from a distance.",
+      "options": {
+        "Go closer": ["+10 HP","Lose all HP//Gain illness: Open Wound/Lose all HP*/-4 HP**"],
+        "Bark": ["+1-2 SC|imgsc|(<5000 SC)","+3 HP","No result"]
+      },
+      "notes": [
+        "*@details1",
+        "**@details2"
+      ],
+      "details": [
+        "If your lead wolf is currently sick.",
+        "If your lead wolf is currently immune to illness."
+      ]
     },
     "spottedskunk":{
       "name": "",
@@ -2021,6 +2264,13 @@
       "options": {
         "Poke": ["+1 Butterfly Wing|imgbutterflywing","+1 Old Horseshoe|imgoldhorseshoe"],
         "Chase": ["+1 Bighorn Sheep Ewe Carcass|imgbighornsheepewecarcass","+10% hunger","No result"]
+      }
+    },
+    "thickbilledmurre": {
+      "name": "Thick-Billed Murre",
+      "prompt": "A slick-looking thick-billed murre has separated itself from its colony.",
+      "options": {
+        "Dinner time!": ["+12% hunger","No result"]
       }
     },
     "tourists": {
@@ -2166,6 +2416,16 @@
         "/biome/11": ["Alaskan Tundra Wolf"],
         "/biome/12": ["Arctic Wolf"]
       }
+    },
+    "wolffish": {
+      "name": "Wolffish",
+      "prompt": "You catch a very strong scent. A small trail of blood and scales leads you to a spot where some animal was eating a wolffish.",
+      "options": {
+        "Sniff around": ["+1 Dead Fish|imgdeadfish//+1 random stat*","+10% hunger","-1 HP","No result"]
+      },
+      "notes": [
+        "*@poolstat"
+      ]
     },
     "woodduck": {
       "name": "Wood Duck",
@@ -4336,7 +4596,7 @@
     },
 
     "lunarplantapril":{
-      "name": "",
+      "name": "April Lunar Plant",
       "prompt": "You spot a strange glowing plant resembling crops you've grown in your garden. Is this a special variety?",
       "options": {
         "Try to harvest": ["+1 @location1","+1 @location2","+1 @location3","+1 LT|imglt"],
@@ -4351,7 +4611,7 @@
 
 
     "deepmud":{
-      "name": "",
+      "name": "Deep Mud",
       "prompt": "At first, the ground is just wet and slippery, but as you walk further, you find yourself in deep mud. The mud slows you down, but you take some odd pleasure in splashing it around.",
       "options": {
         "Play": ["+2 MT|imgmt","+1 Unidentified Fossil|imgunidentifiedfossil","+10% energy"],
@@ -4359,7 +4619,7 @@
       }
     },
     "disturbeddirt":{
-      "name": "",
+      "name": "Disturbed Dirt",
       "prompt": "Hmm...the dirt has been displaced here, almost like someone was digging recently. Maybe something valuable is buried?",
       "options": {
         "Dig around": ["+1 MT|imgmt","No result"],
@@ -4367,7 +4627,7 @@
       }
     },
     "drycrumblingground":{
-      "name": "",
+      "name": "Dry Crumbling Ground",
       "prompt": "The ground under your paws is so dry that it crumbles under your weight, raising clouds of dust. You cough a little and decide to take a closer look at your footsteps. You're almost certain that you feel something unusual.",
       "options": {
         "Sniff around": ["+5% energy//+5 HP"],
@@ -4375,7 +4635,7 @@
       }
     },
     "nearbycreeksound":{
-      "name": "",
+      "name": "Nearby Creek Sound",
       "prompt": "The familiar sound of a creek bubbling in the distance draws your pawsteps in that direction. It would be a nice spot to take a breather.",
       "options": {
         "Follow the bubbling": ["+2 MT|imgmt","+10 HP"],
@@ -4384,14 +4644,14 @@
       }
     },
     "recentearthquakeshiftedground":{
-      "name": "",
+      "name": "Recent Earthquake Shifted Ground",
       "prompt": "The ground has shifted due to the recent earthquake, making it much less stable to walk on. However, you hope that all the cracks and holes are full of hidden treasures that would otherwise have remained underground.",
       "options": {
         "Investigate": ["+1 MT|imgmt","+1 Large Rock|imglargerock","+1 Unidentified Fossil|imgunidentifiedfossil"]
       }
     },
     "rockslidesounds":{
-      "name": "",
+      "name": "Rockslide Sounds",
       "prompt": "Your ears catch the sound of rocks crashing down a slope nearby. You probably should stay away to be safe, but your curiosity begs you to check it out.",
       "options": {
         "Investigate": ["+1 MT|imgmt","+1 Large Rock|imglargerock","+1 Rusty Pickaxe|imgrustypickaxe"],
@@ -4399,14 +4659,14 @@
       }
     },
     "slippedonarock":{
-      "name": "",
+      "name": "Slipped on a Rock",
       "prompt": "Suddenly, you lose the ground under your paws, slipping on a rock and falling to the side. It hurts a little, but you aren't seriously injured.",
       "options": {
         "Check the rock out": ["+2 MT|imgmt","+1 MT|imgmt//+1 Large Leaf|imglargeleaf","+1 MT|imgmt//+1 Massive Pinecone|imgmassivepinecone","+1 MT|imgmt//+1 Unidentified Fossil|imgunidentifiedfossil","+1 MT|imgmt","+1 Fossilized Bone Dust|imgfossilizedbonedust","+1 Unidentified Fossil|imgunidentifiedfossil","+5% energy","-5 HP"]
       }
     },
     "softground":{
-      "name": "",
+      "name": "Soft Ground",
       "prompt": "The ground is soft under your paws here, and your paws itch to dig in it.",
       "options": {
         "Dig": ["+1 MT|imgmt","+2 HP"],
@@ -4415,7 +4675,7 @@
     },
 
     "ammonitebed":{
-      "name": "",
+      "name": "Ammonite Bed",
       "prompt": "One side of a huge, dark rock slab is completely smooth, but the other side looks like the bottom of the sea, with lots of shells of different sizes still stuck within it. You can tell they're older than any wolf can remember.",
       "options": {
         "Try to take one out": ["+1 MT|imgmt//+2 Mollusk Shell|imgmolluskshell;imgmolluskshell"],
@@ -4423,7 +4683,7 @@
       }
     },
     "ammonitefossil":{
-      "name": "",
+      "name": "Ammonite Fossil",
       "prompt": "The beautiful, large, fossilized spiral shape is impossible to be mistaken for anything else. It's a perfectly preserved ammonite. Beautiful! Perhaps you can take it with you.",
       "options": {
         "Try to pull it out": ["+1 MT|imgmt","+1 Mollusk Shell|imgmolluskshell","+1 Unidentified Fossil|imgunidentifiedfossil"],
@@ -4431,7 +4691,7 @@
       }
     },
     "ancientfossils":{
-      "name": "",
+      "name": "Ancient Fossils",
       "prompt": "Various shapes of plants and small animals are pressed into this rock. You don't recognize any of them. This rock has survived for thousands of years so that you can admire the past.",
       "options": {
         "Dig under the rock": ["+3 MT|imgmt","+1 MT|imgmt","+1 MT|imgmt//-5 HP"],
@@ -4439,7 +4699,7 @@
       }
     },
     "fossilbed":{
-      "name": "",
+      "name": "Fossil Bed",
       "prompt": "The ground has collapsed in places, allowing towers of stone to rise up and crumble away to reveal fossils underneath! Are you brave enough to have a look around?",
       "options": {
         "Check between the towers": ["+1 MT|imgmt","+1 Odd Teeth|imgoddteeth","+1 Unidentified Fossil|imgunidentifiedfossil"],
@@ -4447,7 +4707,7 @@
       }
     },
     "fossilcliffleft":{
-      "name": "",
+      "name": "Fossil Cliff [Left]",
       "prompt": "A cliff rises to your left with fossils peeking out from a layer of rock. Maybe you should check it out!",
       "options": {
         "Check the fossils at the bottom": ["+1 MT|imgmt","+1 Fossilized Bone Dust|imgfossilizedbonedust","+1 Unidentified Fossil|imgunidentifiedfossil"],
@@ -4455,7 +4715,7 @@
       }
     },
     "fossilcliffright":{
-      "name": "",
+      "name": "Fossil Cliff [Right]",
       "prompt": "A cliff rises to your right with a column of...something crumbling from where it's embedded in the rock. Is it some sort of old human structure?",
       "options": {
         "Check out the column": ["+1 MT|imgmt","+1 Wealden Amber|imgwealdenamber//+1 Hiker's Rope|imghikersrope","+1 Fossilized Bone Dust|imgfossilizedbonedust","+1 Unidentified Fossil|imgunidentifiedfossil"],
@@ -4463,7 +4723,7 @@
       }
     },
     "fossilcliffsplit":{
-      "name": "",
+      "name": "Fossil Cliff [Split]",
       "prompt": "This cliff used to be a solid wall of rock, but now it has split and revealed numerous fossils from millions of years ago. What a find! How many are there? It will take ages to look through them all. The sight is fascinating and daunting at the same time.",
       "options": {
         "Follow the wall": ["+1 MT|imgmt//+1 Charcoal|imgcharcoal"],
@@ -4471,7 +4731,7 @@
       }
     },
     "fossilrelief":{
-      "name": "",
+      "name": "Fossil Relief",
       "prompt": "These ancient creatures were trapped in this rock for a long time, leaving their shapes imprinted forever. The rock is cracked in many places, making you wonder how much longer it will hold its form.",
       "options": {
         "Sniff around the rock": ["+2 MT|imgmt"],
@@ -4479,7 +4739,7 @@
       }
     },
     "fossilsandstone":{
-      "name": "",
+      "name": "Fossil Sandstone",
       "prompt": "The fossilized bones are deeply embedded in the rock, but their shapes are clearly visible. There must be a way to take them out; perhaps even all of them.",
       "options": {
         "Break the rock": ["+1 MT|imgmt","+1 Fossilized Bone Dust|imgfossilizedbonedust"],
@@ -4487,14 +4747,14 @@
       }
     },
     "fossilslabs":{
-      "name": "",
+      "name": "Fossil Slabs",
       "prompt": "Perfectly visible against the light surface, the fossils embedded in the rock slabs looked easy to take out, tempting you to try.",
       "options": {
         "Approach": ["+2 MT|imgmt","+1 MT|imgmt","+1 Fossilized Bone Dust|imgfossilizedbonedust","+1 Large Rock|imglargerock","+1 Unidentified Fossil|imgunidentifiedfossil","+4 HP"]
       }
     },
     "fossilwall":{
-      "name": "",
+      "name": "Fossil Wall",
       "prompt": "This wall towers so high that you can't see the top, and is absolutely riddled with bones and fossils of various sizes and shapes. Who knew so many things lurked just beneath your pawsteps that are only now coming to the surface?",
       "options": {
         "Scrape at one of the fossils": ["+2 MT|imgmt","+1 MT|imgmt","+1 Recipe: Base Applicator [Fossil]|imgrecipeapplicator;imgbaseapplicatorfossil"],
@@ -4502,7 +4762,7 @@
       }
     },
     "fossilizedtree":{
-      "name": "",
+      "name": "Fossilized Tree",
       "prompt": "From a distance, the remains of the broken tree look ordinary. Upon coming closer, you realize that you don't recognize the type of tree. Its fossilized bark feels strange to the touch.",
       "options": {
         "Scrape the bark": ["+1 MT|imgmt","+1 Acorn|imgacorn//+1 Rat Carcass|imgratcarcass","+1 Large Branch|imglargebranch//+1 Charcoal|imgcharcoal"],
@@ -4510,7 +4770,7 @@
       }
     },
     "fossilizedtrunk":{
-      "name": "",
+      "name": "Fossilized Trunk",
       "prompt": "The tree in front of you is much older than the forest around it and its scent is slightly different. Its dark bark is as hard as stone, yet it seems fragile, as if it could turn to dust at any moment.",
       "options": {
         "Sniff": ["+3% energy//+1 Fossilized Bone Dust|imgfossilizedbonedust"],
@@ -4519,7 +4779,7 @@
       }
     },
     "landsliderocks":{
-      "name": "",
+      "name": "Landslide Rocks",
       "prompt": "Rocks have tumbled down the mountain here recently, and look quite strange compared to the plain rocks you normally see. They have strange impressions in them, almost as if there were beings that once dwelled in them...",
       "options": {
         "Check out the fossil": ["+1 MT|imgmt//+1 Large Rock|imglargerock","+1 Fossilized Bone Dust|imgfossilizedbonedust//+1 Unidentified Fossil|imgunidentifiedfossil"],
@@ -4528,7 +4788,7 @@
       }
     },
     "openfossilbed":{
-      "name": "",
+      "name": "Open Fossil Bed",
       "prompt": "There's so many nooks and crannies to explore here! Watch your pawsteps young wolf, you never know what lies beneath the ground.",
       "options": {
         "Investigate the lower layer": ["+1 MT|imgmt//+5% energy"],
@@ -4537,7 +4797,7 @@
       }
     },
     "raisedfossilcliff":{
-      "name": "",
+      "name": "Raised Fossil Cliff",
       "prompt": "Are those...trees in that rock? You move closer, giving the rock a curious sniff. It looks like ferns were pressed into this rock years ago and have left only their imprint behind. How cool!",
       "options": {
         "Sniff at the base of the cliff": ["+2 Fossilized Bone Dust|imgfossilizedbonedust;imgfossilizedbonedust"],
@@ -4545,7 +4805,7 @@
       }
     },
     "trilobitedeposit":{
-      "name": "",
+      "name": "Trilobite Deposit",
       "prompt": "You almost missed it. A trilobite fossil shape is hidden in the rocky texture, but once you spot it, it's clear and impossible to mistake for anything else.",
       "options": {
         "Scratch gently": ["+1 Unidentified Fossil|imgunidentifiedfossil"],
@@ -4556,14 +4816,14 @@
 
 
     "affectedblackwolf":{
-      "name": "",
+      "name": "Affected Black Wolf",
       "prompt": "The black, shadowy shape looks like an ordinary wolf at first, but you can sense that something is not right. It has abnormally long teeth and reddish saliva, resembling both blood and lava at the same time. Despite its scary appearance, you have the overwhelming feeling that it's suffering.",
       "options": {
         "Try to scare it away": ["2 ME|imgme","+2 ME|imgme//-2 HP"]
       }
     },
     "affectedbutterfly":{
-      "name": "",
+      "name": "Affected Butterfly",
       "prompt": "A reddish spot in the air looks like an ember, but when you focus on it, you notice it's a butterfly. While its appearance is distorted, it looks oddly... pretty.",
       "options": {
         "Follow": ["+1 ME|imgme//+1 random carcass from food bundle pool*"],
@@ -4574,7 +4834,7 @@
       ]
     },
     "affectedfoxcub":{
-      "name": "",
+      "name": "Affected Fox Cub",
       "prompt": "From a distance, the body of this small fox cub appears to be a carcass. As you approach, you uncover the horrible truth—it's still alive, but barely breathing. Demonic growths have contorted its body in a painful manner, leaving it almost unable to move.",
       "options": {
         "End its Pain": ["+2 ME|imgme//+1 random herb*"],
@@ -4586,7 +4846,7 @@
       ]
     },
     "affectedweakbear":{
-      "name": "",
+      "name": "Affected Weak Bear",
       "prompt": "A shape resembling a bear is sitting in the middle of your path, struggling to move. Usually you'd ignore it or perhaps even make a meal of it, but this is no ordinary bear. Its jaws are distorted and full of twisted, long teeth, preventing it from properly closing its mouth. It's on the verge of dying, and you are likely witnessing its last moments.",
       "options": {
         "Ask what happened": ["+2 ME|imgme//-2 HP","Automatic battle with enemy Affected Weak Bear*"],
@@ -4604,7 +4864,7 @@
       ]
     },
     "aggressiveaffectedbat":{
-      "name": "",
+      "name": "Aggressive Affected Bat",
       "prompt": "At first, it looks like a common bat, but as soon as you notice its glowing eyes and the growths on its skin, you realize it's twisted beyond normalcy. Its mind is clouded, and the only emotions it can feel now are rage and pain.",
       "options": {
         "Chase": ["+2 ME|imgme//+1 random herb*","-5 HP"],
@@ -4615,7 +4875,7 @@
       ]
     },
     "albinowitchwolf":{
-      "name": "",
+      "name": "Albino Witch Wolf",
       "prompt": "This majestic white wolf has an aura of both danger and mystery. Its white cloak adorned with bones clinks ominously. Contact with the witches is a risk, but you'll never know what you could gain if you don't try.",
       "options": {
         "Greet with respect": ["+1 ME|imgme//+1 Squirrel Carcass|imgsquirrelcarcass"],
@@ -4623,7 +4883,7 @@
       }
     },
     "blindwitchwolf":{
-      "name": "",
+      "name": "Blind Witch Wolf",
       "prompt": "You see a witch wolf following a raven. After watching them for a few moments, you realize that the bird serves as her eyes, guiding her wherever she needs to go. For some reason, you feel uneasy. Legends about blind ones being able to sense the spirit world much better hover in the back of your mind.",
       "options": {
         "Follow": ["+4 ME|imgme//Gain illness: Cough/+4 ME|imgme|*/+4 ME|imgme|**"],
@@ -4639,7 +4899,7 @@
       ]
     },
     "bluebonefire":{
-      "name": "",
+      "name": "Blue Bonefire",
       "prompt": "A huge, blue flame is painting the sky and the surrounding area with cold tones, contrasting with the flaming red of the setting sun. The scenery is both beautiful and unsettling, leaving you with conflicting feelings.",
       "options": {
         "Watch the flames": ["+1 ME|imgme//+3 HP"],
@@ -4650,7 +4910,7 @@
       ]
     },
     "carcassaffecteddeer":{
-      "name": "",
+      "name": "Carcass of Affected Deer",
       "prompt": "While the deer is undoubtedly dead, its afflicted body seems to possess a life of its own with red, glowing veins and growths that appear to move. It looks like it's breathing! Spooky.",
       "options": {
         "Investigate": ["+3 ME|imgme//+1 random toy bundle item*//+1 random critter bundle carcass**"],
@@ -4662,7 +4922,7 @@
       ]
     },
     "corruptedabomination":{
-      "name": "",
+      "name": "Corrupted Abomination",
       "prompt": "Whoa! If death could walk, it would be this thing… and it's locked on you!",
       "options": {
         "Battle": ["Automatic battle with enemy Corrupted Abomination"]
@@ -4670,7 +4930,7 @@
       "trophies": "@corruptedabomination"
     },
     "deadhandstree":{
-      "name": "",
+      "name": "Clawed Hand Tree",
       "prompt": "A huge, dead tree appears to scratch the sky with its distorted, twisted branches that resemble clawed hands. Its exposed roots give the impression that the tree i in the midst of stepping out of the ground. Maybe it really is alive...?",
       "options": {
         "Rest": ["+2 ME|imgme//+1 random toy bundle item*","+1 ME|imgme//-5% energy"],
@@ -4684,7 +4944,7 @@
       ]
     },
     "deepholeblood":{
-      "name": "",
+      "name": "Deep Hole of Blood",
       "prompt": "You warily approach a deep hole, pelt prickling. The water inside this hole has a reddish tone and appears oddly dense...just like blood. Is it even possible for water to look like blood? Even the hole itself doesn't appear entirely natural, and more like someone dug it. You're almost certain you notice movement right beneath the surface, too.",
       "options": {
         "Hunt": ["+2 ME|imgme//+1 Dead Fish|imgdeadfish"],
@@ -4703,7 +4963,7 @@
       ]
     },
     "deerantlereyes":{
-      "name": "",
+      "name": "Strange Deer",
       "prompt": "The silhouette of a deer looks both familiar and a bit unsettling, and you can't quite pinpoint why at first. As the deer turns to face you, you notice its eye sockets are hollow while its glowing red eyes stare malevolently from its antlers. It's as if the creature can see into your soul.",
       "options": {
         "Staring contest": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random bone remains item*","+2 ME|imgme//+1 random herb***","+1 ME|imgme//-4 HP"],
@@ -4722,7 +4982,7 @@
       }
     },
     "energyspot":{
-      "name": "",
+      "name": "Energy Spot",
       "prompt": "You stop mid-step when you feel a strange, energizing sensation. While everything around looks normal, you definitely feel different here. The air feels refreshing, and even just standing here makes you feel better.",
       "options": {
         "Close your eyes": ["+3% energy//+3 HP"],
@@ -4736,7 +4996,7 @@
       ]
     },
     "giantspiderhuman":{
-      "name": "",
+      "name": "Giant Spider Creature",
       "prompt": "The creature in front of you appears to be just a giant spider. As you look closer, you realize its head resembles a human skull, emitting a constant, unsettling hissing sound. What a nightmare! There is no way to go forward without catching its attention.",
       "options": {
         "Attack": ["+2 ME|imgme//+1 random critter bundle carcass*","+2 ME|imgme//-3 HP","Gain illness: Infection/No result**"]
@@ -4750,7 +5010,7 @@
       ]
     },
     "greenbonefire":{
-      "name": "",
+      "name": "Green Bonefire",
       "prompt": "A strange glow shines through the leaves, visibly different from the morning sun's rays dancing among the trees. As you approach, you see a huge, green flame that looks otherworldly and a bit unsettling. What is it doing here?",
       "options": {
         "Stare in awe": ["+1 ME|imgme//+5% energy"],
@@ -4758,21 +5018,21 @@
       }
     },
     "hangingeffigy":{
-      "name": "",
+      "name": "Hanging Effigy",
       "prompt": "You notice something oddly-shaped attached to an overhang of a rather tall eroded cliff. What the heck is it? It's not a natural object, somebody definitely made this.",
       "options": {
         "Grab": ["+2 ME|imgme//-4 HP","+1 ME|imgme//+2% energy","+1 ME|imgme//+2 HP","+1 ME|imgme"]
       }
     },
     "hauntedcave":{
-      "name": "",
+      "name": "Haunted Cave",
       "prompt": "The cold, gaping maw of this cave isn't as dark as you expect it to be. A green, unsettling glow can be seen on the rocks inside. Drawing nearer, you notice ethereal, half-transparent silhouettes drifting soundlessly above your head, seemingly oblivious to your presence. At least for now.",
       "options": {
         "Try to communicate with them": ["+3 ME|imgme//+3% energy","+1 ME|imgme//+4 HP"]
       }
     },
     "hauntedlake":{
-      "name": "",
+      "name": "Haunted Lake",
       "prompt": "A mesmerizing, emerald glow beckons from a distance, capturing your attention. When you move closer, you see strange orbs floating above the surface of a shallow lake. You watch as the green flames dance in the air soundlessly. After a while, you notice that everything is abnormally silent, as if this area is a bubble of an alternate dimension.",
       "options": {
         "Go into the water": ["+1 ME|imgme"],
@@ -4783,14 +5043,14 @@
       ]
     },
     "hauntedmine":{
-      "name": "",
+      "name": "Haunted Mine",
       "prompt": "No matter how hard you try to see inside, the long, empty corridor is shrouded with deep shadows and reveals nothing. A faint echo, resembling a deep, low growl, reaches your ears, but the source of the sound is a mystery. Is it just your imagination?",
       "options": {
-        "Investigate": ["+3 ME|imgme//-3 HP"]
+        "Investigate": ["+3 ME|imgme//-3 HP","Automatic battle with enemy Black Vulture Group"]
       }
     },
     "headlesshorseman":{
-      "name": "",
+      "name": "Headless Horseman",
       "prompt": "A shadowy figure looms up ahead, and as it moves closer you can see it's a human riding a horse! Yet then you realize...it has no head. You get an odd feeling in your stomach. The rider is holding a large pumpkin with glowing eyes, and you wonder if that's how it sees the world.",
       "options": {
         "Bark": ["+2 ME|imgme"],
@@ -4798,7 +5058,7 @@
       }
     },
     "herbonhalloween":{
-      "name": "",
+      "name": "Herb and Cubs on Halloween",
       "prompt": "The familiar silhouette of a bear appears in front of you. It's Herb with his cubs, enjoying a special night together. While he looks a bit tired, his cubs are more than eager to trick or treat with you, trying to appear scary with their costumes. However, no matter what they do, they are just incredibly cute.",
       "options": {
         "Trick": ["+1 ME|imgme"],
@@ -4814,7 +5074,7 @@
       ]
     },
     "hollowedtree":{
-      "name": "",
+      "name": "Hollowed Tree",
       "prompt": "A big tree appears to be hunched over your path. It looks a bit knotted and hollow inside, as if somebody twisted strings and strands in place of the trunk.",
       "options": {
         "Dig around it": ["+1 ME|imgme//+1 random toy bundle item*","+1 ME|imgme"],
@@ -4825,11 +5085,11 @@
       ]
     },
     "hoodedwitchwolf":{
-      "name": "",
+      "name": "Hooded Witch Wolf",
       "prompt": "A witch wolf in a dark cloak stares at you from beneath her hood. You cannot clearly read her expression, but she appears to be waiting for you. The sudden urge to get closer is irresistible. You know you're risking a lot; the witches don't give anything for free.",
       "options": {
         "Ask for magical help": ["4 ME|imgme//-10 HP"],
-        "Greet": ["+1 ME|imgme///+1 random critter bundle carcass*//+1 random herb**"]
+        "Greet": ["+1 ME|imgme//+1 random critter bundle carcass*//+1 random herb**"]
       },
       "notes": [
         "*@poolcritterbundle",
@@ -4837,7 +5097,7 @@
       ]
     },
     "livingeffigy":{
-      "name": "",
+      "name": "Living Effigy",
       "prompt": "You yelp, surprised by glowing eyes in the openings of a tall effigy. It looks alive and rustles a bit. Since when did the stick-forms move?",
       "options": {
         "Poke": ["+1 ME|imgme//+2% energy","+1 ME|imgme"],
@@ -4845,7 +5105,7 @@
       }
     },
     "massiveeffigy":{
-      "name": "",
+      "name": "Massive Effigy",
       "prompt": "You come across a weird construction towering over you, loosely resembles a human shape. Had humans made it? Whatever the case, it feels sinister.",
       "options": {
         "Destroy the effigy": ["+1 ME|imgme//+1 Large Branch|imglargebranch"],
@@ -4853,7 +5113,7 @@
       }
     },
     "merwolf":{
-      "name": "",
+      "name": "Merwolf",
       "prompt": "You can't seem to wrap your head around this hybrid of a wolf and a fish. How does it exist and adapt to both surface and aquatic environments? The creature seems to be thriving, looking at you without any fear.",
       "options": {
         "Chase away": ["+1 ME|imgme//+1 Oar|imgoar//+1 Crab Leg|imgcrableg"],
@@ -4862,7 +5122,7 @@
       }
     },
     "miststalkers":{
-      "name": "",
+      "name": "Mist Stalkers",
       "prompt": "You're used to dark forests and all kinds of noises that they bring, but this place feels different and eerie. You feel observed not by one, but many sets of eyes, that follow your every movement. Shadowy silhouettes dance in the corners of your eyes but when you try to look at them, they vanish and reappear to haunt you from a different spot.",
       "options": {
         "Bark": ["2 ME|imgme","+1 ME|imgme//-5% energy"],
@@ -4870,7 +5130,7 @@
       }
     },
     "nightmarestallion":{
-      "name": "",
+      "name": "Nightmare Stallion",
       "prompt": "You can't believe your eyes at first. What appears to be a large black stallion turns out to be some sort of nightmarish monster. Its ribcage is grotesquely exposed, glowing with a molten, lava-like substance that oozes from its open sides. Not exactly as appetizing as you had hoped.",
       "options": {
         "Growl": ["+3 ME|imgme//-1 HP"],
@@ -4881,7 +5141,7 @@
       ]
     },
     "prettyflowerteeth":{
-      "name": "",
+      "name": "Weird Flower",
       "prompt": "This area is usually full of strange and beautiful plants. There is no way to remember them all, and there's always something new to discover. However, you're quite sure that you've never seen anything quite like this. The growths inside this flower resemble teeth. How is that possible?",
       "options": {
         "Sniff": ["+2 ME|imgme//+5% energy","+1 ME|imgme//-2 HP"],
@@ -4894,7 +5154,7 @@
       ]
     },
     "pumpkinscarecrow":{
-      "name": "",
+      "name": "Pumpkin-Headed Scarecrow",
       "prompt": "You stumble upon a desolate field, with only the wind howling between the destroyed remains of crops. A dark, tall shadow is guarding this forgotten place. You recognize the figure as a scarecrow, but this one is different. A skeletal silhouette with a pumpkin for a head appears to follow your every step, and the grotesque grin on its face feels sentient. Did it just move?",
       "options": {
         "Knock the pumpkin down": ["+2 ME|imgme//+1 random herb*","+1 ME|imgme"]
@@ -4904,7 +5164,7 @@
       ]
     },
     "redmist":{
-      "name": "",
+      "name": "Red Mist",
       "prompt": "Without warning, a strange red mist envelopes you and you have no chance to observe where it came from. Your breathing isn't affected, but the air feels oddly sticky in your lungs.",
       "options": {
         "Take a deep breath": ["+1 ME|imgme//+3% energy","-3% energy//+1 random 1-10 use carcass*","-3% energy//+1 random bone remains item**","-3% energy//+1 random herb***"],
@@ -4917,7 +5177,7 @@
       ]
     },
     "redrain":{
-      "name": "",
+      "name": "Red Rain",
       "prompt": "The familiar sound of rain is usually soothing, but the bloody red drops that fall from the sky set you on edge. Though you know it's water from the smell, the crimson hue of red puddles forming on the ground is unsettling.",
       "options": {
         "Feel it on your fur": ["+2 ME|imgme//+3 HP","+2 ME|imgme//-2 HP"],
@@ -4925,7 +5185,7 @@
       }
     },
     "rottingpumpkinfield":{
-      "name": "",
+      "name": "Rotting Pumpkin Field",
       "prompt": "The smell of this pumpkin field is so intense and intriguing that you ignore the spooky atmosphere it creates. Most of the pumpkins are in various stages of decay and their mixed scents are driving you crazy.",
       "options": {
         "Roll": ["+1 ME|imgme"],
@@ -4934,7 +5194,7 @@
       }
     },
     "skulkingwerewolf":{
-      "name": "",
+      "name": "Skulking Werewolf",
       "prompt": "From afar, this creature reminds you of an unusually large wolf, but as you look at it more closely, you notice its strange proportions. Its weirdly shaped front paws resemble human hands, and the hind legs are unusually long. It has to be a hybrid of some sort, and the torn clothing on its rump is a sign that whatever happened, happened rapidly. It's best to be cautious.",
       "options": {
         "Hunt together*": ["+1 ME|imgme"],
@@ -4950,7 +5210,7 @@
       ]
     },
     "skullshapedrock":{
-      "name": "",
+      "name": "Skull Shaped Rock",
       "prompt": "Two empty eye sockets of an abnormally large human skull peer at you maliciously. As you move closer, you realize that it's just an odd-shaped rock. It doesn't make the rock any less creepy; the resemblance is just too close.",
       "options": {
         "Check it Out": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random bone remains item*","+2 ME|imgme//+1 random herb***","+5 SC|imgsc//+2 ME|imgme"]
@@ -4962,7 +5222,7 @@
       ]
     },
     "skulltree":{
-      "name": "",
+      "name": "Skull Tree",
       "prompt": "You stop in your tracks, startled by seeing a face when there shouldn't be one here at all. After taking another look, it appears to just be an odd, bulbous growth on a tree, creating the illusion of a face.",
       "options": {
         "Climb": ["+2 ME|imgme","+1 ME|imgme//+1 random critter bundle carcass*//+1 Bone|imgbone","+1 ME|imgme//-2 HP"],
@@ -4974,7 +5234,7 @@
       ]
     },
     "smalleffigy":{
-      "name": "",
+      "name": "Small Effigy",
       "prompt": "An intricate construction is impaled on a rock in a sturdy way. It's not that big--perhaps you could even detach it? Or decorate it more?",
       "options": {
         "Add a piece*": ["+3 ME","No result**"],
@@ -4990,7 +5250,7 @@
       ]
     },
     "snowyowleggs":{
-      "name": "",
+      "name": "Affected Snowy Owl Eggs",
       "prompt": "You stumble upon a nest full of eggs and nobody is watching! It would be a waste to just leave them.",
       "options": {
         "Eat": ["+2 ME|imgme//+5% hunger","+2 ME|imgme//-4 HP"],
@@ -4998,7 +5258,7 @@
       }
     },
     "talaeggonhalloween":{
-      "name": "",
+      "name": "Tala and Egg on Halloween",
       "prompt": "Two wolf silhouettes in front of you are familiar even with the costumes. As you approach, you recognize Tala and Egg, enjoying a special night together. Egg’s sides are adorned with fake spider legs, looking realistic enough to send a chill down your spine. Tala is dressed as a ghost, but it's more cute than scary, making you smile.",
       "options": {
         "Trick": ["2 ME|imgme//-1 HP"],
@@ -5011,7 +5271,7 @@
       ]
     },
     "twistedtree":{
-      "name": "",
+      "name": "Twisted Tree",
       "prompt": "You did not expect to find something so unusual on this well-tread path. A twisted, dead tree is curving in an unnatural way, filling you with unease.",
       "options": {
         "Check inside": ["+3 SC|imgsc//+1 ME|imgme"],
