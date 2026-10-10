@@ -350,13 +350,6 @@
         "If your lead wolf is currently immune to illness."
       ]
     },
-    "bandeddesertcentipede": {
-      "name": "Banded Desert Centipede",
-      "prompt": "You catch your paw on a stone and stumble, kicking it across the path in front of you. It reveals a scary, spiky looking creature that tries to scurry away.",
-      "options": {
-        "Eat": ["+10% energy","-5% energy"]
-      }
-    },
     "bairdstapir": {
       "name": "Baird's Tapir",
       "prompt": "You hear the sound of a strange whistling noise echoing through the rainforest. You follow it, eventually being lead to a strange, long nosed creature. It doesn't seem to notice your approach, and continues its song.",
@@ -371,6 +364,13 @@
       "details": [
         "This encounter has effects that are not yet implemented in the game, so it will always have no result."
       ]
+    },
+    "bandeddesertcentipede": {
+      "name": "Banded Desert Centipede",
+      "prompt": "You catch your paw on a stone and stumble, kicking it across the path in front of you. It reveals a scary, spiky looking creature that tries to scurry away.",
+      "options": {
+        "Eat": ["+10% energy","-5% energy"]
+      }
     },
     "barnowl": {
       "name": "Barn Owl",
@@ -4990,6 +4990,7 @@
       ]
     },
     "effigy1|effigy2|effigy3|effigy4|effigy5|effigy6|effigy7|effigy8|effigy9|effigy10|effigy11|effigy12|effigy13|effigy14|effigy15|effigy16|effigy17|effigy18|effigy19|effigy20": {
+      "name": ["Effigy 1","Effigy 2","Effigy 3","Effigy 4","Effigy 5","Effigy 6","Effigy 7","Effigy 8","Effigy 9","Effigy 10","Effigy 11","Effigy 12","Effigy 13","Effigy 14","Effigy 15","Effigy 16","Effigy 17","Effigy 18","Effigy 19","Effigy 20"],
       "options": {
         "Take Effigy": ["+1 ME|imgme","-2 HP","No result"]
       }
