@@ -143,22 +143,6 @@
         "/biome/12": ["@poolherbglacier"]
       }
     },
-    "wolf": {
-      "name": "",
-      "prompt": "A figure appears up ahead of you, you raise your nose to the air and sniff.. another wolf!",
-      "options": {
-        "Attack": ["Automatic battle with local enemy @location1"],
-        "Befriend": ["Initiates claiming a New Befriended Wolf"]
-      },
-      "location": {
-        "/biome/1|/biome/4|/biome/6": ["Eastern Wolf"],
-        "/biome/2|/biome/3|/biome/9|/biome/10": ["Timber Wolf"],
-        "/biome/5": ["Mexican Wolf"],
-        "/biome/7|/biome/8": ["Red Wolf"],
-        "/biome/11": ["Alaskan Tundra Wolf"],
-        "/biome/12": ["Arctic Wolf"]
-      }
-    },
 
     "aggressivegoldeneagle": {
       "name": "Aggressive Golden Eagle",
@@ -702,7 +686,7 @@
       }
     },
     "commonravenmerchant": {
-      "name": "",
+      "name": "Common Raven Merchant",
       "prompt": "A low croak from above catches your attention. A big common raven merchant is seeking some items to refill its stock.",
       "options": {
         "Give a Bone": ["+5% energy//+1 Acorn|imgacorn"],
@@ -713,7 +697,7 @@
       }
     },
     "costashummingbird": {
-      "name": "",
+      "name": "Costa's Hummingbird",
       "prompt": "An odd-looking, vibrantly coloured bird flutters around a flower, probably feeding on the nectar. Birds are weird.",
       "options": {
         "Watch": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*","No result"],
@@ -724,7 +708,7 @@
       ]
     },
     "cottontail|desertcottontail": {
-      "name": "",
+      "name": ["Cottontail","Desert Cottontail"],
       "prompt": ["A small fluffy bunny sits alert in the grass.","Between the leaves of some desert brush, you see a small brown bunny absently chewing on some leaves.."],
       "options": {
         "Stalk": ["+1 Rabbit Carcass|imgrabbitcarcass//+1 Lucky Foot|imgluckyfoot","+1 Rabbit Carcass|imgrabbitcarcass//+1 Recipe: @poolrecipeluckyfoot","+1 Wisdom stat","No result"],
@@ -732,7 +716,7 @@
       }
     },
     "cougarmom": {
-      "name": "",
+      "name": "Cougar Mom and Cub",
       "prompt": "You stopped in mid-step upon noticing a large cougar on your path. And it wasn't alone. A young cub was attempting to keep pace with its mother as fast as it could with its short legs and still a bit wobbly movement. It’s a cute scenery but the cougar doesn't appear particularly thrilled by your presence.",
       "options": {
         "What a cute kid!": ["+1 random fresh scar decoration*//-4 HP"]
@@ -742,7 +726,7 @@
       ]
     },
     "cowboyherd": {
-      "name": "",
+      "name": "Cowboys and Herd of Cows",
       "prompt": "A herd of cows slowly crosses your path. You brighten at the thought of an easy hunt, but then you notice the humans at the back, herding them along. It makes the situation a little more complicated, but there's nothing beyond your skills, right?",
       "options": {
         "Follow": ["+1 Bone|imgbone","No result"],
@@ -750,7 +734,7 @@
       }
     },
     "crossfox": {
-      "name": "",
+      "name": "Cross Fox",
       "prompt": "Trotting along as if on a mission, a cross fox passes by, shooting glances at you out of the corner of its eye.",
       "options": {
         "Follow": ["+1 Mink Carcass|imgminkcarcass","+3% energy//-3 HP","-2 HP","No result"],
@@ -758,7 +742,7 @@
       }
     },
     "crowsnakeskinpurveyor": {
-      "name": "",
+      "name": "Crow Snake Skin Purveyor",
       "prompt": "What a fancy crow! It shows off its latest purchases, obviously fascinated by all types of shed snake skins. Maybe you have some for trade?",
       "options": {
         "Give Python Skin": ["+10 Python Eggs|imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs//+50 HP//+(LVL*40) EXP"],
@@ -769,7 +753,7 @@
       }
     },
     "dallsheep": {
-      "name": "",
+      "name": "Dall Sheep",
       "prompt": "A Dall sheep leaps across your path, too busy focusing on keeping its footing to notice you. Mutton on the menu, perhaps?",
       "options": {
         "Race": ["+10% energy","Gain illness: Fleas/No result*/-2 HP**"],
@@ -785,14 +769,14 @@
       ]
     },
     "deadcow": {
-      "name": "",
+      "name": "Dead Cow",
       "prompt": "A familiar scent reaches your nose before you can see its source. You see a large, dead cow. It's still very fresh and looks as if it only died moments ago.",
       "options": {
         "Take it": ["+1 Bovine Carcass|imgbovinecarcass"]
       }
     },
     "deadmuskox": {
-      "name": "Dead Muskox",
+      "name": "Muskox Carcass",
       "prompt": "You notice a huge muskox carcass in front of you. It's fresh and untouched; you're the first to discover it. Suddenly a loud seagull shriek breaks the silence, and your pelt prickles. You will have guests soon.",
       "options": {
         "Protect": ["+1 Muskox Carcass|imgmuskoxcarcass","-3 HP"],
@@ -806,7 +790,7 @@
       ]
     },
     "deertrappedinice": {
-      "name": "",
+      "name": "Deer Trapped in Ice",
       "prompt": "You notice the silhouette of a deer in the distance. It struggles to move and keeps falling. The ice has trapped it!",
       "options": {
         "Help": ["+6 HP","No result"],
@@ -814,15 +798,23 @@
       }
     },
     "deserthornedlizard": {
-      "name": "",
+      "name": "Desert Horned Lizard",
       "prompt": "Sunbathing on a nearby rock, a little horned lizard has its eyes closed as it enjoys the warmth of the sun. When it senses your movement, its eyes snap open and lock you in a deadly stare, as if daring you to disturb it.",
       "options": {
         "Chase": ["+1 Bone|imgbone","+2-5 SC|imgsc|(<5000 SC)","+3 HP","No result"],
         "Investigate the rocks": ["+1 Crow Skull|imgcrowskull","+1 Roadrunner Feather|imgroadrunnerfeather","No result"]
       }
     },
+    "desertmillipede": {
+      "name": "Desert Millipede",
+      "prompt": "A large, spiral-shaped object is resting on the ground, completely still. What is this weird creature?",
+      "options": {
+        "Eat": ["+3 HP","No result"],
+        "Touch": ["+1 Rattle|imgrattle","+2-3 SC|imgsc|(<5000 SC)","No result"]
+      }
+    },
     "desertsnow": {
-      "name": "",
+      "name": "Desert Snow",
       "prompt": "Snow in this area is a rare sight, and you feel a wave of excitement. This is something that won't happen again anytime soon!",
       "options": {
         "Run!": ["+10% energy","Lose all HP//Gain illness: Open Wound/Lose all HP*/-4 HP**"],
@@ -837,16 +829,8 @@
         "If your lead wolf is currently immune to illness."
       ]
     },
-    "desertmillipede": {
-      "name": "",
-      "prompt": "A large, spiral-shaped object is resting on the ground, completely still. What is this weird creature?",
-      "options": {
-        "Eat": ["+3 HP","No result"],
-        "Touch": ["+1 Rattle|imgrattle","+2-3 SC|imgsc|(<5000 SC)","No result"]
-      }
-    },
     "deserttortoise": {
-      "name": "",
+      "name": "Desert Tortoise",
       "prompt": "A slow, stumbling creature ambles through the desert. It looks hard and difficult to eat.",
       "options": {
         "Protect It!": ["+1 Condor Feather|imgcondorfeather","No result"],
@@ -861,7 +845,7 @@
       ]
     },
     "devildiver": {
-      "name": "",
+      "name": "Devil Diver",
       "prompt": "The whooping call of a devil diver pulls you to the nearby water, and you watch as it flies into the air, clearly disturbed by something.",
       "options": {
         "Ignore": ["+1 Turtle Shell|imgturtleshell","No result"],
@@ -877,7 +861,7 @@
       }
     },
     "dustdevil": {
-      "name": "",
+      "name": "Dust Devil",
       "prompt": "A spinning cloud of dust moves with dizzying speed across the desert plain. It's coming right toward you!",
       "options": {
         "Run!": ["+1-3 SC|imgsc|(<5000 SC)","+4% energy","-2 HP","No result"],
@@ -885,7 +869,7 @@
       }
     },
     "easternchipmunk": {
-      "name": "",
+      "name": "Eastern Chipmunk",
       "prompt": "An eastern chipmunk is perched upon the tree trunk, gingerly washing itself. As it notices you it leaps from the trunk and scurries off.",
       "options": {
         "Follow": ["+1 Acorn|imgacorn","No result"],
@@ -893,7 +877,7 @@
       }
     },
     "easterncrowhawker": {
-      "name": "",
+      "name": "Eastern Crow Hawker",
       "prompt": "The loud croaking of this eastern crow hawker announces the gathering of raven traders nearby.",
       "options": {
         "Tempt with Legendary Green Sturgeon": ["+1 Boar Pelt|imgboarpelt"],
@@ -903,14 +887,14 @@
       }
     },
     "ebonyjewelwing": {
-      "name": "",
+      "name": "Ebony Jewelwing",
       "prompt": "A beautiful ebony jewelwing flies past your head and lands on a small branch up ahead of you.",
       "options": {
         "Tilt Head": ["+1 Ebony Jewelwing|imgebonyjewelwing","No result"]
       }
     },
     "eel": {
-      "name": "",
+      "name": "Eel",
       "prompt": "You notice a long, black form wriggling in the mud up ahead. It's an eel!",
       "options": {
         "Check it out": ["+1 Ginger|imgginger","+3 HP","No result"],
@@ -918,7 +902,7 @@
       }
     },
     "egg": {
-      "name": "",
+      "name": "Egg",
       "prompt": "You stop in your tracks - a very vulgar wolf is passing by, vandalizing the bird nests in the vicinity. Oh no, the eggs!",
       "options": {
         "Clean Up": ["+2 Nesting Material|imgnestingmaterial;imgnestingmaterial","+1 random common egg*"],
@@ -929,7 +913,7 @@
       ]
     },
     "elfowl": {
-      "name": "",
+      "name": "Elf Owl",
       "prompt": "A tiny elf owl peeks out from its enclosed cactus home. You wonder if you can reach it.",
       "options": {
         "Offer Acorn": ["+1 random specific food item*"]
@@ -942,7 +926,7 @@
       }
     },
     "eveningbat": {
-      "name": "",
+      "name": "Evening Bat",
       "prompt": "A dark shadow dashes in front of your eyes, so silent that it startles you. When you focus your gaze on it, you recognize a bat in the middle of hunting.",
       "options": {
         "Chase": ["+1 Bat Carcass|imgbatcarcass","No result"],
@@ -950,7 +934,7 @@
       }
     },
     "faultysteelwolftrap": {
-      "name": "",
+      "name": "Faulty Steel Wolf Trap",
       "prompt": "Suddenly, an intense pain spreads throughout your body, something feels as if it grabbed your leg suddenly, but you can pull it out gently. One of your legs was scraped by something metallic!",
       "options": {
         "Check it out": ["+1 random fresh scar decoration*//-4 HP"]
@@ -960,7 +944,7 @@
       ]
     },
     "ferruginoushawk": {
-      "name": "",
+      "name": "Ferruginous Hawk",
       "prompt": "A large ferruginous hawk soars above you in the sky.",
       "options": {
         "Follow": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*","2-3 SC|imgsc|(<5000 SC)","No result"]
@@ -970,7 +954,7 @@
       ]
     },
     "fightingstags": {
-      "name": "",
+      "name": "Fighting Stags",
       "prompt": "The sounds of clashing antlers and angry snorts lead you to two stags locked in combat. They don't notice you at all. As they charge at each other again, their antlers become interlocked.",
       "options": {
         "Wait for the winner": ["+1 Entwined Antlers|imgentwinedantlers","+1-3 SC|imgsc|(<5000 SC)"],
@@ -984,14 +968,14 @@
       ]
     },
     "firefightingplanes": {
-      "name": "",
+      "name": "Firefighting Planes",
       "prompt": "A plane flies low in the sky, dumping water in its wake!",
       "options": {
         "Run away!": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+4-6 SC|imgsc|(<5000 SC)","-2 HP","No result"]
       }
     },
     "fireflies": {
-      "name": "",
+      "name": "Fireflies",
       "prompt": "Bright spots of light blink in and out of existence in the warm dark air of the forest. What a pleasant show!",
       "options": {
         "Follow their path": ["+2 Redwood Sorrel|imgredwoodsorrel;imgredwoodsorrel","+1 Goldenseal|imggoldenseal","+1 Lucky Foot|imgluckyfoot","No result"],
@@ -999,7 +983,7 @@
       }
     },
     "fishcrowmerchant": {
-      "name": "",
+      "name": "Fish Crow Merchant",
       "prompt": "On a rotten trunk among the tall trees, a fish crow croaks at you, inviting you to check out its wares. Looks like there's a high demand for certain items.",
       "options": {
         "Give Large Branch": ["+2 SC|imgsc//+2% energy//+6 HP"],
@@ -1010,7 +994,7 @@
       }
     },
     "fisher": {
-      "name": "",
+      "name": "Fisher and Lynx",
       "prompt": "You hear a violent scrabble and various hissing noises coming from nearby! You wander over to see a fisher in the throes of battle with a lynx.",
       "options": {
         "Intervene": ["+1 Rabbit Carcass|imgrabbitcarcass","2-3 SC|imgsc|(<5000 SC)"],
@@ -1025,7 +1009,7 @@
       ]
     },
     "fishermen": {
-      "name": "",
+      "name": "Fishermen",
       "prompt": "Humans with long sticks are standing by the nearby waterway. They wave them around and you watch as a line goes into the water. They smell of fish. What are they doing?",
       "options": {
         "Observe": ["+5 HP","+10% hunger"],
@@ -1040,7 +1024,7 @@
       }
     },
     "fivelinedskink": {
-      "name": "",
+      "name": "Five-Lined Skink",
       "prompt": "A small lizard is relaxing on warm rocks nearby. It seems that it's aware of your presence but is choosing to ignore you.",
       "options": {
         "Poke": ["+3-4 SC|imgsc|(<5000 SC)","+5 HP","No result"],
@@ -1049,7 +1033,7 @@
       }
     },
     "fledgingparakeetauklet": {
-      "name": "Fledging Parakeet Auklet",
+      "name": "Fledgling Parakeet Auklet",
       "prompt": "With its tiny size and considerable floof, this little auklet can't be older than a fledgling. It looks like it's waiting for something. Maybe its parents are due back soon?",
       "options": {
         "Investigate": ["+2 Dandelion|imgdandelion;imgdandelion","+1 Mollusk Shell|imgmolluskshell","No result"],
@@ -1060,15 +1044,20 @@
       "name": "Floodwaters",
       "prompt": "Floodwaters rise up, beginning to engulf the land around you. The recent storms must have caused the swampy land to become oversaturated. Think fast!",
       "options": {
-        "Take your chances": [""],
-        "Look for higher ground": [""]
+        "Take your chances": ["+2 Swine Carcass|imgswinecarcass;imgswinecarcass","Gain illness: Infection/No result*/-4 HP**"],
+        "Look for higher ground": ["+1 Bone|imgbone//+1 Mollusk Shell|imgmolluskshell","+1 Gnawing Hoof|imggnawinghoof","No result"]
       },
       "notes": [
-        ""
+        "*@details1",
+        "**@details2"
+      ],
+      "details": [
+        "If your lead wolf is currently sick.",
+        "If your lead wolf is currently immune to illness."
       ]
     },
     "floridacrowhawker": {
-      "name": "",
+      "name": "Florida Crow Hawker",
       "prompt": "At first you are annoyed by the croaking, but once you listen carefully, you manage to make out that the Florida crow hawker is directing animals to the nearest crow merchant.",
       "options": {
         "Tempt with Legendary Baby Alligator": ["+1 Wolf Pelt [Black]|imgwolfpeltblack"],
@@ -1078,7 +1067,7 @@
       }
     },
     "frozendeer": {
-      "name": "",
+      "name": "Frozen Deer",
       "prompt": "At first glance, this deer looks almost as if it's alive, but when you move closer, you realize that it's completely frozen and already torn into by another predator. What's most surprising is that you notice a tiny fawn by its side. It doesn't look at you and pretends to be invisible.",
       "options": {
         "Check it out": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1-4 SC|imgsc|(<5000 SC)","+1 HP","No result"],
@@ -1086,7 +1075,7 @@
       }
     },
     "gambelsquail": {
-      "name": "",
+      "name": "Gambel's Quail",
       "prompt": "A peculiar looking quail struts in front of you, looking like it's very busy doing...quail things. What do quails do, anyway?",
       "options": {
         "Approach": ["+1 Oregano|imgoregano","+1-5 SC|imgsc|(<5000 SC)","+2% energy","No result"],
@@ -1095,7 +1084,7 @@
       }
     },
     "gartersnake": {
-      "name": "",
+      "name": "Garter Snake",
       "prompt": "This charming little snake slithers around in the grass and over the top of a large rock to peek from higher ground. It seems to be looking for something.",
       "options": {
         "What's That?": ["+1 item for active snake quest","No result*"]
@@ -1124,7 +1113,7 @@
       ]
     },
     "gilawoodpeckercacti": {
-      "name": "",
+      "name": "Gila Woodpecker on Cactus",
       "prompt": "A very busy Gila woodpecker is sitting on the top of a cactus, looking around nervously, as if it has something to hide.",
       "options": {
         "Wait": ["+1 Aloe|imgaloe","+1 Bone|imgbone"],
@@ -1140,7 +1129,7 @@
       }
     },
     "greatblueheron": {
-      "name": "",
+      "name": "Great Blue Heron",
       "prompt": "A magnificent, gigantic great blue heron clatters its bill at you as a warning sign. Is the warning for you, or for its peers?",
       "options": {
         "Roll Over": ["+10% energy"]
@@ -1160,7 +1149,7 @@
       }
     },
     "greaterprairiechickendance": {
-      "name": "",
+      "name": "Greater Prairie-Chicken Dance",
       "prompt": "You spot strange movement in the grass. Upon moving closer, you discover two greater prairie chickens in the middle of a love dance. Well, the female is observing the dancing male in silence, looking a bit bored.",
       "options": {
         "Observe": ["+1 Grouse Feather|imggrousefeather","+1 SC|imgsc|(<5000 SC)","No result"],
@@ -1168,7 +1157,7 @@
       }
     },
     "greaterroadrunner": {
-      "name": "",
+      "name": "Greater Roadrunner",
       "prompt": "You see a strange bird scurrying at high speed across the desert floor.",
       "options": {
         "Meep Meep": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*"],
@@ -1179,7 +1168,7 @@
       ]
     },
     "greatersagegrouse ": {
-      "name": "",
+      "name": "Greater Sage-Grouse",
       "prompt": "Careful, straight ahead! A greater sage-grouse male seems to be prowling for challengers.",
       "options": {
         "Take a Chance": ["+1 Grouse Carcass|imggrousecarcass","+1 random recipe from grouse pool*","+1 random stat**","No result"]
@@ -1189,8 +1178,8 @@
         "**@poolstat"
       ]
     },
-    "greatgreyowlday": {
-      "name": "",
+    "greatgreyowl": {
+      "name": "Great Grey Owl",
       "prompt": "A massive, majestic great grey owl is landing right in front of you!",
       "options": {
         "Playful bow!": ["+1 Weasel Carcass|imgweaselcarcass","-1 HP"],
@@ -1212,7 +1201,7 @@
       }
     },
     "greenheron": {
-      "name": "",
+      "name": "Green Heron",
       "prompt": "A green heron wanders along nearby slow-moving water. It's observing the swimming shadow of a fish. You can tell it hasn't yet noticed you.",
       "options": {
         "Follow": ["+3-4 SC|imgsc|(<5000 SC)","No result"],
@@ -1236,7 +1225,7 @@
       }
     },
     "greyjay": {
-      "name": "",
+      "name": "Grey Jay",
       "prompt": "A grey jay is caching some food for the coldest months within dead tree bark. It notices you and is very vocal about you leaving immediately! The noise could attract some unwanted attention.",
       "options": {
         "Chase": ["+1 Agility stat","No result"],
@@ -1252,6 +1241,13 @@
       "options": {
         "Follow": ["+1 Lucky Foot|imgluckyfoot","+2-5 SC|imgsc|(<5000 SC)","+3 HP","No result"],
         "Chase": ["+10 HP"]
+      }
+    },
+    "gyrfalcon": {
+      "name": "Gyrfalcon",
+      "prompt": "You smell something nice. A small investigation leads you to a big gyrfalcon eating something on the ground. Nearly finished with its meal, it peeks at you from time to time, to make sure you don't try anything funny.",
+      "options": {
+        "Chase": ["+1 Gyrfalcon Feather|imggyrfalconfeather","No result"]
       }
     },
     "harbourporpoise": {
@@ -1277,7 +1273,7 @@
       }
     },
     "hikers": {
-      "name": "",
+      "name": "Hikers",
       "prompt": "A group of humans is passing by, their voices echoing loudly enough to make the whole area aware of their presence. You're close enough to catch intriguing scents. Their bags must be full of treats and trinkets!",
       "options": {
         "Growl": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1-6 SC|imgsc|(<5000 SC)","No result"],
@@ -1285,7 +1281,7 @@
       }
     },
     "housefinch": {
-      "name": "",
+      "name": "House Finch",
       "prompt": "A tiny bird sits on a nearby bush, observing you as its head tilts in curiosity.",
       "options": {
         "Play": ["+1 Bone|imgbone","+3% energy","No result"],
@@ -1322,13 +1318,6 @@
         "If your lead wolf is currently sick.",
         "If your lead wolf is currently immune to illness."
       ]
-    },
-    "gyrfalcon": {
-      "name": "Gyrfalcon",
-      "prompt": "You smell something nice. A small investigation leads you to a big gyrfalcon eating something on the ground. Nearly finished with its meal, it peeks at you from time to time, to make sure you don't try anything funny.",
-      "options": {
-        "Chase": ["+1 Gyrfalcon Feather|imggyrfalconfeather","No result"]
-      }
     },
     "jacksonschameleon": {
       "name": "Jackson's Chameleon",
@@ -1369,7 +1358,7 @@
       ]
     },
     "lampshadespider": {
-      "name": "",
+      "name": "Lampshade Spider",
       "prompt": "A dark mass caught in a web draws your gaze. It's a lampshade spider, sitting on her nest. Creepy!",
       "options": {
         "Approach": ["+10 HP","No result"],
@@ -1377,7 +1366,7 @@
       }
     },
     "lavendergrass": {
-      "name": "",
+      "name": "Lavender Grass",
       "prompt": "The beautiful sight of lavender grass swaying gently in the wind, the buzzing of bees, and the serenity surrounding you make you want to stay here for a while.",
       "options": {
         "Roll": ["+1 random herb from Grasslands*","+1 HP"],
@@ -1388,14 +1377,14 @@
       ]
     },
     "leastweasel": {
-      "name": "",
+      "name": "Least Weasel",
       "prompt": "You spot this small least weasel standing on a rock. How cute!",
       "options": {
         "Play": ["+10% energy"]
       }
     },
     "lesserprairiechicken": {
-      "name": "",
+      "name": "Lesser Prairie-Chicken",
       "prompt": "A male lesser prairie chicken is practicing his moves on a buffalo skull.",
       "options": {
         "Offer Acorn": ["+1 random specific food item*","+1 random recipe from acorn pool**"],
@@ -1410,7 +1399,7 @@
       }
     },
     "leucisticravenmerchant": {
-      "name": "",
+      "name": "Leucistic Raven Merchant",
       "prompt": "Your eyes water in awe when checking out all the pretty wares this leucistic raven merchant has in store. You ask if it's looking for anything to trade, but it's hard to hide your delight. The prices might be high!",
       "options": {
         "Give Charcoal": ["+2 SC|imgsc//+2% energy//+50 EXP"],
@@ -1435,7 +1424,7 @@
       }
     },
     "longearedowl": {
-      "name": "",
+      "name": "Long-Eared Owl",
       "prompt": "What a struggle! This long-eared owl just caught a gray ratsnake!",
       "options": {
         "Follow": ["+1 Bone|imgbone","+1 random recipe from bone pool*","-4 HP"],
@@ -1446,7 +1435,7 @@
       ]
     },
     "longtailedweasel": {
-      "name": "",
+      "name": "Long-Tailed Weasel",
       "prompt": "A long-tailed weasel tries to slip past you, holding a rat carcass in its jaws.",
       "options": {
         "Intimidate": ["+1 Rat Carcass|imgratcarcass","No result"],
@@ -1454,7 +1443,7 @@
       }
     },
     "mallard": {
-      "name": "",
+      "name": "Mallard",
       "prompt": "A beautiful male mallard duck is trying to impress a bored-looking female.",
       "options": {
         "Pounce": ["+3% hunger","No result"]
@@ -1468,14 +1457,6 @@
         "Scream back": ["+1 Amusement Scraps|imgamusementscraps","+3% energy","No result"]
       }
     },
-    "massivewalrusherd": {
-      "name": "Massive Walrus Herd",
-      "prompt": "Loud noises, a nasty smell, and aggressive thumping give away the fact that you're approaching a massive walrus herd.",
-      "options": {
-        "Scavenge carefully": ["+1 Whale Rib Bone|imgwhaleribbone","+5% hunger","-5 HP","No result"],
-        "Harass": ["Automatic battle with enemy Walrus","Automatic battle with enemy Walrus Group"]
-      }
-    },
     "margay": {
       "name": "Margay",
       "prompt": "A nervous margay is walking by, dragging its kill. It doesn't seem to want to engage in a fight.",
@@ -1484,8 +1465,16 @@
         "Steal": ["+1 Opossum Carcass|imgopossumcarcass","No result"]
       }
     },
+    "massivewalrusherd": {
+      "name": "Massive Walrus Herd",
+      "prompt": "Loud noises, a nasty smell, and aggressive thumping give away the fact that you're approaching a massive walrus herd.",
+      "options": {
+        "Scavenge carefully": ["+1 Whale Rib Bone|imgwhaleribbone","+5% hunger","-5 HP","No result"],
+        "Harass": ["Automatic battle with enemy Walrus","Automatic battle with enemy Walrus Group"]
+      }
+    },
     "merlin": {
-      "name": "",
+      "name": "Merlin",
       "prompt": "A beautiful merlin has landed in front of you! Its wise gaze beckons you to exchange knowledge.",
       "options": {
         "Attack!": ["+1 Merlin Carcass|imgmerlincarcass","+1-4 SC|imgsc|(<5000 SC)","+10% hunger"],
@@ -1493,14 +1482,14 @@
       }
     },
     "mexicanlongtonguedbat": {
-      "name": "",
+      "name": "Mexican Long-Tongued Bat",
       "prompt": "A long-faced Mexican long-tongued bat is feeding on an agave plant.",
       "options": {
         "Chow Down!": ["+5% hunger","No result"]
       }
     },
     "migratingbirds": {
-      "name": "",
+      "name": "Migrating Birds",
       "prompt": "A large flock of birds clogs the sky and nearly blocks out the sun. There's hundreds of them! It must be their annual migration.",
       "options": {
         "Count them": ["+3% energy","+2 HP"],
@@ -1508,7 +1497,7 @@
       }
     },
     "migratingbisonherd": {
-      "name": "",
+      "name": "Migrating Bison Herd",
       "prompt": "A familiar rumbling sound is unmistakable. In the distance, you see a huge bison herd moving forward like a flood.",
       "options": {
         "Follow": ["+2 Tansy|imgtansy;imgtansy//+1 Winterfat|imgwinterfat","No result"],
@@ -1516,7 +1505,7 @@
       }
     },
     "migratingmonarchbutterflies": {
-      "name": "",
+      "name": "Migrating Monarch Butterflies",
       "prompt": "Hundreds of butterflies are gracefully flying above your head in a magical dance.",
       "options": {
         "Chomp": ["+6% energy","+2 HP","Gain illness: Constipation/-2 HP*"],
@@ -1538,7 +1527,7 @@
       }
     },
     "migratingwoodcocks": {
-      "name": "",
+      "name": "Migrating Woodcocks",
       "prompt": "A flock of chattering woodcocks fly annoyingly around your head. Don't they have anything better to do?",
       "options": {
         "Chatter back": ["+1 Acorn|imgacorn","+3 HP","No result"],
@@ -1547,7 +1536,7 @@
       }
     },
     "milksnake": {
-      "name": "",
+      "name": "Milk Snake",
       "prompt": "A peculiar rustling sound catches your attention, leading you to an intriguing sight. You discover a nest full of eggs where a milk snake is about to devour one of them.",
       "options": {
         "Attack!": ["+1 Milk Snake Carcass|imgmilksnakecarcass","+3% energy//+10% hunger","No result"],
@@ -1555,7 +1544,7 @@
       }
     },
     "mojavetarantula": {
-      "name": "",
+      "name": "Mojave Tarantula",
       "prompt": "A large and very hairy tarantula eyes you from a nearby rock.Hmm...friend or foe?",
       "options": {
         "Pounce": ["+10 HP","Gain illness: Poison/No result*"],
@@ -1594,7 +1583,7 @@
       }
     },
     "mountainbeaver": {
-      "name": "",
+      "name": "Mountain Beaver",
       "prompt": "This mountain beaver is caught off-guard outside of its burrow! It quickly shows you its enormous teeth before you consider attacking. Yes, it's best not to engage.",
       "options": {
         "Offer Acorn": ["+1 Cliff Swallowtail|imgcliffswallowtail","+1 Lucky Foot|imgluckyfoot","+1 Recipe: @poolrecipeluckyfoot","+1 random recipe from acorn pool*","+1 random recipe from cave-building material pool**"]
@@ -1608,7 +1597,7 @@
       }
     },
     "mountainchickadee": {
-      "name": "",
+      "name": "Mountain Chickadee",
       "prompt": "Chickadees are supposed to be small and cute, but why must they be so loud? Its shrill calls echo in your ears as it peers down at you without remorse.",
       "options": {
         "Shoo Away": ["+1 Hiker's Rope|imghikersrope","+3% energy","+10% hunger","No result"],
@@ -1616,7 +1605,7 @@
       }
     },
     "mountaingoat": {
-      "name": "",
+      "name": "Mountain Goat",
       "prompt": "A mountain billy goat is very determined not to allow you to pass any further.",
       "options": {
         "Growl": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*","No result"]
@@ -1626,7 +1615,7 @@
       ]
     },
     "ninebandedarmadillo": {
-      "name": "",
+      "name": "Nine-Banded Armadillo",
       "prompt": "A small Nine-Banded Armadillo sits cleaning itself before turning and trotting off.",
       "options": {
         "Follow": ["+1 random common egg*"],
@@ -1637,7 +1626,7 @@
       ]
     },
     "northamericanriverotter": {
-      "name": "",
+      "name": "North American River Otter",
       "prompt": "A curious otter asks you to play! You're busy, but...the otter is too cute to resist.",
       "options": {
         "Offer Acorn": ["+1 Recipe: Playful North American River Otter|imgrecipeanimal;imgplayfulnorthamericanriverotter"],
@@ -1645,7 +1634,7 @@
       }
     },
     "northernboglemming": {
-      "name": "",
+      "name": "Northern Bog Lemming",
       "prompt": "Two little lemmings look like they're very focused on something. Maybe you should see if they'll share...or you could just take it by force and get a meal out of it, too.",
       "options": {
         "Enquire": ["+2 Gyrfalcon Feather|imggyrfalconfeather;imggyrfalconfeather","+1 Bearberry|imgbearberry","+2 HP","No result"],
@@ -1653,7 +1642,7 @@
       }
     },
     "northerncardinal": {
-      "name": "",
+      "name": "Northern Cardinal",
       "prompt": "A beautiful red cardinal sings its song on a branch above your head. How lovely!",
       "options": {
         "Listen": ["+1 Butterfly Wing|imgbutterflywing","+3 HP","No result"],
@@ -1683,7 +1672,7 @@
       }
     },
     "northerngoshawk": {
-      "name": "",
+      "name": "Northern Goshawk",
       "prompt": "A northern goshawk is flying through the forest clearing. The squirrel it was chasing just dashed between your legs!",
       "options": {
         "Hide It": ["+2 Grouse Feather|imggrousefeather;imggrousefeather"],
@@ -1692,7 +1681,7 @@
       }
     },
     "northerngrasshoppermouse": {
-      "name": "",
+      "name": "Northern Grasshopper Mouse",
       "prompt": "You hear scratching from a nearby fence pole. There's an energetic northern grasshopper mouse on it.",
       "options": {
         "Mark Scent": ["+1 Regal Fritillary|imgregalfritillary","No result"],
@@ -1708,7 +1697,7 @@
       }
     },
     "northernlongearedbat": {
-      "name": "",
+      "name": "Northern Long-Eared Bat",
       "prompt": "You hear high-pitched chirping and fluttering. A northern long-eared bat is flying around you among the spruce trees! You can tell there are many more not too far away, but this one is really annoying.",
       "options": {
         "Catch": ["+2 HP","+5% hunger","No result"]
@@ -1723,7 +1712,7 @@
       }
     },
     "northernpygmyowl": {
-      "name": "",
+      "name": "Northern Pygmy Owl",
       "prompt": "A northern pygmy owl is staring down at you from the low-hanging branch of a tree. Its head is rotating in all directions as the wide, open eyes follow your every move.",
       "options": {
         "Hoot": ["+2-3 SC|imgsc|(<5000 SC)","No result (>5000 SC)"],
@@ -1739,7 +1728,7 @@
       }
     },
     "northwesterncrowhawker": {
-      "name": "",
+      "name": "Northwestern Crow Hawker",
       "prompt": "A small, Northwestern Crow Hawker is announcing arrival of raven traders in the area.",
       "options": {
         "Tempt with Legendary Chinook Salmon": ["+1 Bobcat Pelt|imgbobcatpelt"],
@@ -1776,7 +1765,7 @@
       }
     },
     "opossum": {
-      "name": "",
+      "name": "Opossum",
       "prompt": "You spot an opossum on a tree branch above. It watches you closely, wary.",
       "options": {
         "Meanly Offer Acorn": ["+1 random recipe from acorn pool*"],
@@ -1799,7 +1788,7 @@
       }
     },
     "paintedturtle": {
-      "name": "",
+      "name": "Painted Turtle",
       "prompt": "Small and brightly colored, a little painted turtle stretches out on a nearby log, looking out over the territory. Is it watching for predators?",
       "options": {
         "Inspect the log": ["+1 Catfish Skull|imgcatfishskull","No result"],
@@ -1822,14 +1811,14 @@
       }
     },
     "peregrinefalcon": {
-      "name": "",
+      "name": "Peregrine Falcon",
       "prompt": "A Peregrine Falcon soars overhead, it's impossibly fast, you almost don't notice it. You watch as something drops from it.",
       "options": {
         "Catch": ["+1 Peregrine Falcon Feather|imgperegrinefalconfeather","+5% hunger"]
       }
     },
     "piedravenpeddler": {
-      "name": "",
+      "name": "Pied Raven Peddler",
       "prompt": "Whoah! A magnificent pied raven peddler is inviting you to check out the fresh stock in their shop. You're more interested in its feathers at first, but soon enough you learn what the bird is interested in.",
       "options": {
         "Give Dandelion": ["+1 Medicine: Healing Salve|imgmedicinehealingsalve","+8 HP"],
@@ -1840,12 +1829,28 @@
       }
     },
     "plainspocketgopher": {
-      "name": "",
+      "name": "Plains Pocket Gopher",
       "prompt": "A fluffy gopher pokes his head out of its burrow, checking if it is safe to emerge.",
       "options": {
         "Offer Acorn": ["+8 HP"],
         "Tease": ["+1 Buffaloberry|imgbuffaloberry","No result"]
       }
+    },
+    "playingravens": {
+      "name": "Playing Ravens",
+      "prompt": "You spot two ravens flying around each other and tussling on the ground. It appears as if they are fighting, but upon second glance, you realize they are just having fun.",
+      "options": {
+        "Join": ["+10% energy","-100% energy//Gain illness: Influenza/No result*/-2 HP**"],
+        "Chase": ["+3 Amusement Scraps|imgamusementscraps;imgamusementscraps;imgamusementscraps","+1 Moose Cow Carcass|imgmoosecowcarcass","No result"]
+      },
+      "notes": [
+        "*@details1",
+        "**@details2"
+      ],
+      "details": [
+        "If your lead wolf is currently sick.",
+        "If your lead wolf is currently immune to illness."
+      ]
     },
     "polarbearcubs": {
       "name": "Polar Bear Cubs",
@@ -1864,31 +1869,15 @@
       }
     },
     "porcupine": {
-      "name": "",
+      "name": "Porcupine",
       "prompt": "Spiky and with a face only a mother could love, a porcupine perches on a rock and stares you down.",
       "options": {
         "Pounce": ["+1 Porcupine Carcass|imgporcupinecarcass","No result"],
         "Approach": ["+1 Acorn|imgacorn","No result"]
       }
     },
-    "playingravens": {
-      "name": "",
-      "prompt": "You spot two ravens flying around each other and tussling on the ground. It appears as if they are fighting, but upon second glance, you realize they are just having fun.",
-      "options": {
-        "Join": ["+10% energy","-100% energy//Gain illness: Influenza/No result*/-2 HP**"],
-        "Chase": ["+3 Amusement Scraps|imgamusementscraps;imgamusementscraps;imgamusementscraps","+1 Moose Cow Carcass|imgmoosecowcarcass","No result"]
-      },
-      "notes": [
-        "*@details1",
-        "**@details2"
-      ],
-      "details": [
-        "If your lead wolf is currently sick.",
-        "If your lead wolf is currently immune to illness."
-      ]
-    },
     "prairiekingsnake": {
-      "name": "",
+      "name": "Prairie Kingsnake",
       "prompt": "What's that rattling...?! It's a snake! Oh no, it's a snake... but, phew, it's not a rattlesnake, thank goodness. It's a prairie kingsnake, who is rather nervous about your presence.",
       "options": {
         "Pester": ["+2 Bone|imgbone;imgbone","+1 random recipe from bone pool*","+2-3 SC|imgsc|(<5000 SC)","No result"]
@@ -1898,7 +1887,7 @@
       ]
     },
     "prancingfawns": {
-      "name": "",
+      "name": "Prancing Fawns",
       "prompt": "Two very young fawns are having fun prancing around. They haven't noticed you, and there is no sign of other deer nearby. Do they know that it's dangerous to be far away from their herd?",
       "options": {
         "Join them": ["+4% energy","No result"],
@@ -1906,7 +1895,7 @@
       }
     },
     "pumpkinpatch": {
-      "name": "",
+      "name": "Pumpkin Patch",
       "prompt": "What a sight! Lots of huge, fresh, and almost perfectly round pumpkins are lying around, ready to be tended to.",
       "options": {
         "Eat": ["+1 random herb from Grasslands*","+3 HP//+3% hunger"]
@@ -1916,7 +1905,7 @@
       ]
     },
     "raccoon": {
-      "name": "",
+      "name": "Raccoon",
       "prompt": "This angry Raccoon seems to be guarding something. Hmmm...",
       "options": {
         "Investigate[Spring]": {
@@ -1938,7 +1927,7 @@
       }
     },
     "rainbowtrout": {
-      "name": "",
+      "name": "Rainbow Trout",
       "prompt": "The strong smell of fish captures your attention, and you spot a rainbow trout's body shining on the nearby rocks. It's still very fresh and very tempting but you're not the sole visitor eager to claim it. It looks like a raccoon is also trying to get closer to the fish!",
       "options": {
         "Offer Acorn": ["+10% energy"],
@@ -1946,7 +1935,7 @@
       }
     },
     "raven": {
-      "name": "",
+      "name": "Raven",
       "prompt": "A raven swoops down over your head and seems to be trying to get your attention.",
       "options": {
         "Follow": ["+1 random toy bundle item*","+1 random critter bundle carcass**","+1 random herb***","+1 random recipe from amusement pool****","+1 random recipe from rare jay pool*****","+4-6 SC|imgsc|(<5000 SC)","+1-2 SC|imgsc|(>5000 SC)","No result"]
@@ -1960,7 +1949,7 @@
       ]
     },
     "ravenantlerpurveyor": {
-      "name": "",
+      "name": "Raven Antler Purveyor",
       "prompt": "You notice a big raven showing off its antler collection. It's looking for more. Maybe you have something to offer?",
       "options": {
         "Give Moose Antler": ["+20% energy//+2 Vulture Eggs|imgvultureeggs;imgvultureeggs//+10 HP"],
@@ -1972,7 +1961,7 @@
       }
     },
     "ravenbeakdealer": {
-      "name": "",
+      "name": "Raven Beak Dealer",
       "prompt": "When you spot a raven with a broken beak, you worry if it's able to feed properly, but you discover it has its own shop dedicated to beaks, and a few helpers moving things around. Looks like no matter what, it's making the best of its situation! Maybe it's looking to expand the collection?",
       "options": {
         "Give Small Bird Meat": ["+4% energy//+2 HP"],
@@ -1982,7 +1971,7 @@
       }
     },
     "ravenhoofdealer": {
-      "name": "",
+      "name": "Raven Hoof Dealer",
       "prompt": "Fascinated by legs in many shapes and colours, this raven dealer seems to be eager to enhance their collection. You notice its white eye, but it seems to be watching your behaviour with a proper judgemental expression.",
       "options": {
         "Give Goose Leg": ["+2 Sausage|imgsausage;imgsausage","+1 Cougar Pelt|imgcougarpelt"],
@@ -1992,7 +1981,7 @@
       }
     },
     "ravenshelldealer": {
-      "name": "",
+      "name": "Raven Shell Dealer",
       "prompt": "Stashed in all the nooks and crannies of an old, wiggly tree, are beautiful shells of all colours and sizes. The owner of the shop asks if you have anything cool to trade.",
       "options": {
         "Give Turtle Shell": ["+10 HP//+(LVL*30) EXP"],
@@ -2002,7 +1991,7 @@
       }
     },
     "redbelliedwoodpecker": {
-      "name": "",
+      "name": "Red-Bellied Woodpecker",
       "prompt": "Loud, rhythmic knocking makes you feel like something is drilling into your head. A red-bellied woodpecker is the source of the irritating noise, of course.",
       "options": {
         "Offer Acorn": ["+2-3 SC|imgsc","+1 random recipe from acorn pool**"],
@@ -2020,7 +2009,7 @@
       }
     },
     "redcockadedwoodpecker": {
-      "name": "",
+      "name": "Red-Cockaded Woodpecker",
       "prompt": "A woodpecker clings to a nearby tree, it's head buried in a hole. Suddenly it yanks back, a squirming insect trapped in its beak! The bug disappears in one swallow and the woodpecker watches you with interest.",
       "options": {
         "Sniff": ["+2 Garlic|imggarlic;imggarlic","+1 Feverfew|imgfeverfew","+5 HP","No result"],
@@ -2028,7 +2017,7 @@
       }
     },
     "redneckedgrebe": {
-      "name": "",
+      "name": "Red-Necked Grebe",
       "prompt": "A striking red-necked grebe lands in the nearby water, fluffing its feathers as it glides across the glass-like surface.",
       "options": {
         "Follow along the shore": ["+1 Mollusk Shell|imgmolluskshell","+4 HP"],
@@ -2036,7 +2025,7 @@
       }
     },
     "redsquirrel": {
-      "name": "",
+      "name": "Red Squirrel",
       "prompt": "A red squirrel is perched on a branch, clasping what looks like a pinecone in its paws. It would be a shame if it dropped it...",
       "options": {
         "Offer Acorn": ["+2-3 SC|imgsc","+1 random recipe from acorn pool*"],
@@ -2066,7 +2055,7 @@
       }
     },
     "ringtailedcat": {
-      "name": "",
+      "name": "Ring-Tailed Cat",
       "prompt": "You hear clicking and chattering. After locating the source of the sound with your mobile ears, you spot a ring-tailed cat on a branch!",
       "options": {
         "Wag tail": ["+1 Bone|imgbone","+1 random recipe from bone pool*","No result"],
@@ -2077,7 +2066,7 @@
       ]
     },
     "rockymountaintoad": {
-      "name": "",
+      "name": "Rocky Mountain Toad",
       "prompt": "A thick, fat, and juicy Rocky Mountain toad is resting on this comfortable rock, protected from the weather by a coat of mucus and mud.",
       "options": {
         "Lick it": ["+1 Expression: Pfflrp|imgexpressionpfflrp","+5 HP","Gain illness: Poison/No result*","No result"],
@@ -2099,14 +2088,14 @@
       }
     },
     "salicetsphinx": {
-      "name": "",
+      "name": "Salicet Sphinx Moth",
       "prompt": "A Salicet sphinx moth is stretching its wings, getting ready to hide from the incoming day.",
       "options": {
         "Poke It": ["+1 Butterfly Wing|imgbutterflywing","No result"]
       }
     },
     "sasquatchinthemist": {
-      "name": "",
+      "name": "Figure in the Mist",
       "prompt": "Your eyes catch movement in the mist ahead. The form looks human, and yet...it's furry, too. What could it be?",
       "options": {
         "Follow": ["+1 Old Doll|imgolddoll","+4 HP","No result"],
@@ -2129,7 +2118,7 @@
       }
     },
     "sharptailedgrouse": {
-      "name": "",
+      "name": "Sharp-Tailed Grouse Fight",
       "prompt": "These two male Sharp-Tailed Grouse are making a lot of noise! Feathers fly as these ridiculous creatures viciously attack each other, scrambling for dominance over mating rights for a nearby female.",
       "options": {
         "Break Up": ["+1 Grouse Feather|imggrousefeather","+1 random recipe from grouse pool*","No result"],
@@ -2141,15 +2130,23 @@
       ]
     },
     "shortearedowl": {
-      "name": "",
+      "name": "Short-Eared Owl",
       "prompt": "A familiar shape catches your attention. It's an owl, staring at you so intensely that it's a bit unnerving.",
       "options": {
         "Bark": ["+1 Owl Feather|imgowlfeather","+1-4 SC|imgsc|(<5000 SC)","No result"],
         "Chase": ["+1 Lucky Foot|imgluckyfoot","+1-3 SC|imgsc|(<5000 SC)","No result"]
       }
     },
+    "silkyanteater": {
+      "name": "Silky Anteater",
+      "prompt": "What a strange looking creature! Its fur looks soft to the touch. It peers down at you curiously from the branches, wary but not afraid.",
+      "options": {
+        "Hunt": ["+1 Silky Anteater Carcass|imgsilkyanteatercarcass","+2 HP//+10% hunger","No result"],
+        "Converse": ["+2 Pineapple Leaf|imgpineappleleaf;imgpineappleleaf","+4 HP","+2 HP","No result"]
+      }
+    },
     "sinaloacrowmerchant": {
-      "name": "",
+      "name": "Sinaloa Crow Merchant",
       "prompt": "You haven't seen anything like this before - a sinaloa crow merchant is carrying all the goods in a human-made basket. It all smells like delicious food, and even the fake tiny human smells fun. You have seen those before! Maybe it's looking for more?",
       "options": {
         "Give Large Rock": ["+2 SC|imgsc//+2% energy//+6 HP"],
@@ -2168,7 +2165,7 @@
       }
     },
     "sitkadeer": {
-      "name": "",
+      "name": "Sitka Deer",
       "prompt": "This Sitka deer is wandering out in the open. It hasn't noticed you yet, as you're hidden well behind some fallen spruce trees.",
       "options": {
         "Hunt": ["+1 Meat Chunks [Large]|imgmeatchunkslarge","No result"]
@@ -2183,7 +2180,7 @@
       }
     },
     "snowman": {
-      "name": "",
+      "name": "Snowman",
       "prompt": "Big balls of snow are stacked on top of each other and seem to be dressed in human things. What a strange thing to do!",
       "options": {
         "Dig Around": ["+1-5 SC|imgsc|(<5000 SC)","+3 HP","No result"],
@@ -2199,7 +2196,7 @@
       }
     },
     "southerncrowhawker": {
-      "name": "",
+      "name": "Southern Crow Hawker",
       "prompt": "You spot a southern crow hawker high in the sky as it announces a gathering of merchants just down by the river.",
       "options": {
         "Tempt with Legendary Lake Sturgeon": ["+1 Pronghorn Pelt|imgpronghornpelt"],
@@ -2209,7 +2206,7 @@
       }
     },
     "southernflyingsquirrel": {
-      "name": "",
+      "name": "Southern Flying Squirrel",
       "prompt": "You notice a small critter flying through the air.. what on earth? You take a closer look - seems to be a Southern Flying Squirrel!",
       "options": {
         "Watch": ["+1 Acorn|imgacorn","+7% hunger","No result"]
@@ -2232,7 +2229,7 @@
       ]
     },
     "spottedskunk": {
-      "name": "",
+      "name": "Spotted Skunk",
       "prompt": "Balancing on its front legs, a skunk raises its bum in your direction, ready to spray!",
       "options": {
         "Back Away": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","No result"],
@@ -2240,14 +2237,14 @@
       }
     },
     "stripedskunk": {
-      "name": "",
+      "name": "Striped Skunk",
       "prompt": "This looks like an interesting, perhaps tasty creature... On second thought, it smells bad. Very very bad. Rancid, even. Time to run away!",
       "options": {
         "Hold Your Breath": ["+2-4 SC|imgsc|(<5000 SC)","No result"]
       }
     },
     "swarmingrats": {
-      "name": "",
+      "name": "Swarming Rats",
       "prompt": "Individually, a single rat may make for a satisfying snack, but a bunch of them can turn into a feast no worse than much larger prey. The way they try to escape triggers your hunter instincts even more.",
       "options": {
         "Catch some!": ["+1 random fresh scar decoration*//-4 HP"]
@@ -2257,7 +2254,7 @@
       ]
     },
     "tala": {
-      "name": "",
+      "name": "Tala",
       "prompt": "Oh no! It's Tala! She seems to be taunting you for a little payback after the last fight. Are you brave enough to wrestle her?",
       "options": {
         "Attack!": ["Automatic battle with enemy Wandering Tala"]
@@ -2265,7 +2262,7 @@
       "trophies": "@wanderingtala"
     },
     "tamaulipascrowhawker": {
-      "name": "",
+      "name": "Tamaulipas Crow Hawker",
       "prompt": "You jump, surprised by the loud croaking of a tamaulipas crow hawker. Looks like new merchants are moving in somewhere near your den.",
       "options": {
         "Tempt with Legendary Colorado Pikeminnow": ["+1 Fox Pelt [Swift]|imgfoxpeltswift"],
@@ -2275,7 +2272,7 @@
       }
     },
     "texasbandedgecko": {
-      "name": "",
+      "name": "Texas Banded Gecko",
       "prompt": "This vibrantly colored gecko is hard to spot among the rocks. It's so tiny, too!",
       "options": {
         "Poke": ["+1 Butterfly Wing|imgbutterflywing","+1 Old Horseshoe|imgoldhorseshoe"],
@@ -2298,7 +2295,7 @@
       }
     },
     "trumpeterswan": {
-      "name": "",
+      "name": "Trumpeter Swan",
       "prompt": "A trumpeter swan flying by has startled you!",
       "options": {
         "Jump!": ["+1 Swan Carcass|imgswancarcass","+1 Swan Feather|imgswanfeather"],
@@ -2317,7 +2314,7 @@
       ]
     },
     "tumbleweed": {
-      "name": "",
+      "name": "Tumbleweed",
       "prompt": "A rolling tumbleweed makes a rattling sound as it crosses your path. It moves with a purpose, almost like it's alive!",
       "options": {
         "Check it out": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+2 HP","No result"],
@@ -2333,7 +2330,7 @@
       }
     },
     "twobarredcrossbill": {
-      "name": "",
+      "name": "Two-Barred Crossbill",
       "prompt": "A two-barred crossbill is chilling on a branch. It has quite a special-looking beak. Perhaps it can use it to find special things?",
       "options": {
         "Offer Acorn": ["+1 Baltimore Checkerspot|imgbaltimorecheckerspot","+1 random recipe from acorn pool*","+5% hunger"]
@@ -2356,7 +2353,7 @@
       ]
     },
     "variedthrush": {
-      "name": "",
+      "name": "Varied Thrush",
       "prompt": "A distinctive little thrush perches on a branch, preening and looking around from time to time. It doesn't have a care in the world! You wouldn't either if you stayed up high enough that no one could reach you.",
       "options": {
         "Call up to it": ["+1 Butterfly Wing|imgbutterflywing","+1 Lucky Foot|imgluckyfoot","+3 HP","No result"],
@@ -2364,7 +2361,7 @@
       }
     },
     "westerncrowhawker": {
-      "name": "",
+      "name": "Western Crow Hawker",
       "prompt": "Here ye, here ye! The big raven market is opening nearby! This western crow hawker is busy announcing the location of new traders to all local animals.",
       "options": {
         "Tempt with Legendary White Sturgeon": ["+1 Fox Pelt [Swift]|imgfoxpeltswift"],
@@ -2390,7 +2387,7 @@
       }
     },
     "whitetailedantelopesquirrel": {
-      "name": "",
+      "name": "White-Tailed Antelope Squirrel",
       "prompt": "A small rodent walks quickly through the sand in front of you. It's so tiny that it doesn't even make your mouth water. No meat on that little thing. It freezes upon noticing you.",
       "options": {
         "Offer Acorn": ["+10% energy"],
@@ -2398,7 +2395,7 @@
       }
     },
     "wildturkey": {
-      "name": "",
+      "name": "Wild Turkey",
       "prompt": "This tom turkey is strutting and making drumming noises. Perhaps there are some females nearby he is trying to impress.",
       "options": {
         "Stalk": ["+1 Turkey Tom Carcass|imgturkeytomcarcass","-2 HP","No result"]
@@ -2415,6 +2412,22 @@
       ],
       "conditional": {
         "Offer Acorn": "@poolrecipeacorn"
+      }
+    },
+    "wolf": {
+      "name": "Befriendable Wolf",
+      "prompt": "A figure appears up ahead of you, you raise your nose to the air and sniff.. another wolf!",
+      "options": {
+        "Attack": ["Automatic battle with local enemy @location1"],
+        "Befriend": ["Initiates claiming a New Befriended Wolf"]
+      },
+      "location": {
+        "/biome/1|/biome/4|/biome/6": ["Eastern Wolf"],
+        "/biome/2|/biome/3|/biome/9|/biome/10": ["Timber Wolf"],
+        "/biome/5": ["Mexican Wolf"],
+        "/biome/7|/biome/8": ["Red Wolf"],
+        "/biome/11": ["Alaskan Tundra Wolf"],
+        "/biome/12": ["Arctic Wolf"]
       }
     },
     "wolffish": {
@@ -2436,7 +2449,7 @@
       }
     },
     "woodhousesscrubjay": {
-      "name": "",
+      "name": "Woodhouse's Scrub Jays",
       "prompt": "Two woodhouse's scrub jays are foraging for food. This place must be nice!",
       "options": {
         "Dig Around": ["+1 Acorn|imgacorn"],
@@ -2447,7 +2460,7 @@
       ]
     },
     "yellowbelliedmarmot": {
-      "name": "",
+      "name": "Yellow-Bellied Marmots",
       "prompt": "Two fluffy marmots have come out of their burrow anxiously, as if they can sense your presence.",
       "options": {
         "Investigate the area": ["+1 St. John's Wort|imgstjohnswort","No result"],
@@ -2455,7 +2468,7 @@
       }
     },
     "yellowpinechipmunk": {
-      "name": "",
+      "name": "Yellow-Pine Chipmunk",
       "prompt": "You notice a tiny creature hiding in a fallen tree. You stay still and quiet and after a while, the creature reveals itself, looking at you with curiosity. It's a yellow-pine chipmunk, searching for something to eat.",
       "options": {
         "Investigate": ["+3 Cedar Bark|imgcedarbark;imgcedarbark;imgcedarbark","+2 HP","No result"],
@@ -2484,7 +2497,7 @@
       ]
     },
     "zebratailedlizard": {
-      "name": "",
+      "name": "Zebra-Tailed Lizard",
       "prompt": "You spot a zebra-tailed lizard on a warm rock.",
       "options": {
         "Observe": ["+1 Peccary Carcass|imgpeccarycarcass","No result"],
