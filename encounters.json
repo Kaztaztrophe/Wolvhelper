@@ -2507,21 +2507,21 @@
 
 
     "lunardig": {
-      "name": "",
+      "name": "Lunar Dig",
       "prompt": "A faint scent of something special is right down this slope...",
       "options": {
         "Dig": ["+2 LT|imglt","+1 LT|imglt//+1 Charcoal|imgcharcoal","+1 LT|imglt//+1 Gnawing Hoof|imggnawinghoof","+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+5 SC|imgsc//+1 LT|imglt|(<5000 SC)"]
       }
     },
     "lunarhpfiller": {
-      "name": "",
+      "name": "Lunar Dizziness",
       "prompt": "You feel dizzy, perhaps from inhaling too much lunar essence. When you lie down, your body twitches like you're waking up from a dream, but you're still awake.",
       "options": {
         "Shake": ["+1 LT|imglt//+10 HP"]
       }
     },
     "lunarscent": {
-      "name": "",
+      "name": "Lunar Scent",
       "prompt": "You lift your head to catch a scent of something familiar in this blue world. You recognise something among the bitter mushroom spores.",
       "options": {
         "Tasty Smell": ["+1 LT|imglt//+1 Muskrat Carcass|imgmuskratcarcass","+1 LT|imglt"],
@@ -2531,7 +2531,7 @@
     },
 
     "ancientfox": {
-      "name": "",
+      "name": "Ancient Fox",
       "prompt": "A lonesome fox is sitting on your path. When you approach, an essence-filled mist encircles it, whipping blue veils of dust around. The fox is offering a small game of chance, which you cannot lose. You must simply pick one of the blue, glowing orbs - once you pay a fee, of course.",
       "options": {
         "Offer 10 SC": ["+4 LT|imglt","+3 LT|imglt","+2 LT|imglt","+1 LT|imglt"],
@@ -2539,7 +2539,7 @@
       }
     },
     "anotherdreamingwolf": {
-      "name": "",
+      "name": "Another Dreaming Wolf",
       "prompt": "A familiar shape has caught your eye. A wolf from your world crosses the path before you. In this glowing realm, a creature without this feature always looks out of place. You realize how much you both stand out.",
       "options": {
         "A friend!": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve//+1 Essence-Covered Egg|imgessencecoveredegg"],
@@ -2547,7 +2547,7 @@
       }
     },
     "arguingwolves": {
-      "name": "",
+      "name": "Arguing Wolves",
       "prompt": "You encounter two wolves traversing this world, much like you are. They seem to have gotten into a quarrel. Lunar essence is charging between them!",
       "options": {
         "Rush In Barking": ["+2 SC|imgsc//+1 LT|imglt|(<5000 SC)","+1 LT|imglt"],
@@ -2555,14 +2555,14 @@
       }
     },
     "aurorarat": {
-      "name": "",
+      "name": "Aurora Rat",
       "prompt": "You find a glowing rat, hopping in slow motion as if gravity does not hold it to solid ground like it does to you.",
       "options": {
         "Chase": ["+1 LT|imglt//+1 Rat Carcass|imgratcarcass","+1 LT|imglt//+2% energy","+1 LT|imglt//+2 HP","+1 LT|imglt"]
       }
     },
     "aurorastoat": {
-      "name": "",
+      "name": "Aurora Stoat",
       "prompt": "Ahead, you see an aurora stoat climbing gracefully on rocks and trees, almost as though it were flying. The creature is probably trying to catch some dinner. It touches the ground finally after slowly falling down, all the while watching you with alert, glowing eyes.",
       "options": {
         "Play!": ["+1 LT|imglt//+5% energy"],
@@ -2570,7 +2570,7 @@
       }
     },
     "barkraccoon": {
-      "name": "",
+      "name": "Bark Raccoon",
       "prompt": "A raccoon covered in bark is observing you curiously from an open spot. It blends in well with the surrounding forest, making you wonder how many other raccoons are hidden in plain sight.",
       "options": {
         "Offer Walrus Pup Carcass": ["+1 LT|imglt//+1 Elk Bull Carcass|imgelkbullcarcass"],
@@ -2579,7 +2579,7 @@
       }
     },
     "beesandflowers": {
-      "name": "",
+      "name": "Lunar Bees and Flowers",
       "prompt": "Tiny, glowing forms hover around a tall, beautiful flower. They land on the flowers and drink the lunar nectar that floats from their centers like dust, taking turns going to each. They appear to be dancing, and never seem to get in the way of each other.",
       "options": {
         "Roll": ["+1 LT|imglt//+1 Essence-Covered Feather|imgessencecoveredfeather","+1 LT|imglt"],
@@ -2587,7 +2587,7 @@
       }
     },
     "bisoncalf": {
-      "name": "",
+      "name": "Lunar Bison Calf",
       "prompt": "A lone lunar bison calf is grazing calmly. Its glowing fur is visible from afar, and you cannot see any others of its kind nearby. What a great opportunity!",
       "options": {
         "Look for the mother first": ["+1 LT|imglt//+6% energy","+1 LT|imglt"],
@@ -2598,7 +2598,7 @@
       ]
     },
     "bobcathare": {
-      "name": "",
+      "name": "Lunar Bobcat and Lunar Hare",
       "prompt": "You find yourself at the center of a hunt. A lunar hare dashes in front of your eyes, followed closely by a bobcat. Neither of them pay any attention to you. You observe them for a brief moment before deciding to make the best of this situation.",
       "options": {
         "Chase the Hare": ["+1 LT|imglt//+1 Hare Carcass|imgharecarcass","+1 LT|imglt"],
@@ -2607,7 +2607,7 @@
       }
     },
     "bograccoon": {
-      "name": "",
+      "name": "Bog Raccoon",
       "prompt": "A slimy creature, dripping in dark water, approaches you with a nasty expression. This Bog Raccoon might cheer you up, but only if you have something interesting to offer.",
       "options": {
         "Offer 1 x Stoat Carcass": ["+1 LT|imglt//+1 Swine Carcass|imgswinecarcass"],
@@ -2616,7 +2616,7 @@
       }
     },
     "cactusgrowth": {
-      "name": "",
+      "name": "Cactus Growth",
       "prompt": "An entire tiny ecosystem is growing on top of this cactus in the desert. This spot must be great for luring in lunar essence within the underground water canals. You wonder if you can thrive off of it.",
       "options": {
         "Nibble": ["+1 LT|imglt//+5 HP","+1 LT|imglt"],
@@ -2625,7 +2625,7 @@
       }
     },
     "cariboufawn": {
-      "name": "",
+      "name": "Lunar Caribou Fawn",
       "prompt": "A caribou fawn has caught your attention from afar. With its glowing fur it's easy to spot, and it appears to be wandering alone.",
       "options": {
         "Help": ["+1 LT|imglt//+5 HP"],
@@ -2640,7 +2640,7 @@
       ]
     },
     "chattylunarwarbler": {
-      "name": "",
+      "name": "Chatty Lunar Warbler",
       "prompt": "A very chatty Lunar Warbler is singing a tale of a nest made of wonderfully scented yarrow for his princess.",
       "options": {
         "Give Yarrow": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve"],
@@ -2648,7 +2648,7 @@
       }
     },
     "chucklingtala": {
-      "name": "",
+      "name": "Chuckling Tala",
       "prompt": "You spot a familiar face in this strange world - it's Tala! She watches you for a moment, then chuckles gently, which makes you feel more than a little uneasy. Is it really her?",
       "options": {
         "Call Her": ["+1 LT|imglt//+1 Coyote Tail|imgcoyotetail","+1 LT|imglt"],
@@ -2656,7 +2656,7 @@
       }
     },
     "circlingorbs": {
-      "name": "",
+      "name": "Circling Orbs",
       "prompt": "Unidentified glowing orbs are circling around you. You feel uneasy.",
       "options": {
         "Run Away!": ["+2 SC|imgsc//+1 LT|imglt|(<5000 SC)","+1 LT|imglt|(>5000 SC)","+1 LT|imglt//-1 HP"],
@@ -2665,7 +2665,7 @@
       }
     },
     "climbingsloth": {
-      "name": "",
+      "name": "Climbing Lunar Sloth",
       "prompt": "Bright blue moss hangs from a tree in front of you, stirring gently in the wind. It shifts and then--it moves! Two glowing eyes open and stare at you. Shaking your head to clear it, you look again and realize it's not moss at all. It's a sloth!",
       "options": {
         "Shake the Branch": ["+1 LT|imglt//+1 random cave-building material*","+1 LT|imglt"],
@@ -2676,7 +2676,7 @@
       ]
     },
     "clingycrow": {
-      "name": "",
+      "name": "Clingy Lunar Crow",
       "prompt": "It's not unusual that crows are curious about everything, but this one is starting to cross the line of your patience. You try your best to ignore the bird, but it won't stop flying around you, sitting on your head, and making noises. That's enough!",
       "options": {
         "Growl": ["+1 LT|imglt//+1 Essence-Covered Feather|imgessencecoveredfeather"],
@@ -2684,7 +2684,7 @@
       }
     },
     "cnithariancuckoo": {
-      "name": "",
+      "name": "Cnitharian Cuckoo",
       "prompt": "A glowing cuckoo flies above your head, preparing to land nearby.",
       "options": {
         "Catch": ["+1 LT|imglt//+1 Essence-Covered Feather|imgessencecoveredfeather"],
@@ -2692,14 +2692,14 @@
       }
     },
     "cnithariandame": {
-      "name": "",
+      "name": "Cnitharian Dame",
       "prompt": "You recognise this Cnitharian wolf from afar—this is someone you usually buy items from. She seems concerned, pacing back and forth restlessly. Upon noticing you, she nods slightly and immediately shares her worries. Her partner was supposed to arrive some time ago and has yet to show up.",
       "options": {
         "Join The Search Party": ["+2 LT|imglt","+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+1 LT|imglt"]
       }
     },
     "cnitharianfox": {
-      "name": "",
+      "name": "Cnitharian Fox",
       "prompt": "A Cnitharian Fox is preparing the area and setting up a trading post to exchange goods with wolves.",
       "options": {
         "Offer 5 SC": ["+1 LT|imglt//+1 Rabbit Carcass|imgrabbitcarcass"],
@@ -2708,7 +2708,7 @@
       }
     },
     "cnitharianlady": {
-      "name": "",
+      "name": "Cnitharian Wolf",
       "prompt": "You notice a lone Cnitharian wolf in front of you. She kindly asks if you need any help and explains you can refresh and heal yourself with her products.",
       "options": {
         "Trade 40 SC": ["+1 LT|imglt//+10% energy//+10 HP"],
@@ -2716,7 +2716,7 @@
       }
     },
     "cnitharianmice": {
-      "name": "",
+      "name": "Cnitharian Mice",
       "prompt": "Jellyfish-like Cnitharian Mice are gathering supplies for the time when lunar essence is more scarce.",
       "options": {
         "Steal": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt//-1 HP"],
@@ -2724,7 +2724,7 @@
       }
     },
     "cnitharianpair": {
-      "name": "",
+      "name": "Cnitharian Pair",
       "prompt": "A gentle glow on a nearby hill catches your attention. After taking a few steps in its direction, you spot the ladies from the Lunar Shoppe chilling together in a blossoming grass patch. It seems they're taking some downtime to relax.",
       "options": {
         "Say Hello": ["+1 LT|imglt//+1 Recipe: Cnitharian Frill Accents|imgrecipelunar;imgcnitharianfrillaccents","+1 LT|imglt//+1 Recipe: Cnitharian Frill Accents [Purple]|imgrecipelunar;imgcnitharianfrillaccentspurple","+1 LT|imglt"],
@@ -2732,14 +2732,14 @@
       }
     },
     "cnitharianshopkeeper": {
-      "name": "",
+      "name": "Cnitharian Shopkeeper",
       "prompt": "It takes a while for you to realise why this wolf seems so familiar... Oh! Now you recognise her! This is a shopkeeper you occasionally buy from! She seems preoccupied, looking for interesting items to sell, but she still greets you with a warm smile that shows she recognises you as well.",
       "options": {
         "Help Out": ["+2 LT|imglt","+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt//+1 Cnitharian Tuggy Tendril|imgcnithariantuggytendril"]
       }
     },
     "cnitharianwolffish": {
-      "name": "",
+      "name": "Cnitharian Wolffish",
       "prompt": "You hear a voice from the water calling to you. A cnitharian wolf with a beautiful fishtail adorned with glowing frills is swimming nearby, playing in the waves. This world never ceases to amaze you.",
       "options": {
         "Swim Together": ["+2 LT|imglt","+1 LT|imglt"],
@@ -2747,7 +2747,7 @@
       }
     },
     "collaredpika": {
-      "name": "",
+      "name": "Lunar Collared Pika",
       "prompt": "An extremely cute lunar pika sits on a trunk, gathering small, unfamiliar glowing flowers. How adorable.",
       "options": {
         "Play": ["+1 LT|imglt//+2% energy//+2 HP","+1 LT|imglt//+4 HP"],
@@ -2755,7 +2755,7 @@
       }
     },
     "cottontailburrow": {
-      "name": "",
+      "name": "Lunar Cottontail Burrow",
       "prompt": "Your instincts never fail you, despite this being a strange world. The shape of a rabbit catches your attention despite the oddity of its appearance. When you come closer, the glowing rodent disappears into its burrow, and you can't help but think that it looks way more appealing than the option of trying to catch a late-night snack.",
       "options": {
         "Dig": ["+2 LT|imglt","+1 LT|imglt//+1 random cave-building material*","+1 LT|imglt"]
@@ -2765,7 +2765,7 @@
       ]
     },
     "cragraccoon": {
-      "name": "",
+      "name": "Crag Raccoon",
       "prompt": "A Crag Raccoon with rock-like growths on its back is trying to break open a stone containing glowing essence. It notices you, and asks if you'd like to share your wolf strength.",
       "options": {
         "Offer 2 x Gull Carcass": ["+1 LT|imglt//+1 Bighorn Sheep Ram Carcass|imgbighornsheepramcarcass"],
@@ -2774,7 +2774,7 @@
       }
     },
     "crestedlunarchipmunk": {
-      "name": "",
+      "name": "Crested Lunar Chipmunk",
       "prompt": "An adorable crested chipmunk is digging around, probably looking for food.",
       "options": {
         "Offer Acorn": ["+1 LT|imglt//+1 random recipe from common lunar pool*"],
@@ -2788,7 +2788,7 @@
       }
     },
     "crestedlunarjay": {
-      "name": "",
+      "name": "Crested Lunar Jay",
       "prompt": "With a quiet flutter, a Crested Lunar Jay perches on an oddly shaped rock. It seems to be catching glowing spores to feed.",
       "options": {
         "Herd the Spores!": ["+1 LT|imglt//+1 Essence-Covered Feather|imgessencecoveredfeather","+1 LT|imglt//+1 random cave-building material*","+1 LT|imglt//-2 HP"]
@@ -2798,7 +2798,7 @@
       ]
     },
     "crestedmink": {
-      "name": "",
+      "name": "Crested Mink",
       "prompt": "The creature in front of you looks like a mink, but its head and tail glow - and it seems more curious than afraid of you.",
       "options": {
         "Hunt": ["+1 LT|imglt//+1 Mink Carcass|imgminkcarcass"],
@@ -2809,7 +2809,7 @@
       ]
     },
     "curiousspidermonkey": {
-      "name": "",
+      "name": "Curious Lunar Spider Monkey",
       "prompt": "The dark, elongated shape of a lunar spider monkey swings on lianas, but you can tell the creature is observing you cautiously. Its glowing eyes give it a slightly scary appearance, though it seems to be playful and is interested in you.",
       "options": {
         "Bark": ["+1 LT|imglt//+5 HP"],
@@ -2820,7 +2820,7 @@
       ]
     },
     "dancingcnitharianwolves": {
-      "name": "",
+      "name": "Dancing Cnitharian Wolves",
       "prompt": "You stumble upon a very personal moment. Two Cnitharian Wolves are dancing together in the moonlight. It seems playful, but full of harmony and serenity at the same time.",
       "options": {
         "Watch": ["+1 LT|imglt"],
@@ -2829,7 +2829,7 @@
       }
     },
     "dancingdragonflies": {
-      "name": "",
+      "name": "Dancing Lunar Dragonflies",
       "prompt": "Fluttering dragonflies appear to be dancing. You hear the susurrus of their metallic wings, rhythmically creating faintly audible melodies.",
       "options": {
         "Try to catch one!": ["+3 LE*//+1 LT|imglt//+1 Flickering Flower|imgflickeringflower"],
@@ -2843,7 +2843,7 @@
       ]
     },
     "doefawn": {
-      "name": "",
+      "name": "Lunar Doe and Fawn",
       "prompt": "A blue glow shines through the leaves. Following closer, you see a lunar doe with a fawn following her every step.",
       "options": {
         "Don't Mind Me": ["+1 LT|imglt//+5% energy","+1 LT|imglt"],
@@ -2854,7 +2854,7 @@
       ]
     },
     "dreamdevourer": {
-      "name": "",
+      "name": "Dream Devourer",
       "prompt": "A terrifying screech freezes you in your tracks - only to witness a massive glowing pig, drooling and burping. It seems to have insurmountable hunger in its reddish eyes - and this is a color you don't often see in the Dreamlands, and you swallow as you watch it eyeing you hungrily. You notice movement in its red, glowing belly. What nightmares brew inside?",
       "options": {
         "Offer Glowing Blubber": ["+1 LT|imglt//+8% energy"],
@@ -2871,7 +2871,7 @@
       ]
     },
     "eelgrebe": {
-      "name": "",
+      "name": "Eel Grebe",
       "prompt": "Ah! From a distance, you thought this creature was an eel, but up close it resembles a grebe. It slithers its long, slimy neck into the water to grab some shiny fish.",
       "options": {
         "Pounce": ["+1 LT|imglt//+1 Meat Chunks [Small]|imgmeatchunkssmall"],
@@ -2879,7 +2879,7 @@
       }
     },
     "essenceparticles": {
-      "name": "",
+      "name": "Essence Particles",
       "prompt": "Flickering dust falls from the sky. Tiny, blue, smoky trails resemble rain in slow motion.",
       "options": {
         "Stick Out Your Tongue": ["+1 LT|imglt//+1 Glowing Spores|imgglowingspores"],
@@ -2887,14 +2887,14 @@
       }
     },
     "essenceswirls": {
-      "name": "",
+      "name": "Essence Swirls",
       "prompt": "Heavy wind picks up the lunar essence from the ground and paints beautiful swirls in the air with it.",
       "options": {
         "Chase": ["+1 LT|imglt//+3 HP","+1 LT|imglt"]
       }
     },
     "essencetailedhawk": {
-      "name": "",
+      "name": "Essence-Tailed Hawk",
       "prompt": "A majestic hawk swoops down low next to you, then flies back up in the air. Essence streaks from its tail, creating a beautiful trail as it flies. It's circling you, observing you with intelligent eyes.",
       "options": {
         "Ask for Food": ["+1 LT|imglt//+1 Rabbit Carcass|imgrabbitcarcass","+1 LT|imglt"],
@@ -2902,7 +2902,7 @@
       }
     },
     "feedingravens": {
-      "name": "",
+      "name": "Feeding Lunar Ravens",
       "prompt": "A flock of Lunar Ravens is feeding on glowing fruit found among the branches of a withered tree.",
       "options": {
         "Bark": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt//+10% hunger"],
@@ -2910,7 +2910,7 @@
       }
     },
     "fernraccoon": {
-      "name": "",
+      "name": "Fern Raccoon",
       "prompt": "A small, fern-covered raccoon rolls out from the forest underbrush and sits in front of you. It asks if you're looking for hidden treasures.",
       "options": {
         "Offer Agouti Carcass": ["+1 LT|imglt//+1 Doe Carcass|imgdoecarcass"],
@@ -2919,14 +2919,14 @@
       }
     },
     "floatingsealpup": {
-      "name": "",
+      "name": "Floating Seal Pup",
       "prompt": "You have no idea how a seal pup can float on a large bubble, but that's what you see. Your expression makes the pup laugh. It approaches you, and while you still try to figure the bubbles out, it invites you to play a game where you always win. How could you not participate? All you have to do is pop one of the bubbles!",
       "options": {
         "Pop!": ["+3 LT|imglt","+2 LT|imglt","+1 LT|imglt//+1 Glowing Blubber|imgglowingblubber","+1 LT|imglt//+1 Mollusk Shell|imgmolluskshell","+1 LT|imglt//+1 Whale Rib Bone|imgwhaleribbone"]
       }
     },
     "floweringclams": {
-      "name": "",
+      "name": "Flowering Clams",
       "prompt": "You notice a clump of clams that look familiar, but you are used to expecting being surprised while travelling across these lands and doubt these are ordinary clams.",
       "options": {
         "Touch carefully": ["+1 LT|imglt//+1 Flickering Flower|imgflickeringflower"],
@@ -2934,7 +2934,7 @@
       }
     },
     "flutteringbutterflies": {
-      "name": "",
+      "name": "Fluttering Lunar Butterflies",
       "prompt": "Beautiful butterflies with glowing patterns are investigating the luminous flowers nearby.",
       "options": {
         "Investigate The Flowers": ["+1 LT|imglt//+4 HP","+1 LT|imglt"],
@@ -2942,7 +2942,7 @@
       }
     },
     "fluvialraccoon": {
-      "name": "",
+      "name": "Fluvial Raccoon",
       "prompt": "With a loud splash, a Fluvial Raccoon jumps out of the water to greet you! It whips its watery tail around, eagerly waiting for you to decide if you're interested in some riverine wares.",
       "options": {
         "Offer 3 x Quail Eggs": ["+1 LT|imglt//+1 Swan Carcass|imgswancarcass"],
@@ -2951,7 +2951,7 @@
       }
     },
     "flyingfish": {
-      "name": "",
+      "name": "Lunar Flying Fish",
       "prompt": "This world is full of wonders, but the sight of flying fish might be one of the strangest. You watch their graceful movements, holding your breath as if any sudden movement might cause this sight to disappear into thin air.",
       "options": {
         "Watch": ["+1 LT|imglt//+10 HP"],
@@ -2959,7 +2959,7 @@
       }
     },
     "flyinggannet": {
-      "name": "",
+      "name": "Flying Lunar Gannet",
       "prompt": "A big Lunar Gannet is landing right in front of you—a perfect, vulnerable moment!",
       "options": {
         "Pounce": ["+1 LT|imglt//+1 random herb from Tundra*","+1 LT|imglt//+15% hunger"],
@@ -2971,7 +2971,7 @@
       ]
     },
     "foraginggrosbeak": {
-      "name": "",
+      "name": "Foraging Lunar Grosbeak",
       "prompt": "Looks like a grosbeak is foraging for useful sticks. It's carrying a branch, shaking off some little critters from between the leaves.",
       "options": {
         "Grab the branch": ["+1 LT|imglt//+3% hunger//+1 random herb from Taiga*"],
@@ -2982,7 +2982,7 @@
       ]
     },
     "foxsquirrel": {
-      "name": "",
+      "name": "Lunar Fox Squirrel",
       "prompt": "This little fox squirrel seems to be guarding something that you cannot see. Its long, glowing tail looks like a blue flame.",
       "options": {
         "Back Off!": ["+1 LT|imglt//+1 Squirrel Carcass|imgsquirrelcarcass","+3 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt|(>5000 SC)"],
@@ -2990,14 +2990,14 @@
       }
     },
     "frozenmushrooms": {
-      "name": "",
+      "name": "Frozen Mushrooms",
       "prompt": "There are some mushrooms here, covered in ice. Perhaps they were able to grow during a warmer day, but for now, they're trapped in time.",
       "options": {
         "Break It": ["+1 LT|imglt//+1 Acorn|imgacorn","+4 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"]
       }
     },
     "fungalarch": {
-      "name": "",
+      "name": "Fungal Arch",
       "prompt": "It's impossible to walk past this... thing... without taking a closer look. An impressive arch covered in glowing fungi and various plants could be a gate to another realm, but you're already in one. Patches of rocks and wood can be seen between the growths, giving a hint of the arch's original shape. It looks so ancient that it surely hides some surprises for anyone patient enough to look for them.",
       "options": {
         "Dig": ["+1 LT|imglt//+1 Bat Carcass|imgbatcarcass//+1 Volukros Squeaky Toy|imgvolukrossqueakytoy"],
@@ -3005,7 +3005,7 @@
       }
     },
     "giantmantis": {
-      "name": "",
+      "name": "Lunar Giant Mantis",
       "prompt": "A giant mantis rests on a rock, just as still as everything else around it is. If not for the gentle movements of its antennae, you'd guess it was a statue.",
       "options": {
         "Poke": ["+2 LT|imglt","+1 LT|imglt//+2 HP","+1 LT|imglt"],
@@ -3016,7 +3016,7 @@
       ]
     },
     "gianttreesparrow": {
-      "name": "",
+      "name": "Giant Tree Sparrow",
       "prompt": "That's one big tree sparrow, alright! Instead of living on a tree, this bird is a living tree itself!",
       "options": {
         "Run!": ["+1 LT|imglt//+3 Acorn|imgacorn;imgacorn;imgacorn"],
@@ -3024,7 +3024,7 @@
       }
     },
     "glowingbumblebee": {
-      "name": "",
+      "name": "Glowing Bumblebee",
       "prompt": "A very polite Bumblebee is approaching a glowing flower. It's having trouble aiming at the flower with its huge, fluffy body. Fascinated, you watch the whole scene unfold.",
       "options": {
         "Roll In The Flowers": ["+1 LT|imglt//+1 Whitetail Carcass|imgwhitetailcarcass","+1 LT|imglt"],
@@ -3032,21 +3032,21 @@
       }
     },
     "glowingmoths": {
-      "name": "",
+      "name": "Glowing Moths",
       "prompt": "In the distance, lights dance and swirl across the hills. As the source of light moves closer, you see they are in fact glowing moths, spreading lunar dust across the lands.",
       "options": {
         "Chase": ["+1 LT|imglt//+1 Glowing Spores|imgglowingspores","+1 LT|imglt"]
       }
     },
     "glowingrain": {
-      "name": "",
+      "name": "Glowing Rain",
       "prompt": "Rain isn't that unusual, but this kind of rain... You notice the droplets are glowing. The tiny splashes spread lunar essence on the ground.",
       "options": {
         "Splash Around!": ["+1 LT|imglt//+2 HP","+1 LT|imglt","+1 LT|imglt//-1 HP"]
       }
     },
     "glowingskull": {
-      "name": "",
+      "name": "Glowing Skull",
       "prompt": "What an interesting find! It's a wolf skull, but... it doesn't appear to be lifeless. The lunar essence surrounds it, making it seem like the skull's owner is calling you from the other side.",
       "options": {
         "Stare At It": ["+1 LT|imglt//+4 HP"],
@@ -3054,7 +3054,7 @@
       }
     },
     "glowingspiderweb": {
-      "name": "",
+      "name": "Glowing Spiderweb",
       "prompt": "Ack! This massive, glowing cobweb blends in so well with the flickering and glowing environment. You almost walked right into it! It's a great idea to set a trap like this... It's so big.",
       "options": {
         "Wait For The Spider": ["+1 LT|imglt//+1 Weasel Carcass|imgweaselcarcass","+1 LT|imglt"],
@@ -3062,36 +3062,36 @@
       }
     },
     "growtharmadillo": {
-      "name": "",
+      "name": "Growth Armadillo",
       "prompt": "An Armadillo is waddling through the forest. You spot massive growths on its back. It looks like a microforest for insects travelling through a glowing universe.",
       "options": {
         "Take a Bite": ["+2 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"]
       }
     },
     "growthcollaredpeccary": {
-      "name": "",
+      "name": "Growth Collared Peccary",
       "prompt": "It's quite hot in the desert, but the heat doesn't seem to bother this peccary. Its collar is big and fluffy. Perhaps the fluff helps with cooling it down?",
       "options": {
         "Attack!": ["+1 LT|imglt//+1 Essence-Covered Fur Clump|imgessencecoveredfurclump"],
         "Inquire": ["+1 LT|imglt//+1 Lunar Oil|imglunaroil"]
       }
     },
-    "growthicicles": {
-      "name": "",
-      "prompt": "You find a world made of ice... or just mushrooms and flowers coated in it. The glow coming from the inside is hypnotising.",
-      "options": {
-        "Gnaw": ["+1 LT|imglt//+1 Glowing Spores|imgglowingspores","+1 LT|imglt//+1 Whale Rib Bone|imgwhaleribbone","+1 LT|imglt"]
-      }
-    },
     "growthcrab": {
-      "name": "",
+      "name": "Growth Crab",
       "prompt": "A massive crab, overgrown with glowing mushrooms and foliage, is crawling on the surface. Does the underwater world look the same as this place, full of glowing fish and seaweed?",
       "options": {
         "Chase": ["+1 LT|imglt//+1 Crab Leg|imgcrableg","+1 LT|imglt"]
       }
     },
+    "growthicicles": {
+      "name": "Growth Icicles",
+      "prompt": "You find a world made of ice... or just mushrooms and flowers coated in it. The glow coming from the inside is hypnotising.",
+      "options": {
+        "Gnaw": ["+1 LT|imglt//+1 Glowing Spores|imgglowingspores","+1 LT|imglt//+1 Whale Rib Bone|imgwhaleribbone","+1 LT|imglt"]
+      }
+    },
     "growthmice": {
-      "name": "",
+      "name": "Growth Mice",
       "prompt": "Lunar Mice are gathering around a mushroom growth spurt. There's so much food and lunar essence!",
       "options": {
         "Sniff Around!": ["+1 LT|imglt//+1 Acorn|imgacorn","+4 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"],
@@ -3102,7 +3102,7 @@
       ]
     },
     "growthseaturtle": {
-      "name": "",
+      "name": "Growth Sea Turtle",
       "prompt": "A large lunar turtle approaches you from the air. Wait, what? It's flying! How is that even possible?! The growths on his shell resemble an underwater forest. Whatever they are, they almost appear to be pulsating with an otherworldly shine. The creature lands a few steps ahead of you.",
       "options": {
         "Inspect the growth": ["+1 LT|imglt//+1 random herb from Swamp*","+1 LT|imglt//+4% energy"],
@@ -3113,7 +3113,7 @@
       ]
     },
     "growthtamandua": {
-      "name": "",
+      "name": "Growth Tamandua",
       "prompt": "You have to blink twice to understand what's going on. A glowing tamandua is standing proudly on its hind legs and spreading its front paws outwards as if about to hug something. However, there are no other creatures or obstacles around. It just stares at you in silence.",
       "options": {
         "Poke": ["+1 LT|imglt//+5% energy//+1 Sausage|imgsausage"],
@@ -3121,7 +3121,7 @@
       }
     },
     "hatchingmothwolves": {
-      "name": "",
+      "name": "Hatching Moth Wolves",
       "prompt": "What's that noise? You spot a nearby branch, which seems to be emanating crackling sounds and... high-pitched yelps? Oh, it's a nest! Instead of birds, you find baby moth-wolves!",
       "options": {
         "Feed Them": ["+1 LT|imglt//+1 Rat Carcass|imgratcarcass","+2 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt|(>5000 SC)"],
@@ -3129,7 +3129,7 @@
       }
     },
     "healingitchyraccoon": {
-      "name": "",
+      "name": "Healing Itchy Raccoon",
       "prompt": "Hey! This raccoon appears to be infested with fleas, but he looks quite healthy! Maybe a dose of medicine could cure him fully? Unless you know some good grooming tricks...?",
       "options": {
         "Offer Fleas Remedy": ["+2 LT|imglt//+1 Lunar Oil|imglunaroil"],
@@ -3137,7 +3137,7 @@
       }
     },
     "hognosedskunk": {
-      "name": "",
+      "name": "Lunar Hog-Nosed Skunk",
       "prompt": "A hog-nosed skunk wanders around with confidence. Its glowing fur looks very pretty, and you briefly wonder about its scent.",
       "options": {
         "Intimidate": ["+1 LT|imglt//+1 Gnawing Hoof|imggnawinghoof","+1-3 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt|(>5000 SC)"],
@@ -3145,7 +3145,7 @@
       }
     },
     "hornedlunarchipmunk": {
-      "name": "",
+      "name": "Horned Lunar Chipmunk",
       "prompt": "What's that? A chipmunk with tiny, glowing horns... It looks curiously at you from the tree trunk.",
       "options": {
         "Sniff Around the Tree": ["+1 LT|imglt//+1 Bone|imgbone","+1 LT|imglt//+1 random cave-building material*"],
@@ -3156,7 +3156,7 @@
       ]
     },
     "hornedlunarjay": {
-      "name": "",
+      "name": "Horned Lunar Jay",
       "prompt": "Watch out! It looks like a Horned Lunar Jay is startled by your presence, but it's not willing to just fly away. Maybe it's protecting something?",
       "options": {
         "Chase": ["+1 LT|imglt//+1 Essence-Covered Feather|imgessencecoveredfeather","+1 LT|imglt//+1 random biome-specific herb*"],
@@ -3171,14 +3171,14 @@
       }
     },
     "howlingwolf": {
-      "name": "",
+      "name": "Howling Wolf",
       "prompt": "You spot a wolf from afar. It's howling at the moon. It exhales blue lunar essence, forming a reflection in the sky.",
       "options": {
         "Howl": ["+1 LT|imglt//+6 HP","+1 LT|imglt//+3 HP","+1 LT|imglt"]
       }
     },
     "huntinglunarshrike": {
-      "name": "",
+      "name": "Hunting Lunar Shrike",
       "prompt": "You stop suddenly to observe a Lunar Shrike on a vicious hunt!",
       "options": {
         "Chase": ["+2 LT|imglt","+1 LT|imglt//+1 Butterfly Wing|imgbutterflywing","+1 LT|imglt//-5% energy"],
@@ -3186,7 +3186,7 @@
       }
     },
     "huntingtoad": {
-      "name": "",
+      "name": "Hunting Lunar Toad",
       "prompt": "A spiny blue lunar toad sits nearby, its tongue flinging out as it snatches bugs from the air. As it devours the bugs, sparks of blue light up its throat as it consumes the lunar essence that the bugs are full of. Cool!",
       "options": {
         "Find More Insects": ["+2 LT|imglt","+1 LT|imglt"],
@@ -3194,7 +3194,7 @@
       }
     },
     "icegull": {
-      "name": "",
+      "name": "Ice Gull",
       "prompt": "Quiet clinks catch your attention. You spot a shiny gull with feathers made of ice preening on a glacier. When you approach, it takes a deep breath and lets out a loud, ear-shattering honk.",
       "options": {
         "Howl back": ["+1 LT|imglt//+3 Gull Feather|imggullfeather;imggullfeather;imggullfeather"],
@@ -3202,7 +3202,7 @@
       }
     },
     "iceraccoon": {
-      "name": "",
+      "name": "Ice Raccoon",
       "prompt": "A spiky-looking Ice Raccoon chatters its teeth at you, asking if you're looking for something. It's not a threat, the critter is just very cold!",
       "options": {
         "Offer 3 x Chicken Eggs": ["+1 LT|imglt//+1 Muskox Calf Carcass|imgmuskoxcalfcarcass"],
@@ -3211,7 +3211,7 @@
       }
     },
     "itchyraccoon": {
-      "name": "",
+      "name": "Itchy Raccoon",
       "prompt": "This raccoon-looking creature is scratching its ear. But... it has no ears... is it scratching a phantom itch? Or are the little Lunar Fleas bothering it?",
       "options": {
         "Offer Fleas Remedy": ["+2 LT|imglt"],
@@ -3220,7 +3220,7 @@
       }
     },
     "jungleraccoon": {
-      "name": "",
+      "name": "Jungle Raccoon",
       "prompt": "A very playful Jungle Raccoon slides down a vine to take a closer look at you. Instead of giving you upside-down kisses, it offers you some tropical wares!",
       "options": {
         "Offer 3 x Turkey Egg": ["+1 LT|imglt//+1 Tapir Carcass|imgtapircarcass"],
@@ -3229,7 +3229,7 @@
       }
     },
     "kangaroorat": {
-      "name": "",
+      "name": "Lunar Kangaroo Rat",
       "prompt": "A Lunar Kangaroo Rat is foraging among nearby shrubs.",
       "options": {
         "Forage as well": ["+1 LT|imglt//+1 Acorn|imgacorn//+10% hunger","+1 LT|imglt//+1 random herb from Desert*//+10% hunger"]
@@ -3239,14 +3239,14 @@
       ]
     },
     "kingfisher": {
-      "name": "",
+      "name": "Lunar Kingfisher",
       "prompt": "Visibly in pain, a kingfisher unsuccessfully tries to remove something from its wing.",
       "options": {
         "Offer your help": ["+2 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt//+15% energy","+1 LT|imglt"]
       }
     },
     "knollraccoon": {
-      "name": "",
+      "name": "Knoll Raccoon",
       "prompt": "You almost stepped on a clump of moving grass! It's a Knoll Raccoon, overgrowth with grass to blend in with its surroundings. It asks if you were looking for something in the grass.",
       "options": {
         "Offer 3 x Quail Carcasses": ["+1 LT|imglt//+1 Horse Carcass|imghorsecarcass"],
@@ -3255,7 +3255,7 @@
       }
     },
     "lichenraccoon": {
-      "name": "",
+      "name": "Lichen Raccoon",
       "prompt": "A Lichen Raccoon mom is showing her kit how to map a path to their home on the horizon. You're noticed by the kit, and the nervous mother asks if you're interested in some extra bonus offers, as she's about to move her shop soon.",
       "options": {
         "Offer 2x Turkey Tom Carcass": ["+1 LT|imglt//+1 Caribou Cow Carcass|imgcariboucowcarcass"],
@@ -3264,7 +3264,7 @@
       }
     },
     "lichenrocks": {
-      "name": "",
+      "name": "Lunar Lichen Rocks",
       "prompt": "You stop to sniff around this fascinating spot. There are so many scents! This area is especially interesting. Which do you decide to check out?",
       "options": {
         "Big Crack": ["+5 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"],
@@ -3273,7 +3273,7 @@
       }
     },
     "loggrowth": {
-      "name": "",
+      "name": "Log Growth",
       "prompt": "A fallen log gives shelter to many tiny Lunar Critters. The growth transforms the essence into a tiny, edible cave for a multitude of creatures.",
       "options": {
         "Gnaw": ["+3 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"],
@@ -3282,7 +3282,7 @@
       }
     },
     "longtaileddeerfawn": {
-      "name": "",
+      "name": "Long-Tailed Deer Fawn",
       "prompt": "A curious fawn approaches you carefully, trying to sniff you.",
       "options": {
         "Play": ["+1 LT|imglt//+4% energy"],
@@ -3291,7 +3291,7 @@
       }
     },
     "longtailedjackrabbit": {
-      "name": "",
+      "name": "Long-Tailed Jackrabbit",
       "prompt": "A blue glow flashes in front of your eyes. It's a jackrabbit with an incredibly long tail! It's as fast as the wind and leaves a fading trail of shimmering particles behind it.",
       "options": {
         "Race": ["+1 LT|imglt//+2 Rattle|imgrattle;imgrattle"],
@@ -3300,7 +3300,7 @@
       }
     },
     "lostwhitetailfawn": {
-      "name": "",
+      "name": "Lost Lunar Whitetail Fawn",
       "prompt": "You notice a trembling fawn looking back and forth as if searching for something. Its spots glow like unknown constellations in the dark sky.",
       "options": {
         "Attack": ["+1 LT|imglt//+1 Venison Liver|imgvenisonliver"],
@@ -3308,7 +3308,7 @@
       }
     },
     "lunaralaskamarmot": {
-      "name": "",
+      "name": "Lunar Alaskan Marmot",
       "prompt": "This very fluffy and grumpy Alaskan Marmot climbs onto a rock just to sit down and yell at things. Maybe you can do something nice for him today?",
       "options": {
         "Offer Acorn": ["+1 LT|imglt//+50 HP","+1 LT|imglt//+50 HP//+1 random recipe from lunar acorn pool**"],
@@ -3323,23 +3323,15 @@
       }
     },
     "lunaralbatross": {
-      "name": "",
+      "name": "Lunar Albatross",
       "prompt": "A beautiful Lunar Albatross is trying to land, but the weather is very windy. Its feathers are full of lunar dust that clung to its body during its flight.",
       "options": {
         "Grab It!": ["+1 LT|imglt//+1 Large Bird Meat|imglargebirdmeat","+1 LT|imglt"],
         "Watch It!": ["+5 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"]
       }
     },
-    "lunaranteater": {
-      "name": "",
-      "prompt": "The long, elegant fur of this Lunar Anteater leaves a glowing trail of lunar essence on the ground. Various insects gather around it to grab what they can. You realise the strange animal is feeding off of the bugs with this simple lure.",
-      "options": {
-        "Ambush": ["+1 LT|imglt//+1 Meat Chunks [Large]|imgmeatchunkslarge","+1 LT|imglt"],
-        "Watch": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+1 LT|imglt"]
-      }
-    },
     "lunaramphiuma": {
-      "name": "",
+      "name": "Lunar Amphiuma",
       "prompt": "This odd snake has tiny hands and a goofy face! It looks like this is a Lunar Amphiuma, and it dwells in water. Does it breathe air? How can it fly? What does it eat?",
       "options": {
         "Offer Acorn": ["+1 LT|imglt//+1 random recipe from common lunar pool*"],
@@ -3352,8 +3344,16 @@
         "Offer Acorn": ["@poolrecipelunarcommon"]
       }
     },
+    "lunaranteater": {
+      "name": "Lunar Anteater",
+      "prompt": "The long, elegant fur of this Lunar Anteater leaves a glowing trail of lunar essence on the ground. Various insects gather around it to grab what they can. You realise the strange animal is feeding off of the bugs with this simple lure.",
+      "options": {
+        "Ambush": ["+1 LT|imglt//+1 Meat Chunks [Large]|imgmeatchunkslarge","+1 LT|imglt"],
+        "Watch": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+1 LT|imglt"]
+      }
+    },
     "lunarbat": {
-      "name": "",
+      "name": "Lunar Bat",
       "prompt": "A mystical Lunar Bat crosses your path! The glow from its flapping wings is hypnotising.",
       "options": {
         "Grab It!": ["+1 LT|imglt//+2 HP//+4% hunger"],
@@ -3361,7 +3361,7 @@
       }
     },
     "lunarbighornsheep": {
-      "name": "",
+      "name": "Lunar Bighorn Sheep",
       "prompt": "A large big horned sheep blocks your path. It has a beautiful set of wings spread wide and imposing. It's different than the sheep you've seen, but it smells the same and you wonder if it tastes the same, too.",
       "options": {
         "Try to Hunt It": ["+1 LT|imglt//+1 Bighorn Sheep Ram Carcass|imgbighornsheepramcarcass|**","+1 LT|imglt"],
@@ -3376,7 +3376,7 @@
       ]
     },
     "lunarbittern": {
-      "name": "",
+      "name": "Lunar Bittern",
       "prompt": "Splashing sounds lead you to the sight of lunar bittern wading in the shallow water, but it's doing so carefully as if it's looking for something. The more you observe the bird, the more curious you become.",
       "options": {
         "Forage in the Water": ["+1 LT|imglt"],
@@ -3384,14 +3384,14 @@
       }
     },
     "lunarbrant": {
-      "name": "",
+      "name": "Lunar Brant and Lunar Sparrow",
       "prompt": "You find a Northern Brant and a Sparrow cuddling together for warmth. They haven't noticed you yet. What an odd and vulnerable pair.",
       "options": {
         "Cuddle": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt//+5 HP","+1 LT|imglt"]
       }
     },
     "lunarbrocket": {
-      "name": "",
+      "name": "Lunar Brocket",
       "prompt": "An adorable Lunar Brocket is quite nervous to be feeding around you, but the plants growing in this area are too delicious to pass up.",
       "options": {
         "Hunt": ["+1 LT|imglt//+1 Meat Chunks [Medium]|imgmeatchunksmedium","+1 LT|imglt"],
@@ -3399,7 +3399,7 @@
       }
     },
     "lunarcardinal": {
-      "name": "",
+      "name": "Lunar Cardinal",
       "prompt": "You hear the hushed sound of flapping wings nearby. A Lunar Cardinal is flying by in a hurry, and it does not seem to be aware of your presence.",
       "options": {
         "Observe": ["+2 LT|imglt","+1 LT|imglt//+1 random herb from Grasslands*"],
@@ -3410,7 +3410,7 @@
       ]
     },
     "lunarcatbird": {
-      "name": "",
+      "name": "Lunar Catbird",
       "prompt": "Wow! What is that creature? Is it a bird or a cat? Or... both? Nothing can surprise you in this world anymore.",
       "options": {
         "Pounce": ["+1 LT|imglt//+10 HP//+10% hunger","+1 LT|imglt//+5% energy","+1 LT|imglt//-5 HP"],
@@ -3418,7 +3418,7 @@
       }
     },
     "lunarcentipede": {
-      "name": "",
+      "name": "Lunar Centipede",
       "prompt": "This huge, skittering Lunar Centipede is easy to notice, thanks to the glowing trail left behind it. Its undulating legs and wiggly antennae are making you horribly uneasy. Why is it so BIG?!",
       "options": {
         "Dig Around": ["+1 LT|imglt//+1 Lucky Foot|imgluckyfoot","+1 LT|imglt"],
@@ -3426,7 +3426,7 @@
       }
     },
     "lunarchipmunks": {
-      "name": "",
+      "name": "Lunar Chipmunks",
       "prompt": "You spot movement on the lower branches of a tree. Approaching carefully, you observe Lunar Chipmunks gathering nuts. The way they jump makes you think of how gravity works on the moon. Their leaps are so tall and dream-like!",
       "options": {
         "Beg For Nuts": ["+1 LT|imglt//+4 HP","+1 LT|imglt"],
@@ -3434,7 +3434,7 @@
       }
     },
     "lunarcoyotepup": {
-      "name": "",
+      "name": "Lunar Coyote Pup",
       "prompt": "A very friendly lunar coyote pup is playing alone among the rocks. You don't see its parents or siblings anywhere but the pup doesn't seem to feel abandoned. What's more, it starts to run towards you!",
       "options": {
         "Play": ["+1 LT|imglt//+2 Bone|imgbone;imgbone","+1 LT|imglt"],
@@ -3442,14 +3442,14 @@
       }
     },
     "lunarcoypu": {
-      "name": "",
+      "name": "Lunar Coypu",
       "prompt": "With a soft splashing sound, a lunar coypu travels along the river shore as it inspects the area. Its long, glowing, raised tail looks fascinating. It lures you over to the creature.",
       "options": {
         "Join": ["+3 SC|imgsc|(<5000 SC)//+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve|(>5000 SC)","+1 LT|imglt"]
       }
     },
     "lunarcrossbill": {
-      "name": "",
+      "name": "Lunar Crossbill",
       "prompt": "Ah! A Lunar Crossbill just flew by, carrying a large cone in its beak! You trace the essence trail from its wings and focus on the spot where it landed.",
       "options": {
         "Wait and sniff around": ["+1 LT|imglt//+1 random biome-specific herb*","+1 LT|imglt//+10 HP"],
@@ -3467,7 +3467,7 @@
       }
     },
     "lunarcrow": {
-      "name": "",
+      "name": "Lunar Crow",
       "prompt": "A quirky Lunar Crow is observing your movements. It circles around you from time to time.",
       "options": {
         "Snarl": ["+2 LT|imglt"],
@@ -3475,7 +3475,7 @@
       }
     },
     "lunarcuckoo": {
-      "name": "",
+      "name": "Lunar Cuckoo",
       "prompt": "A pretty, glowing bird sits calmly on a branch, observing you with curiosity. You recognize the species after taking a second glance. It's definitely a cuckoo and it's probably equally surprised by the sight of a wolf without any blue sparks on its fur.",
       "options": {
         "Bark": ["+5 SC|imgsc|(<5000 SC)//+1 LT|imglt*","+1 LT|imglt"],
@@ -3483,7 +3483,7 @@
       }
     },
     "lunardove": {
-      "name": "",
+      "name": "Lunar Dove",
       "prompt": "A peaceful Lunar Dove is flying between the branches and the ground. Perhaps it's building a nest.",
       "options": {
         "Dig Around": ["+1 LT|imglt//+1 random cave-building material*","+1 LT|imglt"],
@@ -3494,7 +3494,7 @@
       ]
     },
     "lunardragonflies": {
-      "name": "",
+      "name": "Lunar Dragonflies",
       "prompt": "Beautiful glowing dragonflies are racing along the river bank.",
       "options": {
         "Watch": ["+1 LT|imglt//+1 random cave-building material*","+1 LT|imglt"],
@@ -3505,7 +3505,7 @@
       ]
     },
     "lunarduck": {
-      "name": "",
+      "name": "Lunar Duck",
       "prompt": "Gentle quacks echo in the night. A duck out of water seems like a nice midnight snack.",
       "options": {
         "Ambush!": ["+1 LT|imglt//+2 Duck Feather|imgduckfeather;imgduckfeather","+1 LT|imglt//+1 Meat Chunks [Small]|imgmeatchunkssmall","+1 LT|imglt"],
@@ -3513,7 +3513,7 @@
       }
     },
     "lunareaglenest": {
-      "name": "",
+      "name": "Lunar Eagle Nest",
       "prompt": "You see a large bird's nest, but its scent is faint and difficult to recognize. There is nothing inside, and it appears to be abandoned.",
       "options": {
         "Investigate": ["+1 LT|imglt//+2 Large Branch|imglargebranch;imglargebranch"],
@@ -3528,7 +3528,7 @@
       ]
     },
     "lunaregret": {
-      "name": "",
+      "name": "Lunar Egret",
       "prompt": "A graceful, glowing egret looks ethereal and beautiful beyond words as it struts before you. In your world, you'd probably look at such a bird with the urge to catch it, but as it wades through the shimmering water you find yourself entranced by its beauty.",
       "options": {
         "Invite to a Dance": ["+1 LT|imglt//+4 HP"],
@@ -3536,7 +3536,7 @@
       }
     },
     "lunarferalcat": {
-      "name": "",
+      "name": "Lunar Feral Cat",
       "prompt": "You hear violent hissing nearby! Fearing it may be a snake, you check out where the sound is coming from. The source is a feral cat, whose eyes glow stronger with every angry hiss it releases.",
       "options": {
         "Bark": ["+1 LT|imglt//+1 Rattle|imgrattle","+1 LT|imglt//-1 HP"],
@@ -3544,7 +3544,7 @@
       }
     },
     "lunarferret": {
-      "name": "",
+      "name": "Lunar Ferret",
       "prompt": "A Lunar Ferret is hopping around between many burrow, playing out in the open plains.",
       "options": {
         "Dig Around!": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+3 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"],
@@ -3552,7 +3552,7 @@
       }
     },
     "lunarflamingo": {
-      "name": "",
+      "name": "Lunar Flamingo",
       "prompt": "For a moment, you thought this was a big, tropical flower, but... it's a bird! This Lunar Flamingo is resting in the quiet underbrush.",
       "options": {
         "Ambush": ["+1 LT|imglt"],
@@ -3560,7 +3560,7 @@
       }
     },
     "lunarfoxkits": {
-      "name": "",
+      "name": "Lunar Fox Kits",
       "prompt": "You find three small fox kits huddled together, drawn to their location by their crying. You can't smell an adult nearby. They must have been left alone so their mother could hunt. As you approach they cower together in fear.",
       "options": {
         "Play Together": ["+1 LT|imglt//+1 Glowing Spores|imgglowingspores"],
@@ -3568,7 +3568,7 @@
       }
     },
     "lunarfoxsnake": {
-      "name": "",
+      "name": "Lunar Foxsnake",
       "prompt": "The sight of a fox with snake-like features causes a chill to run down your spine. It notices you, slowly turning its big, reptilian eyes towards you.",
       "options": {
         "Yipe!": ["+1 LT|imglt//+3 Bone|imgbone;imgbone;imgbone"],
@@ -3576,7 +3576,7 @@
       }
     },
     "lunarfrog": {
-      "name": "",
+      "name": "Lunar Frog",
       "prompt": "You smell something intense. You lower your head and spot a strong glow in the understory. A small Lunar Frog is sitting under the leaves, absorbing some night-time moisture full of lunar dust.",
       "options": {
         "Bap The Leaves": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt","+1 LT|imglt//-1 HP"],
@@ -3584,7 +3584,7 @@
       }
     },
     "lunargecko": {
-      "name": "",
+      "name": "Lunar Gecko",
       "prompt": "A slight movement between nearby stones catches your eye. You see a gecko, leaving tiny glowing footprints on the rocky surface.",
       "options": {
         "Search The Rocks": ["+1 LT|imglt//+1 random cave-building material*"],
@@ -3595,7 +3595,7 @@
       ]
     },
     "lunargopher": {
-      "name": "",
+      "name": "Lunar Gopher",
       "prompt": "A Lunar Gopher is digging a new burrow! It's so focused on its task that it hasn't noticed you yet.",
       "options": {
         "Help Out!": ["+1 LT|imglt//+1 random cave-building material*","+1 LT|imglt//+4 HP","+1 LT|imglt"]
@@ -3605,7 +3605,7 @@
       ]
     },
     "lunargrackle": {
-      "name": "",
+      "name": "Lunar Grackle",
       "prompt": "Two grackle fly and hop around in the sweet, essence-filled air among the grass. They chirp and forage for insects, occasionally flying up and settling on a new spot. Their carefree nature gives you a warm feeling, and you decide to approach.",
       "options": {
         "Search for Insects": ["+5 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"],
@@ -3613,7 +3613,7 @@
       }
     },
     "lunargroundsquirrel": {
-      "name": "",
+      "name": "Lunar Ground Squirrel",
       "prompt": "An adorable, long-tailed lunar ground squirrel is busy looking for something in the grass. It's so focused on its task that it ignores everything around it.",
       "options": {
         "Watch": ["+1 LT|imglt//+8% energy","+1 LT|imglt"],
@@ -3621,7 +3621,7 @@
       }
     },
     "lunargrouse": {
-      "name": "",
+      "name": "Lunar Grouse",
       "prompt": "It looks like a Lunar Grouse is building a nest under a bush. A beautiful Grouse House, so to speak.",
       "options": {
         "Help": ["+1 LT|imglt//+2 Grouse Feather|imggrousefeather;imggrousefeather","+1 LT|imglt"],
@@ -3629,7 +3629,7 @@
       }
     },
     "lunarguillemot": {
-      "name": "",
+      "name": "Lunar Guillemots",
       "prompt": "The sight of a flock of guillemots lifts your mood considerably. Their presence usually means that the area has an abundance of food, which is a rarity in this unfriendly land.",
       "options": {
         "Scavenge Nearby Nests": ["+1 LT|imglt//+1 random cave-building material*","+1 LT|imglt"],
@@ -3640,7 +3640,7 @@
       ]
     },
     "lunargulls": {
-      "name": "",
+      "name": "Lunar Gulls",
       "prompt": "A flock of Lunar Gulls loudly squawks in this area. You think they may be protecting something cool they've found, but they don't know how to extract it.",
       "options": {
         "Choose Stealth": ["+1 LT|imglt//+2 Gull Carcass|imggullcarcass;imggullcarcass//-5 HP","+4 SC|imgsc|(<5000 SC)//+1 LT|imglt//-3 HP","+1 LT|imglt//-3 HP (>5000 SC)"],
@@ -3648,21 +3648,21 @@
       }
     },
     "lunarhawk": {
-      "name": "",
+      "name": "Lunar Hawk",
       "prompt": "A bright blue light dashes in front of you! A Lunar Hawk is hunting here.",
       "options": {
         "Follow!": ["+1 LT|imglt//+1 Donkey Carcass|imgdonkeycarcass","+1 LT|imglt"]
       }
     },
     "lunarheron": {
-      "name": "",
+      "name": "Lunar Heron",
       "prompt": "A quiet splash reveals a spot where a Lunar Heron is catching food in the shallow water.",
       "options": {
         "Splash!": ["+1 LT|imglt//+1 Dead Fish|imgdeadfish","+1 LT|imglt"]
       }
     },
     "lunarhoarymarmot": {
-      "name": "",
+      "name": "Lunar Hoary Marmot",
       "prompt": "A hoary marmot perches on a nearby rock, sniffing the air and peering around like it's on the lookout for something. It turns and looks at your with beady eyes, going very still.",
       "options": {
         "Search Rocks": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+1 LT|imglt","+1 LT|imglt//-2 HP"],
@@ -3670,7 +3670,7 @@
       }
     },
     "lunarhornedlark": {
-      "name": "",
+      "name": "Lunar Horned Lark",
       "prompt": "A Lunar Horned Lark is passing by on its way to gather food. It seems surprised by your presence!",
       "options": {
         "Catch It!": ["+1 LT|imglt//+5% energy//+5 HP","+1 LT|imglt"],
@@ -3678,7 +3678,7 @@
       }
     },
     "lunarhornedowl": {
-      "name": "",
+      "name": "Lunar Horned Owl",
       "prompt": "This magnificent Horned Owl is observing all who pass through this place. As you seem to be an outsider, you're asked about the destination of your travels.",
       "options": {
         "You're Not Sure Yourself": ["+1 LT|imglt//+1 Swan Carcass|imgswancarcass","+1 LT|imglt"],
@@ -3687,7 +3687,7 @@
       }
     },
     "lunarjacana": {
-      "name": "",
+      "name": "Lunar Jacana",
       "prompt": "A Lunar Jacana walks carefully across the water's surface. Its long toes, creeping with essence, help it stay afloat on the gentle foliage covering the waters of this swamp.",
       "options": {
         "Wade in The Water": ["+1 LT|imglt//+1 random cave-building material","+5 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"]
@@ -3697,7 +3697,7 @@
       ]
     },
     "lunarjackrabbit": {
-      "name": "",
+      "name": "Lunar Jackrabbit",
       "prompt": "A Lunar Jackrabbit stops gracefully to observe you from a safe distance. Gentle blue smoke is rising from its ticked fur.",
       "options": {
         "Chase It!": ["+1 LT|imglt//+1 Lucky Foot|imgluckyfoot","+1 LT|imglt"],
@@ -3705,7 +3705,7 @@
       }
     },
     "lunarjaeger": {
-      "name": "",
+      "name": "Lunar Jaeger",
       "prompt": "A graceful Lunar Jaeger seems to be circling around some nests that were destroyed by a rockslide.",
       "options": {
         "Chase It": ["+2-5 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt|(>5000 SC)"],
@@ -3716,7 +3716,7 @@
       ]
     },
     "lunarlarks": {
-      "name": "",
+      "name": "Lunar Larks",
       "prompt": "Horned Larks are gathering on a twisted tree, interested in something hidden from your eyes. Dark blue essence resembles smoke, but nothing is burning. There's a little hole in the trunk from where the mist is coming from. You could put something in or take something out.",
       "options": {
         "Offer Acorn": ["+1 LT|imglt//+1 Flickering Flower|imgflickeringflower","+1 LT|imglt//+1 Flickering Flower|imgflickeringflower//+1 random recipe from lunar acorn pool*"],
@@ -3730,7 +3730,7 @@
       }
     },
     "lunarlemming": {
-      "name": "",
+      "name": "Lunar Lemming",
       "prompt": "A Lunar Lemming is nervously scurrying around, gathering essence-covered foliage for supplies during the darker nights.",
       "options": {
         "Forage": ["+1 LT|imglt//+1 Whale Rib Bone|imgwhaleribbone"],
@@ -3738,7 +3738,7 @@
       }
     },
     "lunarlemmingcolony": {
-      "name": "",
+      "name": "Lunar Lemming Colony",
       "prompt": "You rarely see such a display of pure affection. Glowing lemmings are playing, cuddling, and apparently having a good time. They have likely already noticed you, but they don't seem to see you as a threat right now.",
       "options": {
         "Attack": ["+1 LT|imglt//+8 Lemming Carcass|imglemmingcarcass;imglemmingcarcass;imglemmingcarcass;imglemmingcarcass;imglemmingcarcass;imglemmingcarcass;imglemmingcarcass;imglemmingcarcass"],
@@ -3747,7 +3747,7 @@
       }
     },
     "lunarlizard": {
-      "name": "",
+      "name": "Lunar Lizard",
       "prompt": "There isn't any sunlight, so this lizard must be... moonbathing? Soaking in the essence?",
       "options": {
         "Poke It": ["+3 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"],
@@ -3755,7 +3755,7 @@
       }
     },
     "lunarlynxcubs": {
-      "name": "",
+      "name": "Lunar Lynx Cubs",
       "prompt": "You stumble upon two Lunar Lynx Cubs playing on a path between large conifers. They notice you and take a few steps back.",
       "options": {
         "Bully": ["+1 LT|imglt//+1 Quail Carcass|imgquailcarcass","+1 LT|imglt"],
@@ -3763,7 +3763,7 @@
       }
     },
     "lunarmagpie": {
-      "name": "",
+      "name": "Lunar Magpie",
       "prompt": "A quiet caw causes you to look up. A Lunar Magpie, covered in glowing essence dust, is trying to get your attention. The branch's leaves rustle gently in the wind, reflecting light in a flickering manner.",
       "options": {
         "Bark": ["+1 LT|imglt//+1 Magpie Feather|imgmagpiefeather","+1 LT|imglt"],
@@ -3771,7 +3771,7 @@
       }
     },
     "lunarmargay": {
-      "name": "",
+      "name": "Lunar Margay",
       "prompt": "You startle a Lunar Margay, who was trying to stalk some birds in the thicket.",
       "options": {
         "Tease": ["+1 LT|imglt//+1 Lucky Foot|imgluckyfoot//-3 HP","+1 LT|imglt//-1 HP"],
@@ -3779,7 +3779,7 @@
       }
     },
     "lunarmarten": {
-      "name": "",
+      "name": "Lunar Marten",
       "prompt": "A curious lunar marten sniffs around, most likely looking for food.",
       "options": {
         "Chase Off": ["+2 LT|imglt","+1 LT|imglt"],
@@ -3790,7 +3790,7 @@
       ]
     },
     "lunarmeadowlark": {
-      "name": "",
+      "name": "Lunar Meadowlark",
       "prompt": "The pleasing sound of a lone bird lures you to this location from far away. You discover a lunar meadowlark on a dry branch. The bird is engrossed in singing, putting his whole heart into it.",
       "options": {
         "Compliment": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+2-3 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"],
@@ -3798,7 +3798,7 @@
       }
     },
     "lunarmink": {
-      "name": "",
+      "name": "Lunar Mink",
       "prompt": "A small mink runs by, a small rodent in its mouth. The rodent is still alive, and and squirms in the animal's mouth, trying desperately to get free. The mink stops and drops it on the ground, tearing the little creature apart and making a nice meal before noticing you. Eesh!",
       "options": {
         "Forage Together": ["+2 LT|imglt","+1 LT|imglt"],
@@ -3806,7 +3806,7 @@
       }
     },
     "lunarmockingbird": {
-      "name": "",
+      "name": "Lunar Mockingbird",
       "prompt": "This creepy, chuckling bird reminds you of a jackal. It calls you names, taunting you to come closer.",
       "options": {
         "Tease back!": ["+2 LT|imglt//-10 HP"],
@@ -3814,7 +3814,7 @@
       }
     },
     "lunarmoosecalf": {
-      "name": "",
+      "name": "Lunar Moose Calf",
       "prompt": "You hear a loud call reverberating through the trees. Following it, you come upon a young moose calf. It seems to have become separated from its mother. It looks at you warily as you approach.",
       "options": {
         "Dig Together": ["+5 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"],
@@ -3822,7 +3822,7 @@
       }
     },
     "lunarmountaingem": {
-      "name": "",
+      "name": "Lunar Mountaingem",
       "prompt": "With a loud tweet, a brilliant lunar mountaingem bird perches in front of you, curious about an unusual guest. You can't take your eyes off of its shiny growths!",
       "options": {
         "Admire": ["+5 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt|(>5000 SC)"],
@@ -3830,7 +3830,7 @@
       }
     },
     "lunarmousenest": {
-      "name": "",
+      "name": "Lunar Mouse Nest",
       "prompt": "A tiny nest built in the high grass catches your attention. It looks abandoned at first glance but you notice a gentle blue glow upon going closer. There is a small mouse inside, looking at you with fear.",
       "options": {
         "Mark Scent to Protect": ["+2 LT|imglt","+1 LT|imglt"],
@@ -3838,7 +3838,7 @@
       }
     },
     "lunarmudpuppy": {
-      "name": "",
+      "name": "Lunar Mudpuppy",
       "prompt": "A blue glow shines within the murky water of a small, dark pond. It resembles a fish, but when you take a closer look, you notice tiny limbs attached to a snake-like body. The creature is so bizarre that you can't stop staring.",
       "options": {
         "Poke It": ["+1 LT|imglt//+1 Medicine: Healing Salve","+1 LT|imglt//+1 random herb from Riparian Woodland*","+1 LT|imglt"],
@@ -3849,14 +3849,14 @@
       ]
     },
     "lunarmurre": {
-      "name": "",
+      "name": "Lunar Murre",
       "prompt": "A lunar murre flies over your head like a small shooting star, leaving a trail of a blue glow behind. It's a good chance to test your speed.",
       "options": {
         "Chase It": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt//+30% hunger","+1 LT|imglt"]
       }
     },
     "lunarmuskrat": {
-      "name": "",
+      "name": "Lunar Muskrat",
       "prompt": "A large branch waves through the air in front of you, causing you to stop abrupty and stare. What on earth? It comes closer, and you realize it's being held by a muskrat lumbering along without a care in the world.",
       "options": {
         "Find a Fallen Tree": ["+1 LT|imglt//+1 random cave-building material*","+1 LT|imglt"],
@@ -3867,7 +3867,7 @@
       ]
     },
     "lunarocelotcubs": {
-      "name": "",
+      "name": "Lunar Ocelot Cubs",
       "prompt": "Young ocelot cubs are chasing a glowing butterfly, stopping from time to time to wrestle playfully.",
       "options": {
         "Catch the butterfly": ["+1 LT|imglt//+2 Butterfly Wing|imgbutterflywing;imgbutterflywing//+3 Glowing Spores|imgglowingspores;imgglowingspores;imgglowingspores"],
@@ -3876,14 +3876,14 @@
       }
     },
     "lunarolingo": {
-      "name": "",
+      "name": "Lunar Olingo",
       "prompt": "A small, fluffy creature peeps from a branch, asking for a second of your time. There is no hesitation in its voice, and you have a feeling that everyone on this path has been approached. Your intuition was right; your big, strong paws are needed to destroy the hiding spot of another animal. In exchange, you can keep anything else you find besides the item you're asked to return. You don't know if it's a good idea, but you decide to help anyway.",
       "options": {
         "Dig": ["+3 LT|imglt","+2 LT|imglt","+1 LT|imglt//+1 Essence-Covered Feather|imgessencecoveredfeather","+1 LT|imglt//+1 Glowing Tongue|imgglowingtongue","+1 LT|imglt//+1 Mollusk Shell|imgmolluskshell"]
       }
     },
     "lunaroriole": {
-      "name": "",
+      "name": "Lunar Oriole",
       "prompt": "A bright blue orb is bothering a Lunar Oriole. No matter where it sits, the orb follows.",
       "options": {
         "Chase the Orb": ["+1 LT|imglt//+1 random cave-building material*","+1 LT|imglt//+1 random herb from Deciduous Forest**","+1 LT|imglt//+10 HP"],
@@ -3895,7 +3895,7 @@
       ]
     },
     "lunarotter": {
-      "name": "",
+      "name": "Lunar Otter",
       "prompt": "A very energetic Lunar Otter is playing around on the sandy slope. It seems quite curious about you!",
       "options": {
         "Join": ["+1 LT|imglt//+1 Lucky Foot|imgluckyfoot","+1 LT|imglt//+5 HP","+1 LT|imglt"],
@@ -3903,7 +3903,7 @@
       }
     },
     "lunarpheasant": {
-      "name": "",
+      "name": "Lunar Pheasant",
       "prompt": "This Lunar Pheasant seems unfazed by everything that approaches it, including a wolf. It must have a thick skull to survive with such a thick brain.",
       "options": {
         "Not Today!": ["+1 LT|imglt//+1 Pheasant Rooster Carcass|imgpheasantroostercarcass","+2 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt|(>5000 SC)"],
@@ -3911,7 +3911,7 @@
       }
     },
     "lunarprairiedogcolony": {
-      "name": "",
+      "name": "Lunar Prairie Dog Colony",
       "prompt": "A colony of fluffy, glowing prairie dogs is busy going about its business, but you know they are all watching you.",
       "options": {
         "Disturb": ["+2 LT|imglt//-10 HP"],
@@ -3919,14 +3919,14 @@
       }
     },
     "lunarpuffin": {
-      "name": "",
+      "name": "Lunar Puffin",
       "prompt": "You startled a poor Lunar Puffin! Its feathers swirl in the air as it flies away!",
       "options": {
         "Gather Feathers!": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+1 LT|imglt//+6 HP","+1 LT|imglt"]
       }
     },
     "lunarpython": {
-      "name": "",
+      "name": "Lunar Python",
       "prompt": "A sudden movement and a cracking sound catch your attention. As you approach, you notice a large python coiled up on a branch. It appears that its nest is somewhere nearby, but you would never expect to find a snake's eggs in a tree.",
       "options": {
         "Find the nest": ["+1 LT|imglt//+6 Python Eggs|imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs"],
@@ -3935,7 +3935,7 @@
       }
     },
     "lunarquail": {
-      "name": "",
+      "name": "Lunar Quail",
       "prompt": "A pudgy Lunar Quail is patrolling this path. It could be looking out for dangers... Or it may just be looking for a partner.",
       "options": {
         "Ambush": ["+1 LT|imglt//+1 Quail Carcass|imgquailcarcass","+1 LT|imglt"],
@@ -3946,7 +3946,7 @@
       ]
     },
     "lunarrabbit": {
-      "name": "",
+      "name": "Lunar Rabbit",
       "prompt": "A glowing line of zig zags crosses your path. Inside, you spot a rabbit, who has paused to nibble on something.",
       "options": {
         "Sneak": ["+1 LT|imglt//+1 Rabbit Carcass|imgrabbitcarcass","+3 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"],
@@ -3954,14 +3954,14 @@
       }
     },
     "lunarroadrunner": {
-      "name": "",
+      "name": "Lunar Roadrunner",
       "prompt": "A fast-moving trail of blue glow catches your attention in the dark. It's hard to focus your eyes on it but when you succeed, you recognize a lunar road runner. There's no way you're passing this challenge up.",
       "options": {
         "Try to Catch It": ["+1 LT|imglt//+6 HP","+1 LT|imglt//+30% hunger","+1 LT|imglt"]
       }
     },
     "lunarrobin": {
-      "name": "",
+      "name": "Lunar Robin",
       "prompt": "You're startled by a loud fluttering noise. A Lunar Robin has flown up close to check you out!",
       "options": {
         "Bark": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt"],
@@ -3969,7 +3969,7 @@
       }
     },
     "lunarsambardeerdoe": {
-      "name": "",
+      "name": "Lunar Sambar Deer Doe",
       "prompt": "A graceful doe crosses your path. Her mouth, eyes, and hooves glow, making her look both fascinating and eerie.",
       "options": {
         "Follow": ["+1 LT|imglt//+5 Growth Chunk|imggrowthchunk;imggrowthchunk;imggrowthchunk;imggrowthchunk;imggrowthchunk"],
@@ -3977,7 +3977,7 @@
       }
     },
     "lunarsheep": {
-      "name": "",
+      "name": "Lunar Sheep",
       "prompt": "You find some Lunar Sheep gathering on these dreamy pastures. You're trying to count them, but the process makes you dizzy.",
       "options": {
         "Count The Sheep": ["+1 LT|imglt//+1 Lucky Foot|imgluckyfoot","+1 LT|imglt"],
@@ -3985,14 +3985,23 @@
       }
     },
     "lunarskua": {
-      "name": "",
+      "name": "Lunar Skua",
       "prompt": "A scary Lunar Skua is patrolling the icy shores. Watching the lights flicker underneath the water from the sky must be mesmerising.",
       "options": {
         "Run Along!": ["+1 LT|imglt//+2 Skua Feather|imgskuafeather;imgskuafeather","+1 LT|imglt"]
       }
     },
+    "lunarskunk": {
+      "name": "Lunar Skunk",
+      "prompt": "Oh, no! A Lunar Skunk is dragging a blue cloud behind him. Your gut suggests it would be best to avoid this critter.",
+      "options": {
+        "Play": ["+5 SC|imgsc|(<5000 SC)//+1 LT|imglt"],
+        "Grab the Tail": ["+4 SC|imgsc|(<5000 SC)//+1 LT|imglt","1 LT|imglt"],
+        "Approach": ["+1 LT|imglt//+4 HP","+1 LT|imglt//+1% hunger"]
+      }
+    },
     "lunarsparks": {
-      "name": "",
+      "name": "Lunar Sparks",
       "prompt": "This phenomenon seems... new to you. Lunar essence is everywhere in this world, but this is the first time you've seen it sparkle and emit sizzling sounds. Beautiful and unknown, it attracts you to it in an instant.",
       "options": {
         "Cover Yourself In 2 Lunar Oil": ["+1 LT|imglt//+40% energy"],
@@ -4000,7 +4009,7 @@
       }
     },
     "lunarspinylizard": {
-      "name": "",
+      "name": "Lunar Spiny Lizard",
       "prompt": "Bright blue with violet spikes running down its spine make this lizard both highly noticeable and send off alarm bells in your head--brightly colored animals can be poisonous! The lizard knows it, too; it doesn't even bat an eye at your approach.",
       "options": {
         "Grab a Quill": ["+2 LT|imglt","+1 LT|imglt"],
@@ -4011,7 +4020,7 @@
       ]
     },
     "lunarsquirrel": {
-      "name": "",
+      "name": "Lunar Squirrel",
       "prompt": "A Lunar Squirrel is hopping around, looking for some food.",
       "options": {
         "Offer Acorn": ["+6 SC|imgsc//+1 LT|imglt"],
@@ -4019,7 +4028,7 @@
       }
     },
     "lunarstoat": {
-      "name": "",
+      "name": "Lunar Stoat",
       "prompt": "A Lunar Stoat is trying to climb a rocky formation to investigate something interesting! Perhaps you can cooperate?",
       "options": {
         "Help It Out": ["+1 LT|imglt//+1 random cave-building material*","+1 LT|imglt//+1 Lucky Foot|imgluckyfoot","+1 LT|imglt"]
@@ -4029,7 +4038,7 @@
       ]
     },
     "lunarsurfbird": {
-      "name": "",
+      "name": "Lunar Surfbird",
       "prompt": "A lunar surfbird walks slowly along the rocky shore. It doesn't seem to be in a rush; in fact, it almost looks as though it's sightseeing, rather than looking for food or scouting.",
       "options": {
         "Stalk": ["+2 SC|imgsc|(<5000 SC)//+1 LT|imglt//+8 HP","+1 LT|imglt//+8 HP (>5000 SC)","+1 LT|imglt//+4 HP"],
@@ -4037,21 +4046,21 @@
       }
     },
     "lunarswallow": {
-      "name": "",
+      "name": "Lunar Swallow",
       "prompt": "A Lunar Swallow darts in front of you, leaving a smoky blue trail behind. The trail still hovers in the air, even after the bird turns and swoops over the water.",
       "options": {
         "Run Along The Bank!": ["+1 LT|imglt//+1 Beaver Carcass|imgbeavercarcass","+1 LT|imglt"]
       }
     },
     "lunartarantula": {
-      "name": "",
+      "name": "Lunar Tarantula",
       "prompt": "You spot something creeping on nearby rocks. That's... a lot of legs. You're only mildly relieved that it isn't a gigantic Lunar Tarantula. Just a normal-sized one that happens to be WAY too close to your face for comfort.",
       "options": {
         "Check Out The Rocks": ["+4 SC|imgsc|(<5000 SC)//+1 LT|imglt//-3 HP","+1 LT|imglt//-3 HP (>5000 SC)","+1 LT|imglt","+1 LT|imglt//-4 HP"]
       }
     },
     "lunartortoise": {
-      "name": "",
+      "name": "Lunar Tortoise",
       "prompt": "You observe a Lunar Tortoise. Its shell holds an intricate pattern that glows in a mesmerising rhythm.",
       "options": {
         "Follow": ["+1 LT|imglt//+1 Bovine Carcass|imgbovinecarcass","+1 LT|imglt"],
@@ -4059,7 +4068,7 @@
       }
     },
     "lunartoucans": {
-      "name": "",
+      "name": "Lunar Toucans",
       "prompt": "You come across some squabbling toucans. They appear to be fighting over essence-charged fruit laying around the area.",
       "options": {
         "Grab The Fruit": ["+1 LT|imglt//+4 HP","+1 LT|imglt"],
@@ -4068,7 +4077,7 @@
       }
     },
     "lunarwhale": {
-      "name": "",
+      "name": "Lunar Whale",
       "prompt": "A massive, whale-shaped Lunar image is drawn onto the sky, almost like a very dynamic, moving part of the aurora borealis. You can almost hear the whale's call echoing across the sky.",
       "options": {
         "Howl": ["+1 LT|imglt//+10 HP"],
@@ -4076,14 +4085,14 @@
       }
     },
     "lunarwoodpecker": {
-      "name": "",
+      "name": "Lunar Woodpecker",
       "prompt": "This Lunar Woodpecker drills glowing patterns in the tree. Instead of eating insects, it licks off the sap with swirling essence.",
       "options": {
         "Follow The Sap": ["+1 LT|imglt//+1 Doe Carcass|imgdoecarcass","+1 LT|imglt"]
       }
     },
     "lunaryucatansquirrel": {
-      "name": "",
+      "name": "Lunar Yucatan Squirrel",
       "prompt": "A tiny ball of glowing fur on a thick leg turns out to be a squirrel, using its tail to reach the sparks of lunar light floating slowly in the air. It looks like innocent fun and the squirrel is completely absorbed, ignoring everything around it.",
       "options": {
         "Harass": ["+1 LT|imglt//+1 Acorn|imgacorn"],
@@ -4091,14 +4100,14 @@
       }
     },
     "markedstone": {
-      "name": "",
+      "name": "Marked Stone",
       "prompt": "You approach the stone slowly. You've never seen anything like this, even in this strange world. Odd, mystic signs are glowing from the inside as if the stone is a source of unknown power.",
       "options": {
         "Touch": ["+1 LT|imglt//+100 HP"]
       }
     },
     "mossraccoon": {
-      "name": "",
+      "name": "Moss Raccoon",
       "prompt": "A lazy Moss Raccoon is resting in your way. It's not interested in moving when an outsider like you appears on the path. When you ask if it has any wares to offer, it sighs. \"Yeah, sure, if you insist.\"",
       "options": {
         "Offer 2 x Opossum Carcass": ["+1 LT|imglt//+1 Moose Cow Carcass|imgmoosecowcarcass"],
@@ -4107,7 +4116,7 @@
       }
     },
     "mountaingoatkid": {
-      "name": "",
+      "name": "Lunar Mountain Goat Kid",
       "prompt": "A curious mountain goat kid tilts its head slightly, watching you.",
       "options": {
         "Tilt your head too": ["+1 LT|imglt//+2 Flickering Flower|imgflickeringflower;imgflickeringflower"],
@@ -4115,7 +4124,7 @@
       }
     },
     "muskoxcalf": {
-      "name": "",
+      "name": "Lunar Muskox Calf",
       "prompt": "A lunar muskox calf wanders around, looking lost. It's a very tempting sight for a hungry wolf.",
       "options": {
         "Hunt": ["+2 LT|imglt//+1 Muskox Calf Carcass|imgmuskoxcalfcarcass","+1 LT|imglt//+3% energy","+1 LT|imglt"],
@@ -4126,7 +4135,7 @@
       ]
     },
     "nobaby": {
-      "name": "",
+      "name": "No Baby",
       "prompt": "A sudden, unexpected sight has stopped you in your tracks. This baby wolf... there's something wrong with it. You're deeply unsettled by its empty gaze, but you're terrified to look away. This wolf isn't like the other creatures you've seen, and you can't find a trace of lunar essence on its plain fur. Is it phasing through the world temporarily?",
       "options": {
         "Avert Your Gaze": ["+2 LT|imglt//+5 Acorn|imgacorn;imgacorn;imgacorn;imgacorn;imgacorn","No result*"],
@@ -4141,7 +4150,7 @@
       ]
     },
     "orbchasers": {
-      "name": "",
+      "name": "Lunar Orb Chasers",
       "prompt": "A group of Lunar Sparrows is chasing lunar orbs. Is this their food, or are they bullying some mystic creatures? You aren't quite sure.",
       "options": {
         "Chase Orbs": ["+1 LT|imglt//+1 Rat Carcass|imgratcarcass","+1 LT|imglt"],
@@ -4149,7 +4158,7 @@
       }
     },
     "pawprinttree": {
-      "name": "",
+      "name": "Pawprint Tree",
       "prompt": "A glowing paw print on a tree might be a warning from the local wolves to turn back.",
       "options": {
         "Put Your Paw On It": ["+1 LT|imglt//+5 HP","+1 LT|imglt"],
@@ -4157,7 +4166,7 @@
       }
     },
     "perchedchickadee": {
-      "name": "",
+      "name": "Perched Lunar Chickadee",
       "prompt": "A tiny chickadee is watching you from its tiny branch on a spot that's hard to reach.",
       "options": {
         "Tackle the trunk!": ["+2-5 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt//+10% hunger","+1 LT|imglt|(>5000 SC)"],
@@ -4176,14 +4185,14 @@
       }
     },
     "perchedlunarrobin": {
-      "name": "",
+      "name": "Perched Lunar Robin",
       "prompt": "A small, glowing bird sits on a nearby branch, looking at you with caution.",
       "options": {
         "Sniff": ["+2 LT|imglt","+1 LT|imglt//+2% energy"]
       }
     },
     "pherrisforge": {
-      "name": "",
+      "name": "Pherris Forge",
       "prompt": "You've just discovered an entrance to the Pherris forge. Lunar fire silently dances, casting a mosaic of shadows on the shimmering snow. The view is both beautiful and dangerous. It's a rare opportunity to explore such a place.",
       "options": {
         "Risk": ["+4 LT|imglt","+3 LT|imglt","+2 LT|imglt","+1 LT|imglt//-10 HP"],
@@ -4191,7 +4200,7 @@
       }
     },
     "pherrisrat": {
-      "name": "",
+      "name": "Pherris Rat",
       "prompt": "A loud screech causes you to halt and look intensely at an indentation in the rugged terrain. A large, reddish Pherris Rat is aggressively trying to taunt you!",
       "options": {
         "Pounce": ["+1 LT|imglt//+1 Rat Carcass|imgratcarcass//-1 HP"],
@@ -4199,7 +4208,7 @@
       }
     },
     "plainsraccoon": {
-      "name": "",
+      "name": "Plains Raccoon",
       "prompt": "You see a clump of grass swimming among the waves of tall grass. Suddenly, a Plains Raccoon emerges to check you out!",
       "options": {
         "Offer 3 x Delicate Meat": ["+1 LT|imglt//+1 Pronghorn Doe Carcass|imgpronghorndoecarcass"],
@@ -4208,7 +4217,7 @@
       }
     },
     "pocketgopher": {
-      "name": "",
+      "name": "Lunar Pocket Gopher",
       "prompt": "A Pocket Gopher is peeking out from its burrow. When the moon is up, it's time to gather food.",
       "options": {
         "Dig out the burrow": ["+1 LT|imglt//+1 random cave-building material*","+1 LT|imglt//+1 random herb from Prairie**"],
@@ -4220,7 +4229,7 @@
       ]
     },
     "prancinghorsefoal": {
-      "name": "",
+      "name": "Prancing Lunar Horse Foal",
       "prompt": "A carefree foal prances around, enjoying itself. You don't see any adult horses around which is strange. Perhaps it's not as dependent on its mother as foals in your world?",
       "options": {
         "Chase": ["+1 LT|imglt//+1 Odd Teeth|imgoddteeth"],
@@ -4228,7 +4237,7 @@
       }
     },
     "puffincrab": {
-      "name": "",
+      "name": "Puffin Crab",
       "prompt": "What lies before you makes you think that a deep sea horror nested on land. A puffin-like crab hybrid is hungrily cleaning the rocks from mussels and lichen.",
       "options": {
         "Find the nest": ["+1 LT|imglt//+1 Essence-Covered Egg|imgessencecoveredegg//+1 Mollusk Shell|imgmolluskshell"],
@@ -4236,7 +4245,7 @@
       }
     },
     "quetzalbasilisk": {
-      "name": "",
+      "name": "Quetzal Basilisk",
       "prompt": "A slender lizard peeks out from the foliage, laying its gaze upon you with a curiously twisted head. Slowly, the fantastic feathers on its body fluff up, as it shows you a mouthful of pointy teeth.",
       "options": {
         "Snarl back": ["+1 LT|imglt//+2% energy//+1 Venom Gland|imgvenomgland"],
@@ -4244,7 +4253,7 @@
       }
     },
     "raventrader": {
-      "name": "",
+      "name": "Lunar Raven Trader",
       "prompt": "An intense shine catches your attention. Upon approaching the shine, you notice a lunar raven carefully arranging various items, as if putting them on display. You might be able to find something useful here.",
       "options": {
         "Offer 1 Charged Core": ["+3 LT|imglt//+20% energy"],
@@ -4253,7 +4262,7 @@
       }
     },
     "restingcormorant": {
-      "name": "",
+      "name": "Resting Lunar Cormorant",
       "prompt": "A cormorant is resting, letting its wings dry slowly in the damp air. The essence seems to help the water evaporate faster. It looks like there are some leftover fish around—perhaps the meal time is over.",
       "options": {
         "Bark at the bird": ["+1 LT|imglt//+1 Acorn|imgacorn"],
@@ -4269,7 +4278,7 @@
       }
     },
     "restingpetrel": {
-      "name": "",
+      "name": "Resting Lunar Petrel",
       "prompt": "You can just barely spot a resting petrel among the grass and mushrooms up ahead.",
       "options": {
         "Offer Acorn": ["+1 LT|imglt//+1 random recipe from common lunar pool**"],
@@ -4285,7 +4294,7 @@
       }
     },
     "roughleggedbuzzard": {
-      "name": "",
+      "name": "Lunar Rough-Legged Buzzard",
       "prompt": "A handsome buzzard sits proudly on a branch, its eyes scanning the area for any movement of prey. Lunar essence pours off of its feathers and as you approach, its intense eyes seem to stare right through you and into your soul.",
       "options": {
         "Hunt Seagulls": ["+1 LT|imglt//+1 Gull Feather|imggullfeather"],
@@ -4293,7 +4302,7 @@
       }
     },
     "sandraccoon": {
-      "name": "",
+      "name": "Sand Raccoon",
       "prompt": "The long, flowing tail of this Sand Raccoon crumbles in the wind like the edge of a dune, but it doesn't seem to actually dissolve. With a melancholy look in its eyes, the creature asks if you need anything.",
       "options": {
         "Offer 3 x Duck Egg": ["+1 LT|imglt//+5 Vulture Eggs|imgvultureeggs;imgvultureeggs;imgvultureeggs;imgvultureeggs;imgvultureeggs"],
@@ -4302,7 +4311,7 @@
       }
     },
     "singinglunarfinch": {
-      "name": "",
+      "name": "Singing Lunar Finch",
       "prompt": "This Lunar Finch's song is so loud, vibrant, and clear, you can visibly see the sound vibrating in the air by its glowing essence trail. Suddenly, you hear a horrible break in the song. Then another one. The bird seems to be sick.",
       "options": {
         "Offer Cough Cure": ["+1 LT|imglt//+1 Growth Chunk|imggrowthchunk"],
@@ -4310,7 +4319,7 @@
       }
     },
     "singingtapir": {
-      "name": "",
+      "name": "Singing Lunar Tapir",
       "prompt": "Wow! At first, you only heard a song, but then a whole overgrown tapir appeared! It prances about while raising its nose, singing into the night.",
       "options": {
         "Pounce": ["+1 LT|imglt//+1 random herb from Rainforest*","+1 LT|imglt//+20% hunger"],
@@ -4321,7 +4330,7 @@
       ]
     },
     "skunkowl": {
-      "name": "",
+      "name": "Skunk Owl",
       "prompt": "An odd creature lands on your path. Is it an owl, or a skunk?",
       "options": {
         "Growl": ["+1 LT|imglt//+2% energy//+1 Large Bird Meat|imglargebirdmeat//-2 HP"],
@@ -4329,7 +4338,7 @@
       }
     },
     "smallcobwebs": {
-      "name": "",
+      "name": "Small Lunar Cobwebs",
       "prompt": "You stumble upon many cobwebs woven by local spiders in the shape of a circle.",
       "options": {
         "Check the silk cocoons": ["+1 LT|imglt//+1 Acorn|imgacorn"],
@@ -4341,14 +4350,14 @@
       ]
     },
     "sparklingsnow": {
-      "name": "",
+      "name": "Sparkling Snow",
       "prompt": "The flecks of snow tend to reflect the blue glow of this land, but this snow seems to have an extra sparkle to it. You notice the snowflakes are glowing with lunar essence frozen within them!",
       "options": {
         "Mlem": ["+1 LT|imglt//+3 HP","+1 LT|imglt"]
       }
     },
     "sporecloud": {
-      "name": "",
+      "name": "Spore Cloud",
       "prompt": "You accidentally step on some local mushrooms, releasing a large spore cloud. It may be dangerous!",
       "options": {
         "Use Cough Cure": ["+1 LT|imglt//+1 Medicine: Rich Healing Salve|imgmedicinerichhealingsalve"],
@@ -4356,7 +4365,7 @@
       }
     },
     "spottedlunarchipmunk": {
-      "name": "",
+      "name": "Spotted Lunar Chipmunk",
       "prompt": "An incredibly fluffy striped chipmunk is checking you out, curious about your exotic looks. It seems interested and wonders if you're hiding anything as special as you!",
       "options": {
         "Offer Acorn": ["+1 LT|imglt//+1 random recipe from common lunar pool**"],
@@ -4375,7 +4384,7 @@
       }
     },
     "spottedlunarjay": {
-      "name": "",
+      "name": "Spotted Lunar Jay",
       "prompt": "A Spotted Lunar Jay is walking around, looking for treats on the ground.",
       "options": {
         "Play!": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt//+1 Essence-Covered Feather|imgessencecoveredfeather"],
@@ -4389,7 +4398,7 @@
       ]
     },
     "stalkinglunaroncilla": {
-      "name": "",
+      "name": "Stalking Lunar Oncilla",
       "prompt": "It was almost too easy to miss the movement on a nearby upturned root. A Lunar Oncilla is stalking its prey, but your arrival seems to have scared it off. It looks at you, a little upset.",
       "options": {
         "Offer Acorn": ["+1 LT|imglt//+1 random recipe from common lunar pool**"],
@@ -4404,7 +4413,7 @@
       }
     },
     "stripedlunarchipmunk": {
-      "name": "",
+      "name": "Striped Lunar Chipmunk",
       "prompt": "An incredibly fluffy striped chipmunk is checking you out, curious about your exotic looks. It seems interested and wonders if you're hiding anything as special as you!",
       "options": {
         "Offer Acorn": ["+1 LT|imglt//+1 random recipe from common lunar pool**"],
@@ -4419,14 +4428,14 @@
       }
     },
     "stripedlunarjay": {
-      "name": "",
+      "name": "Striped Lunar Jay",
       "prompt": "What an unusual pattern for a bird! This Striped Lunar Jay doesn't seem to be aware of your presence yet.",
       "options": {
         "Poke It!": ["+1 LT|imglt//+1 Bone|imgbone","+1 LT|imglt//+1 Essence-Covered Feather|imgessencecoveredfeather","+1 LT|imglt//+10 HP"]
       }
     },
     "tarantulamoth": {
-      "name": "",
+      "name": "Lunar Tarantula Moth",
       "prompt": "What's this...?! A literal Tarantula Moth! A flying spider?! Help!",
       "options": {
         "Attack!": ["+1-6 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt|(>5000 SC)","+1 LT|imglt//-5 HP"],
@@ -4438,7 +4447,7 @@
       ]
     },
     "toytinkerer": {
-      "name": "",
+      "name": "Toy Tinkerer",
       "prompt": "You hear clanking and whirring from behind a pile of rocks. After a short hike, an amazing workshop reveals itself, hidden between the boulders. A crafty raccoon with funny headwear is tinkering with scraps, essence, and discarded objects, happy to make a treasure out of somebody's trash! She notices you and perks up. \"Sorry! I can't sell any of these, I am finishing a big order, but I could give you some blueprints if you're interested!\"",
       "options": {
         "Pick a blueprint": ["+1 LT|imglt//+1 random recipe from lunar toy pool*"],
@@ -4449,7 +4458,7 @@
       ]
     },
     "toytrader": {
-      "name": "",
+      "name": "Toy Trader",
       "prompt": "You find an extremely fluffy cat walking with a bag on its back like a human. You bark gently in confusion, catching its attention and gaze of intense, slit eyes. Lucky for you, instead of weapons, the bag is full of scrolls! Apparently, this feline fella is trading toy recipes in exchange for Delicate Meat, a rare fishy treat.",
       "options": {
         "Give Delicate Meat": ["+1 LT|imglt//+1 random recipe from lunar toy pool*"],
@@ -4463,7 +4472,7 @@
       }
     },
     "treeclimbinghare": {
-      "name": "",
+      "name": "Tree-Climbing Hare",
       "prompt": "What you see is definitely a hare, but its claws are very long and sharp, allowing it to climb a tree as fast as a squirrel. How peculiar!",
       "options": {
         "Chat": ["+1 LT|imglt//+2 Massive Pinecone|imgmassivepinecone;imgmassivepinecone"],
@@ -4472,14 +4481,14 @@
       }
     },
     "veileddove": {
-      "name": "",
+      "name": "Veiled Dove",
       "prompt": "A majestic, glowing dove flies above your head. Its unusually long, frilled tail catches your attention.",
       "options": {
         "Follow": ["+2 LT|imglt","+1 LT|imglt//+4 HP"]
       }
     },
     "veiledvireo": {
-      "name": "",
+      "name": "Veiled Vireo",
       "prompt": "You can't stop staring at the long, flowing veils of this bird as it flies above your head. With their slow, graceful movements, it feels as if you are watching something living underwater.",
       "options": {
         "Catch": ["+1 LT|imglt//+2 Small Bird Meat|imgsmallbirdmeat;imgsmallbirdmeat"],
@@ -4487,7 +4496,7 @@
       }
     },
     "volukroscamp": {
-      "name": "",
+      "name": "Volukros Camp",
       "prompt": "You're entering Volukros territory... Blue feathers hang on the branches above. Despite their decorative appearance, you know it signifies that going further ahead could be dangerous. However, with some luck, you could benefit from this...",
       "options": {
         "Risk": ["+4 LT|imglt","+3 LT|imglt","+2 LT|imglt","+1 LT|imglt//-10 HP"],
@@ -4495,7 +4504,7 @@
       }
     },
     "volukrosrats": {
-      "name": "",
+      "name": "Volukros Rats",
       "prompt": "A few feathered Volukros Rats are scurrying around, sniffing every nook and cranny as if they were searching for something.",
       "options": {
         "Growl And Dig": ["+4 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt|(>5000 SC)","+1 LT|imglt//-4 HP"],
@@ -4503,7 +4512,7 @@
       }
     },
     "vulturebeaver": {
-      "name": "",
+      "name": "Vulture Beaver",
       "prompt": "You hear loud rustling noises among the trees, before a big bird suddenly swoops down towards the water's edge. You can spot a branch in its mouth, with the creature handling it as though it were a beaver, not a bird.",
       "options": {
         "Chase": ["+2 SC|imgsc|(<5000 SC)//+1 LT|imglt//+1 Beaver Carcass|imgbeavercarcass","+1 LT|imglt//+1 Beaver Carcass|imgbeavercarcass|(>5000 SC)"],
@@ -4511,7 +4520,7 @@
       }
     },
     "wanderinglunarcat": {
-      "name": "",
+      "name": "Wandering Lunar Cat",
       "prompt": "A small lunar cat crosses your path, completely confident and calm despite your size and unfamiliar look. In its mind, it sees itself as a mighty hunter and ferocious predator, but to you it's just a glowing furball you want to touch.",
       "options": {
         "Offer Acorn": ["+1 LT|imglt//+10% energy","+1 LT|imglt//+10% energy//+1 random recipe from lunar acorn pool*"],
@@ -4525,7 +4534,7 @@
       }
     },
     "wattledlunarchipmunk": {
-      "name": "",
+      "name": "Wattled Lunar Chipmunk",
       "prompt": "You find a wattled chipmunk defending a mound of dirt from a butterfly. It's not going to hurt you, buddy!",
       "options": {
         "Dig Into the Mound": ["+1 LT|imglt//+1 Acorn|imgacorn","+1 LT|imglt//+1 random cave-building material*","+1 LT|imglt//+1 random biome-specific herb**"],
@@ -4541,14 +4550,14 @@
       }
     },
     "wattledlunarjay": {
-      "name": "",
+      "name": "Wattled Lunar Jay",
       "prompt": "A Wattled Lunar Jay is flying around and chattering with its mates, spreading lunar dust unknowingly.",
       "options": {
         "Bark": ["+1 LT|imglt//+1 Bone|imgbone","+1 LT|imglt//+1 Essence-Covered Feather|imgessencecoveredfeather"]
       }
     },
     "wingedfox": {
-      "name": "",
+      "name": "Winged Fox",
       "prompt": "Something dashes above your head and lands in front of you. As the creature folds its wings back, you realize it's a fox, but it doesn't seem to enjoy your company and lets out a warning bark as you take a step toward it.",
       "options": {
         "Play Bow": ["+1 LT|imglt//+10% energy"],
@@ -4557,7 +4566,7 @@
       }
     },
     "wingedgecko": {
-      "name": "",
+      "name": "Winged Gecko",
       "prompt": "The creature above your head resembles a bat, but when youlook closer, you notice that it's actually a flying gecko!",
       "options": {
         "Friendly Bark": ["+1 LT|imglt//+1 Lunar Oil|imglunaroil"],
@@ -4565,7 +4574,7 @@
       }
     },
     "wingedpossum": {
-      "name": "",
+      "name": "Winged Opossum",
       "prompt": "This southern-looking Winged Opossum is prepping dinner... upside down!",
       "options": {
         "Opossum Is Dinner!": ["+1 LT|imglt//+1 Opossum Carcass|imgopossumcarcass","+1 LT|imglt"],
@@ -4573,7 +4582,7 @@
       }
     },
     "wisefox": {
-      "name": "",
+      "name": "Wise Lunar Fox",
       "prompt": "This old, wise Lunar Fox is offering helpful advice on how to travel within this phasing world.",
       "options": {
         "Listen": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve"],
@@ -4588,7 +4597,7 @@
       ]
     },
     "wolfchef": {
-      "name": "",
+      "name": "Wolf Chef",
       "prompt": "Now that's something you haven't seen before! Looks like this wolf is trying to cook something in an essence-filled kettle, but there's something odd about this scene... The chef's hat is a big mushroom and under it... there's a rat! And this weird rat seems to be pulling the wolf's fur to command the cooking process! You peek into the soup and take a big sniff. Is there something missing?",
       "options": {
         "Offer Growth Chunk": ["+2 LT|imglt"],
@@ -4597,7 +4606,7 @@
       }
     },
     "woollybearmoth": {
-      "name": "",
+      "name": "Lunar Woolly Bear Moth",
       "prompt": "You can't believe your eyes. You'd say you're dreaming, but you are, in fact, in a Dreamland, so anything is possible. There are no words to properly describe this creature. You'd never imagine a cross between a bear and a moth.",
       "options": {
         "Come closer": ["+1 LT|imglt//+1 random herb from Glacier*","+1 LT|imglt//+5 HP","+1 LT|imglt"],
