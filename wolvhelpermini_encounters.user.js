@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        WolvhelperMini: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.6.7
+// @version     1.6.8
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -490,10 +490,9 @@
     return Array.isArray(value) ? value.map(outcome => parseCompoundResult(outcome, location)) : [parseCompoundResult(value, location)];
   }
 
-  // WolvhelperMini version ONLY (elementsToAppend)
+  // WolvhelperMini version ONLY
   function createResultElement(rewards, isOr = false) {
-    const container = document.createElement('span');
-    const elementsToAppend = [];
+    const fragment = document.createDocumentFragment();
 
     rewards.forEach((reward, index) => {
       let needsSeparator = index > 0;
@@ -505,12 +504,12 @@
           separator.textContent = 'OR';
           separator.className = 'wh-separator';
           separator.style.fontWeight = 'bold';
-          elementsToAppend.push(separator);
+          fragment.appendChild(separator);
           needsOr = false;
         }
 
         if (needsSeparator) {
-          elementsToAppend.push(document.createTextNode(TEXT_SPACE + '&' + TEXT_SPACE));
+          fragment.appendChild(document.createTextNode(TEXT_SPACE + '&' + TEXT_SPACE));
           needsSeparator = false;
         }
 
@@ -528,28 +527,27 @@
 
           while ((match = noResultRegex.exec(textToAppend)) !== null) {
             if (match.index > lastIndex) {
-              elementsToAppend.push(document.createTextNode(textToAppend.slice(lastIndex, match.index)));
+              fragment.appendChild(document.createTextNode(textToAppend.slice(lastIndex, match.index)));
             }
 
             const noResult = document.createElement('i');
             noResult.textContent = 'No result';
-            elementsToAppend.push(noResult);
+            fragment.appendChild(noResult);
 
             if (match[1]) {
-              elementsToAppend.push(document.createTextNode(match[1]));
+              fragment.appendChild(document.createTextNode(match[1]));
             }
             lastIndex = noResultRegex.lastIndex;
           }
 
           if (lastIndex < textToAppend.length) {
-            elementsToAppend.push(document.createTextNode(textToAppend.slice(lastIndex)));
+            fragment.appendChild(document.createTextNode(textToAppend.slice(lastIndex)));
           }
         }
       });
     });
 
-    container.append(...elementsToAppend);
-    return container;
+    return fragment;
   }
 
   function createStepPreviewLines(buttonText, steps, encounter) {
@@ -587,7 +585,7 @@
     return lines;
   }
 
-  function createResultLine(buttonText, outcomes) {
+function createResultLine(buttonText, outcomes) {
     const line = document.createElement('div');
     line.className = 'wh-line-normal';
 
@@ -596,10 +594,7 @@
     line.appendChild(label);
 
     outcomes.forEach((outcome, index) => {
-      const resultWrapper = document.createElement('span');
-
-      resultWrapper.appendChild(createResultElement(outcome, index > 0));
-      line.appendChild(resultWrapper);
+      line.appendChild(createResultElement(outcome, index > 0));
     });
 
     return line;

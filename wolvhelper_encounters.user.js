@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper: Explore Encounters
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     1.6.7
+// @version     1.6.8
 // @author      Kaztaztrophe
 // @description Wolvden explore encounter helper which displays results
 // @match       https://www.wolvden.com/*
@@ -577,28 +577,32 @@
 
   // Wolvhelper version ONLY (segmentSpan)
   function createResultElement(rewards, isOr = false) {
-    const container = document.createElement('span');
-    const elementsToAppend = [];
+    const fragment = document.createDocumentFragment();
 
     rewards.forEach((reward, index) => {
       let needsSeparator = index > 0;
       let needsOr = isOr && index === 0;
 
+      let currentSpan = null;
+
       reward.segments.forEach((segment, segIndex) => {
-        const segmentSpan = document.createElement('span');
-        segmentSpan.className = 'wh-wrapper-part';
+        if (!currentSpan || segment.images?.length > 0) {
+          currentSpan = document.createElement('span');
+          currentSpan.className = 'wh-wrapper-part';
+          fragment.appendChild(currentSpan);
+        }
 
         if (needsOr) {
           const separator = document.createElement('span');
           separator.textContent = 'OR';
           separator.className = 'wh-separator';
           separator.style.fontWeight = 'bold';
-          segmentSpan.appendChild(separator);
+          currentSpan.appendChild(separator);
           needsOr = false;
         }
 
         if (needsSeparator) {
-          segmentSpan.appendChild(document.createTextNode(TEXT_SPACE + '&' + TEXT_SPACE));
+          currentSpan.appendChild(document.createTextNode(TEXT_SPACE + '&' + TEXT_SPACE));
           needsSeparator = false;
         }
 
@@ -616,21 +620,21 @@
 
           while ((match = noResultRegex.exec(textToAppend)) !== null) {
             if (match.index > lastIndex) {
-              segmentSpan.appendChild(document.createTextNode(textToAppend.slice(lastIndex, match.index)));
+              currentSpan.appendChild(document.createTextNode(textToAppend.slice(lastIndex, match.index)));
             }
 
             const noResult = document.createElement('i');
             noResult.textContent = 'No result';
-            segmentSpan.appendChild(noResult);
+            currentSpan.appendChild(noResult);
 
             if (match[1]) {
-              segmentSpan.appendChild(document.createTextNode(match[1]));
+              currentSpan.appendChild(document.createTextNode(match[1]));
             }
             lastIndex = noResultRegex.lastIndex;
           }
 
           if (lastIndex < textToAppend.length) {
-            segmentSpan.appendChild(document.createTextNode(textToAppend.slice(lastIndex)));
+            currentSpan.appendChild(document.createTextNode(textToAppend.slice(lastIndex)));
           }
         }
 
@@ -638,18 +642,15 @@
           const image = createRewardImage(imageName, resultText, imageIndex);
           if (image) {
             if (imageIndex === 0 && resultText) {
-              segmentSpan.appendChild(document.createTextNode(' '));
+              currentSpan.appendChild(document.createTextNode(TEXT_SPACE));
             }
-            segmentSpan.appendChild(image);
+            currentSpan.appendChild(image);
           }
         });
-
-        elementsToAppend.push(segmentSpan);
       });
     });
 
-    container.append(...elementsToAppend);
-    return container;
+    return fragment;
   }
 
   function createStepPreviewLines(buttonText, steps, encounter) {
