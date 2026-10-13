@@ -5318,11 +5318,8 @@
     "koraphase1": {
       "name": "Ashen Oath: Meet Kora",
       "options": {
-        "Go to her": ["@details1"]
-      },
-      "details": [
-        "Begins dialogue with Kora in Ashen Oath storyline"
-      ]
+        "Go to her": ["Begins dialogue with Kora in Ashen Oath storyline"]
+      }
     }
 
 
