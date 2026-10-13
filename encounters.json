@@ -5314,7 +5314,14 @@
       "options": {
         "Take it to the wolf": ["Completes quest for the Ashen Oath storyline"]
       }
+    },
+    "koraphase1": {
+      "name": "Ashen Oath: Meet Kora",
+      "options": {
+        "Go to her": ["Begins dialogue with Kora in Ashen Oath storyline"]
+      }
     }
+
 
   }
 }
