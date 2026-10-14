@@ -500,7 +500,7 @@
       "name": "Black Widow",
       "prompt": "A large black widow has just started spinning its web as night approaches. It's hauntingly beautiful and almost hypnotizing to watch.",
       "options": {
-        "Get a closer look": ["+10 HP","Gain illness: Poison","No result"],
+        "Get a closer look": ["+10 HP","Gain illness: Poisoned","No result"],
         "Keep back": ["+1 Raccoon Carcass|imgraccooncarcass","No result"]
       }
     },
@@ -1547,7 +1547,7 @@
       "name": "Mojave Tarantula",
       "prompt": "A large and very hairy tarantula eyes you from a nearby rock.Hmm...friend or foe?",
       "options": {
-        "Pounce": ["+10 HP","Gain illness: Poison/No result*"],
+        "Pounce": ["+10 HP","Gain illness: Poisoned/No result*"],
         "Poke": ["+4 HP","-3 HP","No result"]
       },
       "notes": [
@@ -2069,7 +2069,7 @@
       "name": "Rocky Mountain Toad",
       "prompt": "A thick, fat, and juicy Rocky Mountain toad is resting on this comfortable rock, protected from the weather by a coat of mucus and mud.",
       "options": {
-        "Lick it": ["+1 Expression: Pfflrp|imgexpressionpfflrp","+5 HP","Gain illness: Poison/No result*","No result"],
+        "Lick it": ["+1 Expression: Pfflrp|imgexpressionpfflrp","+5 HP","Gain illness: Poisoned/No result*","No result"],
         "Don't lick it": ["+1-2 SC|imgsc|(<5000 SC)","No result"]
       },
       "notes": [
@@ -5069,8 +5069,11 @@
       "name": "Haunted Mine",
       "prompt": "No matter how hard you try to see inside, the long, empty corridor is shrouded with deep shadows and reveals nothing. A faint echo, resembling a deep, low growl, reaches your ears, but the source of the sound is a mystery. Is it just your imagination?",
       "options": {
-        "Investigate": ["+3 ME|imgme//-3 HP","Automatic battle with enemy Black Vulture Group"]
-      }
+        "Investigate": ["+3 ME|imgme//-3 HP","Automatic battle with random Desert enemy*"]
+      },
+      "notes": [
+        "*@poolenemydesert"
+      ]
     },
     "headlesshorseman": {
       "name": "Headless Horseman",
