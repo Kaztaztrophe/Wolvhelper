@@ -3545,7 +3545,7 @@
     },
     "lunarferret": {
       "name": "Lunar Ferret",
-      "prompt": "A Lunar Ferret is hopping around between many burrow, playing out in the open plains.",
+      "prompt": "A Lunar Ferret is hopping around between many burrows, playing out in the open plains.",
       "options": {
         "Dig Around!": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+3 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"],
         "Play!": ["+1 LT|imglt//+1 Rabbit Carcass|imgrabbitcarcass","+3 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"]
@@ -5263,7 +5263,7 @@
       "name": "Small Effigy",
       "prompt": "An intricate construction is impaled on a rock in a sturdy way. It's not that big--perhaps you could even detach it? Or decorate it more?",
       "options": {
-        "Add a large branch*": ["+3 ME","No result**"],
+        "Add a piece*": ["+3 ME","No result**"],
         "Steal it": ["+2 ME|imgme","+1 ME|imgme//-4 HP"]
       },
       "notes": [
