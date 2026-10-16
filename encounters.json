@@ -75,16 +75,17 @@
         "Keep Moving Forward": ["Automatic battle with level (LVL+5) local enemy @location1"],
         "Turn Back": ["+1 random single-use food item*"]
       },
+      "trophies": "@location2",
       "notes": [
         "*@poolfoodsingleuse"
       ],
       "location": {
-        "/biome/1|/biome/4|/biome/6": ["Eastern Wolf"],
-        "/biome/2|/biome/3|/biome/9|/biome/10": ["Timber Wolf"],
-        "/biome/5": ["Mexican Wolf"],
-        "/biome/7|/biome/8": ["Red Wolf"],
-        "/biome/11": ["Alaskan Tundra Wolf"],
-        "/biome/12": ["Arctic Wolf"]
+        "/biome/1|/biome/4|/biome/6": ["Eastern Wolf","@easternwolf"],
+        "/biome/2|/biome/3|/biome/9|/biome/10": ["Timber Wolf","@timberwolf"],
+        "/biome/5": ["Mexican Wolf","@mexicanwolf"],
+        "/biome/7|/biome/8": ["Red Wolf","@redwolf"],
+        "/biome/11": ["Alaskan Tundra Wolf","@alaskantundrawolf"],
+        "/biome/12": ["Arctic Wolf","@arcticwolf"]
       }
     },
     "fillerdirtsnuffle": {
@@ -2421,13 +2422,14 @@
         "Attack": ["Automatic battle with local enemy @location1"],
         "Befriend": ["Initiates claiming a New Befriended Wolf"]
       },
+      "trophies": "@location2",
       "location": {
-        "/biome/1|/biome/4|/biome/6": ["Eastern Wolf"],
-        "/biome/2|/biome/3|/biome/9|/biome/10": ["Timber Wolf"],
-        "/biome/5": ["Mexican Wolf"],
-        "/biome/7|/biome/8": ["Red Wolf"],
-        "/biome/11": ["Alaskan Tundra Wolf"],
-        "/biome/12": ["Arctic Wolf"]
+        "/biome/1|/biome/4|/biome/6": ["Eastern Wolf","@easternwolf"],
+        "/biome/2|/biome/3|/biome/9|/biome/10": ["Timber Wolf","@timberwolf"],
+        "/biome/5": ["Mexican Wolf","@mexicanwolf"],
+        "/biome/7|/biome/8": ["Red Wolf","@redwolf"],
+        "/biome/11": ["Alaskan Tundra Wolf","@alaskantundrawolf"],
+        "/biome/12": ["Arctic Wolf","@arcticwolf"]
       }
     },
     "wolffish": {
