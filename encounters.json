@@ -2945,7 +2945,7 @@
       "name": "Fluvial Raccoon",
       "prompt": "With a loud splash, a Fluvial Raccoon jumps out of the water to greet you! It whips its watery tail around, eagerly waiting for you to decide if you're interested in some riverine wares.",
       "options": {
-        "Offer 3 x Quail Eggs": ["+1 LT|imglt//+1 Swan Carcass|imgswancarcass"],
+        "Offer 3 x Quail Egg": ["+1 LT|imglt//+1 Swan Carcass|imgswancarcass"],
         "Offer 20 SC": ["+1 LT|imglt//+10% energy//+10 HP"],
         "Offer Acorn": ["+1 LT|imglt//+1 Cnitharian Tuggy Tendril|imgcnithariantuggytendril"]
       }
