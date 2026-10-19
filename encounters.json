@@ -360,7 +360,7 @@
         "Interrupt": ["No result*"]
       },
       "notes": [
-        "*@details"
+        "*@details1"
       ],
       "details": [
         "This encounter has effects that are not yet implemented in the game, so it will always have no result."
@@ -757,16 +757,14 @@
       "name": "Dall Sheep",
       "prompt": "A Dall sheep leaps across your path, too busy focusing on keeping its footing to notice you. Mutton on the menu, perhaps?",
       "options": {
-        "Race": ["+10% energy","Gain illness: Fleas/No result*/-2 HP**"],
+        "Race": ["+10% energy","Gain illness: Fleas/-2 HP*"],
         "Hunt": ["+1 Dall Sheep Carcass|imgdallsheepcarcass","No result"]
       },
       "notes": [
-        "*@details1",
-        "**@details2"
+        "*@details1"
       ],
       "details": [
-        "If your lead wolf is currently sick.",
-        "If your lead wolf is currently immune to illness."
+        "If your lead wolf is currently sick or immune to illness."
       ]
     },
     "deadcow": {
@@ -2987,7 +2985,7 @@
       "name": "Lunar Fox Squirrel",
       "prompt": "This little fox squirrel seems to be guarding something that you cannot see. Its long, glowing tail looks like a blue flame.",
       "options": {
-        "Back Off!": ["+1 LT|imglt//+1 Squirrel Carcass|imgsquirrelcarcass","+3 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt|(>5000 SC)"],
+        "Back Off!": ["+1 LT|imglt//+1 Squirrel Carcass|imgsquirrelcarcass","+3 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"],
         "Wait": ["+1 LT|imglt//+3 HP"]
       }
     },
@@ -3123,7 +3121,7 @@
       }
     },
     "hatchingmothwolves": {
-      "name": "Hatching Moth Wolves",
+      "name": "Hatching Moth-Wolves",
       "prompt": "What's that noise? You spot a nearby branch, which seems to be emanating crackling sounds and... high-pitched yelps? Oh, it's a nest! Instead of birds, you find baby moth-wolves!",
       "options": {
         "Feed Them": ["+1 LT|imglt//+1 Rat Carcass|imgratcarcass","+2 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt|(>5000 SC)"],
@@ -3998,8 +3996,8 @@
       "prompt": "Oh, no! A Lunar Skunk is dragging a blue cloud behind him. Your gut suggests it would be best to avoid this critter.",
       "options": {
         "Play": ["+5 SC|imgsc|(<5000 SC)//+1 LT|imglt"],
-        "Grab the Tail": ["+4 SC|imgsc|(<5000 SC)//+1 LT|imglt","1 LT|imglt"],
-        "Approach": ["+1 LT|imglt//+4 HP","+1 LT|imglt//+1% hunger"]
+        "Grab The Tail": ["+4 SC|imgsc|(<5000 SC)//+1 LT|imglt","1 LT|imglt"],
+        "Dine Together": ["+1 LT|imglt//+4 HP","+1 LT|imglt//+1% hunger"]
       }
     },
     "lunarsparks": {
@@ -4129,7 +4127,7 @@
       "name": "Lunar Muskox Calf",
       "prompt": "A lunar muskox calf wanders around, looking lost. It's a very tempting sight for a hungry wolf.",
       "options": {
-        "Hunt": ["+2 LT|imglt//+1 Muskox Calf Carcass|imgmuskoxcalfcarcass","+1 LT|imglt//+3% energy","+1 LT|imglt"],
+        "Hunt": ["+1 LT|imglt//+1 Muskox Calf Carcass|imgmuskoxcalfcarcass","+1 LT|imglt//+3% energy","+1 LT|imglt"],
         "Look around": ["+1 LT|imglt//+1 random herb from Tundra*","+1 LT|imglt//+4% energy","+1 LT|imglt"]
       },
       "notes": [
