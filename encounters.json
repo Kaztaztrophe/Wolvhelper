@@ -3995,7 +3995,7 @@
       "name": "Lunar Skunk",
       "prompt": "Oh, no! A Lunar Skunk is dragging a blue cloud behind him. Your gut suggests it would be best to avoid this critter.",
       "options": {
-        "Play": ["+5 SC|imgsc|(<5000 SC)//+1 LT|imglt"],
+        "Play": ["+5 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"],
         "Grab The Tail": ["+4 SC|imgsc|(<5000 SC)//+1 LT|imglt","1 LT|imglt"],
         "Dine Together": ["+1 LT|imglt//+4 HP","+1 LT|imglt//+1% hunger"]
       }
