@@ -5263,7 +5263,7 @@
       "name": "Small Effigy",
       "prompt": "An intricate construction is impaled on a rock in a sturdy way. It's not that big--perhaps you could even detach it? Or decorate it more?",
       "options": {
-        "Add a piece*": ["+3 ME","No result**"],
+        "Add a large branch*": ["+3 ME","No result**"],
         "Steal it": ["+2 ME|imgme","+1 ME|imgme//-4 HP"]
       },
       "notes": [
@@ -5304,6 +5304,25 @@
         "Mark scent": ["+1 ME|imgme//+1% energy"],
         "Find buried stash": ["+1 ME|imgme//-2% energy//+1 Medicine: Healing Salve|imgmedicinehealingsalve"]
       }
+    },
+    "witchstoneden": {
+      "name": "Witch Stone Den",
+      "prompt": "Candles flicker at the entrance of this den, and the shadowed entrance pulls you in. Do you dare to step foot inside? It could be a trap... or there could be goodies hidden away.",
+      "options": {
+        "Investigate the outside": ["+4 ME|imgme","-15 HP"],
+        "Step inside": ["+2 ME|imgme//+1 Lucky Foot|imgluckyfoot//-2 HP","+10% energy"]
+      }
+    },
+    "witchtreeden": {
+      "name": "Witch Tree Den",
+      "prompt": "A large, hollowed-out tree creaks in the wind, causing the trinkets on the branches to tinkle ominously and the tattered cloth at the entrance to shift and reveal a wolf skeleton within. Whose den could this be?",
+      "options": {
+        "Inspect the skeleton": ["+1 Acorn|imgacorn//+2 random herb*"],
+        "Destroy the den": ["+1 ME|imgme//+1 Entwined Antler|imgentwinedantlers//+1 Rattling Spine|imgrattlingspine"]
+      },
+      "notes": [
+        "*@poolherbany"
+      ]
     },
 
     "ashenoathstep1": {
