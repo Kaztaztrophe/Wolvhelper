@@ -1,1 +1,1 @@
-body.theme_default{.dropdown-item:active{background-color:#385f71}}body.theme_dark{.dropdown-item:focus{background-color:#385f71}.btn-warning:not(:disabled):not(.disabled):active{color:#252525}}
+body.theme_default{.dropdown-item:active{background-color:#385f71!important}}body.theme_dark{.dropdown-item:focus{background-color:#385f71}.btn-warning:not(:disabled):not(.disabled):active{color:#252525}}
