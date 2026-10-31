@@ -3,7 +3,7 @@
 /* Default Theme Tweaks */
 body.theme_default {
     .dropdown-item:active {
-        background-color: #385f71;
+        background-color: #385f71 !important;
     }
 }
 
