@@ -1,3 +1,18 @@
+#wh-nav-container { 
+    position: relative; 
+}
+#wh-settings-panel { 
+    display: none; 
+    position: absolute; 
+    right: 0; 
+    top: 100%; 
+    margin-top: 5px; 
+    width: 315px; 
+    z-index: 1000; 
+}
+.wh-panel-disabled { 
+    opacity: 0.75; 
+}
 .explore-helper { 
     overflow: hidden; 
     margin: 10px 0; 
@@ -56,44 +71,4 @@
 }
 .wh-image-main { 
     margin-left: 4px; 
-}
-.wh-panel-disabled { 
-    opacity: 0.75; 
-}
-#wh-settings-panel { 
-    display: none; 
-    position: absolute; 
-    right: 0; 
-    top: 100%; 
-    margin-top: 5px; 
-    width: 315px; 
-    z-index: 1000; 
-}
-#wh-nav-container { 
-    position: relative; 
-}
-.wh-schedule-name { 
-    width: 35%; 
-}
-.wh-schedule-duration { 
-    width: 20%; 
-}
-.wh-schedule-window { 
-    width: 45%; 
-}
-.wh-personality-icon { 
-    margin-left: 4px; 
-    vertical-align: top; 
-    width: 20px; 
-    height: 20px; 
-    color: transparent; 
-}
-.wh-info-link { 
-    color: inherit; 
-    opacity: 0.75; 
-    margin-left: 4px; 
-}
-.wh-info-link:hover { 
-    color: inherit; 
-    opacity: 1; 
 }
