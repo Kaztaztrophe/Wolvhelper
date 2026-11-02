@@ -4952,7 +4952,7 @@
         "*@details1"
       ],
       "details": [
-        "Winning the battle against enemy Corrupted Abomination will reward 1 ME|imgme|."
+        "Winning the battle against enemy Corrupted Abomination will reward +1 ME|imgme|."
       ]
     },
     "deadhandstree": {
@@ -5391,7 +5391,7 @@
         "*@details1"
       ],
       "details": [
-        "Winning the battle against enemy Beast of Dean will reward 3 SQ|imgsq|."
+        "Winning the battle against enemy Beast of Dean will reward +3 SQ|imgsq|."
       ]
     },
     "britishshorthair/co_britishshorthair": {
@@ -5429,7 +5429,7 @@
         "**@poolherbforeign"
       ],
       "details": [
-        "Winning the battle against local enemy @location1 will reward 1 SQ|imgsq|and 1 random foreign herb**."
+        "Winning the battle against local enemy @location1 will reward +1 SQ|imgsq|and +1 random foreign herb**."
       ]
     },
     "dalespony/co_dalespony": {
@@ -6178,7 +6178,7 @@
         "*@details1"
       ],
       "details": [
-        "Winning the battle against enemy @enemy will reward 1 Trinket Piece|imgtrinketpiece1|."
+        "Winning the battle against enemy @enemy will reward +1 Trinket Piece|imgtrinketpiece1|."
       ]
     },
 
@@ -6186,6 +6186,7 @@
       "name": ["Wisp 1", "Wisp 2", "Wisp 3", "Wisp 4"],
       "options": {
         "Follow": {
+          "results": ["No result"],
           "steps": ["Enter the Cave"]
         }
       }
@@ -6210,8 +6211,14 @@
     "cave4": {
       "name": "Cave Chamber",
       "options": {
-        "Go Left": ["+2 SQ|imgsq", "No result"],
-        "Go Right": ["+1 SQ|imgsq", "No result"]
+        "Go Left": ["+2-3 random amusement items//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+100% energy//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+20% energy//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+10% energy//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","Automatic battle with random enemy*"],
+        "Go Right": ["+2-3 random critter carcasses//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+5 HP//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+10 HP//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","Automatic battle with random enemy*"],
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "Winning the battle will reward +2 Large Smoky Quartz Chunk|imglargesmokyquartzchunk;imglargesmokyquartzchunk|."
+      ]
       }
     }
 
