@@ -6183,7 +6183,7 @@
     },
 
     "wisp1|wisp2|wisp3|wisp4": {
-      "name": ["Wisp 1", "Wisp 2", "Wisp 3", "Wisp 4"],
+      "name": ["Wisp 1","Wisp 2","Wisp 3","Wisp 4"],
       "options": {
         "Follow": {
           "results": ["No result"],
@@ -6199,16 +6199,16 @@
         }
       }
     },
-    "cave1|cave3": {
+    "cavetunnel1/cave1|cavetunnel2/cave3": {
       "name": "Cave Tunnel",
       "merge": "cave4",
       "options": {
         "Keep Following": {
-          "steps": ["Go Left", "Go Right"]
+          "steps": ["Go Left","Go Right"]
         }
       }
     },
-    "cave4": {
+    "cavechamber/cave4": {
       "name": "Cave Chamber",
       "options": {
         "Go Left": ["+2-3 random amusement items//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+100% energy//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+20% energy//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+10% energy//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","Automatic battle with random enemy*"],
