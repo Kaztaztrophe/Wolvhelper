@@ -171,9 +171,24 @@
         "imgtobacco": "tobacco.png",
         "imgturmeric": "turmeric.png",
         "imgwinterfat": "winterfat.png",
-        "imgyarrow": "yarrow.png"
+        "imgyarrow": "yarrow.png",
+        "imgelder": "elder.png",
+        "imgelfwort": "elfwort.png",
+        "imgenglishmarigold": "englishmarigold.png",
+        "imgeveningprimrose": "eveningprimrose.png",
+        "imgmeadowsweet": "meadowsweet.png",
+        "imgnettle": "nettle.png",
+        "imgvervain": "vervain.png",
+        "imgwhiteclover": "whiteclover.png",
+        "imgwoad": "woad.png",
+        "imgwoodbetony": "woodbetony.png"
       },
       "lore/": {
+        "imgtrinketpiece1": "trinketpiece1.png",
+        "imgtrinketpiece2": "trinketpiece2.png",
+        "imgtrinketpiece3": "trinketpiece3.png",
+        "imgtrinketpiece4": "trinketpiece4.png",
+        "imgtrinketpiece5": "trinketpiece5.png",
         "imgunidentifiedfossil": "unidentifiedfossil.png"
       },
       "medicine/": {
@@ -189,6 +204,7 @@
         "imgflickeringflower": "flickeringflower.png",
         "imgfossilizedbonedust": "fossilizedbonedust.png",
         "imgfrozenpearl": "frozenpearl.png",
+        "imggemamethyst": "gemamethyst.png",
         "imgglowingspores": "glowingspores.png",
         "imggrowthroot": "growthroot.png",
         "imgironscrap": "ironscrap.png",
@@ -313,10 +329,15 @@
         "imgwolfpeltdark": "wolfpeltdark.png",
         "imgwolfpeltlight": "wolfpeltlight.png",
         "imgwolfpeltpiebald": "wolfpeltpiebald.png",
+        "imgwolfpeltred": "wolfpeltred.png",
         "imgwolfpelttawny": "wolfpelttawny.png",
+        "imgwolfpeltwhite": "wolfpeltwhite.png",
         "imgwolfskull": "wolfskull.png",
         "imgwolftail": "wolftail.png",
         "imgwolverineskull": "wolverineskull.png"
+      },
+      "bundles/": {
+        "imglargesmokyquartzchunk": "largesmokyquartzchunk.png"
       },
       "applicators/": {
         "imgbaseapplicatorbadger": "base_badger.png",
