@@ -92,7 +92,7 @@
       "name": "Dirt",
       "prompt": "You snuffle around in the dirt. It's here somewhere.. Yes! Jackpot!",
       "options": {
-        "Dig": ["+1 Acorn|imgacorn","+1 Bone|imgbone","+1 Mollusk Skull|imgmolluskshell","+1 Owl Talon|imgowltalon","+1 random recipe from bone pool*","+1-3 SC|imgsc|(<5000 SC)"]
+        "Dig": ["+1 Acorn|imgacorn","+1 Bone|imgbone","+1 Mollusk Shell|imgmolluskshell","+1 Owl Talon|imgowltalon","+1 random recipe from bone pool*","+1-3 SC|imgsc|(<5000 SC)"]
       },
       "notes": [
         "*@poolrecipebone"
@@ -317,7 +317,7 @@
       "prompt": "A skua is harassing an atlantic puffin, hoping some fish will fall out of its beak.",
       "options": {
         "Chase the skua": ["+1 Skua Feather|imgskuafeather"],
-        "Follow": ["2-3 SC|imgsc|(<5000 SC)","No result"]
+        "Follow": ["+2-3 SC|imgsc|(<5000 SC)","No result"]
       }
     },
     "aurora": {
@@ -461,7 +461,7 @@
         "Chase": ["No result*"]
       },
       "notes": [
-        "*@details"
+        "*@details1"
       ],
       "details": [
         "This encounter has effects that are not yet implemented in the game, so it will always have no result."
@@ -749,7 +749,7 @@
         "Give Python Skin": ["+10 Python Eggs|imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs;imgpythoneggs//+50 HP//+(LVL*40) EXP"],
         "Give Light Viper Skin": ["+3 SC|imgsc//+15% energy//+(LVL*30) EXP"],
         "Give Dark Viper Skin": ["+3 SC|imgsc//+5% energy//+10 HP//+(LVL*50) EXP"],
-        "Give Anaconda Skin": ["+10% energy//+10 Snake Meat|imgsnakemeat;imgsnakemeat;imgsnakemeat;imgsnakemeat;imgsnakemeat;imgsnakemeat;imgsnakemeat;imgsnakemeat;imgsnakemeat;imgsnakemeat;//+20 HP//+(LVL*100) EXP"],
+        "Give Anaconda Skin": ["+10% energy//+10 Snake Meat|imgsnakemeat;imgsnakemeat;imgsnakemeat;imgsnakemeat;imgsnakemeat;imgsnakemeat;imgsnakemeat;imgsnakemeat;imgsnakemeat;imgsnakemeat//+20 HP//+(LVL*100) EXP"],
         "Browse Wares": ["+(LVL*20) EXP","+1 Raven Traders: Crow Snake Skin Purveyor|imgraventraderscrowsnakeskinpurveyor"]
       }
     },
@@ -946,7 +946,7 @@
       "name": "Ferruginous Hawk",
       "prompt": "A large ferruginous hawk soars above you in the sky.",
       "options": {
-        "Follow": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*","2-3 SC|imgsc|(<5000 SC)","No result"]
+        "Follow": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 random recipe from cave-building material pool*","+2-3 SC|imgsc|(<5000 SC)","No result"]
       },
       "notes": [
         "*@poolrecipecavebuildingmaterial"
@@ -996,7 +996,7 @@
       "name": "Fisher and Lynx",
       "prompt": "You hear a violent scrabble and various hissing noises coming from nearby! You wander over to see a fisher in the throes of battle with a lynx.",
       "options": {
-        "Intervene": ["+1 Rabbit Carcass|imgrabbitcarcass","2-3 SC|imgsc|(<5000 SC)"],
+        "Intervene": ["+1 Rabbit Carcass|imgrabbitcarcass","+2-3 SC|imgsc|(<5000 SC)"],
         "Negotiate": ["+1 item for active snake quest","No result*"],
         "Steal": ["+1 Small Doe Carcass|imgsmalldoecarcass","No result"]
       },
@@ -1099,8 +1099,8 @@
       "name": "Giant Anteater",
       "prompt": "A giant anteater is foraging through the brush, looking for tasty insects.",
       "options": {
-        "Forage as well": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 Lucky Foot|imgluckyfoot","+1 Recipe: @poolrecipeluckyfoot","+1 random recipe from cave-building material pool*","2-3 SC|imgsc|(<5000 SC)","Automatic battle with enemy Frenzied Razorback"],
-        "Dig!": ["+1 item for active snake quest","No result*"]
+        "Forage as well": ["+1 Large Branch|imglargebranch","+1 Large Leaf|imglargeleaf","+1 Large Rock|imglargerock","+1 Lucky Foot|imgluckyfoot","+1 Recipe: @poolrecipeluckyfoot","+1 random recipe from cave-building material pool*","+2-3 SC|imgsc|(<5000 SC)","Automatic battle with enemy Frenzied Razorback"],
+        "Dig!": ["+1 item for active snake quest","No result**"]
       },
       "trophies": "@frenziedrazorback",
       "notes": [
@@ -1166,7 +1166,7 @@
         "*@poolrecipecavebuildingmaterial"
       ]
     },
-    "greatersagegrouse ": {
+    "greatersagegrouse": {
       "name": "Greater Sage-Grouse",
       "prompt": "Careful, straight ahead! A greater sage-grouse male seems to be prowling for challengers.",
       "options": {
@@ -1211,7 +1211,7 @@
       "name": "Green Iguana",
       "prompt": "A beautiful green iguana is chilling on the rocks.",
       "options": {
-        "Play": ["2-3 SC|imgsc|(<5000 SC)","No result"],
+        "Play": ["+2-3 SC|imgsc|(<5000 SC)","No result"],
         "Grab the tail": ["+5-10% hunger","No result"]
       }
     },
@@ -1657,7 +1657,7 @@
       },
       "notes": [
         "*@poolrecipecavebuildingmaterial",
-        "**@details"
+        "**@details1"
       ],
       "details": [
         "This option has effects that are not yet implemented in the game, so it will always have no result."
@@ -2023,8 +2023,8 @@
         "Find its nest": ["+1 Grebe Feather|imggrebefeather","+2 HP","No result"]
       }
     },
-    "redsquirrel": {
-      "name": "Red Squirrel",
+    "americanredsquirrel/redsquirrel": {
+      "name": "American Red Squirrel",
       "prompt": "A red squirrel is perched on a branch, clasping what looks like a pinecone in its paws. It would be a shame if it dropped it...",
       "options": {
         "Offer Acorn": ["+2-3 SC|imgsc","+1 random recipe from acorn pool*"],
@@ -2404,7 +2404,7 @@
       "name": "Willow Ptarmigan",
       "prompt": "A round, fuzzy willow ptarmigan is patrolling the area for male interlopers. It's very alert, flying a few paces away each time you approach it.",
       "options": {
-        "Offer Acorn": ["+1 item for active snake quest","3-6 SC|imgsc","+1 random recipe from acorn pool*"]
+        "Offer Acorn": ["+1 item for active snake quest","+3-6 SC|imgsc","+1 random recipe from acorn pool*"]
       },
       "notes": [
         "*@conditional1"
@@ -3478,7 +3478,7 @@
       "name": "Lunar Cuckoo",
       "prompt": "A pretty, glowing bird sits calmly on a branch, observing you with curiosity. You recognize the species after taking a second glance. It's definitely a cuckoo and it's probably equally surprised by the sight of a wolf without any blue sparks on its fur.",
       "options": {
-        "Bark": ["+5 SC|imgsc|(<5000 SC)//+1 LT|imglt*","+1 LT|imglt"],
+        "Bark": ["+5 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"],
         "Howl": ["+1 LT|imglt//+1 Glowing Spores|imgglowingspores","+1 LT|imglt"]
       }
     },
@@ -3487,7 +3487,7 @@
       "prompt": "A peaceful Lunar Dove is flying between the branches and the ground. Perhaps it's building a nest.",
       "options": {
         "Dig Around": ["+1 LT|imglt//+1 random cave-building material*","+1 LT|imglt"],
-        "Help It Out": ["+1 LT|imglt//+1 Medicine: Healing Salve","+1 LT|imglt"]
+        "Help It Out": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+1 LT|imglt"]
       },
       "notes": [
         "*@poolcavebuildingmaterial"
@@ -3690,7 +3690,7 @@
       "name": "Lunar Jacana",
       "prompt": "A Lunar Jacana walks carefully across the water's surface. Its long toes, creeping with essence, help it stay afloat on the gentle foliage covering the waters of this swamp.",
       "options": {
-        "Wade in The Water": ["+1 LT|imglt//+1 random cave-building material","+5 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"]
+        "Wade in The Water": ["+1 LT|imglt//+1 random cave-building material*","+5 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"]
       },
       "notes": [
         "*@poolcavebuildingmaterial"
@@ -3734,7 +3734,7 @@
       "prompt": "A Lunar Lemming is nervously scurrying around, gathering essence-covered foliage for supplies during the darker nights.",
       "options": {
         "Forage": ["+1 LT|imglt//+1 Whale Rib Bone|imgwhaleribbone"],
-        "Dig": ["+4 SC|imgsc|(<5000 SC)//+LT|imglt","+1 LT|imglt"]
+        "Dig": ["+4 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"]
       }
     },
     "lunarlemmingcolony": {
@@ -3743,7 +3743,7 @@
       "options": {
         "Attack": ["+1 LT|imglt//+8 Lemming Carcass|imglemmingcarcass;imglemmingcarcass;imglemmingcarcass;imglemmingcarcass;imglemmingcarcass;imglemmingcarcass;imglemmingcarcass;imglemmingcarcass"],
         "Join": ["+1 LT|imglt//+8% energy"],
-        "Investigate": ["1 LT|imglt//+4 Pherris Rolling Ball|imgpherrisrollingball;imgpherrisrollingball;imgpherrisrollingball;imgpherrisrollingball"]
+        "Investigate": ["+1 LT|imglt//+4 Pherris Rolling Ball|imgpherrisrollingball;imgpherrisrollingball;imgpherrisrollingball;imgpherrisrollingball"]
       }
     },
     "lunarlizard": {
@@ -3841,7 +3841,7 @@
       "name": "Lunar Mudpuppy",
       "prompt": "A blue glow shines within the murky water of a small, dark pond. It resembles a fish, but when you take a closer look, you notice tiny limbs attached to a snake-like body. The creature is so bizarre that you can't stop staring.",
       "options": {
-        "Poke It": ["+1 LT|imglt//+1 Medicine: Healing Salve","+1 LT|imglt//+1 random herb from Riparian Woodland*","+1 LT|imglt"],
+        "Poke It": ["+1 LT|imglt//+1 Medicine: Healing Salve|imgmedicinehealingsalve","+1 LT|imglt//+1 random herb from Riparian Woodland*","+1 LT|imglt"],
         "Catch": ["+1 LT|imglt//+4 HP","+1 LT|imglt"]
       },
       "notes": [
@@ -3996,7 +3996,7 @@
       "prompt": "Oh, no! A Lunar Skunk is dragging a blue cloud behind him. Your gut suggests it would be best to avoid this critter.",
       "options": {
         "Play": ["+5 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"],
-        "Grab The Tail": ["+4 SC|imgsc|(<5000 SC)//+1 LT|imglt","1 LT|imglt"],
+        "Grab The Tail": ["+1 LT|imglt//+1 Glowing Spores|imgglowingspores","+4 SC|imgsc|(<5000 SC)//+1 LT|imglt","+1 LT|imglt"],
         "Dine Together": ["+1 LT|imglt//+4 HP","+1 LT|imglt//+1% hunger"]
       }
     },
@@ -4146,7 +4146,7 @@
         "*@details1"
       ],
       "details": [
-        "This option is risky, you will be '''NOT''' be rewarded LT|imglt|if it fails."
+        "This option is risky, you will '''NOT''' be rewarded LT|imglt|if it fails."
       ]
     },
     "orbchasers": {
@@ -4394,7 +4394,7 @@
         "*@details1"
       ],
       "details": [
-        "This option does '''NOT''' reward any LT|imglt."
+        "This option does '''NOT''' reward any LT|imglt|."
       ]
     },
     "stalkinglunaroncilla": {
@@ -4841,7 +4841,7 @@
       "name": "Affected Black Wolf",
       "prompt": "The black, shadowy shape looks like an ordinary wolf at first, but you can sense that something is not right. It has abnormally long teeth and reddish saliva, resembling both blood and lava at the same time. Despite its scary appearance, you have the overwhelming feeling that it's suffering.",
       "options": {
-        "Try to scare it away": ["2 ME|imgme","+2 ME|imgme//-2 HP"]
+        "Try to scare it away": ["+2 ME|imgme","+2 ME|imgme//-2 HP"]
       }
     },
     "affectedbutterfly": {
@@ -4908,16 +4908,14 @@
       "name": "Blind Witch Wolf",
       "prompt": "You see a witch wolf following a raven. After watching them for a few moments, you realize that the bird serves as her eyes, guiding her wherever she needs to go. For some reason, you feel uneasy. Legends about blind ones being able to sense the spirit world much better hover in the back of your mind.",
       "options": {
-        "Follow": ["+4 ME|imgme//Gain illness: Cough/+4 ME|imgme|*/+4 ME|imgme|**"],
+        "Follow": ["+4 ME|imgme//Gain illness: Cough/+4 ME|imgme//-2 HP*"],
         "Approach": ["+1 ME|imgme//+1% energy//-2 HP"]
       },
       "notes": [
-        "*@details1",
-        "**@details2"
+        "*@details1"
       ],
       "details": [
-        "If your lead wolf is currently sick.",
-        "If your lead wolf is currently immune to illness."
+        "If your lead wolf is currently sick or immune to illness."
       ]
     },
     "bluebonefire": {
@@ -4947,16 +4945,22 @@
       "name": "Corrupted Abomination",
       "prompt": "Whoa! If death could walk, it would be this thing… and it's locked on you!",
       "options": {
-        "Battle": ["Automatic battle with enemy Corrupted Abomination"]
+        "Battle": ["Automatic battle with enemy Corrupted Abomination*"]
       },
-      "trophies": "@corruptedabomination"
+      "trophies": "@corruptedabomination",
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "Winning the battle against enemy Corrupted Abomination will reward 1 ME|imgme|."
+      ]
     },
     "deadhandstree": {
       "name": "Clawed Hand Tree",
       "prompt": "A huge, dead tree appears to scratch the sky with its distorted, twisted branches that resemble clawed hands. Its exposed roots give the impression that the tree i in the midst of stepping out of the ground. Maybe it really is alive...?",
       "options": {
         "Rest": ["+2 ME|imgme//+1 random toy bundle item*","+1 ME|imgme//-5% energy"],
-        "Dig": ["+3 ME|imgme//+1 random 1-10 use carcass*","+3 ME|imgme//+1 random bone remains item***","+3 ME|imgme//+1 random herb****","+2 ME|imgme//-5 HP"]
+        "Dig": ["+3 ME|imgme//+1 random 1-10 use carcass**","+3 ME|imgme//+1 random bone remains item***","+3 ME|imgme//+1 random herb****","+2 ME|imgme//-5 HP"]
       },
       "notes": [
         "*@pooltoybundle",
@@ -4988,7 +4992,7 @@
       "name": "Strange Deer",
       "prompt": "The silhouette of a deer looks both familiar and a bit unsettling, and you can't quite pinpoint why at first. As the deer turns to face you, you notice its eye sockets are hollow while its glowing red eyes stare malevolently from its antlers. It's as if the creature can see into your soul.",
       "options": {
-        "Staring contest": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random bone remains item*","+2 ME|imgme//+1 random herb***","+1 ME|imgme//-4 HP"],
+        "Staring contest": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random bone remains item**","+2 ME|imgme//+1 random herb***","+1 ME|imgme//-4 HP"],
         "Growl": ["+2 ME|imgme//+1 random critter bundle carcass****","+1 ME|imgme//-3 HP"]
       },
       "notes": [
@@ -5114,7 +5118,7 @@
       "name": "Hooded Witch Wolf",
       "prompt": "A witch wolf in a dark cloak stares at you from beneath her hood. You cannot clearly read her expression, but she appears to be waiting for you. The sudden urge to get closer is irresistible. You know you're risking a lot; the witches don't give anything for free.",
       "options": {
-        "Ask for magical help": ["4 ME|imgme//-10 HP"],
+        "Ask for magical help": ["+4 ME|imgme//-10 HP"],
         "Greet": ["+1 ME|imgme//+1 random critter bundle carcass*//+1 random herb**"]
       },
       "notes": [
@@ -5151,7 +5155,7 @@
       "name": "Mist Stalkers",
       "prompt": "You're used to dark forests and all kinds of noises that they bring, but this place feels different and eerie. You feel observed not by one, but many sets of eyes, that follow your every movement. Shadowy silhouettes dance in the corners of your eyes but when you try to look at them, they vanish and reappear to haunt you from a different spot.",
       "options": {
-        "Bark": ["2 ME|imgme","+1 ME|imgme//-5% energy"],
+        "Bark": ["+2 ME|imgme","+1 ME|imgme//-5% energy"],
         "Chase": ["+3 ME|imgme//-5% energy//-5% hunger"]
       }
     },
@@ -5239,7 +5243,7 @@
       "name": "Skull Shaped Rock",
       "prompt": "Two empty eye sockets of an abnormally large human skull peer at you maliciously. As you move closer, you realize that it's just an odd-shaped rock. It doesn't make the rock any less creepy; the resemblance is just too close.",
       "options": {
-        "Check it Out": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random bone remains item*","+2 ME|imgme//+1 random herb***","+5 SC|imgsc//+2 ME|imgme"]
+        "Check it Out": ["+2 ME|imgme//+1 random 1-10 use carcass*","+2 ME|imgme//+1 random bone remains item**","+2 ME|imgme//+1 random herb***","+5 SC|imgsc//+2 ME|imgme"]
       },
       "notes": [
         "*@poolcarcassmaxten",
@@ -5263,7 +5267,7 @@
       "name": "Small Effigy",
       "prompt": "An intricate construction is impaled on a rock in a sturdy way. It's not that big--perhaps you could even detach it? Or decorate it more?",
       "options": {
-        "Add a large branch*": ["+3 ME","No result**"],
+        "Add a large branch*": ["+3 ME|imgme","No result**"],
         "Steal it": ["+2 ME|imgme","+1 ME|imgme//-4 HP"]
       },
       "notes": [
@@ -5287,7 +5291,7 @@
       "name": "Tala and Egg on Halloween",
       "prompt": "Two wolf silhouettes in front of you are familiar even with the costumes. As you approach, you recognize Tala and Egg, enjoying a special night together. Egg’s sides are adorned with fake spider legs, looking realistic enough to send a chill down your spine. Tala is dressed as a ghost, but it's more cute than scary, making you smile.",
       "options": {
-        "Trick": ["2 ME|imgme//-1 HP"],
+        "Trick": ["+2 ME|imgme//-1 HP"],
         "Treat": ["+1 ME|imgme//+1 random herb*"],
         "Join": ["+1 ME|imgme//+1 random toy bundle item**"]
       },
@@ -5318,7 +5322,7 @@
       "prompt": "A large, hollowed-out tree creaks in the wind, causing the trinkets on the branches to tinkle ominously and the tattered cloth at the entrance to shift and reveal a wolf skeleton within. Whose den could this be?",
       "options": {
         "Inspect the skeleton": ["+1 Acorn|imgacorn//+2 random herb*"],
-        "Destroy the den": ["+1 ME|imgme//+1 Entwined Antler|imgentwinedantlers//+1 Rattling Spine|imgrattlingspine"]
+        "Destroy the den": ["+1 ME|imgme//+1 Entwined Antlers|imgentwinedantlers//+1 Rattling Spine|imgrattlingspine"]
       },
       "notes": [
         "*@poolherbany"
@@ -5342,8 +5346,874 @@
       "options": {
         "Go to her": ["Begins dialogue with Kora in Ashen Oath storyline"]
       }
-    }
+    },
 
+
+    "holeinground/co_holeinground": {
+      "name": "Hole in the Ground",
+      "prompt": "A small hole in the ground is poorly camouflaged with sticks and leaves.",
+      "options": {
+        "Take a look": ["+1 SQ|imgsq","-2 HP"]
+      }
+    },
+
+    "anxiouswolf/co_anxiouswolf": {
+      "name": "Anxious Wolf",
+      "prompt": "A wolf is inspecting the area very carefully, sniffing every rock and every branch with visible pain in his eyes. You can almost feel the tension.",
+      "options": {
+        "Can I help you somehow?": ["+1 SQ|imgsq","No result"]
+      }
+    },
+    "beardedcollie": {
+      "name": "Bearded Collie",
+      "prompt": "You yelp in shock as a big, hairy monster walks towards you. It's not a vision, nor a cryptid. It smells like a dog! With a shockingly kind voice and manner, you're questioned about the landscape, as it seems to be a huge change from what he was seeing just a day ago... Before he went into a long, dark cave, that is.",
+      "options": {
+        "Find the way back": ["+1 SQ|imgsq//+3 HP"],
+        "Point toward settlements": ["+1 SQ|imgsq//+1 Magpie Feather|imgmagpiefeather"]
+      }
+    },
+    "beastofbuchan/co_beastofbuchan": {
+      "name": "Beast of Buchan",
+      "prompt": "A big, graceful feline inspects the area carefully, looking reserved and a bit lost. Its tail is swaying in an elegant manner, as if its pondering something. Either it's not from around here, or has landed itself in some kind of trouble.",
+      "options": {
+        "Help Find Shelter": ["+1 SQ|imgsq//+8 HP"],
+        "Banish": ["+1 SQ|imgsq//+6% energy"]
+      }
+    },
+    "beastofdean/co_beastofdean": {
+      "name": "Beast of Dean",
+      "prompt": "A boar-like creature appears in front of you with visible pain in its eyes. The things protruding from its back that you mistook for weird spikes initially turn out to be arrows as you look more closely. You can see that each step is a struggle and each breath could be its last one.",
+      "options": {
+        "Offer Healing Salve": ["+1 SQ|imgsq//+8% energy"],
+        "Finish It!": ["Automatic battle with enemy Beast of Dean*"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "Winning the battle against enemy Beast of Dean will reward 3 SQ|imgsq|."
+      ]
+    },
+    "britishshorthair/co_britishshorthair": {
+      "name": "British Shorthair",
+      "prompt": "A beautiful cat is sitting in front of you in a relaxed pose, blinking slowly. It seems to be saying hello! What a charming creature.",
+      "options": {
+        "Play": ["+1 Magpie Feather|imgmagpiefeather","+1 White Clover|imgwhiteclover","+1 SQ|imgsq"]
+      }
+    },
+    "britishspottedpony/co_britishspottedpony": {
+      "name": "British Spotted Pony",
+      "prompt": "You see an odd-colored horse in the distance. As you approach, it stops grazing and watches you warily. It's covered in spots and sticks out starkly against the landscape, unlike its dull-coated cousins you usually see. Where did it come from?",
+      "options": {
+        "Approach": ["+1 Horse Tail|imghorsetail","+1 SQ|imgsq","-3 HP"],
+        "Observe": ["+1 SQ|imgsq//+3% energy","+1 SQ|imgsq//+2 HP"]
+      }
+    },
+    "cloverwolf/co_cloverwolf": {
+      "name": "Wolf Holding a Clover",
+      "prompt": "A wolf hurries to get past you, carrying a strange plant in its mouth. The plant looks weird, and unlike any you've seen before.",
+      "options": {
+        "What have you got there?": ["+1 SQ|imgsq"],
+        "Give me that": ["Automatic battle with local enemy @location1*"]
+      },
+      "location": {
+        "/biome/1|/biome/4|/biome/6": ["Eastern Wolf"],
+        "/biome/2|/biome/3|/biome/9|/biome/10": ["Timber Wolf"],
+        "/biome/5": ["Mexican Wolf"],
+        "/biome/7|/biome/8": ["Red Wolf"],
+        "/biome/11": ["Alaskan Tundra Wolf"],
+        "/biome/12": ["Arctic Wolf"]
+      },
+      "notes": [
+        "*@details1",
+        "**@poolherbforeign"
+      ],
+      "details": [
+        "Winning the battle against local enemy @location1 will reward 1 SQ|imgsq|and 1 random foreign herb**."
+      ]
+    },
+    "dalespony/co_dalespony": {
+      "name": "Dales Pony",
+      "prompt": "A curious young horse crosses your path, snorting in surprise at your appearance but they don't run in fear. It seems stockier than the horses you've seen and it doesn't seem to know it needs to be afraid of you. An opportunity, perhaps.",
+      "options": {
+        "Sniff": ["+1 SQ|imgsq//+1 Vervain|imgvervain"],
+        "Attack": ["+1 SQ|imgsq//+1 Horse Carcass|imghorsecarcass","-5 HP"]
+      }
+    },
+    "duncow/co_duncow": {
+      "name": "Dun Cow",
+      "prompt": "A large cow crosses your path, ambling along slowly. It notices you, but doesn't seem to care. You aren't surprised by its nonchalant attitude because the size of this creature is truly intimidating. The cow towers over you and its horns look like they could do significant damage. It has no reason to fear a little thing like you.",
+      "options": {
+        "Chase It": ["+3 Whale Rib Bone|imgwhaleribbone;imgwhaleribbone;imgwhaleribbone","+1 SQ|imgsq","+1 SQ|imgsq//-2 HP"]
+      }
+    },
+    "eerieflame/co_eerieflame": {
+      "name": "Eerie Flame",
+      "prompt": "Strange, unearthly orbs of dim, greenish light are floating slowly in the distance. They resemble flames with the way they glow, but the light they give off doesn't penetrate the dark. This sight sends shivers up your spine.",
+      "options": {
+        "Approach": ["+1 SQ|imgsq//+10% energy","+1 SQ|imgsq//-5% energy"],
+        "Escape": ["+1 SQ|imgsq//+5 HP","+1 SQ|imgsq//-5 HP"]
+      }
+    },
+    "eriksaypony/co_eriksaypony": {
+      "name": "Eriksay Pony",
+      "prompt": "This scruffy horse doesn't look like much, but you find yourself fascinated by its color. Usually horses are brown, but this one is gray, not unlike many wolves you know. You wonder how it manages to camouflage itself sticking out so much. Irritated by your presence, it turns to leave.",
+      "options": {
+        "Attack": ["+1 SQ|imgsq","-5 HP"],
+        "Follow": ["+1 Wealden Amber|imgwealdenamber","+1 SQ|imgsq"]
+      }
+    },
+    "eurasianlynx/co_eurasianlynx": {
+      "name": "Eurasian Lynx",
+      "prompt": "A large cat, similar to a lynx from colder regions inspects the area carefully and it looks undecided about where to go next. You would say it is a lynx but it's much larger and its fur looks more golden. Familiar at the first sight, strange at second.",
+      "options": {
+        "What are you doing here?": ["+1 SQ|imgsq"]
+      }
+    },
+    "eurasiannutcracker/co_eurasiannutcracker": {
+      "name": "Eurasian Nutcracker",
+      "prompt": "At first, you can't identify the strange sound above your head, but then you notice an interesting bird occupied with feasting on an acorn. It's a nutcracker, focused on its meal so strongly that it doesn't notice you.",
+      "options": {
+        "Offer Acorn": ["+1 SQ|imgsq//+2 Grouse Feather|imggrousefeather;imggrousefeather//+5 HP"],
+        "Let's Chat!": ["+1 SQ|imgsq//+1 Acorn|imgacorn","+1 SQ|imgsq//+2 HP"]
+      }
+    },
+    "europeanbadger/co_europeanbadger": {
+      "name": "European Badger",
+      "prompt": "You notice an unfamiliar animal among the bushes.",
+      "options": {
+        "Who are you?": ["+1 SQ|imgsq","No result"],
+        "Kill it": ["+2 Meat Chunks [Medium]|imgmeatchunksmedium;imgmeatchunksmedium//-5 HP"]
+      }
+    },
+    "europeanpolecat": {
+      "name": "European Polecat",
+      "prompt": "You spot something that resembles a fisher cat, covered in vibrant colours. It seems to yell out into the echo of the valley, hoping to hear back from its peers. Looks like it got separated.",
+      "options": {
+        "Join in and howl!": ["+1 SC|imgsc|(<5000 SC)//+1 SQ|imgsq//+1 Wealden Amber|imgwealdenamber"],
+        "Ambush!": ["+1 SC|imgsc|(<5000 SC)//+1 SQ|imgsq//+1 Wealden Amber|imgwealdenamber","+1 SQ|imgsq//+1 Wealden Amber|imgwealdenamber|(>5000 SC)","+1 SQ|imgsq"]
+      }
+    },
+    "europeanrabbit/co_europeanrabbit": {
+      "name": "European Rabbits",
+      "prompt": "You notice a dark ball of fur in the distance that turns out to be a family of rabbits huddled together. The young ones are visibly trembling with cold, too tired to escape.",
+      "options": {
+        "Warm Up": ["+2 SQ|imgsq//-2% energy"]
+      }
+    },
+    "excitedwolf/co_excitedwolf": {
+      "name": "Excited Wolf",
+      "prompt": "A young wolf is walking alone, looking both excited and confused. His face lights up when he notices you and it's clear that he can barely contain himself.",
+      "options": {
+        "Tell me everything you know": ["+1 SQ|imgsq","No result"]
+      }
+    },
+    "exmoorpony/co_exmoorpony": {
+      "name": "Exmoor Pony",
+      "prompt": "A curious pony appears, looking at you with eyes that are completely devoid of fear. It starts approaching you and lowers its head in an attempt to sniff you. You find yourself backing away, uncertain. Doesn't it know that it would make a tasty snack?",
+      "options": {
+        "Invite to Play": ["+1 SQ|imgsq//+3% energy"],
+        "Chase": ["+1 SQ|imgsq//+1 Horse Carcass|imghorsecarcass","+1 SQ|imgsq"]
+      }
+    },
+    "fallowdeer/co_fallowdeer": {
+      "name": "Fallow Deer",
+      "prompt": "A lone fallow deer notices you from afar but instead of running away, it stares at you with genuine curiosity. It must be very young or ignorant of the danger you present.",
+      "options": {
+        "Offer Acorn": ["+2 SQ|imgsq//+1 Wealden Amber|imgwealdenamber"],
+        "Come Closer": ["+1 SQ|imgsq//+1 Woad|imgwoad"]
+      }
+    },
+    "fellpony/co_fellpony": {
+      "name": "Fell Pony",
+      "prompt": "A shiny black stallion struts in front of you, its thick neck flexed and tail swinging agitatedly. Is it angry? Or simply showing off? You back up a few paces, unsure of its intent. Does it have a harem somewhere that it's looking to protect? It paws at the ground, and you brace yourself.",
+      "options": {
+        "Lunge": ["+1 SQ|imgsq","+1 SQ|imgsq//-2 HP","+1 Odd Teeth|imgoddteeth"],
+        "Back Away": ["+1 SQ|imgsq//+1% energy","+1 SQ|imgsq"]
+      }
+    },
+    "graywolf/co_graywolf": {
+      "name": "Gray Wolf",
+      "prompt": "This wolf's behavior seems odd and you have no idea what it is but it's giving off strange vibes. He's looking around with a puzzled expression as if he were born today or completely lost.",
+      "options": {
+        "Come closer": ["+1 SQ|imgsq","No result"]
+      }
+    },
+    "grayhound": {
+      "name": "Greyhound",
+      "prompt": "Something blurry catches your eye - and after managing to rush towards it, you spot a bright and muscly dog chasing a hare.",
+      "options": {
+        "Chase the hare": ["+1 SQ|imgsq//+1 Hare Carcass|imgharecarcass","+1 SQ|imgsq"],
+        "Chase the dog": ["+1 SQ|imgsq//+1 Crow Skull|imgcrowskull","+1 SQ|imgsq//+1 Sheep Skull|imgsheepskull"]
+      }
+    },
+    "hebrideansheep/co_hebrideansheep": {
+      "name": "Hebridean Sheep",
+      "prompt": "A dark creature with four long horns and a thick coat unsettles you at first. You venture a bit closer, and with a sigh of relief you realize that it's just a sheep. Probably a tasty one, judging by its size.",
+      "options": {
+        "Approach": ["+1 SQ|imgsq","+1 Nettle|imgnettle","+1 Sheep Skull|imgsheepskull"]
+      }
+    },
+    "highlandcattle": {
+      "name": "Highland Cow",
+      "prompt": "The sight of this peculiar bovine puzzles you. You've seen cows before and you are also familiar with bison. The creature in front of you looks like a weird mix of the two but the fur on its forehead somehow reminds you of humans.",
+      "options": {
+        "Hunt": ["+1 SQ|imgsq//+1 Bovine Carcass|imgbovinecarcass//-2 HP","+1 SQ|imgsq"],
+        "Be friendly": ["+2 SQ|imgsq//+2 HP"]
+      }
+    },
+    "hoodedcrow/co_hoodedcrow": {
+      "name": "Hooded Crow",
+      "prompt": "A playful hooded crow lands nearby, holding something in its beak. It hops around playfully, trying to get your attention with its little treasure.",
+      "options": {
+        "Attack": ["+2 SQ|imgsq","+1 SQ|imgsq//+1 Crow Skull|imgcrowskull"],
+        "Play": ["+3 SQ|imgsq","+2 SQ|imgsq","+1 SQ|imgsq"]
+      }
+    },
+    "irishsetter": {
+      "name": "Irish Setter",
+      "prompt": "A long-haired beauty approaches you. It seems reserved and nervous, but concerned enough to risk talking to a wolf. In the most curious accent, you're asked where exactly here is. It seems she got lost during a big hunt.",
+      "options": {
+        "Describe the area": ["+2 SQ|imgsq"],
+        "Invite for a hunt": ["+1 SQ|imgsq//+1 Pheasant Hen Carcass|imgpheasanthencarcass"]
+      }
+    },
+    "irishwolfhound": {
+      "name": "Irish Wolfhound",
+      "prompt": "A massive fuzzy creature approaches you, and immediately makes you feel uneasy. You haven't met a canine bigger than you before, and yet - here it is! It's like what those humans call a bigfoot, except for dogs. With a low, raspy voice and a weird accent, it asks if you know the way to the nearest cairn.",
+      "options": {
+        "Deceive": ["+2 SQ|imgsq"],
+        "Cairn?": ["+1 SQ|imgsq//+1 Large Rock|imglargerock//+1 Gem: Amethyst|imggemamethyst"]
+      }
+    },
+    "melanisticdeer/co_melanisticdeer": {
+      "name": "Melanistic Deer",
+      "prompt": "A strange, dark deer walks passively in front of you, looking like some sort of unearthly majestic being. You can't seem to pull your gaze away.",
+      "options": {
+        "Offer Acorn": ["+2 SQ|imgsq//+1 Medicine: Healing Salve|imgmedicinehealingsalve"],
+        "Chase": ["+1 SQ|imgsq//+2 HP//+1 Gnawing Hoof|imggnawinghoof","+1 SQ|imgsq//-2 HP"],
+        "Follow": ["+2 SQ|imgsq//+1 Wealden Amber|imgwealdenamber","+1 SQ|imgsq//+5% energy"]
+      }
+    },
+    "muntjac/co_muntjac": {
+      "name": "Muntjac Deer",
+      "prompt": "You are an experienced wolf and you've seen a lot, but this strange animal has you questioning yourself. Weird antlers can be explained, but these teeth? Is it carnivorous? And why is it here?",
+      "options": {
+        "Follow": ["+1 SQ|imgsq","+5% energy"]
+      }
+    },
+    "newforestpony/co_newforestpony": {
+      "name": "New Forest Pony",
+      "prompt": "A dainty, small brown horse is foraging in a patch of herbs nearby. It doesn't seem to notice you, and continues attempting to paw up the herbs and yank them up by the roots. You watch, fascinated. What would a horse need with herbs? It moves on after a short time, and you just know there's something left to find!",
+      "options": {
+        "Forage": ["+2 random foreign herbs*","+1 SQ|imgsq"],
+        "Dig": ["+1 SQ|imgsq//+1 Charcoal|imgcharcoal","+1 SQ|imgsq"]
+      },
+      "notes": [
+        "*Elfwort|imgelfwort, English Marigold|imgenglishmarigold, Wood Betony|imgwoodbetony"
+      ]
+    },
+    "oldwolf/co_oldwolf": {
+      "name": "Old Wolf",
+      "prompt": "You come upon a wolf laying very still and staring off into the distance, appearing to be deep in thought.",
+      "options": {
+        "Is something wrong?": ["+1 SQ|imgsq"]
+      }
+    },
+    "orbs01/co_orbs01|orbs02/co_orbs02|orbs03/co_orbs03|orbs04/co_orbs04|orbs05/co_orbs05|orbs06/co_orbs06|orbs07/co_orbs07|orbs08/co_orbs08|orbs09/co_orbs09|orbs10/co_orbs10|orbs11/co_orbs11|orbs12/co_orbs12|orbs13/co_orbs13|orbs14/co_orbs14|orbs15/co_orbs15": {
+      "name": ["Orbs 1","Orbs 2","Orbs 3","Orbs 4","Orbs 5","Orbs 6","Orbs 7","Orbs 8","Orbs 9","Orbs 10","Orbs 11","Orbs 12","Orbs 13","Orbs 14","Orbs 15"],
+      "options": {
+        "Approach": ["+1 SQ|imgsq","+10% energy","-10% energy","No result"]
+      }
+    },
+    "pinemarten": {
+      "name": "Pine Marten",
+      "prompt": "As you approach a curious tree trunk, something pops out suddenly, causing you to bark in surprise! The animal looks familiar, but also a little bit different from the usual residents from around here. You just want to look into the stump, though.",
+      "options": {
+        "Scare it away": ["+2 SQ|imgsq","+1 SQ|imgsq//-2 HP"]
+      }
+    },
+    "primrose/co_primrose": {
+      "name": "Primroses",
+      "prompt": "You notice strange but beautiful, purple flowers. They're tiny yet stand out starkly against the landscape on a lonely patch of dirt.",
+      "options": {
+        "Check them out": ["+1 SQ|imgsq"]
+      }
+    },
+    "reddeerstag/co_reddeerstag": {
+      "name": "Red Deer Stag",
+      "prompt": "Is this a hallucination or is some strange, malevolent magic playing with your mind? It should be impossible to see a deer here.",
+      "options": {
+        "Come closer": ["+1 SQ|imgsq"],
+        "Observe": ["+5 HP"]
+      }
+    },
+    "redgrouse/co_redgrouse": {
+      "name": "Red Grouse",
+      "prompt": "A strange bird walks in front of you cautiously, inspecting the area. Its reddish plumage draws your attention. It stands out oddly in this land, and it's unlike any bird you've seen before. Its scent is also unfamiliar to your nose.",
+      "options": {
+        "Approach": ["+1 SQ|imgsq"],
+        "Chase": ["+5% hunger"]
+      }
+    },
+    "eurasianredsquirrel/co_redsquirrel": {
+      "name": "Eurasian Red Squirrel",
+      "prompt": "A strange, ginger rodent is sitting comfortably on the ground, minding its own business. It's definitely a squirrel but why is it so bright? And why are its ears so pointy?",
+      "options": {
+        "Sniff it": ["+1 SQ|imgsq","-2 HP"],
+        "Chase it": ["+1 SQ|imgsq//+10% hunger","+1 SQ|imgsq","+10% hunger","No result"]
+      }
+    },
+    "rockcrack/co_rockcrack": {
+      "name": "Cracked Rock",
+      "prompt": "A large crack in the nearby rock looks like the perfect hiding spot!",
+      "options": {
+        "Check": ["+3 SQ|imgsq","+1 SQ|imgsq"]
+      }
+    },
+    "roedeerherd/co_roedeerherd": {
+      "name": "Herd of Roe Deer",
+      "prompt": "You track an unfamiliar but very tempting scent that leads you to a few deer-like creatures. You don't recognize them. They look like deer but are much smaller and their antlers are much less intimidating. Do they taste like normal deer?",
+      "options": {
+        "Chase": ["+1 SQ|imgsq","+2 Meat Chunks [Large]|imgmeatchunkslarge;imgmeatchunkslarge"]
+      }
+    },
+    "rook": {
+      "name": "Rook",
+      "prompt": "An elegant black bird sits soundlessly on a dry branch. At first you thought it was a raven, but there is something odd about it. It's smaller and its beak looks different. As you take a step closer, you notice that it smells different, too. It's definitely not local and you wonder where it came from.",
+      "options": {
+        "Chase": ["+1 SQ|imgsq//+1 Wealden Amber|imgwealdenamber//+2% energy","+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk"],
+        "Chat": ["+1 SQ|imgsq//+6% energy"]
+      }
+    },
+    "scaredwolf/co_scaredwolf": {
+      "name": "Frightened Wolf",
+      "prompt": "A young wolf is cowering on the ground, its eyes white and wide with terror.",
+      "options": {
+        "Are you okay?": ["+1 SQ|imgsq"]
+      }
+    },
+    "scottishterrier": {
+      "name": "Scottish Terrier",
+      "prompt": "You stop, confused. A short, overgrown dog has stepped right in front of you, boldly taunting you with a fresh catch in its mouth. This rat looks way too big for the funny guy to eat, right?!",
+      "options": {
+        "Intimidate": ["+1 SQ|imgsq//+1 Large Branch|imglargebranch","+1 SQ|imgsq//+1 Rat Carcass|imgratcarcass"]
+      }
+    },
+    "sittingwolf/co_sittingwolf": {
+      "name": "Sitting Wolf",
+      "prompt": "A lone wolf crosses your path, both lost and sad. Thinking he may know something about what's been going on, you approach him.",
+      "options": {
+        "What happened?": ["+1 SQ|imgsq"]
+      }
+    },
+    "shetlandpony/co_shetlandpony": {
+      "name": "Shetland Pony",
+      "prompt": "The shortest, fattest little horse you've ever seen is finding different patches of dirt to roll in. Is it some sort of juvenile? It looks much different than the young you've seen alongside adult horses before. Completely ignorant of your presence, you watch as its little legs flail in the air wildly while it rolls. It finally gets to its feet and shakes out its excessively shaggy coat, fixing you with a hard stare.",
+      "options": {
+        "Chase": ["+2 SQ|imgsq","+2 SQ|imgsq//-8% energy","+2 SQ|imgsq//-8 HP"],
+        "Scare Away": ["+2 random foreign herbs*","+1 SQ|imgsq"]
+      },
+      "notes": [
+        "*Elder|imgelder, Evening Primrose|imgeveningprimrose, Meadowsweet|imgmeadowsweet"
+      ]
+    },
+    "slowworm/co_slowworm": {
+      "name": "Slow Worm",
+      "prompt": "You cannot tell if it's a snake, a lizard or a worm. It shows snake-like movement but is much slower and it's amusing to observe it.",
+      "options": {
+        "Poke it": ["+1 SQ|imgsq"],
+        "Eat it": ["+3-5% hunger"]
+      }
+    },
+    "suffolkpunch/co_suffolkpunch": {
+      "name": "Suffolk Punch",
+      "prompt": "With a coat like the setting sun, it's hard not to notice this proud beast. The horse is stocky and seems so out of place here. As it walks, you notice it's limping heavily. Injured prey makes your job easier, but is it worth it to risk it?",
+      "options": {
+        "Aid": ["+2 SQ|imgsq"],
+        "Take Down": ["+1 Horse Carcass|imghorsecarcass"]
+      }
+    },
+    "weakorbs/co_weakorbs": {
+      "name": "Weak Orbs",
+      "prompt": "They don't catch your attention at first, but when you notice the lights they cause both fascination and unconscious fear in your chest. They emit a calm, dim glow like a cold flame and you can't seem to look away.",
+      "options": {
+        "Don't move": ["+1 SQ|imgsq"],
+        "Turn back": ["+2-5 HP"]
+      }
+    },
+    "welshpony/co_welshpony": {
+      "name": "Welsh Pony",
+      "prompt": "You see a dark streak of gray in the distance, running spectacularly across the landscape. It eventually comes to a stop with a snort, prancing in place and on high alert. At first you think it's noticed you, but then you realize it's distracted by something in the other direction.",
+      "options": {
+        "Hunt": ["+1 SQ|imgsq","+1 Horse Carcass|imghorsecarcass"],
+        "Follow": ["+2 SQ|imgsq","+1 SQ|imgsq//+1 Odd Teeth|imgoddteeth","+1 Wealden Amber|imgwealdenamber"]
+      }
+    },
+    "whitestork/co_whitestork": {
+      "name": "White Stork",
+      "prompt": "A tall, graceful bird is standing ahead of you on one leg, relaxed and unaware of your presence. It reminds you of a heron, but the scent is wrong, and you feel uneasy as you study it.",
+      "options": {
+        "Attack": ["+1 SQ|imgsq//+15% energy","+1 SQ|imgsq//+15% hunger","+1 SQ|imgsq"]
+      }
+    },
+    "wolfpups/co_wolfpups": {
+      "name": "Wolf Pups",
+      "prompt": "Two curious pups are sniffing and playing around the weirdest mushrooms you've ever seen. You're no expert, but they definitely don't look edible.",
+      "options": {
+        "Warn": ["+1 SQ|imgsq","No result"]
+      }
+    },
+    "worriedwolf/co_worriedwolf": {
+      "name": "Worried Wolf",
+      "prompt": "An exhausted looking wolf chances upon you, and seems relieved to see someone to talk to. He asks about his lost son who disappeared the day before.",
+      "options": {
+        "Stop": ["+1 SQ|imgsq//+5% energy","No result"],
+        "Ignore": ["+1 SQ|imgsq//+5% energy","No result"]
+      }
+    },
+    "yelloworbs/co_yelloworbs": {
+      "name": "Yellow Orbs",
+      "prompt": "A collection of yellow orbs of light are floating on the trail up ahead. You are completely sure that these orbs appeared out of nowhere within seconds but are now floating around slowly, as though they've been here forever.",
+      "options": {
+        "Turn back": ["+1 SQ|imgsq"],
+        "Follow": ["+2 SQ|imgsq//-10% energy"]
+      }
+    },
+    "youngwolf/co_youngwolf": {
+      "name": "Young Wolf",
+      "prompt": "You come across a young pup wandering alone. You look around but there is no adult wolf nearby.",
+      "options": {
+        "Are you lost?": ["+1 SQ|imgsq","No result"]
+      }
+    },
+
+    "birdflying/co_birdflying": {
+      "name": "Bird Flying",
+      "prompt": "You follow a bird flying across the clear sky. It's holding something tightly, but it seems the object has slipped through its claws and fallen to the ground. Quick - where could it be?",
+      "options": {
+        "Search": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "clawmarks/co_clawmarks": {
+      "name": "Fresh Claw Marks",
+      "prompt": "You notice fresh claw marks in the ground. It looks ordinary, but the air feels thick and you feel suddenly uneasy.",
+      "options": {
+        "Dig": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "corpsebones/co_corpsebones": {
+      "name": "Strange Corpse Bones",
+      "prompt": "You come across a pile of bones on the ground, bones that seem to have belonged to something huge. The skull and legs of this animal are gone, but the rest is arranged weirdly in an almost ritualistic way. Who could do that? And what for?",
+      "options": {
+        "Check it out": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "distantshadow/co_distantshadow": {
+      "name": "Distant Shadow",
+      "prompt": "A distant shadow approaches a small rock formation carefully. You can tell from afar that this wolf doesn't want to be seen.",
+      "options": {
+        "Follow": {
+          "results": ["+1 Trinket Piece|imgtrinketpiece1|*"],
+          "steps": ["Attack!"]
+        }
+      },
+      "steps": {
+        "Attack!": ["Automatic battle with local enemy @location1"]
+      },
+      "trophies": "@location2",
+      "location": {
+        "/biome/1|/biome/4|/biome/6": ["Eastern Wolf","@easternwolf"],
+        "/biome/2|/biome/3|/biome/9|/biome/10": ["Timber Wolf","@timberwolf"],
+        "/biome/5": ["Mexican Wolf","@mexicanwolf"],
+        "/biome/7|/biome/8": ["Red Wolf","@redwolf"],
+        "/biome/11": ["Alaskan Tundra Wolf","@alaskantundrawolf"],
+        "/biome/12": ["Arctic Wolf","@arcticwolf"]
+      },
+      "notes": [
+        "*@conditional1"
+      ],
+      "conditional": {
+        "Follow": "@details1"
+      },
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "emptygrasspatch/co_emptygrasspatch": {
+      "name": "Weird Patch of Grass",
+      "prompt": "You almost miss this spot in the high grass! A small patch of the ground looks weird, with nothing growing around it.",
+      "options": {
+        "Check it": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "pileofleaves/co_pileofleaves": {
+      "name": "Pile of Leaves",
+      "prompt": "You wander across the forest, and nothing seems to be exceptionally different. Only one pile of leaves looks odd - they almost look... Carefully arranged, as if someone marked a place to come back to later.",
+      "options": {
+        "Check the pile": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "rustlingsound/co_rustlingsound": {
+      "name": "Strange Rustling Sound",
+      "prompt": "A soft rustling sound suddenly came from behind you. Is someone following you?",
+      "options": {
+        "Check": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+
+    "animalremains/co_animalremains": {
+      "name": "Animal Remains",
+      "prompt": "The smell of fresh meat lures you to this spot. When you appear, there's nothing left to even try and eat, but you feel dizzy in this place. Something's not right - could this be a sign?",
+      "options": {
+        "Check the Spot": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "coiledsnake/co_coiledsnake": {
+      "name": "Coiled Snake",
+      "prompt": "The sand dunes and rock formations are so similar that you're afraid of becoming too tired to focus on different scents or odd shapes. Suddenly, though, you notice a coiled snake in the middle of your way, completely still and unmoving. This isn't an unfamiliar sight, but something about it feels strange anyway.",
+      "options": {
+        "Examine": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "moundshrubs/co_moundshrubs": {
+      "name": "Mound Between Some Shrubs",
+      "prompt": "A small mound is hidden well between the shrubs. It looks fresh and unprotected. Its owner may be back any second!",
+      "options": {
+        "Dig": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "mountainstream/co_mountainstream": {
+      "name": "Mountain Stream",
+      "prompt": "It was easy to overlook. The fresh, shimmering water of the mountain stream looks as beautiful as always, but it's something in the water that catches your eye. There's something unfamiliar hiding between the pebbles on the bed.",
+      "options": {
+        "Inspect": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "nestbranch/co_nestbranch": {
+      "name": "Nest on Branch",
+      "prompt": "A creaking sound coming from above catches your attention. Between the branches, you see a bird's nest. It's probably within your reach.",
+      "options": {
+        "Knock it off": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "pileofrocks/co_pileofrocks": {
+      "name": "Pile of Odd Rocks",
+      "prompt": "This pile of rocks caught your attention. You've seen similar structures many times before, but there is something different about this particular one. Perhaps you should check it out.",
+      "options": {
+        "Destroy the pile": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "ritualpebbles/co_ritualpebbles": {
+      "name": "Ritual Pebble Site",
+      "prompt": "You come across a small circle of pebbles and tiny bones, arranged in a way that looks to be some kind of ritual. The person who constructed it must have been keen to keep it hidden, as it lays disguised between larger rocks and easily possible to miss. What luck to find it!",
+      "options": {
+        "Dig": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "rottengrass/co_rottengrass": {
+      "name": "Rotten Grass",
+      "prompt": "A tiny patch of grass seems to be rotting, while everything else around it looks unaffected. You feel some kind of inner resistance as you approach it. It's definitely not normal.",
+      "options": {
+        "Dig": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "sleepingwolf/co_sleepingwolf": {
+      "name": "Sleeping Wolf",
+      "prompt": "The silhouette of a sleeping wolf doesn't catch your attention at first. You're just passing by, focused on your own task when you spot her, and notice something between her paws. You can't say if it's the trinket - you will have to reach for it first.",
+      "options": {
+        "Take it": {
+          "results": ["+1 Trinket Piece|imgtrinketpiece1|*"],
+          "steps": ["Attack!"]
+        }
+      },
+      "steps": {
+        "Attack!": ["Automatic battle with local enemy @location1"]
+      },
+      "trophies": "@location2",
+      "location": {
+        "/biome/1|/biome/4|/biome/6": ["Eastern Wolf","@easternwolf"],
+        "/biome/2|/biome/3|/biome/9|/biome/10": ["Timber Wolf","@timberwolf"],
+        "/biome/5": ["Mexican Wolf","@mexicanwolf"],
+        "/biome/7|/biome/8": ["Red Wolf","@redwolf"],
+        "/biome/11": ["Alaskan Tundra Wolf","@alaskantundrawolf"],
+        "/biome/12": ["Arctic Wolf","@arcticwolf"]
+      },
+      "notes": [
+        "*@conditional1"
+      ],
+      "conditional": {
+        "Take it": "@details1"
+      },
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "snarlingwolf/co_snarlingwolf": {
+      "name": "Snarling Wolf",
+      "prompt": "You hadn't noticed anyone here, but suddenly, you hear a growl behind you! An unknown wolf seems to be protecting something, that you must have approached too closely for their liking.",
+      "options": {
+        "Take a step back": {
+          "results": ["+1 Trinket Piece|imgtrinketpiece1|*"],
+          "steps": ["Attack!"]
+        }
+      },
+      "steps": {
+        "Attack!": ["Automatic battle with local enemy @location1"]
+      },
+      "trophies": "@location2",
+      "location": {
+        "/biome/1|/biome/4|/biome/6": ["Eastern Wolf","@easternwolf"],
+        "/biome/2|/biome/3|/biome/9|/biome/10": ["Timber Wolf","@timberwolf"],
+        "/biome/5": ["Mexican Wolf","@mexicanwolf"],
+        "/biome/7|/biome/8": ["Red Wolf","@redwolf"],
+        "/biome/11": ["Alaskan Tundra Wolf","@alaskantundrawolf"],
+        "/biome/12": ["Arctic Wolf","@arcticwolf"]
+      },
+      "notes": [
+        "*@conditional1"
+      ],
+      "conditional": {
+        "Take a step back": "@details1"
+      },
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "treetrunkhollow/co_treetrunkhollow": {
+      "name": "Tree Trunk Hollow",
+      "prompt": "You notice a small hollow in the nearby tree trunk. It's big enough for you to take a look.",
+      "options": {
+        "Peek inside": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "trickery/co_trickery": {
+      "name": "Trickery",
+      "prompt": "You can't believe it. Is it possible that the object you look for lies on the ground like a common stone? It's just a few steps away.",
+      "options": {
+        "Look closer": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "twistedtreetrunk/co_twistedtreetrunk": {
+      "name": "Twisted Tree Trunk",
+      "prompt": "Something feels different about this tree trunk, but you can't say what exactly. Even bugs seem to avoid flying too close to it.",
+      "options": {
+        "Dig": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "unfriendlywolf/co_unfriendlywolf": {
+      "name": "Unfriendly Wolf",
+      "prompt": "You start to inspect this area, but you can feel the presence of another wolf nearby. It seems that he's also searching for something here.",
+      "options": {
+        "Keep searching": {
+          "results": ["+1 Trinket Piece|imgtrinketpiece1|*"],
+          "steps": ["Attack!"]
+        }
+      },
+      "steps": {
+        "Attack!": ["Automatic battle with local enemy @location1"]
+      },
+      "trophies": "@location2",
+      "location": {
+        "/biome/1|/biome/4|/biome/6": ["Eastern Wolf","@easternwolf"],
+        "/biome/2|/biome/3|/biome/9|/biome/10": ["Timber Wolf","@timberwolf"],
+        "/biome/5": ["Mexican Wolf","@mexicanwolf"],
+        "/biome/7|/biome/8": ["Red Wolf","@redwolf"],
+        "/biome/11": ["Alaskan Tundra Wolf","@alaskantundrawolf"],
+        "/biome/12": ["Arctic Wolf","@arcticwolf"]
+      },
+      "notes": [
+        "*@conditional1"
+      ],
+      "conditional": {
+        "Keep searching": "@details1"
+      },
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "wrappedinleaves/co_wrappedinleaves": {
+      "name": "Trinket Wrapped in Leaves",
+      "prompt": "You find something tiny on the smooth, flat stone in front of you, wrapped with leaves. It looks like someone may have just lost it - they could be back any second!",
+      "options": {
+        "Quickly take it": {
+          "results": ["+1 Trinket Piece|imgtrinketpiece1|*"],
+          "steps": ["Attack!"]
+        }
+      },
+      "steps": {
+        "Attack!": ["Automatic battle with local enemy @location1"]
+      },
+      "trophies": "@location2",
+      "location": {
+        "/biome/1|/biome/4|/biome/6": ["Eastern Wolf","@easternwolf"],
+        "/biome/2|/biome/3|/biome/9|/biome/10": ["Timber Wolf","@timberwolf"],
+        "/biome/5": ["Mexican Wolf","@mexicanwolf"],
+        "/biome/7|/biome/8": ["Red Wolf","@redwolf"],
+        "/biome/11": ["Alaskan Tundra Wolf","@alaskantundrawolf"],
+        "/biome/12": ["Arctic Wolf","@arcticwolf"]
+      },
+      "notes": [
+        "*@conditional1"
+      ],
+      "conditional": {
+        "Quickly take it": "@details1"
+      },
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+
+    "persuadetrinket/co_persuadetrinket": {
+      "name": "Enemy Holding a Trinket",
+      "prompt": "But wait - what's that? You notice a blink of a small, strange object. Your heart skips a beat. It's what you're looking for!",
+      "options": {
+        "Persuade": ["+1 Trinket Piece|imgtrinketpiece1","No result"],
+        "Attack!": ["Automatic battle with enemy @enemy*"]
+      },
+      "trophies": "@enemy",
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "Winning the battle against enemy @enemy will reward 1 Trinket Piece|imgtrinketpiece1|."
+      ]
+    },
+
+    "wisp1|wisp2|wisp3|wisp4": {
+      "name": ["Wisp 1", "Wisp 2", "Wisp 3", "Wisp 4"],
+      "options": {
+        "Follow": {
+          "steps": ["Enter the Cave"]
+        }
+      }
+    },
+    "caveentrance": {
+      "name": "Cave Entrance",
+      "options": {
+        "Enter the Cave": {
+          "steps": ["Keep Following"]
+        }
+      }
+    },
+    "cave1|cave3": {
+      "name": "Cave Tunnel",
+      "merge": "cave4",
+      "options": {
+        "Keep Following": {
+          "steps": ["Go Left", "Go Right"]
+        }
+      }
+    },
+    "cave4": {
+      "name": "Cave Chamber",
+      "options": {
+        "Go Left": ["+2 SQ|imgsq", "No result"],
+        "Go Right": ["+1 SQ|imgsq", "No result"]
+      }
+    }
 
   }
 }
