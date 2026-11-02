@@ -8,6 +8,20 @@
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
+    "alaskantundrawolf": {
+      "name": "Alaskan Tundra Wolf",
+      "drops": {
+        "items": "Canine Claw|imgcanineclaw, Canine Fang|imgcaninefang, Wolf Pelt [White]|imgwolfpeltwhite, Wolf Skull|imgwolfskull, Wolf Tail|imgwolftail, Scar: Ear [Left]|imgscarearleft, Scar: Ear [Right]|imgscarearright",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Wolf Trophy Tail Band [Black]|imgrecipeornament;imgwolftrophytailbandblack, Wolf Trophy Tail Band [Timber]|imgrecipeornament;imgwolftrophytailbandtimber, Wolf Trophy Tail Band [White]|imgrecipeornament;imgwolftrophytailbandwhite, Wolf Trophy Tail Necklace [Black]|imgrecipeornament;imgwolftrophytailnecklaceblack, Wolf Trophy Tail Necklace [Timber]|imgrecipeornament;imgwolftrophytailnecklacetimber, Wolf Trophy Tail Necklace [White]|imgrecipeornament;imgwolftrophytailnecklacewhite"
+      }
+    },
+    "alaskantundrawolfpack": {
+      "name": "Alaskan Tundra Wolf Pack",
+      "drops": {
+        "items": "Canine Claw|imgcanineclaw, Canine Fang|imgcaninefang, Wolf Pelt [White]|imgwolfpeltwhite, Wolf Skull|imgwolfskull, Wolf Tail|imgwolftail, Scar: Hind Leg [Left]|imgscarhindlegleft, Scar: Hind Leg [Right]|imgscarhindlegright",
+        "recipes": "Base Applicator [Skull]|imgrecipeapplicator;imgbaseapplicatorskull, Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Wolf Trophy Tail Band [Black]|imgrecipeornament;imgwolftrophytailbandblack, Wolf Trophy Tail Band [Timber]|imgrecipeornament;imgwolftrophytailbandtimber, Wolf Trophy Tail Band [White]|imgrecipeornament;imgwolftrophytailbandwhite, Wolf Trophy Tail Necklace [Black]|imgrecipeornament;imgwolftrophytailnecklaceblack, Wolf Trophy Tail Necklace [Timber]|imgrecipeornament;imgwolftrophytailnecklacetimber, Wolf Trophy Tail Necklace [White]|imgrecipeornament;imgwolftrophytailnecklacewhite"
+      }
+    },
     "americanbadger": {
       "name": "American Badger",
       "drops": {
@@ -20,6 +34,20 @@
       "drops": {
         "items": "Chicken Roast|imgchickenroast, Odd Teeth|imgoddteeth, Old Horseshoe|imgoldhorseshoe, Shoe|imgshoe",
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Odd Teeth Bracelets|imgrecipeornament;imgoddteethbracelets, Odd Teeth Tiara|imgrecipeornament;imgoddteethtiara"
+      }
+    },
+    "arcticwolf": {
+      "name": "Arctic Wolf",
+      "drops": {
+        "items": "Canine Claw|imgcanineclaw, Canine Fang|imgcaninefang, Wolf Pelt [White]|imgwolfpeltwhite, Wolf Skull|imgwolfskull, Wolf Tail|imgwolftail, Scar: Ear [Left]|imgscarearleft, Scar: Ear [Right]|imgscarearright",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Wolf Trophy Tail Band [Black]|imgrecipeornament;imgwolftrophytailbandblack, Wolf Trophy Tail Band [Timber]|imgrecipeornament;imgwolftrophytailbandtimber, Wolf Trophy Tail Band [White]|imgrecipeornament;imgwolftrophytailbandwhite, Wolf Trophy Tail Necklace [Black]|imgrecipeornament;imgwolftrophytailnecklaceblack, Wolf Trophy Tail Necklace [Timber]|imgrecipeornament;imgwolftrophytailnecklacetimber, Wolf Trophy Tail Necklace [White]|imgrecipeornament;imgwolftrophytailnecklacewhite"
+      }
+    },
+    "arcticwolfpack": {
+      "name": "Arctic Wolf Pack",
+      "drops": {
+        "items": "Canine Claw|imgcanineclaw, Canine Fang|imgcaninefang, Wolf Pelt [White]|imgwolfpeltwhite, Wolf Skull|imgwolfskull, Wolf Tail|imgwolftail, Scar: Hind Leg [Left]|imgscarhindlegleft, Scar: Hind Leg [Right]|imgscarhindlegright",
+        "recipes": "Base Applicator [Skull]|imgrecipeapplicator;imgbaseapplicatorskull, Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Wolf Trophy Tail Band [Black]|imgrecipeornament;imgwolftrophytailbandblack, Wolf Trophy Tail Band [Timber]|imgrecipeornament;imgwolftrophytailbandtimber, Wolf Trophy Tail Band [White]|imgrecipeornament;imgwolftrophytailbandwhite, Wolf Trophy Tail Necklace [Black]|imgrecipeornament;imgwolftrophytailnecklaceblack, Wolf Trophy Tail Necklace [Timber]|imgrecipeornament;imgwolftrophytailnecklacetimber, Wolf Trophy Tail Necklace [White]|imgrecipeornament;imgwolftrophytailnecklacewhite"
       }
     },
     "blacktailedbuck": {
@@ -127,6 +155,20 @@
         "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
+    "mexicanwolf": {
+      "name": "Mexican Wolf",
+      "drops": {
+        "items": "Canine Claw|imgcanineclaw, Canine Fang|imgcaninefang, Wolf Pelt [Red]|imgwolfpeltred, Wolf Skull|imgwolfskull, Wolf Tail|imgwolftail, Scar: Ear [Left]|imgscarearleft, Scar: Ear [Right]|imgscarearright",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Wolf Trophy Tail Band [Black]|imgrecipeornament;imgwolftrophytailbandblack, Wolf Trophy Tail Band [Timber]|imgrecipeornament;imgwolftrophytailbandtimber, Wolf Trophy Tail Band [White]|imgrecipeornament;imgwolftrophytailbandwhite, Wolf Trophy Tail Necklace [Black]|imgrecipeornament;imgwolftrophytailnecklaceblack, Wolf Trophy Tail Necklace [Timber]|imgrecipeornament;imgwolftrophytailnecklacetimber, Wolf Trophy Tail Necklace [White]|imgrecipeornament;imgwolftrophytailnecklacewhite"
+      }
+    },
+    "mexicanwolfpack": {
+      "name": "Mexican Wolf Pack",
+      "drops": {
+        "items": "Canine Claw|imgcanineclaw, Canine Fang|imgcaninefang, Wolf Pelt [Red]|imgwolfpeltred, Wolf Skull|imgwolfskull, Wolf Tail|imgwolftail, Scar: Hind Leg [Left]|imgscarhindlegleft, Scar: Hind Leg [Right]|imgscarhindlegright",
+        "recipes": "Base Applicator [Skull]|imgrecipeapplicator;imgbaseapplicatorskull, Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Wolf Trophy Tail Band [Black]|imgrecipeornament;imgwolftrophytailbandblack, Wolf Trophy Tail Band [Timber]|imgrecipeornament;imgwolftrophytailbandtimber, Wolf Trophy Tail Band [White]|imgrecipeornament;imgwolftrophytailbandwhite, Wolf Trophy Tail Necklace [Black]|imgrecipeornament;imgwolftrophytailnecklaceblack, Wolf Trophy Tail Necklace [Timber]|imgrecipeornament;imgwolftrophytailnecklacetimber, Wolf Trophy Tail Necklace [White]|imgrecipeornament;imgwolftrophytailnecklacewhite"
+      }
+    },
     "mustangherd": {
       "name": "Mustang Herd",
       "drops": {
@@ -155,6 +197,20 @@
         "recipes": "Base Applicator [Fox]|imgrecipeapplicator;imgbaseapplicatorfox, Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Eye Applicator [Fox]|imgrecipeapplicator;imgeyeapplicatorfox, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
       }
     },
+    "redwolf": {
+      "name": "Red Wolf",
+      "drops": {
+        "items": "Canine Claw|imgcanineclaw, Canine Fang|imgcaninefang, Wolf Pelt [Red]|imgwolfpeltred, Wolf Skull|imgwolfskull, Wolf Tail|imgwolftail, Scar: Ear [Left]|imgscarearleft, Scar: Ear [Right]|imgscarearright",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Wolf Trophy Tail Band [Black]|imgrecipeornament;imgwolftrophytailbandblack, Wolf Trophy Tail Band [Timber]|imgrecipeornament;imgwolftrophytailbandtimber, Wolf Trophy Tail Band [White]|imgrecipeornament;imgwolftrophytailbandwhite, Wolf Trophy Tail Necklace [Black]|imgrecipeornament;imgwolftrophytailnecklaceblack, Wolf Trophy Tail Necklace [Timber]|imgrecipeornament;imgwolftrophytailnecklacetimber, Wolf Trophy Tail Necklace [White]|imgrecipeornament;imgwolftrophytailnecklacewhite"
+      }
+    },
+    "redwolfpack": {
+      "name": "Red Wolf Pack",
+      "drops": {
+        "items": "Canine Claw|imgcanineclaw, Canine Fang|imgcaninefang, Wolf Pelt [Red]|imgwolfpeltred, Wolf Skull|imgwolfskull, Wolf Tail|imgwolftail, Scar: Hind Leg [Left]|imgscarhindlegleft, Scar: Hind Leg [Right]|imgscarhindlegright",
+        "recipes": "Base Applicator [Skull]|imgrecipeapplicator;imgbaseapplicatorskull, Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Wolf Trophy Tail Band [Black]|imgrecipeornament;imgwolftrophytailbandblack, Wolf Trophy Tail Band [Timber]|imgrecipeornament;imgwolftrophytailbandtimber, Wolf Trophy Tail Band [White]|imgrecipeornament;imgwolftrophytailbandwhite, Wolf Trophy Tail Necklace [Black]|imgrecipeornament;imgwolftrophytailnecklaceblack, Wolf Trophy Tail Necklace [Timber]|imgrecipeornament;imgwolftrophytailnecklacetimber, Wolf Trophy Tail Necklace [White]|imgrecipeornament;imgwolftrophytailnecklacewhite"
+      }
+    },
     "starvingwolf": {
       "name": "Starving Wolf",
       "drops": {
@@ -167,6 +223,20 @@
       "drops": {
         "items": "Canine Claw|imgcanineclaw, Wolf Skull|imgwolfskull, Wolf Tail|imgwolftail",
         "recipes": "Base Applicator [Skull]|imgrecipeapplicator;imgbaseapplicatorskull, Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory"
+      }
+    },
+    "timberwolf": {
+      "name": "Timber Wolf",
+      "drops": {
+        "items": "Canine Claw|imgcanineclaw, Canine Fang|imgcaninefang, Wolf Pelt [Red]|imgwolfpeltred, Wolf Skull|imgwolfskull, Wolf Tail|imgwolftail, Scar: Ear [Left]|imgscarearleft, Scar: Ear [Right]|imgscarearright",
+        "recipes": "Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Wolf Trophy Tail Band [Black]|imgrecipeornament;imgwolftrophytailbandblack, Wolf Trophy Tail Band [Timber]|imgrecipeornament;imgwolftrophytailbandtimber, Wolf Trophy Tail Band [White]|imgrecipeornament;imgwolftrophytailbandwhite, Wolf Trophy Tail Necklace [Black]|imgrecipeornament;imgwolftrophytailnecklaceblack, Wolf Trophy Tail Necklace [Timber]|imgrecipeornament;imgwolftrophytailnecklacetimber, Wolf Trophy Tail Necklace [White]|imgrecipeornament;imgwolftrophytailnecklacewhite"
+      }
+    },
+    "timberwolfpack": {
+      "name": "Timber Wolf Pack",
+      "drops": {
+        "items": "Canine Claw|imgcanineclaw, Canine Fang|imgcaninefang, Wolf Pelt [Red]|imgwolfpeltred, Wolf Skull|imgwolfskull, Wolf Tail|imgwolftail, Scar: Hind Leg [Left]|imgscarhindlegleft, Scar: Hind Leg [Right]|imgscarhindlegright",
+        "recipes": "Base Applicator [Skull]|imgrecipeapplicator;imgbaseapplicatorskull, Broken Antler Decor|imgrecipetrinket;imgbrokenantlerdecor, Deer Ear Accessory|imgrecipeornament;imgdeerearaccessory, Den of Pelts|imgrecipebackground;imgdenofpelts, Elk Ear Accessory|imgrecipeornament;imgelkearaccessory, Moose Ear Accessory|imgrecipeornament;imgmooseearaccessory, Wolf Trophy Tail Band [Black]|imgrecipeornament;imgwolftrophytailbandblack, Wolf Trophy Tail Band [Timber]|imgrecipeornament;imgwolftrophytailbandtimber, Wolf Trophy Tail Band [White]|imgrecipeornament;imgwolftrophytailbandwhite, Wolf Trophy Tail Necklace [Black]|imgrecipeornament;imgwolftrophytailnecklaceblack, Wolf Trophy Tail Necklace [Timber]|imgrecipeornament;imgwolftrophytailnecklacetimber, Wolf Trophy Tail Necklace [White]|imgrecipeornament;imgwolftrophytailnecklacewhite"
       }
     },
     "turkeyvulture": {
@@ -233,7 +303,7 @@
     "corruptedabomination": {
       "name": "Corrupted Abomination",
       "drops": {
-        "items": "Anaconda Skull|imganacondaskull, Badger Skull|imgbadgerskull, Bear Skull|imgbearskull, Bighorn Skull|imgbighornskull, Bison Skull|imgbisonskull, Blacktail Antlers|imgblacktailantlers, Boar Skull|imgboarskull, Bobcat Skull|imgbobcatskull, Broken Antler|imgbrokenantler, Bush Dog Skull|imgbushdogskull, Caribou Antlers|imgcaribouantlers, Cottonmouth Skull|imgcottonmouthskull, Cougar Skull|imgcougarskull, Crocodile Skull|imgcrocodileskull, Crow Skull|imgcrowskull, Dog Skull|imgdogskull, Eagle Skull|imgeagleskull, Elk Antlers|imgelkantlers, Fox Skull|imgfoxskull, Goose Skull|imggooseskull, Horse Skull|imghorseskull, Jaguar Skull|imgjaguarskull, Jaguarundi Skull|imgjaguarundiskull, Lynx Skull|imglynxskull, Moose Antler|imgmooseantler, Muskox Skull|imgmuskoxskull, Ocelot Skull|imgocelotskull, Owl Skull|imgimgowlskull, Polar Bear Skull|imgpolarbearskull, Pronghorn Skull|imgpronghornskull, Rattlesnake Skull|imgrattlesnakeskull, Seal Skull|imgsealskull, Sheep Skull|imgsheepskull, Tayra Skull|imgtayraskull, Vulture Skull|imgvultureskull, Walrus Skull|imgwalrusskull, Whitetail Antlers|imgwhitetailantlers, Wolverine Skull|imgwolverineskull",
+        "items": "Anaconda Skull|imganacondaskull, Badger Skull|imgbadgerskull, Bear Skull|imgbearskull, Bighorn Skull|imgbighornskull, Bison Skull|imgbisonskull, Blacktail Antlers|imgblacktailantlers, Boar Skull|imgboarskull, Bobcat Skull|imgbobcatskull, Broken Antler|imgbrokenantler, Bush Dog Skull|imgbushdogskull, Caribou Antlers|imgcaribouantlers, Cottonmouth Skull|imgcottonmouthskull, Cougar Skull|imgcougarskull, Crocodile Skull|imgcrocodileskull, Crow Skull|imgcrowskull, Dog Skull|imgdogskull, Eagle Skull|imgeagleskull, Elk Antlers|imgelkantlers, Fox Skull|imgfoxskull, Goose Skull|imggooseskull, Horse Skull|imghorseskull, Jaguar Skull|imgjaguarskull, Jaguarundi Skull|imgjaguarundiskull, Lynx Skull|imglynxskull, Moose Antler|imgmooseantler, Muskox Skull|imgmuskoxskull, Ocelot Skull|imgocelotskull, Owl Skull|imgowlskull, Polar Bear Skull|imgpolarbearskull, Pronghorn Skull|imgpronghornskull, Rattlesnake Skull|imgrattlesnakeskull, Seal Skull|imgsealskull, Sheep Skull|imgsheepskull, Tayra Skull|imgtayraskull, Vulture Skull|imgvultureskull, Walrus Skull|imgwalrusskull, Whitetail Antlers|imgwhitetailantlers, Wolverine Skull|imgwolverineskull",
         "recipes": "Big Cat Claw Necklace|imgrecipeornament;imgbigcatclawnecklace, Bone Decor|imgrecipetrinket;imgbonedecor, Eternal Slumber|imgrecipebackground;imgeternalslumber, Gnawing Hoof Trinket|imgrecipetrinket;imggnawinghooftrinket, Leftover Bones|imgrecipebackground;imgleftoverbones, Owl Talon Necklace|imgrecipeornament;imgowltalonnecklace, Scattered Bones|imgrecipetrinket;imgscatteredbones"
       }
     }
