@@ -2,11 +2,9 @@
 
 🐺 <b>Wolvhelper</b> is an explore helper which displays encounter outcomes and additional information when you are exploring on <i>Wolvden</i>. The userscript can be installed through extensions like Violentmonkey on desktop and Userscripts on iOS. The .user.js file is the only file you need to install, as the .json referenced within it are managed independently.</div>
 
-<p align="center">🐺 <a href="https://github.com/Kaztaztrophe/Wolvhelper/blob/main/wolvhelper_encounters.user.js">Wolvhelper Explore Encounters</a> | <a href="https://github.com/Kaztaztrophe/Wolvhelper/blob/main/wolvhelpermini_encounters.user.js">WolvhelperMini Explore Encounters</a> 🐺<br><b>Last Updated:</b> October 11th, 2026 at 02:00 UTC (v1.6.8)</p>
+<p align="center">🐺 <a href="https://github.com/Kaztaztrophe/Wolvhelper/blob/main/wolvhelper_pack.user.js">Wolvhelper Pack: Wolvden Userscripts</a> 🐺<br><b>Last Updated:</b> November 2nd, 2026 at 01:00 UTC (v2.0.0)</p>
 
 <p align="center"><i>Data sourced from the <a href="https://grousehouse.wiki/">Grouse House Wiki</a></i></p>
-
-<b>Wolvhelper</b> is ideal for fast readability due to its images and increased spacing but may feel bloated in certain cases. If you prefer simple, unobtrusive text with no images, <b>WolvhelperMini</b> may work better.
 
 <b>Currently Supports:</b>
 <ul>
@@ -14,6 +12,7 @@
   <li>ALL <b>Lunar Dreams event</b>  explore encounters: Universal, Multi-biome, Grasslands, Deciduous Forest, Mountains, Riparian Woodland, Prairie, Coniferous Forest, Desert, Taiga, Swamp, Tundra, Rainforest, and Glacier</li>
   <li>ALL <b>Echoes of the Ancient event</b> explore encounters</li>
   <li>ALL <b>Halloween Spectacle event</b> explore encounters</li>
+  <li>ALL <b>Coigreach event</b> explore encounters</li>
   <li>Some <b>Trophy drops</b> for enemies: Automatic battle encounters, Grasslands</li>
 </ul>
 
