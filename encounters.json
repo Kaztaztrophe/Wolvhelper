@@ -6166,6 +6166,12 @@
       ]
     },
 
+    "askaboutlowen/november_askaboutlowen": {
+      "name": "Ask About Lowen",
+      "options": {
+        "Ask About Lowen": ["+1 quest progress for Coigreach storyline"]
+      }
+    },
     "persuadetrinket/co_persuadetrinket": {
       "name": "Enemy Holding a Trinket",
       "prompt": "But wait - what's that? You notice a blink of a small, strange object. Your heart skips a beat. It's what you're looking for!",
