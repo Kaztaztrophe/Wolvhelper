@@ -6226,14 +6226,14 @@
       "name": "Cave Chamber",
       "options": {
         "Go Left": ["+2-3 random amusement items//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+100% energy//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+20% energy//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+10% energy//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","Automatic battle with random enemy*"],
-        "Go Right": ["+2-3 random critter carcasses//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+5 HP//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+10 HP//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","Automatic battle with random enemy*"],
+        "Go Right": ["+2-3 random critter carcasses//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+5 HP//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+10 HP//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","Automatic battle with random enemy*"]
+      },
       "notes": [
         "*@details1"
       ],
       "details": [
         "Winning the battle will reward +2 Large Smoky Quartz Chunk|imglargesmokyquartzchunk;imglargesmokyquartzchunk|."
       ]
-      }
     }
 
   }
