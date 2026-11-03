@@ -7,6 +7,7 @@
 // @match       https://www.wolvden.com/*
 // @match       https://wolvden.com/*
 // @run-at      document-start
+// @grant       none
 // @updateURL   https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/wolvhelper_pack.user.js
 // @downloadURL https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/wolvhelper_pack.user.js
 // @noframes
