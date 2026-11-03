@@ -1,7 +1,15 @@
 {
   "encounters": {
 
-    "checkoutpoop": {
+    "attack": {
+      "name": "Enemy",
+      "options": {
+        "Attack!": ["Automatic battle with enemy @enemy"]
+      },
+      "trophies": "@enemy"
+    },
+
+    "poop/checkoutpoop": {
       "name": "Poop",
       "prompt": "You come across some poop... Normally, you'd roll all over it, but for some reason, something seems special about this poop.",
       "options": {
@@ -29,7 +37,7 @@
         "If your lead wolf is currently immune to illness."
       ]
     },
-    "filler2scents": {
+    "twoscents/filler_2scents": {
       "name": "Two Scents",
       "prompt": "You briefly stop to smell the air, two diverging scents reaching your nose. Interesting.",
       "options": {
@@ -49,7 +57,7 @@
         "Befriending is not available if your territory is full."
       ]
     },
-    "fillerbirdrest": {
+    "soundofbirds/filler_birdrest": {
       "name": "Sound of Birds",
       "prompt": "You hear the faint twitter of birds somewhere nearby. You look up to the sky and watch them swooping overhead. What would it feel like to fly? You find a nice comfortable spot in the shade and rest for a moment.",
       "options": {
@@ -57,7 +65,7 @@
         "Rest": ["+4-5 HP"]
       }
     },
-    "fillerbutterfly": {
+    "butterfly/filler_butterfly": {
       "name": "Butterfly",
       "prompt": "Catching your breath, a small butterfly lands on your nose.",
       "options": {
@@ -68,7 +76,7 @@
         "*Blinded Sphinx|imgrecipeanimal;imgblindedsphynx, Brown Longtail|imgrecipeanimal;imgbrownlongtail, Canyon Rubyspot|imgrecipeanimal;imgcanyonrubyspot, Diana Fritillary|imgrecipeanimal;imgdianafritillary, Fiery Skipper|imgrecipeanimal;imgfieryskipper, Giant Swallowtail|imgrecipeanimal;imggiantswallowtail, Gulf Fritillary|imgrecipeanimal;imggulffritillary, Uhler's Arctic|imgrecipeanimal;imguhlersarctic, White Peacock|imgrecipeanimal;imgwhitepeacock"
       ]
     },
-    "fillercritters": {
+    "critters/filler_critters": {
       "name": "Critters",
       "prompt": "You see some small critters running desperately in the opposite direction.",
       "options": {
@@ -88,7 +96,7 @@
         "/biome/12": ["Arctic Wolf","@arcticwolf"]
       }
     },
-    "fillerdirtsnuffle": {
+    "dirt/filler_dirtsnuffle": {
       "name": "Dirt",
       "prompt": "You snuffle around in the dirt. It's here somewhere.. Yes! Jackpot!",
       "options": {
@@ -98,7 +106,7 @@
         "*@poolrecipebone"
       ]
     },
-    "fillerscentpath": {
+    "directionalscent/filler_scentpath": {
       "name": "Directional Scent",
       "prompt": "You catch a strange scent on the ground, a mingling of two different scents. You follow them until they part ways.",
       "options": {
@@ -111,7 +119,7 @@
         "***@poolcavebuildingmaterial"
       ]
     },
-    "fillerwaterpool": {
+    "waterpool/filler_waterpool": {
       "name": "Water Pool",
       "prompt": "A small pool of water appears up ahead, and as you approach you notice that there is a dim blue light glowing from beneath the surface of the water.",
       "options": {
