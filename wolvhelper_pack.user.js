@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name        Wolvhelper Pack: Wolvden Userscripts
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     2.0.0
+// @version     2.0.1
 // @author      Kaztaztrophe
 // @description Wolvden userscript package with customizable settings panel to configure active mods
 // @match       https://www.wolvden.com/*
 // @match       https://wolvden.com/*
 // @run-at      document-start
 // @grant       GM_getResourceText
-// @resource    whGlobalStyles https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/global.min.css?v=2.0.0
+// @resource    whGlobalStyles https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/global.min.css?v=2.0.1
 // @updateURL   https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/wolvhelper_pack.user.js
 // @downloadURL https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/wolvhelper_pack.user.js
 // @noframes
@@ -17,7 +17,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '2.0.0';
+  const SCRIPT_VERSION = '2.0.1';
   const CACHE_KEY = 'wolvhelper_pack_cache';
   const SETTINGS_KEY = 'wolvhelper_pack_settings';
   const CACHE_SCHEMA = 6; // Bumped when shape of JSON files change
@@ -664,9 +664,9 @@
       const resolvedTarget = getResolvedEncounterData(targetMatch.id, new Set(visited));
       if (!resolvedTarget) continue;
 
-      for (const [optName, optValue] of Object.entries(resolvedTarget.options || {})) {
-        if (mergedSteps[optName] === undefined) {
-          mergedSteps[optName] = optValue;
+      for (const [optionName, optionValue] of Object.entries(resolvedTarget.options || {})) {
+        if (mergedSteps[optionName] === undefined) {
+          mergedSteps[optionName] = optionValue;
         }
       }
       for (const [stepName, stepValue] of Object.entries(resolvedTarget.steps || {})) {
@@ -692,9 +692,16 @@
     };
   }
 
+  function getExploreImageUrl() {
+    const foregroundImage = document.querySelector('#explore-foreground')?.style.backgroundImage || '';
+    if (foregroundImage && !/\/(?:blank|hiddenart)\.(?:png|jpg|jpeg|webp)/i.test(foregroundImage)) {
+      return foregroundImage;
+    }
+    return document.querySelector('#explore-middleground')?.style.backgroundImage || foregroundImage;
+  }
+
   function findEncounterByImage() {
-    const foreground = document.querySelector('#explore-foreground');
-    const backgroundImage = foreground?.style.backgroundImage;
+    const backgroundImage = getExploreImageUrl();
     if (!backgroundImage) return null;
 
     const lowerUrl = backgroundImage.toLowerCase();
@@ -703,7 +710,7 @@
     let filename = match[1].toLowerCase().replace(/[_-]/g, '');
     if (filename === 'blank' || filename === 'hiddenart') return null;
 
-    filename = filename.replace(/(?:spring|summer|autumn|winter)?(?:day|dawn|dusk|night)$|(?:spring|summer|autumn|winter)$/i, '');
+    filename = filename.replace(/(?:(?:spring|summer|autumn|winter)|(?:day|dawn|dusk|night))+$/i, '');
 
     const isEnemyUrl = lowerUrl.includes('/enemies/');
 
@@ -719,32 +726,17 @@
 
   function findEncounterIdFromAction(action) {
     if (!action || encounterIdLookup.length === 0) return null;
-    const lowerUrl = (document.querySelector('#explore-foreground')?.style.backgroundImage || '').toLowerCase();
+    const lowerUrl = getExploreImageUrl().toLowerCase();
+    const isEnemyUrl = lowerUrl.includes('/enemies/');
     const rawAction = action.toLowerCase();
     const actionTokens = rawAction.split(/[^a-z0-9]+/).filter(Boolean);
     const normalizedAction = normalizeText(rawAction);
+
     for (const entry of encounterIdLookup) {
+      if (entry.normalized === 'attack' && !isEnemyUrl) continue;
       if (!matchesPathFolder(entry, lowerUrl)) continue;
       if (actionTokens.includes(entry.normalized)) return entry;
       if (entry.normalized.length >= 5 && normalizedAction.includes(entry.normalized)) return entry;
-      if (entry.normalized.startsWith('filler')) {
-        const fillerSuffix = entry.normalized.slice(6);
-        if (actionTokens.includes('filler_' + fillerSuffix) || (actionTokens.includes('filler') && actionTokens.includes(fillerSuffix))) {
-          return entry;
-        }
-      }
-    }
-    return null;
-  }
-
-  function findEncounterByButton(output) {
-    const buttons = output.querySelectorAll('button');
-    for (const button of buttons) {
-      const action = button.dataset.action;
-      const entry = findEncounterIdFromAction(action);
-      if (entry && encounterDatabase.encounters[entry.id]) {
-        return { id: entry.id, subId: entry.subId, matchId: entry.matchId, index: entry.index, data: getResolvedEncounterData(entry.id) };
-      }
     }
     return null;
   }
@@ -771,31 +763,64 @@
     });
   }
 
-  function findCurrentEncounter(output) {
-    const newResult = findEncounterByImage() || findEncounterByButton(output) || findEncounterByPrompt(output);
-    if (newResult) {
-      activeEncounterId = newResult.id;
-      activeEncounterSubId = newResult.subId;
-      activeEncounterMatchId = newResult.matchId;
-      activeEncounterIndex = newResult.index;
-      return newResult;
+  function findCurrentEncounters(output) {
+    const matchedEncounters = [];
+    const addEncounterEntry = (entry) => {
+      if (!entry || !encounterDatabase.encounters[entry.id]) return;
+      if (matchedEncounters.some(existing => existing.id === entry.id)) return;
+      const resolvedData = entry.data || getResolvedEncounterData(entry.id);
+      if (!resolvedData) return;
+      matchedEncounters.push({
+        id: entry.id,
+        subId: entry.subId,
+        matchId: entry.matchId,
+        index: entry.index || 0,
+        data: resolvedData
+      });
+    };
+
+    const imageMatch = findEncounterByImage();
+    if (imageMatch) addEncounterEntry(imageMatch);
+
+    const promptMatch = findEncounterByPrompt(output);
+    if (promptMatch) addEncounterEntry(promptMatch);
+
+    const buttons = output.querySelectorAll('button');
+    for (const button of buttons) {
+      const actionEntry = findEncounterIdFromAction(button.dataset.action);
+      if (actionEntry) addEncounterEntry(actionEntry);
     }
+
     if (activeEncounterId && encounterDatabase.encounters[activeEncounterId]) {
       const defaultSubId = activeEncounterId.split('|')[0].split('/')[0].trim();
-      const current = {
+      const activeCandidate = {
         id: activeEncounterId,
         subId: activeEncounterSubId || defaultSubId,
         matchId: activeEncounterMatchId || activeEncounterSubId || defaultSubId,
         index: activeEncounterIndex || 0,
         data: getResolvedEncounterData(activeEncounterId)
       };
-      if (encounterMatchesButtons(current, output)) return current;
+      if (encounterMatchesButtons(activeCandidate, output)) {
+        addEncounterEntry(activeCandidate);
+      }
     }
-    activeEncounterId = null;
-    activeEncounterSubId = null;
-    activeEncounterMatchId = null;
-    activeEncounterIndex = 0;
-    return null;
+
+    matchedEncounters.sort((a, b) => (a.subId === 'attack' ? 1 : 0) - (b.subId === 'attack' ? 1 : 0));
+
+    const primaryEncounter = matchedEncounters.find(enc => enc.subId !== 'attack') || matchedEncounters[0] || null;
+    if (primaryEncounter) {
+      activeEncounterId = primaryEncounter.id;
+      activeEncounterSubId = primaryEncounter.subId;
+      activeEncounterMatchId = primaryEncounter.matchId;
+      activeEncounterIndex = primaryEncounter.index;
+    } else {
+      activeEncounterId = null;
+      activeEncounterSubId = null;
+      activeEncounterMatchId = null;
+      activeEncounterIndex = 0;
+    }
+
+    return matchedEncounters;
   }
 
   function findEnemy(output) {
@@ -1420,117 +1445,132 @@
     const output = document.querySelector('#explore-output');
     if (!output || !encounterDatabase) return;
 
-    const encounter = settings.encounters ? findCurrentEncounter(output) : null;
     const buttons = output.querySelectorAll('button');
-
     if (buttons.length === 0) {
       clearExploreHelper(false);
       return;
     }
 
-    if (!encounter && settings.trophies) {
-      const hasEnemyPrompt = /oh\s+no!/i.test(output.textContent);
-      const enemyData = hasEnemyPrompt ? findEnemy(output) : null;
-      if (enemyData) {
-        console.log(`[Wolvhelper] Active Enemy ID: ${enemyData.id} | Name: ${enemyData.name}`);
-        const helper = getOrCreateHelper(output);
-        const enemyHeader = document.createElement('div');
-        enemyHeader.className = 'wh-header-enemy';
-        const enemyHeaderText = document.createElement('b');
-        enemyHeaderText.textContent = `${enemyData.name} Trophies`;
-        enemyHeader.appendChild(enemyHeaderText);
-        helper.appendChild(enemyHeader);
-
-        if (enemyData.drops?.items) helper.appendChild(createTrophyLine('Items', enemyData.drops.items));
-        if (enemyData.drops?.recipes) helper.appendChild(createTrophyLine('Recipes', enemyData.drops.recipes));
-
-        appendHelperToOutput(output, helper);
-        return;
-      }
-    }
-
-    if (!settings.encounters || !encounter || buttons.length === 0) {
+    const matchedEncounters = (settings.encounters || settings.trophies) ? findCurrentEncounters(output) : [];
+    if (matchedEncounters.length === 0) {
       clearExploreHelper(false);
       return;
     }
 
-    const encounterId = encounter.matchId || encounter.subId || encounter.id;
-    const encounterName = Array.isArray(encounter.data.name)
-      ? (encounter.data.name[encounter.index] !== undefined ? encounter.data.name[encounter.index] : encounter.data.name[0])
-      : (encounter.data.name || 'Unknown');
-
-    console.log(`[Wolvhelper] Active Encounter ID: ${encounterId} | Name: ${encounterName}`);
-
     const resultLines = [];
+    const usedEncounters = new Set();
+
     for (const button of buttons) {
       const buttonText = button.textContent.trim();
       const cleanButton = buttonText.replace(/\s*\[.*?\]|\s*\(.*?\)/g, '').trim();
 
-      if (buttonText === cleanButton) {
-        console.log('[Wolvhelper] Option Found:', buttonText);
-      } else {
-        console.log('[Wolvhelper] Option Found:', buttonText, '| Cleaned:', cleanButton);
-      }
-
-      let matchedName = null;
-      let matchedValue = null;
-      let matchedOption = null;
-
-      for (const [optionName, optionValue] of Object.entries(encounter.data.options || {})) {
-        const score = matchScore(buttonText, optionName);
-        if (!score) continue;
-        const isSeasonal = /\s*\[(spring|summer|autumn|winter)\]$/i.test(optionName);
-        const candidate = { name: optionName, value: optionValue, isSeasonal, score };
-
-        if (!matchedOption || score > matchedOption.score || (score === matchedOption.score && isSeasonal && !matchedOption.isSeasonal)) {
-          matchedOption = candidate;
+      if (settings.encounters) {
+        if (buttonText === cleanButton) {
+          console.log('[Wolvhelper] Option Found:', buttonText);
+        } else {
+          console.log('[Wolvhelper] Option Found:', buttonText, '| Cleaned:', cleanButton);
         }
       }
 
-      if (matchedOption) {
-        matchedName = matchedOption.name;
-        matchedValue = matchedOption.value;
-      }
+      let bestEncounter = null;
+      let matchedName = null;
+      let matchedValue = null;
+      let bestOption = null;
 
-      if (matchedName === null && encounter.data.steps) {
-        for (const stepName of Object.keys(encounter.data.steps)) {
-          if (normalizeText(cleanButton) === normalizeText(stepName)) {
-            matchedName = stepName;
-            matchedValue = encounter.data.steps[stepName];
-            break;
+      for (const encounter of matchedEncounters) {
+        for (const [optionName, optionValue] of Object.entries(encounter.data.options || {})) {
+          const score = matchScore(buttonText, optionName);
+          if (!score) continue;
+          const isSeasonal = /\s*\[(spring|summer|autumn|winter)\]$/i.test(optionName);
+          const candidate = { name: optionName, value: optionValue, isSeasonal, score, encounter };
+
+          if (!bestOption || score > bestOption.score || (score === bestOption.score && isSeasonal && !bestOption.isSeasonal)) {
+            bestOption = candidate;
           }
         }
       }
 
-      if (matchedName === null) continue;
+      if (bestOption) {
+        bestEncounter = bestOption.encounter;
+        matchedName = bestOption.name;
+        matchedValue = bestOption.value;
+      }
+
+      if (matchedName === null) {
+        for (const encounter of matchedEncounters) {
+          if (!encounter.data.steps) continue;
+          for (const stepName of Object.keys(encounter.data.steps)) {
+            if (normalizeText(cleanButton) === normalizeText(stepName)) {
+              bestEncounter = encounter;
+              matchedName = stepName;
+              matchedValue = encounter.data.steps[stepName];
+              break;
+            }
+          }
+          if (matchedName !== null) break;
+        }
+      }
+
+      if (matchedName === null || !bestEncounter) continue;
+
+      usedEncounters.add(bestEncounter);
+      if (!settings.encounters) continue;
 
       const cleanOptionLabel = matchedName.replace(/\s*\[(spring|summer|autumn|winter)\]$/i, '');
 
       if (isStepOption(matchedValue)) {
-        resultLines.push(...createStepPreviewLines(cleanOptionLabel, matchedValue, encounter));
+        resultLines.push(...createStepPreviewLines(cleanOptionLabel, matchedValue, bestEncounter));
         continue;
       }
 
-      resultLines.push(createResultLine(cleanOptionLabel, parseResult(matchedValue, encounter.data.location)));
+      resultLines.push(createResultLine(cleanOptionLabel, parseResult(matchedValue, bestEncounter.data.location)));
     }
 
-    const notes = (settings.encounters && settings.notes) ? createNotesElement(encounter.data.notes, encounter.data.conditional, encounter.data.details, encounter.data.location, buttons) : null;
-    const encounterTrophies = settings.trophies ? createTrophiesElement(encounter, buttons, enemyDatabase, output) : null;
+    const activeEncountersList = usedEncounters.size > 0 ? [...usedEncounters] : matchedEncounters;
+    const notesElements = [];
+    const trophyElements = [];
+    const seenTrophyHeaders = new Set();
 
-    if (!resultLines.length && !notes && !encounterTrophies) {
+    for (const encounter of activeEncountersList) {
+      const encounterId = encounter.matchId || encounter.subId || encounter.id;
+      const rawName = Array.isArray(encounter.data.name)
+        ? (encounter.data.name[encounter.index] !== undefined ? encounter.data.name[encounter.index] : encounter.data.name[0])
+        : (encounter.data.name || (encounter.subId === 'attack' ? (getCurrentEnemyName(output) || 'Enemy') : 'Unknown'));
+      const encounterName = resolveReferences(String(rawName), encounter.data.location);
+
+      console.log(`[Wolvhelper] Active Encounter ID: ${encounterId} | Name: ${encounterName}`);
+
+      if (settings.encounters && settings.notes) {
+        const notes = createNotesElement(encounter.data.notes, encounter.data.conditional, encounter.data.details, encounter.data.location, buttons);
+        if (notes) notesElements.push(notes);
+      }
+
+      if (settings.trophies) {
+        const encounterTrophies = createTrophiesElement(encounter, buttons, enemyDatabase, output);
+        if (encounterTrophies) {
+          const headerKey = encounterTrophies.querySelector('.wh-header-enemy')?.textContent || '';
+          if (!seenTrophyHeaders.has(headerKey)) {
+            seenTrophyHeaders.add(headerKey);
+            trophyElements.push(encounterTrophies);
+          }
+        }
+      }
+    }
+
+    if (!resultLines.length && !notesElements.length && !trophyElements.length) {
       clearExploreHelper();
       return;
     }
 
     const helper = getOrCreateHelper(output);
-    const elementsToAppend = [...resultLines, encounterTrophies, notes].filter(Boolean);
+    const elementsToAppend = [...resultLines, ...trophyElements, ...notesElements].filter(Boolean);
     helper.append(...elementsToAppend);
     appendHelperToOutput(output, helper);
   }
 
   function getOutputSignature(output) {
     const buttons = [...output.querySelectorAll('button')].map(button => button.dataset.action || button.textContent.trim()).join('|');
-    const background = document.querySelector('#explore-foreground')?.style.backgroundImage || '';
+    const background = getExploreImageUrl();
     const paragraphText = [...output.querySelectorAll('p')].map(paragraph => paragraph.textContent.trim()).join('|');
     return `${buttons}::${background}::${paragraphText}`;
   }
