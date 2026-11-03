@@ -1,14 +1,12 @@
 // ==UserScript==
 // @name        Wolvhelper Pack: Wolvden Userscripts
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     2.0.1
+// @version     2.0.2
 // @author      Kaztaztrophe
 // @description Wolvden userscript package with customizable settings panel to configure active mods
 // @match       https://www.wolvden.com/*
 // @match       https://wolvden.com/*
 // @run-at      document-start
-// @grant       GM_getResourceText
-// @resource    whGlobalStyles https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/global.min.css?v=2.0.1
 // @updateURL   https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/wolvhelper_pack.user.js
 // @downloadURL https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/wolvhelper_pack.user.js
 // @noframes
@@ -17,15 +15,12 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '2.0.1';
+  const SCRIPT_VERSION = '2.0.2';
   const CACHE_KEY = 'wolvhelper_pack_cache';
   const SETTINGS_KEY = 'wolvhelper_pack_settings';
   const CACHE_SCHEMA = 6; // Bumped when shape of JSON files change
   const UPDATE_COOLDOWN = 10 * 60 * 1000; // 10 minutes
   const FETCH_TIMEOUT = 10 * 1000; // 10 seconds
-
-  const CSS_GLOBAL_CUSTOM = ``;
-  const CSS_GLOBAL_RESOURCE = typeof GM_getResourceText === 'function' ? GM_getResourceText('whGlobalStyles') : '';
 
   const URL_ENCOUNTERS = 'https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/encounters.json';
   const URL_IMAGES = 'https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/images.json';
@@ -84,12 +79,36 @@
     localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
   }
 
-  function injectStyles() {
+  const CSS_FALLBACK = `.explore-helper{display:none;}#wh-settings-panel{display:none;pointer-events:none;position:absolute;right:0;top:100%;margin-top:5px;width:315px;opacity:0.75;z-index:1000;}`;
+
+  async function injectStyles() {
     if (document.getElementById('wh-global-styles')) return;
     const styleElement = document.createElement('style');
     styleElement.id = 'wh-global-styles';
-    styleElement.textContent = CSS_GLOBAL_RESOURCE + '\n' + CSS_GLOBAL_CUSTOM;
+    
+    const cachedCss = localStorage.getItem('wh_global_css_cache');
+    const cachedVersion = localStorage.getItem('wh_global_css_version');
+    
+    if (cachedCss && cachedVersion === SCRIPT_VERSION) {
+      styleElement.textContent = cachedCss;
+      (document.head || document.documentElement).appendChild(styleElement);
+      return;
+    }
+
+    styleElement.textContent = CSS_FALLBACK;
     (document.head || document.documentElement).appendChild(styleElement);
+
+    try {
+      const response = await fetch(`https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/global.min.css?v=${SCRIPT_VERSION}`);
+      if (!response.ok) throw new Error(`HTTP status: ${response.status}`);
+      
+      const remoteCss = await response.text();
+      localStorage.setItem('wh_global_css_cache', remoteCss);
+      localStorage.setItem('wh_global_css_version', SCRIPT_VERSION);
+      styleElement.textContent = remoteCss;
+    } catch (error) {
+      console.warn('[Wolvhelper] Failed to fetch remote CSS:', error);
+    }
   }
 
   function injectPanel() {
@@ -343,7 +362,7 @@
     const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT);
     try {
       const response = await fetch(url, { signal: controller.signal });
-      if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
+      if (!response.ok) throw new Error(`HTTP status: ${response.status} for ${url}`);
       return await response.json();
     } finally {
       clearTimeout(timer);
