@@ -6213,7 +6213,7 @@
         }
       }
     },
-    "cavetunnel1/cave1|cavetunnel2/cave3|cavestep2/november_cavestep2|wisp5/co_wisp5|wisp6/co_wisp6|wisp7/co_wisp7|wisp8/co_wisp8": {
+    "cavetunnel|cavetunnel1/cave1|cavetunnel2/cave3|cavestep2/november_cavestep2|wisp5/co_wisp5|wisp6/co_wisp6|wisp7/co_wisp7|wisp8/co_wisp8": {
       "name": "Cave Tunnel",
       "merge": "cavechamber",
       "options": {
