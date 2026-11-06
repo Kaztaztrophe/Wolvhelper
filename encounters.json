@@ -6205,7 +6205,7 @@
         }
       }
     },
-    "caveentrance|entercave/november_entercave": {
+    "caveentrance/co_caveentrance|entercave/november_entercave": {
       "name": "Cave Entrance",
       "options": {
         "Enter the Cave": {
@@ -6213,7 +6213,7 @@
         }
       }
     },
-    "cavetunnel|cavetunnel1/cave1|cavetunnel2/cave3|cavestep2/november_cavestep2": {
+    "cavetunnel|cavetunnel1/cave1/co_cave1|cavetunnel2/cave3/co_cave3|cavestep2/november_cavestep2": {
       "name": "Cave Tunnel",
       "options": {
         "Keep Following": {
@@ -6227,9 +6227,16 @@
         "Go Left": ["+2-3 random amusement items//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+100% energy//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+20% energy//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+10% energy//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","Automatic battle with random enemy*"],
         "Go Right": ["+2-3 random critter carcasses//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+5 HP//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+10 HP//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","Automatic battle with random enemy*"]
       },
+      "steps": {
+        "Attack!": ["Automatic battle with enemy @enemy*"]
+      },
+      "trophies": "@enemy",
       "notes": [
-        "*@details1"
+        "*@conditional1"
       ],
+      "conditional": {
+        "Attack!": "@details1"
+      },
       "details": [
         "Winning the battle will reward +2 Large Smoky Quartz Chunk|imglargesmokyquartzchunk;imglargesmokyquartzchunk|."
       ]
