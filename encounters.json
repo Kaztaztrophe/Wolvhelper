@@ -6232,11 +6232,8 @@
       },
       "trophies": "@enemy",
       "notes": [
-        "*@conditional1"
+        "*@details1"
       ],
-      "conditional": {
-        "Attack!": "@details1"
-      },
       "details": [
         "Winning the battle will reward +2 Large Smoky Quartz Chunk|imglargesmokyquartzchunk;imglargesmokyquartzchunk|."
       ]
