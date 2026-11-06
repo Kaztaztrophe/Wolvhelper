@@ -6196,16 +6196,16 @@
       ]
     },
 
-    "wisp1|wisp2|wisp3|wisp4": {
+    "wisp1/co_wisp1|wisp2/co_wisp2|wisp3/co_wisp3|wisp4/co_wisp4|followwisp/november_followwisp": {
       "name": ["Wisp 1","Wisp 2","Wisp 3","Wisp 4"],
       "options": {
         "Follow": {
-          "results": ["No result"],
-          "steps": ["Enter the Cave"]
+          "steps": ["Enter the Cave"],
+          "results": ["No result"]
         }
       }
     },
-    "caveentrance": {
+    "caveentrance|entercave/november_entercave": {
       "name": "Cave Entrance",
       "options": {
         "Enter the Cave": {
@@ -6213,16 +6213,16 @@
         }
       }
     },
-    "cavetunnel1/cave1|cavetunnel2/cave3": {
+    "cavetunnel1/cave1|cavetunnel2/cave3|cavestep2/november_cavestep2|wisp5/co_wisp5|wisp6/co_wisp6|wisp7/co_wisp7|wisp8/co_wisp8": {
       "name": "Cave Tunnel",
-      "merge": "cave4",
+      "merge": "cavechamber",
       "options": {
         "Keep Following": {
           "steps": ["Go Left","Go Right"]
         }
       }
     },
-    "cavechamber/cave4": {
+    "cavechamber/cave4/co_cave4|cavegoleft/cavestep3a/november_cavestep3a|cavegoright/cavestep3b/november_cavestep3b": {
       "name": "Cave Chamber",
       "options": {
         "Go Left": ["+2-3 random amusement items//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+100% energy//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+20% energy//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","+10% energy//+1 Large Smoky Quartz Chunk|imglargesmokyquartzchunk","Automatic battle with random enemy*"],
