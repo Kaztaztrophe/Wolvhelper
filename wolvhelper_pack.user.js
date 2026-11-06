@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper Pack: Wolvden Userscripts
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     2.0.2
+// @version     2.0.3
 // @author      Kaztaztrophe
 // @description Wolvden userscript package with customizable settings panel to configure active mods
 // @match       https://www.wolvden.com/*
@@ -16,7 +16,7 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '2.0.2';
+  const SCRIPT_VERSION = '2.0.3';
   const CACHE_KEY = 'wolvhelper_pack_cache';
   const SETTINGS_KEY = 'wolvhelper_pack_settings';
   const CACHE_SCHEMA = 6; // Bumped when shape of JSON files change
@@ -462,37 +462,62 @@
     encounterIdLookup = [];
     for (const [key, data] of Object.entries(encounterDatabase.encounters)) {
       const multiIds = key.split('|').map(idSegment => idSegment.trim());
+      const isSingleNamedGroup = !Array.isArray(data?.name);
       let prompts = [];
       if (Array.isArray(data?.prompt)) {
         prompts = data.prompt.map(normalizeText);
       } else if (typeof data?.prompt === 'string' && data.prompt.trim()) {
         prompts = data.prompt.split('|').map(normalizeText);
       }
+
+      const firstSlashParts = multiIds[0].split('/').map(part => part.trim());
+      const primaryPreferredId = firstSlashParts[0].includes(':')
+        ? firstSlashParts[0].split(':')[1].trim()
+        : firstSlashParts[0];
+      const primaryLastRaw = firstSlashParts[firstSlashParts.length - 1];
+      const primaryCleanLast = primaryLastRaw.includes(':')
+        ? primaryLastRaw.split(':')[1].trim()
+        : primaryLastRaw;
+      const primaryHasSlash = firstSlashParts.length > 1;
+
       multiIds.forEach((segment, index) => {
         const slashParts = segment.split('/').map(part => part.trim());
         const rawPreferredId = slashParts[0];
-        const rawFunctionalId = slashParts.length > 1 ? slashParts[1] : slashParts[0];
-
-        let pathFolder = null;
-        let cleanFunctionalId = rawFunctionalId;
-        if (rawFunctionalId.includes(':')) {
-          const colonParts = rawFunctionalId.split(':').map(part => part.trim());
-          pathFolder = colonParts[0].toLowerCase();
-          cleanFunctionalId = colonParts[1];
-        }
-
-        const preferredId = rawPreferredId.includes(':')
+        const segmentPreferredId = rawPreferredId.includes(':')
           ? rawPreferredId.split(':')[1].trim()
           : rawPreferredId;
 
-        encounterIdLookup.push({
-          id: key,
-          subId: preferredId,
-          matchId: cleanFunctionalId,
-          pathFolder: pathFolder,
-          index: index,
-          normalized: normalizeText(cleanFunctionalId),
-          prompts: prompts
+        const preferredId = isSingleNamedGroup ? primaryPreferredId : segmentPreferredId;
+
+        const rawLastId = slashParts[slashParts.length - 1];
+        const cleanLastId = rawLastId.includes(':')
+          ? rawLastId.split(':')[1].trim()
+          : rawLastId;
+        const trueMatchId = (isSingleNamedGroup && primaryHasSlash) ? primaryCleanLast : cleanLastId;
+
+        const functionalVariants = slashParts.length > 1 ? slashParts.slice(1) : [slashParts[0]];
+        if (!functionalVariants.includes(slashParts[0])) {
+          functionalVariants.push(slashParts[0]);
+        }
+
+        functionalVariants.forEach(rawVariant => {
+          let pathFolder = null;
+          let cleanFunctionalId = rawVariant;
+          if (rawVariant.includes(':')) {
+            const colonParts = rawVariant.split(':').map(part => part.trim());
+            pathFolder = colonParts[0].toLowerCase();
+            cleanFunctionalId = colonParts[1];
+          }
+
+          encounterIdLookup.push({
+            id: key,
+            subId: preferredId,
+            matchId: trueMatchId,
+            pathFolder: pathFolder,
+            index: isSingleNamedGroup ? 0 : index,
+            normalized: normalizeText(cleanFunctionalId),
+            prompts: prompts
+          });
         });
       });
     }
