@@ -6198,6 +6198,7 @@
 
     "followwisp/november_followwisp|wisp1/co_wisp1|wisp2/co_wisp2|wisp3/co_wisp3|wisp4/co_wisp4|wisp5/co_wisp5|wisp6/co_wisp6|wisp7/co_wisp7|wisp8/co_wisp8|wisp9/co_wisp9|wisp10/co_wisp10": {
       "name": ["Follow Wisp"],
+      "chain": "caveentrance",
       "options": {
         "Follow": {
           "steps": ["Enter the Cave"],
@@ -6207,6 +6208,7 @@
     },
     "caveentrance/co_caveentrance|entercave/november_entercave": {
       "name": "Cave Entrance",
+      "chain": "cavetunnel",
       "options": {
         "Enter the Cave": {
           "steps": ["Keep Following"]
@@ -6215,6 +6217,7 @@
     },
     "cavetunnel|cavetunnel1/cave1/co_cave1|cavetunnel2/cave3/co_cave3|cavestep2/november_cavestep2": {
       "name": "Cave Tunnel",
+      "chain": "cavechamber",
       "options": {
         "Keep Following": {
           "steps": ["Go Left","Go Right"]
