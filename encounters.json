@@ -5864,6 +5864,19 @@
         "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
       ]
     },
+    "clawmarkslog/co_clawmarkslog": {
+      "name": "Claw Marks on Log",
+      "prompt": "Small claw lines mark the place under a fallen log, where something small but supposedly stubborn seems to have tried to get something out. Your paws are bigger and stronger...",
+      "options": {
+        "Dig under the log": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
     "corpsebones/co_corpsebones": {
       "name": "Strange Corpse Bones",
       "prompt": "You come across a pile of bones on the ground, bones that seem to have belonged to something huge. The skull and legs of this animal are gone, but the rest is arranged weirdly in an almost ritualistic way. Who could do that? And what for?",
@@ -5966,6 +5979,19 @@
       "prompt": "The sand dunes and rock formations are so similar that you're afraid of becoming too tired to focus on different scents or odd shapes. Suddenly, though, you notice a coiled snake in the middle of your way, completely still and unmoving. This isn't an unfamiliar sight, but something about it feels strange anyway.",
       "options": {
         "Examine": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "densevegetation/co_densevegetation": {
+      "name": "Dense Vegetation",
+      "prompt": "The dense vegetation of this area doesn't make it any easier for you in your search. You check every odd looking thing, but a place that truly makes you stop looks quite ordinary. The heavy atmosphere and sudden feeling of dizziness, however, isn't normal. You must be close.",
+      "options": {
+        "Look around": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
       },
       "notes": [
         "*@details1"
@@ -6211,6 +6237,19 @@
       "conditional": {
         "Quickly take it": "@details1"
       },
+      "details": [
+        "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
+      ]
+    },
+    "leaffilledhole?": {
+      "name": "Leaf Filled Hole",
+      "prompt": "You stumble upon a small hole in the ground. It's shallow and fully filled with leaves, which definitely look to have been placed there on purpose. It won't take much time to check it out.",
+      "options": {
+        "Remove the leaves": ["+1 Trinket Piece|imgtrinketpiece1|*","No result"]
+      },
+      "notes": [
+        "*@details1"
+      ],
       "details": [
         "The Trinket Piece you receive is used to complete a puzzle in the Coigreach storyline."
       ]
