@@ -5402,6 +5402,14 @@
         "Winning the battle against enemy Beast of Dean will reward +3 SQ|imgsq|."
       ]
     },
+    "bluecaps": {
+      "name": "Bluecaps",
+      "prompt": "A group of bluecaps dance in the air, shooting toward you when they spot you. They dart around you and nip and tug at your hair playfully, as if overjoyed to see you. You realize belatedly that they seem to be guiding you somewhere.",
+      "options": {
+        "Follow them": ["+3 SQ|imgsq","+1 SQ|imgsq","+1 Recipe: European Nettle|imgrecipescenery;imgeuropeannettle//+1 Recipe: Pot Marigold|imgrecipescenery;imgpotmarigold//+1 Recipe: Berry-bearing Bramble|imgrecipescenery;imgberrybearingbramble","+1 Recipe: Lunar Oak Necklace|imgrecipelunar;imglunaroaknecklace//+1 Recipe: Lunar Oak Crown|imgrecipelunar;imglunaroakcrown//+1 Recipe: Lunar Oak Tailwrap|imgrecipelunar;imglunaroaktailwrap","-10 HP"],
+        "Watch them dance": ["+1 SQ|imgsq//+1 Glowing Spores|imgglowingspores"]
+      }
+    },
     "britishshorthair/co_britishshorthair": {
       "name": "British Shorthair",
       "prompt": "A beautiful cat is sitting in front of you in a relaxed pose, blinking slowly. It seems to be saying hello! What a charming creature.",
@@ -5547,7 +5555,7 @@
         "Come closer": ["+1 SQ|imgsq","No result"]
       }
     },
-    "grayhound": {
+    "greyhound/grayhound": {
       "name": "Greyhound",
       "prompt": "Something blurry catches your eye - and after managing to rush towards it, you spot a bright and muscly dog chasing a hare.",
       "options": {
@@ -6197,7 +6205,19 @@
     },
 
     "followwisp/november_followwisp|wisp1/co_wisp1|wisp2/co_wisp2|wisp3/co_wisp3|wisp4/co_wisp4|wisp5/co_wisp5|wisp6/co_wisp6|wisp7/co_wisp7|wisp8/co_wisp8|wisp9/co_wisp9|wisp10/co_wisp10": {
-      "name": ["Follow Wisp"],
+      "name": "Follow Wisp",
+      "variants": {
+        "wisp1": "Wisp 1",
+        "wisp2": "Wisp 2",
+        "wisp3": "Wisp 3",
+        "wisp4": "Wisp 4",
+        "wisp5": "Wisp 5",
+        "wisp6": "Wisp 6",
+        "wisp7": "Wisp 7",
+        "wisp8": "Wisp 8",
+        "wisp9": "Wisp 9",
+        "wisp10": "Wisp 10"
+      },
       "chain": "caveentrance",
       "options": {
         "Follow": {
