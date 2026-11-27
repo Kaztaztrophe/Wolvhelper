@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wolvhelper Pack: Wolvden Userscripts
 // @namespace   https://github.com/Kaztaztrophe/Wolvhelper
-// @version     2.0.3
+// @version     2.0.4
 // @author      Kaztaztrophe
 // @description Wolvden userscript package with customizable settings panel to configure active mods
 // @match       https://www.wolvden.com/*
@@ -16,10 +16,10 @@
 (function () {
   'use strict';
 
-  const SCRIPT_VERSION = '2.0.3';
+  const SCRIPT_VERSION = '2.0.4';
   const CACHE_KEY = 'wolvhelper_pack_cache';
   const SETTINGS_KEY = 'wolvhelper_pack_settings';
-  const CACHE_SCHEMA = 6; // Bumped when shape of JSON files change
+  const CACHE_SCHEMA = 7; // Bumped when shape of JSON files change
   const UPDATE_COOLDOWN = 10 * 60 * 1000; // 10 minutes
   const FETCH_TIMEOUT = 10 * 1000; // 10 seconds
 
@@ -28,7 +28,7 @@
   const URL_POOLS = 'https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/pools.json';
   const URL_TROPHIES = 'https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/trophies.json';
 
-  const GH_IMAGES = 'https://grousehouse.wiki/images';
+  const IMAGE_SOURCE = 'https://file.garden/ZSTRgEMsLUXXEdKI/wolvden/images/';
   const IMAGE_LABELS = { 'imgsc': 'Silver Cones', 'imglt': 'Lunar Tears', 'imglb': 'Lovebugs', 'imggp': 'Glow Petals', 'imgcs': 'Cryptid Scales', 'imgmt': 'Megalodon Teeth', 'imgme': 'Mysterious Effigies', 'imgsq': 'Smoky Quartz' };
 
   const MST_OFFSET_MS = -7 * 60 * 60 * 1000; // Mountain Standard Time (MST) offset: UTC-7
@@ -51,16 +51,15 @@
       if (!images && !grouped && !spacing) {
         mini = true;
       }
-      return {
-        enabled: parsed.enabled !== false,
-        mini: mini,
-        encounters: parsed.encounters !== false,
-        notes: parsed.notes !== false,
-        trophies: parsed.trophies !== false,
-        images: images,
-        grouped: grouped,
-        spacing: spacing
-      };
+      return { 
+        enabled: parsed.enabled !== false, 
+        mini: mini, 
+        encounters: parsed.encounters !== false, 
+        notes: parsed.notes !== false, 
+        trophies: parsed.trophies !== false, 
+        images: images, 
+        grouped: grouped, 
+        spacing: spacing };
     } catch {
       return defaults;
     }
@@ -86,23 +85,18 @@
     if (document.getElementById('wh-global-styles')) return;
     const styleElement = document.createElement('style');
     styleElement.id = 'wh-global-styles';
-    
     const cachedCss = localStorage.getItem('wh_global_css_cache');
     const cachedVersion = localStorage.getItem('wh_global_css_version');
-    
     if (cachedCss && cachedVersion === SCRIPT_VERSION) {
       styleElement.textContent = cachedCss;
       (document.head || document.documentElement).appendChild(styleElement);
       return;
     }
-
     styleElement.textContent = CSS_FALLBACK;
     (document.head || document.documentElement).appendChild(styleElement);
-
     try {
       const response = await fetch(`https://raw.githubusercontent.com/Kaztaztrophe/Wolvhelper/main/global.min.css?v=${SCRIPT_VERSION}`);
       if (!response.ok) throw new Error(`HTTP status: ${response.status}`);
-      
       const remoteCss = await response.text();
       localStorage.setItem('wh_global_css_cache', remoteCss);
       localStorage.setItem('wh_global_css_version', SCRIPT_VERSION);
@@ -115,25 +109,19 @@
   function injectPanel() {
     const currentPath = window.location.pathname;
     if (!currentPath.startsWith('/profile/') && !currentPath.startsWith('/den/')) return;
-
     const unorderedList = document.querySelector('ul.nav.nav-tabs');
     if (!unorderedList || document.querySelector('#wh-nav-container')) return;
-
     const userButton = document.querySelector('nav.navbar-status button.dropdown-toggle, .navbar-status .dropdown-toggle');
     if (!userButton) return;
     const userName = userButton.textContent.trim();
-
     const navText = unorderedList.textContent || '';
     if (!navText.includes(userName)) return;
-
     const listItem = document.createElement('li');
     listItem.id = 'wh-nav-container';
     listItem.className = 'nav-item ml-auto';
     listItem.style.position = 'relative';
-
     const settings = getSettings();
     const versionLabel = !settings.enabled ? 'Disabled' : (settings.mini ? `WolvhelperMini v${SCRIPT_VERSION}` : `Wolvhelper v${SCRIPT_VERSION}`);
-
     listItem.innerHTML = `
       <a href="" id="wh-settings-toggle" class="nav-link"><i class="fas fa-cog"></i><span class="d-none d-md-inline ml-1"> Wolvhelper</span><span class="d-none d-sm-inline d-md-none ml-1"> WH</span></a>
       <div class="card bg-light border shadow-sm" id="wh-settings-panel">
@@ -164,7 +152,7 @@
             <div id="wh-explore-sub-container" class="mb-2 pl-4 ${(!settings.enabled || settings.mini) ? 'wh-panel-disabled' : ''}">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="wh-toggle-images" ${settings.images ? 'checked' : ''} ${(!settings.enabled || settings.mini) ? 'disabled' : ''}>
-                <label class="custom-control-label" for="wh-toggle-images">Item Images (grousehouse.wiki)</label>
+                <label class="custom-control-label" for="wh-toggle-images">Item Images (file.garden)</label>
               </div>
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="wh-toggle-grouped" ${settings.grouped ? 'checked' : ''} ${(!settings.enabled || settings.mini) ? 'disabled' : ''}>
@@ -184,7 +172,6 @@
         </div>
       </div>
     `;
-
     unorderedList.appendChild(listItem);
 
     const toggleLink = listItem.querySelector('#wh-settings-toggle');
@@ -193,7 +180,6 @@
     const modsContainer = listItem.querySelector('#wh-mods-container');
     const modsContainerMain = listItem.querySelector('#wh-mods-container-main');
     const exploreSubContainer = listItem.querySelector('#wh-explore-sub-container');
-
     const miniCheckbox = listItem.querySelector('#wh-toggle-mini');
     const encountersCheckbox = listItem.querySelector('#wh-toggle-encounters');
     const notesCheckbox = listItem.querySelector('#wh-toggle-notes');
@@ -203,25 +189,21 @@
     const groupedCheckbox = listItem.querySelector('#wh-toggle-grouped');
     const spacingCheckbox = listItem.querySelector('#wh-toggle-spacing');
     const disableCheckbox = listItem.querySelector('#wh-toggle-disable');
-
     const featureCheckboxes = [miniCheckbox, encountersCheckbox, trophiesCheckbox];
     const formatCheckboxes = [imagesCheckbox, groupedCheckbox, spacingCheckbox];
 
     function updatePanelUI(enabled) {
       const isMini = miniCheckbox.checked;
-
       modsContainer.classList.toggle('wh-panel-disabled', !enabled);
       modsContainerMain.classList.toggle('wh-panel-disabled', !enabled);
       exploreSubContainer.classList.toggle('wh-panel-disabled', !enabled || isMini);
-
       featureCheckboxes.forEach(checkbox => { checkbox.disabled = !enabled; });
       formatCheckboxes.forEach(checkbox => { checkbox.disabled = !enabled || isMini; });
-
       notesCheckbox.disabled = !enabled || !encountersCheckbox.checked;
       notesLabel.classList.toggle('wh-panel-disabled', enabled && !encountersCheckbox.checked);
     }
 
-    function checkAllExploreUnchecked() {
+    function checkFormatUnchecked() {
       if (!imagesCheckbox.checked && !groupedCheckbox.checked && !spacingCheckbox.checked) {
         miniCheckbox.checked = true;
         saveSetting('mini', true);
@@ -251,7 +233,6 @@
       saveSetting('mini', isMini);
       exploreSubContainer.classList.toggle('wh-panel-disabled', isMini);
       formatCheckboxes.forEach(checkbox => { checkbox.disabled = isMini; });
-
       if (isMini) {
         formatCheckboxes.forEach(checkbox => { checkbox.checked = false; });
       } else {
@@ -260,7 +241,6 @@
         groupedCheckbox.checked = current.grouped;
         spacingCheckbox.checked = current.spacing;
       }
-
       versionDisplay.innerHTML = `<b>Version</b> (${isMini ? 'WolvhelperMini' : 'Wolvhelper'} v${SCRIPT_VERSION})`;
       checkExploreOutput();
     });
@@ -285,19 +265,19 @@
 
     imagesCheckbox.addEventListener('change', (event) => {
       saveSetting('images', event.target.checked);
-      checkAllExploreUnchecked();
+      checkFormatUnchecked();
       checkExploreOutput();
     });
 
     groupedCheckbox.addEventListener('change', (event) => {
       saveSetting('grouped', event.target.checked);
-      checkAllExploreUnchecked();
+      checkFormatUnchecked();
       checkExploreOutput();
     });
 
     spacingCheckbox.addEventListener('change', (event) => {
       saveSetting('spacing', event.target.checked);
-      checkAllExploreUnchecked();
+      checkFormatUnchecked();
       checkExploreOutput();
     });
 
@@ -305,11 +285,9 @@
       const isEnabled = !event.target.checked;
       saveSetting('enabled', isEnabled);
       updatePanelUI(isEnabled);
-
       const currentSettings = getSettings();
       const activeVersionLabel = !isEnabled ? 'Disabled' : (currentSettings.mini ? `WolvhelperMini v${SCRIPT_VERSION}` : `Wolvhelper v${SCRIPT_VERSION}`);
       versionDisplay.innerHTML = `<b>Version</b> (${activeVersionLabel})`;
-
       if (!isEnabled) {
         clearExploreHelper(true);
       } else {
@@ -337,22 +315,23 @@
     const targetDayUtc = Date.UTC(liveNow.getUTCFullYear(), liveNow.getUTCMonth(), liveNow.getUTCDate());
     const elapsedDays = Math.floor((targetDayUtc - SEASON_ANCHOR_MS) / DAY_MS);
     const cycleDay = ((elapsedDays % 24) + 24) % 24;
+    const dayOfSeason = cycleDay % 6;
     const activeSeasonIndex = Math.floor(cycleDay / 6);
-    const dayInSeason = cycleDay % 6;
-    const activeSeasonStartMs = targetDayUtc - dayInSeason * DAY_MS;
-
+    const activeSeasonStart = targetDayUtc - dayOfSeason * DAY_MS;
     return {
       seasonName: SEASON_ORDER[activeSeasonIndex],
       activeSeasonIndex,
-      activeSeasonStartMs
+      activeSeasonStart
     };
   }
 
+  let databaseRequested = false;
   let encounterDatabase = null;
   let encounterIdLookup = [];
   let enemyDatabase = null;
   let enemyIdLookup = [];
   let activeEncounterId = null;
+  let activeEncounterMatchId = null;
   let activeEncounterSubId = null;
   let activeEncounterIndex = 0;
   let isPending = false;
@@ -370,8 +349,6 @@
     }
   }
 
-  let databaseRequested = false;
-
   function ensureDatabase() {
     if (databaseRequested) return;
     databaseRequested = true;
@@ -381,57 +358,46 @@
   async function loadDatabase() {
     const cachedData = localStorage.getItem(CACHE_KEY);
     let loadedFromCache = false;
-
     if (cachedData) {
       try {
         const parsed = JSON.parse(cachedData);
         if (parsed.schema === CACHE_SCHEMA && parsed.encounterDatabase && parsed.encounterDatabase.encounters) {
           encounterDatabase = parsed.encounterDatabase;
           enemyDatabase = parsed.enemyDatabase;
-
           buildLookups();
           checkExploreOutput();
           loadedFromCache = true;
-
           if (Date.now() - parsed.timestamp < UPDATE_COOLDOWN) {
             return;
           }
         }
       } catch (error) {
-        console.warn('[Wolvhelper] Cache corrupted, resetting.', error);
+        console.warn('[Wolvhelper] Cache corrupted, resetting...', error);
       }
     }
-
     try {
       const [encountersResult, imagesResult, poolsResult, trophiesResult] = await Promise.allSettled([
         fetchData(URL_ENCOUNTERS), fetchData(URL_IMAGES), fetchData(URL_POOLS), fetchData(URL_TROPHIES)
       ]);
-
       const useResult = (result, fallback, name) => {
         if (result.status === 'fulfilled') return result.value;
         console.warn(`[Wolvhelper] Could not update ${name}:`, result.reason);
         return fallback;
       };
-
       const encounterData = useResult(encountersResult, encounterDatabase && { encounters: encounterDatabase.encounters }, 'encounters.json');
-      if (!encounterData) throw new Error('[Wolvhelper] Could not download encounters.json');
-
+      if (!encounterData) throw new Error('[Wolvhelper] Could not download encounters.json.');
       const imagesData = useResult(imagesResult, null, 'images.json');
       const rawImages = imagesData?.images ?? imagesData ?? encounterDatabase?.images ?? {};
       encounterData.images = flattenImageTree(rawImages);
-
       const poolsData = useResult(poolsResult, null, 'pools.json');
       encounterData.pools = poolsData?.pools ?? poolsData ?? encounterDatabase?.pools ?? {};
-
       const enemyData = useResult(trophiesResult, enemyDatabase, 'trophies.json');
-
       if (!encounterData.encounters || typeof encounterData.encounters !== 'object') {
-        throw new Error('[Wolvhelper] Downloaded database is missing "encounters"');
+        throw new Error('[Wolvhelper] Downloaded database is missing "encounters".');
       }
       if (!enemyData?.trophies || typeof enemyData.trophies !== 'object') {
-        throw new Error('[Wolvhelper] Downloaded database is missing "trophies"');
+        throw new Error('[Wolvhelper] Downloaded database is missing "trophies".');
       }
-
       try {
         localStorage.setItem(CACHE_KEY, JSON.stringify({
           schema: CACHE_SCHEMA,
@@ -440,17 +406,14 @@
           enemyDatabase: enemyData
         }));
       } catch (error) {
-        console.warn('[Wolvhelper] Could not write cache.', error);
+        console.warn('[Wolvhelper] Could not write cache:', error);
       }
-
       encounterDatabase = encounterData;
       enemyDatabase = enemyData;
       baseImageElementCache.clear();
-
       buildLookups();
       lastSignature = '';
       checkExploreOutput();
-
     } catch (error) {
       if (!loadedFromCache) {
         console.error('[Wolvhelper] Failed to load database:', error);
@@ -469,37 +432,23 @@
       } else if (typeof data?.prompt === 'string' && data.prompt.trim()) {
         prompts = data.prompt.split('|').map(normalizeText);
       }
-
       const firstSlashParts = multiIds[0].split('/').map(part => part.trim());
-      const primaryPreferredId = firstSlashParts[0].includes(':')
-        ? firstSlashParts[0].split(':')[1].trim()
-        : firstSlashParts[0];
+      const primaryPreferredId = firstSlashParts[0].includes(':') ? firstSlashParts[0].split(':')[1].trim() : firstSlashParts[0];
       const primaryLastRaw = firstSlashParts[firstSlashParts.length - 1];
-      const primaryCleanLast = primaryLastRaw.includes(':')
-        ? primaryLastRaw.split(':')[1].trim()
-        : primaryLastRaw;
+      const primaryCleanLast = primaryLastRaw.includes(':') ? primaryLastRaw.split(':')[1].trim() : primaryLastRaw;
       const primaryHasSlash = firstSlashParts.length > 1;
-
       multiIds.forEach((segment, index) => {
         const slashParts = segment.split('/').map(part => part.trim());
         const rawPreferredId = slashParts[0];
-        const segmentPreferredId = rawPreferredId.includes(':')
-          ? rawPreferredId.split(':')[1].trim()
-          : rawPreferredId;
-
+        const segmentPreferredId = rawPreferredId.includes(':') ? rawPreferredId.split(':')[1].trim() : rawPreferredId;
         const preferredId = isSingleNamedGroup ? primaryPreferredId : segmentPreferredId;
-
         const rawLastId = slashParts[slashParts.length - 1];
-        const cleanLastId = rawLastId.includes(':')
-          ? rawLastId.split(':')[1].trim()
-          : rawLastId;
+        const cleanLastId = rawLastId.includes(':') ? rawLastId.split(':')[1].trim() : rawLastId;
         const trueMatchId = (isSingleNamedGroup && primaryHasSlash) ? primaryCleanLast : cleanLastId;
-
         const functionalVariants = slashParts.length > 1 ? slashParts.slice(1) : [slashParts[0]];
         if (!functionalVariants.includes(slashParts[0])) {
           functionalVariants.push(slashParts[0]);
         }
-
         functionalVariants.forEach(rawVariant => {
           let pathFolder = null;
           let cleanFunctionalId = rawVariant;
@@ -508,7 +457,6 @@
             pathFolder = colonParts[0].toLowerCase();
             cleanFunctionalId = colonParts[1];
           }
-
           encounterIdLookup.push({
             id: key,
             subId: preferredId,
@@ -521,42 +469,67 @@
         });
       });
     }
-
     encounterIdLookup.sort((a, b) => {
       if (Boolean(a.pathFolder) !== Boolean(b.pathFolder)) {
         return a.pathFolder ? -1 : 1;
       }
       return b.normalized.length - a.normalized.length;
     });
-
     if (enemyDatabase?.trophies) {
-      enemyIdLookup = Object.keys(enemyDatabase.trophies)
-        .map(id => ({ id, normalized: normalizeText(id), normalizedName: normalizeText(enemyDatabase.trophies[id]?.name || '') }))
-        .sort((a, b) => Math.max(b.normalized.length, b.normalizedName.length) - Math.max(a.normalized.length, a.normalizedName.length));
+      enemyIdLookup = Object.keys(enemyDatabase.trophies).map(id => ({ id, normalized: normalizeText(id), normalizedName: normalizeText(enemyDatabase.trophies[id]?.name || '') })).sort((a, b) => Math.max(b.normalized.length, b.normalizedName.length) - Math.max(a.normalized.length, a.normalizedName.length));
     }
+  }
+
+  function flattenImageTree(tree, currentPath = '', result = {}) {
+    for (const [key, value] of Object.entries(tree)) {
+      if (typeof value === 'object' && value !== null) {
+        const newPath = currentPath + key + (key.endsWith('/') ? '' : '/');
+        flattenImageTree(value, newPath, result);
+      } else {
+        result[key] = currentPath + value;
+      }
+    }
+    return result;
   }
 
   function normalizeText(text) {
     return text.toLowerCase().replace(/[^a-z0-9]/g, '');
   }
 
-  function isStepOption(optionValue) {
-    return optionValue && typeof optionValue === 'object' && !Array.isArray(optionValue) &&
-      (Array.isArray(optionValue.steps) || Array.isArray(optionValue.results));
+  function getExploreParagraphs(output) {
+    if (!output) return [];
+    return [...output.querySelectorAll('p')]
+      .filter(paragraph => !paragraph.closest('.explore-helper'))
+      .map(paragraph => paragraph.textContent.trim())
+      .filter(Boolean);
   }
 
-  function getCurrentEnemyName(output = document.querySelector('#explore-output')) {
+  function extractEnemyName(output = document.querySelector('#explore-output')) {
+    const paragraphs = getExploreParagraphs(output);
+    for (const text of paragraphs) {
+      if (/oh\s+no!/i.test(text)) {
+        const battleMatch = text.match(/enemy\s+([^!.\n\r]+)/i);
+        if (battleMatch) {
+          const rawName = battleMatch[1].trim();
+          const isCorrupted = /\bcorrupt(?:ed)?\b/i.test(text);
+          return isCorrupted ? `Corrupted ${rawName.replace(/^corrupt(?:ed)?\s+/i, '')}` : rawName;
+        }
+      }
+      const inlineMatch = text.match(/\bL\d+\s+([Cc]orrupt(?:ed)?\s+)?([A-Z][A-Za-z0-9\s'-]+?)(?=\s+(?:attacks|approaches|slithers)\b|[!.,?]|$)/);
+      if (inlineMatch) {
+        const isCorrupted = Boolean(inlineMatch[1]);
+        const rawName = inlineMatch[2].trim();
+        return isCorrupted ? `Corrupted ${rawName.replace(/^corrupt(?:ed)?\s+/i, '')}` : rawName;
+      }
+    }
+    return null;
+  }
+
+  function getEnemyName(output = document.querySelector('#explore-output')) {
     if (!output) return null;
     const enemyData = findEnemy(output);
     if (enemyData?.name) return enemyData.name;
-
-    const paragraphsText = Array.from(output.querySelectorAll('p')).map(paragraph => paragraph.textContent);
-    const enemyParagraph = paragraphsText.find(text => /oh\s+no!/i.test(text));
-    if (enemyParagraph) {
-      const enemyMatch = enemyParagraph.match(/enemy\s+([^!]+)/i);
-      if (enemyMatch) return enemyMatch[1].trim();
-    }
-    return null;
+    return extractEnemyName(output);
   }
 
   function getCurrentSeason() {
@@ -565,7 +538,6 @@
       const title = (seasonIcon.getAttribute('data-original-title') || seasonIcon.getAttribute('title') || '').toLowerCase();
       const titleMatch = title.match(/\b(spring|summer|autumn|winter)\b/);
       if (titleMatch) return titleMatch[1];
-
       const sourceImage = (seasonIcon.getAttribute('src') || '').toLowerCase();
       const sourceMatch = sourceImage.match(/icon-season-(spring|summer|autumn|winter)/);
       if (sourceMatch) return sourceMatch[1];
@@ -593,9 +565,20 @@
     return matchScore(buttonText, optionName) > 0;
   }
 
+  function getLocationValue(location) {
+    if (!location || typeof location !== 'object') return [];
+    const currentPath = window.location.pathname.replace(/\/+$/, '');
+    for (const [locationPaths, value] of Object.entries(location)) {
+      const paths = locationPaths.split('|').map(path => path.trim().replace(/\/+$/, ''));
+      if (paths.some(path => currentPath === path || currentPath.startsWith(path + '/'))) {
+        return Array.isArray(value) ? value : value ? [value] : [];
+      }
+    }
+    return [];
+  }
+
   function getPlayerLevel() {
-    const levelElement = [...document.querySelectorAll('#card-user .card-body b')]
-      .find(element => element.parentElement?.textContent.includes('Level'));
+    const levelElement = [...document.querySelectorAll('#card-user .card-body b')].find(element => element.parentElement?.textContent.includes('Level'));
     if (!levelElement) return null;
     const level = Number(levelElement.textContent.trim());
     return Number.isFinite(level) ? level : null;
@@ -612,20 +595,8 @@
     });
   }
 
-  function getLocationValues(location) {
-    if (!location || typeof location !== 'object') return [];
-    const currentPath = window.location.pathname.replace(/\/+$/, '');
-    for (const [locationPaths, value] of Object.entries(location)) {
-      const paths = locationPaths.split('|').map(path => path.trim().replace(/\/+$/, ''));
-      if (paths.some(path => currentPath === path || currentPath.startsWith(path + '/'))) {
-        return Array.isArray(value) ? value : value ? [value] : [];
-      }
-    }
-    return [];
-  }
-
   function resolveReferences(text, location) {
-    const locationValues = getLocationValues(location);
+    const locationValue = getLocationValue(location);
     const settings = getSettings();
     let previousText;
     let maxDepth = 10;
@@ -633,13 +604,13 @@
       previousText = text;
       text = text.replace(/(\**)\@([a-zA-Z0-9_]+)/g, (match, prefix, key) => {
         if (key.toLowerCase() === 'enemy') {
-          const enemyName = getCurrentEnemyName();
+          const enemyName = getEnemyName();
           return enemyName ? prefix + enemyName : match;
         }
         const locationMatch = key.match(/^location(\d+)$/);
         if (locationMatch) {
           const index = Number(locationMatch[1]) - 1;
-          return locationValues[index] !== undefined ? prefix + locationValues[index] : match;
+          return locationValue[index] !== undefined ? prefix + locationValue[index] : match;
         }
         if (encounterDatabase.pools?.[key]) return prefix + encounterDatabase.pools[key];
         if (encounterDatabase.notes?.[key]) {
@@ -650,31 +621,25 @@
       });
       maxDepth--;
     } while (text !== previousText && maxDepth > 0);
-
     if (!settings.notes) {
       text = text.replace(/\*+/g, '');
     }
-
     return text;
   }
-
-  let activeEncounterMatchId = null;
 
   function matchesPathFolder(entry, lowerUrl) {
     if (!entry.pathFolder) return true;
     return lowerUrl.includes(`/${entry.pathFolder}/`);
   }
 
-  function findEncounterDataByMergeKey(mergeKey) {
+  function findEncounterDataByMerge(mergeKey) {
     if (!mergeKey || !encounterDatabase?.encounters) return null;
     const cleanKey = String(mergeKey).replace(/^@/, '').trim();
     if (encounterDatabase.encounters[cleanKey]) {
       return { id: cleanKey, data: encounterDatabase.encounters[cleanKey] };
     }
     const normalizedKey = normalizeText(cleanKey);
-    const lookupMatch = encounterIdLookup.find(
-      entry => entry.id === cleanKey || entry.subId === cleanKey || entry.matchId === cleanKey || entry.normalized === normalizedKey
-    );
+    const lookupMatch = encounterIdLookup.find(entry => entry.id === cleanKey || entry.subId === cleanKey || entry.matchId === cleanKey || entry.normalized === normalizedKey);
     return lookupMatch ? { id: lookupMatch.id, data: encounterDatabase.encounters[lookupMatch.id] } : null;
   }
 
@@ -682,33 +647,27 @@
     const baseData = encounterDatabase?.encounters?.[encounterId];
     if (!baseData || visited.has(encounterId)) return baseData || null;
     visited.add(encounterId);
-
     if (!baseData.merge) return baseData;
-
     const rawTargets = Array.isArray(baseData.merge) ? baseData.merge : [baseData.merge];
     const mergeTargets = [];
     rawTargets.forEach(target => {
-      if (findEncounterDataByMergeKey(target)) {
+      if (findEncounterDataByMerge(target)) {
         mergeTargets.push(target);
       } else {
         mergeTargets.push(...String(target).split('|').map(s => s.trim()).filter(Boolean));
       }
     });
-
     const mergedSteps = { ...(baseData.steps || {}) };
     const mergedLocation = { ...(baseData.location || {}) };
     const mergedConditional = { ...(baseData.conditional || {}) };
     let mergedNotes = baseData.notes;
     let mergedDetails = baseData.details;
     let mergedTrophies = baseData.trophies;
-
     for (const targetKey of mergeTargets) {
-      const targetMatch = findEncounterDataByMergeKey(targetKey);
+      const targetMatch = findEncounterDataByMerge(targetKey);
       if (!targetMatch || visited.has(targetMatch.id)) continue;
-
       const resolvedTarget = getResolvedEncounterData(targetMatch.id, new Set(visited));
       if (!resolvedTarget) continue;
-
       for (const [optionName, optionValue] of Object.entries(resolvedTarget.options || {})) {
         if (mergedSteps[optionName] === undefined) {
           mergedSteps[optionName] = optionValue;
@@ -725,7 +684,6 @@
       if (!mergedDetails && resolvedTarget.details) mergedDetails = resolvedTarget.details;
       if (!mergedTrophies && resolvedTarget.trophies) mergedTrophies = resolvedTarget.trophies;
     }
-
     return {
       ...baseData,
       steps: mergedSteps,
@@ -739,6 +697,14 @@
 
   function getExploreImageUrl() {
     const foregroundImage = document.querySelector('#explore-foreground')?.style.backgroundImage || '';
+    const weatherImage = document.querySelector('#explore-weather')?.style.backgroundImage || '';
+    if (
+      weatherImage &&
+      !/\/weather\//i.test(weatherImage) &&
+      !/\/(?:blank|hiddenart)\.(?:png|jpg|jpeg|webp)/i.test(weatherImage)
+    ) {
+      return weatherImage;
+    }
     if (foregroundImage && !/\/(?:blank|hiddenart)\.(?:png|jpg|jpeg|webp)/i.test(foregroundImage)) {
       return foregroundImage;
     }
@@ -748,24 +714,20 @@
   function findEncounterByImage() {
     const backgroundImage = getExploreImageUrl();
     if (!backgroundImage) return null;
-
     const lowerUrl = backgroundImage.toLowerCase();
     const match = backgroundImage.match(/\/([^\/?#]+)\.(?:png|jpg|jpeg|webp)(?:[?#][^"')]*)?["')]*$/i);
     if (!match) return null;
     let filename = match[1].toLowerCase().replace(/[_-]/g, '');
     if (filename === 'blank' || filename === 'hiddenart') return null;
-
     filename = filename.replace(/(?:(?:spring|summer|autumn|winter)|(?:day|dawn|dusk|night))+$/i, '');
-
     const isEnemyUrl = lowerUrl.includes('/enemies/');
-
-    const entry = encounterIdLookup.find(encounter => matchesPathFolder(encounter, lowerUrl) && filename === encounter.normalized) ||
-      (!isEnemyUrl ? encounterIdLookup.find(encounter => matchesPathFolder(encounter, lowerUrl) && encounter.normalized.length >= 5 && filename.includes(encounter.normalized)) : null);
-
+    const entry = encounterIdLookup.find(encounter => matchesPathFolder(encounter, lowerUrl) && filename === encounter.normalized) || (!isEnemyUrl ? encounterIdLookup.find(encounter => {
+      if (!matchesPathFolder(encounter, lowerUrl) || encounter.normalized.length < 5) return false;
+      return new RegExp(`${encounter.normalized}(?!\\d)`).test(filename);
+    }) : null);
     if (!entry && isEnemyUrl) {
       return null;
     }
-
     return entry ? { id: entry.id, subId: entry.subId, matchId: entry.matchId, index: entry.index, data: getResolvedEncounterData(entry.id) } : null;
   }
 
@@ -776,7 +738,6 @@
     const rawAction = action.toLowerCase();
     const actionTokens = rawAction.split(/[^a-z0-9]+/).filter(Boolean);
     const normalizedAction = normalizeText(rawAction);
-
     for (const entry of encounterIdLookup) {
       if (entry.normalized === 'attack' && !isEnemyUrl) continue;
       if (!matchesPathFolder(entry, lowerUrl)) continue;
@@ -787,8 +748,8 @@
   }
 
   function findEncounterByPrompt(output) {
-    const lowerUrl = (document.querySelector('#explore-foreground')?.style.backgroundImage || '').toLowerCase();
-    const normalizedParagraphs = Array.from(output.querySelectorAll('p')).map(paragraph => normalizeText(paragraph.textContent));
+    const lowerUrl = getExploreImageUrl().toLowerCase();
+    const normalizedParagraphs = getExploreParagraphs(output).map(normalizeText);
     for (const entry of encounterIdLookup) {
       if (!matchesPathFolder(entry, lowerUrl)) continue;
       if (!entry.prompts || entry.prompts.length === 0) continue;
@@ -823,19 +784,15 @@
         data: resolvedData
       });
     };
-
     const imageMatch = findEncounterByImage();
     if (imageMatch) addEncounterEntry(imageMatch);
-
     const promptMatch = findEncounterByPrompt(output);
     if (promptMatch) addEncounterEntry(promptMatch);
-
     const buttons = output.querySelectorAll('button');
     for (const button of buttons) {
       const actionEntry = findEncounterIdFromAction(button.dataset.action);
       if (actionEntry) addEncounterEntry(actionEntry);
     }
-
     if (activeEncounterId && encounterDatabase.encounters[activeEncounterId]) {
       const defaultSubId = activeEncounterId.split('|')[0].split('/')[0].trim();
       const activeCandidate = {
@@ -849,9 +806,7 @@
         addEncounterEntry(activeCandidate);
       }
     }
-
     matchedEncounters.sort((a, b) => (a.subId === 'attack' ? 1 : 0) - (b.subId === 'attack' ? 1 : 0));
-
     const primaryEncounter = matchedEncounters.find(enc => enc.subId !== 'attack') || matchedEncounters[0] || null;
     if (primaryEncounter) {
       activeEncounterId = primaryEncounter.id;
@@ -864,13 +819,13 @@
       activeEncounterMatchId = null;
       activeEncounterIndex = 0;
     }
-
     return matchedEncounters;
   }
 
   function findEnemy(output) {
     if (!enemyDatabase || !enemyIdLookup.length) return null;
-
+    const extractedTextName = extractEnemyName(output);
+    const isCorruptedText = Boolean(extractedTextName && /^corrupt(?:ed)?\b/i.test(extractedTextName));
     const foreground = document.querySelector('#explore-foreground');
     if (foreground && foreground.style.backgroundImage) {
       const background = foreground.style.backgroundImage;
@@ -879,17 +834,15 @@
         let rawFilename = match[1].toLowerCase();
         let filename = rawFilename.replace(/[_-]/g, '');
         filename = filename.replace(/(?:spring|summer|autumn|winter)?(?:day|dawn|dusk|night)$|(?:spring|summer|autumn|winter)$/i, '');
-        const isCorrupted = /corrupt/i.test(filename);
+        const isCorrupted = /corrupt/i.test(filename) || isCorruptedText;
         let strippedFilename = filename.replace(/^corrupt(ed)?/, '').replace(/corrupt(ed)?$/, '');
-
         for (const entry of enemyIdLookup) {
           const trophy = enemyDatabase.trophies[entry.id];
           if (!trophy) continue;
           const trophyNormalizedName = normalizeText(trophy.name || entry.id);
-
           if (filename === entry.normalized || filename === trophyNormalizedName ||
               strippedFilename === entry.normalized || strippedFilename === trophyNormalizedName) {
-            if (isCorrupted && !trophy.name?.toLowerCase().startsWith('corrupted')) {
+            if (isCorrupted && !/^corrupt(?:ed)?\b/i.test(trophy.name || '')) {
               return { id: entry.id, ...trophy, name: `Corrupted ${trophy.name}` };
             }
             return { id: entry.id, ...trophy };
@@ -897,46 +850,23 @@
         }
       }
     }
-
-    const paragraphsText = Array.from(output.querySelectorAll('p')).map(paragraph => paragraph.textContent);
-    const enemyParagraph = paragraphsText.find(text => /oh\s+no!/i.test(text));
-    if (enemyParagraph) {
-      const isCorrupted = /corrupt/i.test(enemyParagraph);
-      const enemyMatch = enemyParagraph.match(/enemy\s+([^!]+)/i);
-      if (enemyMatch) {
-        let rawEnemyName = enemyMatch[1].trim();
-        let normalizedExtracted = normalizeText(rawEnemyName);
-        let strippedExtracted = normalizedExtracted.replace(/^corrupt(ed)?/, '').replace(/corrupt(ed)?$/, '');
-
-        for (const entry of enemyIdLookup) {
-          const trophyObject = enemyDatabase.trophies[entry.id];
-          if (!trophyObject) continue;
-          const trophyNormalizedName = normalizeText(trophyObject.name || entry.id);
-
-          if (normalizedExtracted === entry.normalized || normalizedExtracted === trophyNormalizedName ||
-              strippedExtracted === entry.normalized || strippedExtracted === trophyNormalizedName) {
-            if (isCorrupted && !trophyObject.name?.toLowerCase().startsWith('corrupted')) {
-              return { id: entry.id, ...trophyObject, name: `Corrupted ${trophyObject.name}` };
-            }
-            return { id: entry.id, ...trophyObject };
+    if (extractedTextName) {
+      const normalizedExtracted = normalizeText(extractedTextName);
+      const strippedExtracted = normalizedExtracted.replace(/^corrupt(ed)?/, '').replace(/corrupt(ed)?$/, '');
+      for (const entry of enemyIdLookup) {
+        const trophyObject = enemyDatabase.trophies[entry.id];
+        if (!trophyObject) continue;
+        const trophyNormalizedName = normalizeText(trophyObject.name || entry.id);
+        if (normalizedExtracted === entry.normalized || normalizedExtracted === trophyNormalizedName ||
+            strippedExtracted === entry.normalized || strippedExtracted === trophyNormalizedName) {
+          if (isCorruptedText && !/^corrupt(?:ed)?\b/i.test(trophyObject.name || '')) {
+            return { id: entry.id, ...trophyObject, name: `Corrupted ${trophyObject.name}` };
           }
+          return { id: entry.id, ...trophyObject };
         }
       }
     }
-
     return null;
-  }
-
-  function flattenImageTree(tree, currentPath = '', result = {}) {
-    for (const [key, value] of Object.entries(tree)) {
-      if (typeof value === 'object' && value !== null) {
-        const newPath = currentPath + key + (key.endsWith('/') ? '' : '/');
-        flattenImageTree(value, newPath, result);
-      } else {
-        result[key] = currentPath + value;
-      }
-    }
-    return result;
   }
 
   const baseImageElementCache = new Map();
@@ -945,20 +875,16 @@
     const imagePath = encounterDatabase?.images?.[imageName];
     if (!imagePath) return null;
     const settings = getSettings();
-
     let baseImage = baseImageElementCache.get(imageName);
     if (!baseImage) {
       baseImage = document.createElement('img');
       baseImage.loading = 'lazy';
       baseImage.decoding = 'async';
-      baseImage.fetchPriority = 'low';
-      baseImage.src = GH_IMAGES + imagePath;
+      baseImage.src = IMAGE_SOURCE + imagePath;
       baseImageElementCache.set(imageName, baseImage);
     }
-
     const image = baseImage.cloneNode(false);
     image.alt = formatImageLabel(imageName, textContext, imageIndex);
-
     const useMiniSize = forceMini || settings.mini || !settings.spacing;
     const baseClass = useMiniSize ? 'wh-image-mini' : 'wh-image';
     image.className = (allowMain && imageIndex === 0) ? `wh-image-main ${baseClass}` : baseClass;
@@ -1009,9 +935,7 @@
     for (let partIndex = 0; partIndex < parts.length; partIndex += 2) {
       const segment = { text: parts[partIndex] ? parts[partIndex].trim() : '' };
       if (!omitImages) {
-        segment.images = parts[partIndex + 1]
-          ? parts[partIndex + 1].split(';').map(rawImageKey => rawImageKey.trim().replace(/[^a-zA-Z0-9_-]/g, '')).filter(Boolean)
-          : [];
+        segment.images = parts[partIndex + 1] ? parts[partIndex + 1].split(';').map(rawImageKey => rawImageKey.trim().replace(/[^a-zA-Z0-9_-]/g, '')).filter(Boolean) : [];
       }
       segments.push(segment);
     }
@@ -1034,10 +958,7 @@
   }
 
   function formatLossMinusSigns(text) {
-    return text.replace(
-      /(^|[^\d])-(\d+(?:-\d+)?\s*(?:HP\b|%\s*(?:energy|hunger)\b))/gi,
-      '$1\u2212$2'
-    );
+    return text.replace(/(^|[^\d])-(\d+(?:-\d+)?\s*(?:HP\b|%\s*(?:energy|hunger)\b))/gi, '$1\u2212$2');
   }
 
   function createResultElement(rewards, isOr = false) {
@@ -1045,12 +966,10 @@
     const useGrouped = settings.grouped;
     const TEXT_SPACE = useGrouped ? '\u00A0' : ' ';
     const fragment = document.createDocumentFragment();
-
     rewards.forEach((reward, index) => {
       let needsSeparator = index > 0;
       let needsOr = isOr && index === 0;
       let currentSpan = null;
-
       reward.segments.forEach((segment, segmentIndex) => {
         let targetContainer = fragment;
         if (useGrouped) {
@@ -1061,7 +980,6 @@
           }
           targetContainer = currentSpan;
         }
-
         if (needsOr) {
           if (!useGrouped) {
             targetContainer.appendChild(document.createElement('wbr'));
@@ -1132,10 +1050,8 @@
       }
     }
     if (!activeTrophyId) return null;
-
     let trophyData = null;
     let trophyDisplayName = null;
-
     if (String(activeTrophyId).trim().toLowerCase() === '@enemy') {
       const detectedEnemy = output ? findEnemy(output) : null;
       if (detectedEnemy) {
@@ -1149,9 +1065,7 @@
       trophyData = enemyDatabase?.trophies?.[trophyId];
       trophyDisplayName = trophyData?.name || trophyId;
     }
-
     if (!trophyData) return null;
-
     const encounterTrophies = document.createElement('div');
     encounterTrophies.className = 'wh-container';
     const trophyHeader = document.createElement('div');
@@ -1159,45 +1073,46 @@
     const trophyHeaderText = document.createElement('b');
     trophyHeaderText.textContent = `${trophyDisplayName} Trophies`;
     trophyHeader.append(trophyHeaderText);
-
     const itemsLine = trophyData.drops?.items ? createTrophyLine('Items', trophyData.drops.items) : null;
     const recipesLine = trophyData.drops?.recipes ? createTrophyLine('Recipes', trophyData.drops.recipes) : null;
     encounterTrophies.append(...[trophyHeader, itemsLine, recipesLine].filter(Boolean));
     return encounterTrophies;
   }
 
+  function isStepOption(optionValue) {
+    return optionValue && typeof optionValue === 'object' && !Array.isArray(optionValue) && (Array.isArray(optionValue.steps) || Array.isArray(optionValue.results));
+  }
+
   function createStepHeaderLine(buttonText, optionObject, encounter, isIndentedStep = false) {
     const settings = getFormatting();
-    const hasResults = Array.isArray(optionObject.results) && optionObject.results.length > 0;
+    const rawResults = Array.isArray(optionObject.results) ? optionObject.results : [];
+    const leadingResults = rawResults.filter(res => !/^\s*no\s+result\**\s*$/i.test(String(res)));
+    const trailingResults = rawResults.filter(res => /^\s*no\s+result\**\s*$/i.test(String(res)));
+    const hasLeadingResults = leadingResults.length > 0;
     const steps = Array.isArray(optionObject.steps) ? optionObject.steps : [];
-
-    const previewLine = hasResults
-      ? createResultLine(buttonText, parseResult(optionObject.results, encounter.data.location))
-      : (() => {
-          const line = document.createElement('div');
-          line.className = 'wh-line-normal';
-          const labelBold = document.createElement('b');
-          labelBold.textContent = buttonText + ': ';
-          line.appendChild(labelBold);
-          return line;
-        })();
-
+    const previewLine = hasLeadingResults ? createResultLine(buttonText, parseResult(leadingResults, encounter.data.location)) : (() => {
+      const line = document.createElement('div');
+      line.className = settings.spacing ? 'wh-line-default' : 'wh-line-normal';
+      const labelBold = document.createElement('b');
+      labelBold.textContent = buttonText + ': ';
+      line.appendChild(labelBold);
+      return line;
+    })();
     if (isIndentedStep) {
       previewLine.className = 'wh-line-step';
     }
-
+    const hasAnyResults = rawResults.length > 0;
     steps.forEach((step, index) => {
-      const showSeparator = hasResults || index > 0;
+      const showSeparator = hasLeadingResults || index > 0;
       const stepLabel = document.createElement('b');
       stepLabel.textContent = step;
-
-      if (settings.grouped && hasResults) {
+      if (settings.grouped && hasAnyResults) {
         const partWrapper = document.createElement('span');
         partWrapper.className = 'wh-wrapper-part';
         if (showSeparator) {
           const separator = document.createElement('span');
-          separator.textContent = hasResults ? 'OR' : 'or';
-          separator.className = `wh-separator${hasResults ? ' wh-separator-bold' : ''}`.trim();
+          separator.textContent = hasAnyResults ? 'OR' : 'or';
+          separator.className = `wh-separator${hasAnyResults ? ' wh-separator-bold' : ''}`.trim();
           partWrapper.appendChild(separator);
         }
         partWrapper.appendChild(stepLabel);
@@ -1206,15 +1121,28 @@
         if (showSeparator) {
           previewLine.appendChild(document.createElement('wbr'));
           const separator = document.createElement('span');
-          separator.textContent = hasResults ? 'OR' : 'or';
-          separator.className = `wh-separator${hasResults ? ' wh-separator-bold' : ''}`.trim();
+          separator.textContent = hasAnyResults ? 'OR' : 'or';
+          separator.className = `wh-separator${hasAnyResults ? ' wh-separator-bold' : ''}`.trim();
           previewLine.appendChild(separator);
           previewLine.appendChild(document.createElement('wbr'));
         }
         previewLine.appendChild(stepLabel);
       }
     });
-
+    if (trailingResults.length > 0) {
+      const parsedTrailing = parseResult(trailingResults, encounter.data.location);
+      parsedTrailing.forEach((outcome, index) => {
+        const isOr = hasLeadingResults || steps.length > 0 || index > 0;
+        if (!settings.grouped) {
+          previewLine.appendChild(createResultElement(outcome, isOr));
+        } else {
+          const resultWrapper = document.createElement('span');
+          resultWrapper.className = 'wh-wrapper-result';
+          resultWrapper.appendChild(createResultElement(outcome, isOr));
+          previewLine.appendChild(resultWrapper);
+        }
+      });
+    }
     return previewLine;
   }
 
@@ -1223,16 +1151,12 @@
     const queue = [...(Array.isArray(optionObject.steps) ? optionObject.steps : [])];
     const visitedSteps = new Set();
     const leafStepLines = [];
-
     while (queue.length > 0) {
       const stepName = queue.shift();
       if (!stepName || visitedSteps.has(stepName)) continue;
-
       const stepValue = encounter.data.steps?.[stepName];
       if (stepValue === undefined) continue;
-
       visitedSteps.add(stepName);
-
       if (isStepOption(stepValue)) {
         lines.push(createStepHeaderLine(stepName, stepValue, encounter, true));
         if (Array.isArray(stepValue.steps)) {
@@ -1244,7 +1168,6 @@
         leafStepLines.push(stepLine);
       }
     }
-
     lines.push(...leafStepLines);
     return lines;
   }
@@ -1256,7 +1179,6 @@
     const labelBold = document.createElement('b');
     labelBold.textContent = buttonText + ': ';
     line.appendChild(labelBold);
-
     outcomes.forEach((outcome, index) => {
       if (!settings.grouped) {
         line.appendChild(createResultElement(outcome, index > 0));
@@ -1274,27 +1196,23 @@
     const settings = getFormatting();
     const useImages = settings.images;
     const useGrouped = settings.grouped;
-    const textSpace = useGrouped ? '\u00A0' : ' ';
+    const TEXT_SPACE = useGrouped ? '\u00A0' : ' ';
     const normalSpace = ' ';
     const line = document.createElement('div');
-
     if (labelText !== null) {
       line.className = 'wh-line-normal';
       const labelBold = document.createElement('b');
       labelBold.textContent = labelText + ': ';
       line.appendChild(labelBold);
     }
-
     const parts = contentText.split(',');
     parts.forEach((part, partIndex) => {
       const trimmed = part.trim();
       if (!trimmed) return;
-
       const separators = trimmed.split('|');
       for (let segmentIndex = 0; segmentIndex < separators.length; segmentIndex += 2) {
         const textBefore = separators[segmentIndex] ? separators[segmentIndex].trim() : '';
         const imageKeys = useImages ? separators[segmentIndex + 1] : null;
-
         const textElements = [];
         if (textBefore) {
           const textToAppend = segmentIndex > 0 ? ' ' + textBefore : textBefore;
@@ -1302,7 +1220,6 @@
           appendFormattedText(temporarySpan, textToAppend);
           textElements.push(...temporarySpan.childNodes);
         }
-
         const imageElements = [];
         if (imageKeys) {
           const imageNames = imageKeys.split(';').map(rawImageKey => rawImageKey.trim().replace(/[^a-zA-Z0-9_-]/g, '')).filter(Boolean);
@@ -1311,13 +1228,10 @@
             if (image) imageElements.push(image);
           });
         }
-
         if (textElements.length > 0) line.append(...textElements);
-
         const isLastPart = (partIndex === parts.length - 1 && segmentIndex + 2 >= separators.length);
-
         if (imageElements.length > 0) {
-          if (textElements.length > 0) line.appendChild(document.createTextNode(textSpace));
+          if (textElements.length > 0) line.appendChild(document.createTextNode(TEXT_SPACE));
           const partWrapper = document.createElement('span');
           partWrapper.className = 'wh-wrapper-part';
           partWrapper.append(...imageElements);
@@ -1333,6 +1247,7 @@
   }
 
   const createTrophyLine = (labelText, dropString) => createCommaSeparatedLine(dropString, labelText);
+
   const createNoteLine = (noteText) => createCommaSeparatedLine(noteText, null);
 
   function createDetailLine(detailText) {
@@ -1343,11 +1258,9 @@
     const line = document.createElement('div');
     line.className = 'wh-line-detail';
     const parts = detailText.split('|');
-
     for (let imageIndex = 0; imageIndex < parts.length; imageIndex += 2) {
       const textBefore = parts[imageIndex] ? parts[imageIndex].trim() : '';
       const imageKeys = useImages ? parts[imageIndex + 1] : null;
-
       let textElements = [];
       if (textBefore) {
         let textToAppend = textBefore;
@@ -1356,7 +1269,6 @@
         appendFormattedText(tempSpan, textToAppend);
         textElements.push(...tempSpan.childNodes);
       }
-
       let imageElements = [];
       if (imageKeys) {
         const imageNames = imageKeys.split(';').map(rawImageKey => rawImageKey.trim().replace(/[^a-zA-Z0-9_-]/g, '')).filter(Boolean);
@@ -1367,11 +1279,9 @@
           }
         });
       }
-
       if (textElements.length > 0) {
         line.append(...textElements);
       }
-
       if (imageElements.length > 0) {
         if (textElements.length > 0) {
           line.appendChild(document.createTextNode(TEXT_SPACE));
@@ -1389,53 +1299,40 @@
     if (!notes && !conditional && !details && !location) return null;
     const noteList = Array.isArray(notes) ? [...notes] : notes ? [notes] : [];
     if (noteList.length === 0) return null;
-
     const container = document.createElement('div');
     container.className = 'wh-container';
     const labelBold = document.createElement('b');
     labelBold.textContent = 'Notes:';
     container.appendChild(labelBold);
-
     for (const note of noteList) {
       let noteText = String(note).trim();
       const conditionalMatch = noteText.match(/^(\*+)@conditional(\d+)(?:\[([^\]]+)\])?$/i);
-
       if (conditionalMatch) {
         const conditionalPrefix = conditionalMatch[1] || '';
         const conditionalIndex = Number(conditionalMatch[2]) - 1;
         const specifiedOption = conditionalMatch[3]?.trim() || null;
         const conditionalEntries = conditional ? Object.entries(conditional) : [];
-
-        let matchingConditional = specifiedOption
-          ? conditionalEntries.find(([optionName]) => matchOptionName(specifiedOption, optionName) && [...buttons].some(button => matchOptionName(button.textContent, optionName)))
-          : conditionalEntries.find(([optionName]) => [...buttons].some(button => matchOptionName(button.textContent, optionName)));
-
+        let matchingConditional = specifiedOption ? conditionalEntries.find(([optionName]) => matchOptionName(specifiedOption, optionName) && [...buttons].some(button => matchOptionName(button.textContent, optionName))) : conditionalEntries.find(([optionName]) => [...buttons].some(button => matchOptionName(button.textContent, optionName)));
         if (!matchingConditional) continue;
         const [, conditionalValue] = matchingConditional;
         const conditionalNotes = Array.isArray(conditionalValue) ? conditionalValue : [conditionalValue];
         const conditionalNote = conditionalNotes[conditionalIndex];
         if (conditionalNote === undefined) continue;
-
         let conditionalText = String(conditionalNote).trim();
-        const conditionalDetailsMatch = conditionalText.match(/^(\*+)@details(\d+)$/i);
-        const conditionalDetailsNoPrefixMatch = conditionalText.match(/^@details(\d+)$/i);
-
-        if (conditionalDetailsMatch || conditionalDetailsNoPrefixMatch) {
-          let detailPrefix = conditionalDetailsMatch ? conditionalDetailsMatch[1] || '' : '';
-          let detailIndex = Number((conditionalDetailsMatch || conditionalDetailsNoPrefixMatch)[1]) - 1;
-
+        const conditionalDetailsMatch = conditionalText.match(/^(\**)@details(\d+)$/i);
+        if (conditionalDetailsMatch) {
+          const detailPrefix = conditionalDetailsMatch[1] || '';
+          const detailIndex = Number(conditionalDetailsMatch[2]) - 1;
           if (details?.[detailIndex] !== undefined) {
             const detailText = conditionalPrefix + detailPrefix + resolveReferences(String(details[detailIndex]), location);
             container.appendChild(createDetailLine(detailText));
           }
           continue;
         }
-
         conditionalText = conditionalPrefix + resolveReferences(conditionalText, location);
         container.appendChild(createNoteLine(conditionalText));
         continue;
       }
-
       const detailsMatch = noteText.match(/^(\*+)@details(\d+)$/i);
       if (detailsMatch) {
         const detailPrefix = detailsMatch[1] || '';
@@ -1446,16 +1343,19 @@
         }
         continue;
       }
-
       noteText = resolveReferences(noteText, location);
       container.appendChild(createNoteLine(noteText));
     }
-
     return container.children.length === 1 ? null : container;
   }
 
   function clearExploreHelper(fullReset = false) {
-    if (fullReset) activeEncounterId = null;
+    if (fullReset) {
+      activeEncounterId = null;
+      activeEncounterSubId = null;
+      activeEncounterMatchId = null;
+      activeEncounterIndex = 0;
+    }
     document.querySelectorAll('.explore-helper').forEach(helper => helper.remove());
   }
 
@@ -1474,7 +1374,6 @@
     if (helper.parentNode) return;
     const energyMessage = [...output.querySelectorAll('p')].find(paragraph => /^\s*you lost\s+-\d+%\s+energy exploring\.?\s*$/i.test(paragraph.textContent.trim()));
     const essenceMessage = [...output.querySelectorAll('p')].find(paragraph => /^\s*-\d+\s+lunar essence\s*$/i.test(paragraph.textContent.trim()));
-
     if (energyMessage) energyMessage.before(helper);
     else if (essenceMessage) essenceMessage.before(helper);
     else output.appendChild(helper);
@@ -1486,61 +1385,50 @@
       clearExploreHelper(false);
       return;
     }
-
     const output = document.querySelector('#explore-output');
     if (!output || !encounterDatabase) return;
-
     const buttons = output.querySelectorAll('button');
     if (buttons.length === 0) {
       clearExploreHelper(false);
       return;
     }
-
     const matchedEncounters = (settings.encounters || settings.trophies) ? findCurrentEncounters(output) : [];
     if (matchedEncounters.length === 0) {
       clearExploreHelper(false);
       return;
     }
-
     const resultLines = [];
     const usedEncounters = new Set();
-
-    for (const button of buttons) {
-      const buttonText = button.textContent.trim();
-      const cleanButton = buttonText.replace(/\s*\[.*?\]|\s*\(.*?\)/g, '').trim();
-
-      if (settings.encounters) {
-        if (buttonText === cleanButton) {
-          console.log('[Wolvhelper] Option Found:', buttonText);
-        } else {
-          console.log('[Wolvhelper] Option Found:', buttonText, '| Cleaned:', cleanButton);
-        }
-      }
-
-      let bestEncounter = null;
-      let matchedName = null;
-      let matchedValue = null;
-      let bestOption = null;
-
-      for (const encounter of matchedEncounters) {
+    const findBestOption = (encounters, buttonText) => {
+      let best = null;
+      for (const encounter of encounters) {
         for (const [optionName, optionValue] of Object.entries(encounter.data.options || {})) {
           const score = matchScore(buttonText, optionName);
           if (!score) continue;
           const isSeasonal = /\s*\[(spring|summer|autumn|winter)\]$/i.test(optionName);
           const candidate = { name: optionName, value: optionValue, isSeasonal, score, encounter };
-
-          if (!bestOption || score > bestOption.score || (score === bestOption.score && isSeasonal && !bestOption.isSeasonal)) {
-            bestOption = candidate;
+          if (!best || score > best.score || (score === best.score && isSeasonal && !best.isSeasonal)) {
+            best = candidate;
           }
         }
       }
-
+      return best;
+    };
+    const specificEncounters = matchedEncounters.filter(enc => enc.subId !== 'attack');
+    const attackEncounters = matchedEncounters.filter(enc => enc.subId === 'attack');
+    const searchOrder = specificEncounters.length > 0 ? specificEncounters : matchedEncounters;
+    for (const button of buttons) {
+      const buttonText = button.textContent.trim();
+      const cleanButton = buttonText.replace(/\s*\[.*?\]|\s*\(.*?\)/g, '').trim();
+      let bestEncounter = null;
+      let matchedName = null;
+      let matchedValue = null;
+      const bestOption = findBestOption(searchOrder, buttonText);
       if (bestOption) {
         bestEncounter = bestOption.encounter;
         matchedName = bestOption.name;
         matchedValue = bestOption.value;
       }
-
       if (matchedName === null) {
         for (const encounter of matchedEncounters) {
           if (!encounter.data.steps) continue;
@@ -1555,41 +1443,33 @@
           if (matchedName !== null) break;
         }
       }
-
+      if (matchedName === null && specificEncounters.length > 0) {
+        const fallbackOption = findBestOption(attackEncounters, buttonText);
+        if (fallbackOption) {
+          bestEncounter = fallbackOption.encounter;
+          matchedName = fallbackOption.name;
+          matchedValue = fallbackOption.value;
+        }
+      }
       if (matchedName === null || !bestEncounter) continue;
-
       usedEncounters.add(bestEncounter);
       if (!settings.encounters) continue;
-
       const cleanOptionLabel = matchedName.replace(/\s*\[(spring|summer|autumn|winter)\]$/i, '');
-
       if (isStepOption(matchedValue)) {
         resultLines.push(...createStepPreviewLines(cleanOptionLabel, matchedValue, bestEncounter));
         continue;
       }
-
       resultLines.push(createResultLine(cleanOptionLabel, parseResult(matchedValue, bestEncounter.data.location)));
     }
-
     const activeEncountersList = usedEncounters.size > 0 ? [...usedEncounters] : matchedEncounters;
     const notesElements = [];
     const trophyElements = [];
     const seenTrophyHeaders = new Set();
-
     for (const encounter of activeEncountersList) {
-      const encounterId = encounter.matchId || encounter.subId || encounter.id;
-      const rawName = Array.isArray(encounter.data.name)
-        ? (encounter.data.name[encounter.index] !== undefined ? encounter.data.name[encounter.index] : encounter.data.name[0])
-        : (encounter.data.name || (encounter.subId === 'attack' ? (getCurrentEnemyName(output) || 'Enemy') : 'Unknown'));
-      const encounterName = resolveReferences(String(rawName), encounter.data.location);
-
-      console.log(`[Wolvhelper] Active Encounter ID: ${encounterId} | Name: ${encounterName}`);
-
       if (settings.encounters && settings.notes) {
         const notes = createNotesElement(encounter.data.notes, encounter.data.conditional, encounter.data.details, encounter.data.location, buttons);
         if (notes) notesElements.push(notes);
       }
-
       if (settings.trophies) {
         const encounterTrophies = createTrophiesElement(encounter, buttons, enemyDatabase, output);
         if (encounterTrophies) {
@@ -1601,12 +1481,10 @@
         }
       }
     }
-
     if (!resultLines.length && !notesElements.length && !trophyElements.length) {
       clearExploreHelper();
       return;
     }
-
     const helper = getOrCreateHelper(output);
     const elementsToAppend = [...resultLines, ...trophyElements, ...notesElements].filter(Boolean);
     helper.append(...elementsToAppend);
@@ -1623,7 +1501,6 @@
   function checkExploreOutput() {
     const settings = getSettings();
     if (!settings.enabled) return;
-
     const output = document.querySelector('#explore-output');
     if (!output) {
       if (activeEncounterId !== null) {
@@ -1633,12 +1510,10 @@
       lastSignature = '';
       return;
     }
-
     if (!encounterDatabase) {
       ensureDatabase();
       return;
     }
-
     const currentSignature = getOutputSignature(output);
     if (currentSignature !== lastSignature) {
       lastSignature = currentSignature;
@@ -1670,7 +1545,6 @@
 
   const bootstrapObserver = new MutationObserver(() => {
     injectStyles();
-
     if (isPending) return;
     isPending = true;
     requestAnimationFrame(() => {
