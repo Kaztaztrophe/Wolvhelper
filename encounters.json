@@ -5406,7 +5406,7 @@
       "name": "Bluecaps",
       "prompt": "A group of bluecaps dance in the air, shooting toward you when they spot you. They dart around you and nip and tug at your hair playfully, as if overjoyed to see you. You realize belatedly that they seem to be guiding you somewhere.",
       "options": {
-        "Follow them": ["+3 SQ|imgsq","+1 SQ|imgsq","+1 Recipe: European Nettle|imgrecipescenery;imgeuropeannettle//+1 Recipe: Pot Marigold|imgrecipescenery;imgpotmarigold//+1 Recipe: Berry-bearing Bramble|imgrecipescenery;imgberrybearingbramble","+1 Recipe: Lunar Oak Necklace|imgrecipelunar;imglunaroaknecklace//+1 Recipe: Lunar Oak Crown|imgrecipelunar;imglunaroakcrown//+1 Recipe: Lunar Oak Tailwrap|imgrecipelunar;imglunaroaktailwrap","-10 HP"],
+        "Follow them": ["+3 SQ|imgsq","+1 SQ|imgsq","+1 Recipe: European Nettle|imgrecipescenery;imgeuropeannettle//+1 Recipe: Pot Marigold|imgrecipescenery;imgpotmarigold//+1 Recipe: Berry-bearing Bramble|imgrecipescenery;imgberrybearingbramble","+1 Recipe: Lunar Oak Necklace|imgrecipelunar;imglunaroaknecklace//+1 Recipe: Lunar Oak Crown|imgrecipelunar;imglunaroakcrown//+1 Recipe: Lunar Oak Tailwrap|imgrecipelunar;imglunaroaktailwrap","-10 HP","-20 HP"],
         "Watch them dance": ["+1 SQ|imgsq//+1 Glowing Spores|imgglowingspores"]
       }
     },
@@ -5592,7 +5592,7 @@
       "name": "Hebridean Sheep",
       "prompt": "A dark creature with four long horns and a thick coat unsettles you at first. You venture a bit closer, and with a sigh of relief you realize that it's just a sheep. Probably a tasty one, judging by its size.",
       "options": {
-        "Approach": ["+1 SQ|imgsq","+1 Nettle|imgnettle","+1 Sheep Skull|imgsheepskull"]
+        "Approach": ["+1 SQ|imgsq","+1 Nettle Leaves|imgnettleleaves","+1 Sheep Skull|imgsheepskull"]
       }
     },
     "highlandcattle": {
